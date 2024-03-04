@@ -20,10 +20,12 @@ const options = [
   { label: 'Swedish-SV', value: 'Swedish-SV' },
 ];
 
+
 import React, { useState } from 'react';
 
 import Image from "next/image";
 import arrow from "@/../public/angle-down-solid.svg";
+
 
 
 const Dropdown = () => {
@@ -42,8 +44,10 @@ const Dropdown = () => {
   return (
     <div className="relative">
       <div className="flex items-center" onClick={handleButtonClick}>
+
         <p className="mr-2 font-bold">EN</p>
         <Image className="pt-1" src={arrow} height={13} width={15} alt="dropdown arrow"></Image>
+
       </div>
     {/* Conditional rendering of the dropdown content if it's open */}
       {isOpen && (
