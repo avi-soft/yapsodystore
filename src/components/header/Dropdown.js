@@ -30,7 +30,7 @@ const Dropdown = () => {
   const handleButtonClick = () => {
     setIsOpen(!isOpen);
   };
-
+// Function to calculate the minimum width of the dropdown based on label lengths
   const calculateMinWidth = () => {
     const maxLength = options.reduce((max, option) => (option.label.length > max ? option.label.length : max), 0);
     return `${maxLength * 20 + 20}px`;
@@ -42,7 +42,7 @@ const Dropdown = () => {
       <div className="flex items-center" onClick={handleButtonClick}>
         <p className="mr-2">EN</p>
       </div>
-
+    {/* Conditional rendering of the dropdown content if it's open */}
       {isOpen && (
         <div className="relative">
           <div className="absolute right-11 mt-6">
@@ -52,7 +52,7 @@ const Dropdown = () => {
           <ul className={`absolute top-full right-0 mt-7 bg-white border border-gray-300 shadow-md grid grid-cols-2`} style={{ minWidth: calculateMinWidth() }}>
             {options.map((option, index) => (
               <li key={index} className={`p-2 truncate border ${option.label === 'English-EN' ? 'text-black' : ''}`}>
-
+              {/*Rendering all the languages and the check icon */}
                 {option.label === 'English-EN' && (
                   <span className={`ml-3 flex items-center`}>
                     {option.label}

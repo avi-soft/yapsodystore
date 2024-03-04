@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+//account definition that changes to logo
 const Account = () => {
   return (
     <div>

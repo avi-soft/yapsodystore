@@ -1,11 +1,13 @@
+
 import Link from "next/link";
 import Image from "next/image";
+
 
 import styles from "./Navbar.module.css";
 import logo from "@/../public/store-logo.png";
 
-
-const User = () => {
+// HeaderLogo component definition
+const HeaderLogo = () => {
     return (
         <div>
             <div className={styles.headerLeft}>
@@ -17,7 +19,7 @@ const User = () => {
                 </Link>
             </div>
         </div>
-    )
+    );
 }
 
-export default User
+export default HeaderLogo;

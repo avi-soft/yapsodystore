@@ -1,19 +1,19 @@
 import Image from "next/image";
 
+
 import styles from "./Navbar.module.css";
-import arrow from "@/../public/angle-down-solid.svg"
+import arrow from "@/../public/angle-down-solid.svg";
 import Dropdown from "@/components/header/Dropdown";
-import User from "@/components/header/User";
+import HeaderLogo from "@/components/header/HeaderLogo";
 import Account from "@/components/header/Account";
-import Wallet from '@/components/header/Wallet';
+import CartIcon from '@/components/header/CartIcon';
 
-
+// Navbar component definition
 const Navbar = () => {
 
   return (
-
     <header className={`${styles.header}`}>
-      <User />
+      <HeaderLogo />
       <div className={`${styles.headerRight} flex flex-wrap justify-between items-center`}>
         <div className={`${styles.pullLeft} flex items-center flex-shrink-0`}>
           <button className="flex flex-row h-12 items-center ">
@@ -22,7 +22,7 @@ const Navbar = () => {
           </button>
         </div>
         <div className={`${styles.pullLeft} flex items-center shrink`}>
-          <Wallet />
+          <CartIcon />
         </div>
         <div className={`${styles.pullLeft} flex items-center flex-shrink-0`}>
           <Account />
@@ -32,6 +32,6 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
 
+export default Navbar;
 
