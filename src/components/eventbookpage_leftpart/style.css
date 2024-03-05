@@ -1,0 +1,130 @@
+.page-divide{
+    display: flex;
+    flex-direction: row;
+    margin-top: 75px;
+}
+
+.left-page{
+    flex: 75%;
+}
+.right-page
+{
+    flex: 25%;
+}
+
+.getticket-main{
+    display: flex;
+    flex-direction: column;
+}
+
+.getticket-main .mainbox-event{
+    display: flex;
+    flex-direction: row;
+    padding: 16px 13px;
+}
+
+.mainbox-event .divide-main{
+    flex: 50%;
+}
+
+.mainbox-event .get-time{
+    flex:50%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 25px;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: .4px;
+    color: #2e294e;
+}
+
+
+.divide-main{
+    display: flex;
+    flex-direction: row;
+}
+
+.divide-main .box{
+    width: 110px;
+    height: 65px;
+    border: 6px solid white;
+    background-color: #cfcfce;
+    /* position: relative; */
+    box-shadow: 2px 2px #cfcfce;
+}
+.divide-main .box .diagonal{
+    /* content: "MULTI Events";
+    position: absolute;
+     top: 31%;
+    left: 15%; */
+    transform: translate(12%, 74%) rotate(-45deg);
+    /* white-space: nowrap; */
+    font-size: 11px; 
+}
+.divide-main .event-name{
+    font-size: 24px;
+    margin-left: 31px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+
+
+.getticket-main .select-ticket{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d2cccc;
+    margin: 25px 25px;
+    box-shadow: 1px 1px 5px 0px grey;
+}
+
+
+
+.select-ticket .part{
+    margin: 5px 22px;
+}
+.part .upper-part{
+    font-size: 20px;
+    font-weight: normal;
+    letter-spacing: .5px;
+    color: #454444;
+}
+
+.part .mid-part{
+    display: grid;
+    place-content: end;
+    
+}
+
+.part .mid-part .dollar{
+    height: 25px;
+    width: 77px;
+    font-size: 14px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #5f6c82;
+    background: #edeff2;
+    border-radius: 16px;
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+}
+
+.lower-part .quantity{
+    width: 100px;
+    height: 27px;
+    margin-left: 18px;
+    padding: 0px 9px;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+.lower-part label{
+    font-size: 15px;
+    font-weight: normal;
+    font-style: italic;
+    font-stretch: normal;
+    letter-spacing: .3px;
+    color: #6b6c6e;
+}
