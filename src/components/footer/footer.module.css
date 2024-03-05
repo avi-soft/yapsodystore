@@ -1,0 +1,24 @@
+@media only screen and (max-width: 1000px) {
+  .hide {
+    display: none;
+    margin-right: 0;
+    width: 0;
+  }
+  .footer {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 750px) {
+  .footer {
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    height: fit-content;
+    padding: 2px;
+  }
+  .list {
+    padding: 8px;
+  }
+}
