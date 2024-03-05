@@ -34,11 +34,11 @@ const generateDates = (month, year) => {
   return [...buffer, ...dates];
 };
 
-export const Calendar = ({
+const Calendar = ({
   highlighted,
   activeColorCode,
   dateClickHandler = (date) => {
-    console.log("arun", date);
+    console.log("Date clicked", date);
   },
 }) => {
   const initialSelectedDate = null;
@@ -154,3 +154,5 @@ export const Calendar = ({
     </>
   );
 };
+
+export default Calendar;

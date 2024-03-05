@@ -1,6 +1,6 @@
 import "./globals.css";
-import Header from  "../components/header/Navbar";
-
+import Header from "../components/header/Navbar";
+import Footer from "@/components/footer/footer";
 
 export const metadata = {
   title: "Yapsody Online Store",
@@ -10,10 +10,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <Header/>
-        {children}
-        </body>
+      <body>{children}</body>
     </html>
   );
 }
