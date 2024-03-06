@@ -1,11 +1,12 @@
 import Calendar from "@/components/calendar/calendar";
 import Search from "@/components/search/search";
 import Card from "@/components/Card";
-import EventList from "@/components/Events/EventList";
+import EventList from "@/components/events/EventList";
+
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between pt-0 pr-[120px] pb-[15px] pl-[120px] m-auto" >
+    <main className="flex min-h-screen flex-col items-center justify-between pt-0 pr-[120px] pb-[30px] pl-[120px] m-auto" >
       <div>
         <Search />
         <Calendar
@@ -18,6 +19,7 @@ export default function Home() {
       </div>
       <div className="mt-[20px] w-[80%]">
        <EventList/>
+       {/* <BoxContainer children1={<SideBarEventPage />} children2={<MainContent />} /> */}
        </div>
     </main>
   );
