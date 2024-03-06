@@ -46,7 +46,7 @@ const EventList = () => {
   ];
 
   return (
-    <div>
+    <div className="w-full">
       {Events.map((event) => (
         <SingleEventCard key={event.name} event={event} />
       ))}
