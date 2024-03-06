@@ -1,6 +1,5 @@
 import Calendar from "@/components/calendar/calendar";
 import Search from "@/components/search/search";
-import Card from "@/components/Card";
 import EventList from "@/components/Events/EventList";
 import SocialMedia from "@/components/social-media/SocialMedia";
 import MainContainer from "@/components/main-container/MainContainer";
