@@ -1,6 +1,6 @@
 import React from "react";
-import userImg from "../../../../public/user.png";
-import emailImg from "../../../../public/letter.png";
+import userImg from "@/../public/icons/user.png";
+import emailImg from "@/../public/icons/letter.png";
 import Image from "next/image";
 
 const InfoBox = ({ info, user, email }) => {

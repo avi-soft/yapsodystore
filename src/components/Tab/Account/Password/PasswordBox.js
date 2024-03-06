@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import PasswordForm from "./PasswordForm";
-import lockImg from "../../../../../public/lock.png";
+import lockImg from "@/../public/icons/lock.png";
 import UpdatePassword from "./UpdatePassword";
 
 const PasswordBox = () => {
