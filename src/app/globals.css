@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+
   --highlightColor: #a593e0;
   --text-primary: #566270;
 }
