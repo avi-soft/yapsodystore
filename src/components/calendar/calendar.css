@@ -23,6 +23,7 @@
   
 .cal-nav-arrows {
     cursor: pointer;
+    user-select: none; 
 }
 .cal-active-date{
     color:white !important;
