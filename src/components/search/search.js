@@ -6,13 +6,13 @@ import styles from "./search.module.css";
 
 const Search = () => {
   return (
-    <div className=" mt-16 mb-6 w-fit">
+    <div className="mb-6 w-fit">
       <Image src={searchImg} alt="search" className={styles.icon} />
       <input
         type="search"
         name="search"
         id="search"
-        className={`${styles.search} md:w-[250px] w-fit`}
+        className={`${styles.search} md:w-[277px] w-fit`}
         placeholder="Search Events"
       />
     </div>

@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"),require("@tailwindcss/forms"), require('tailwind-scrollbar-hide')],
   daisyui: {
     themes: false, // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
     darkTheme: [], // name of one of the included themes for dark mode
