@@ -59,7 +59,7 @@ const SingleEventCard = ({ event }) => {
           </div>
         </div>
       ) : (
-        <div className="mb-[20px] flex justify-between rounded border-[1px] border-[#a593e0] bg-[#ffffff] px-[10px] py-[10px] max-md:flex-col max-md:gap-3">
+        <div className="mb-[20px] w-[100%] flex justify-between rounded border-[1px] border-[#a593e0] bg-[#ffffff] px-[10px] py-[10px]  max-md:flex-col max-md:gap-3">
           <div className="relative min-h-[1px] w-[33.33%] justify-center max-md:w-[100%]">
             <div className="h-[180px] flex-col pl-[5px] pr-[15px] text-center">
               <img
