@@ -27,12 +27,12 @@ const SingleEvent = ({ Event }) => {
       {Event.access === "yes" ? (
         <div className="relative ml-[30px] min-h-[1px] w-[33.33%] pl-[10px] pr-[10px] text-center max-md:w-[100%] max-md:ml-[0px] ">
           <div className="relative mt-[10px] inline-block w-[100%]">
-            <div className="mt-[5px] text-center">
+            <div className="mt-[5px] text-center w-[100%]">
               <Link
                 href={"/"}
-                className="mb-0 inline-block rounded-[3px] border-[var(--highlightColor)] bg-[var(--highlightColor)] px-[28px] py-[10px] text-center text-[1em] text-[#ffffff]"
+                className="mb-0 w-[100%] inline-block rounded-[3px] border-[var(--highlightColor)] bg-[var(--highlightColor)] px-[28px] py-[10px] text-center text-[1em] text-[#ffffff] max-xl:px-[20px]"
               >
-                <span>Get Tickets</span>
+                <span className="w-[100%]">Get Tickets</span>
               </Link>
             </div>
             <div className="text-[var(--text-primary] text-center text-[14px]">
@@ -46,24 +46,24 @@ const SingleEvent = ({ Event }) => {
           </div>
         </div>
       ) : (
-        <div className="relative ml-[30px] min-h-[1px] w-[33.33%] pl-[10px] pr-[10px] text-center max-md:w-[100%] max-md:ml-[0px] max-md:mt-10">
-          <div className="relative mt-[20px] inline-block w-[100%]">
+        <div className="relative flex felx-col ml-[30px] min-h-[1px] w-[33.33%] pl-[10px] pr-[10px] text-center max-md:w-[100%] max-md:ml-[0px] max-md:mt-10">
+          <div className=" mt-[20px] inline-block w-[100%]">
             <div className="mt-[-40px] w-[100%]">
               {/* <div className="mb-0"> */}
               <input
                 type="text"
                 placeholder="Enter a Code"
-                className="relative h-[33px] w-[125px] rounded-[3px] border-[2px] border-solid bg-[#ffffff] text-center shadow-[0px_1px_1px_rgba(0,0,0,0,0.75)] max max-md:w-[95%]"
+                className=" h-[33px] w-[100%] rounded-[3px] border-[2px] border-solid bg-[#ffffff] text-center shadow-[0px_1px_1px_rgba(0,0,0,0,0.75)] max max-md:w-[95%]"
                 required
               ></input>
               {/* </div> */}
             </div>
-            <div className="mt-[18px] text-center">
+            <div className="mt-[18px] text-center w-[100%]">
               <Link
                 href={"/"}
-                className="mb-0 inline-block rounded-[3px] border-[var(--highlightColor)] bg-[var(--highlightColor)] px-[28px] py-[10px] text-center text-[1em] text-[#ffffff]"
+                className="mb-0 w-[100%] inline-block rounded-[3px] border-[var(--highlightColor)] bg-[var(--highlightColor)] px-[28px] py-[10px] text-center text-[1em] text-[#ffffff] max-xl:px-[20px]"
               >
-                <span>Get Access</span>
+                <span className="w-[100%]">Get Access</span>
               </Link>
             </div>
             <div className="text-[var(--text-primary] text-center text-[14px]">

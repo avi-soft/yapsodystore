@@ -2,7 +2,9 @@ import Calendar from "@/components/calendar/calendar";
 import Search from "@/components/search/search";
 import Card from "@/components/Card";
 import EventList from "@/components/events/EventList";
-
+import BoxContainer from "@/components/single-event-page/BoxContainer";
+import SideBarEventPage from "@/components/single-event-page/SideBarEventPage";
+import MainContent from "@/components/single-event-page/MainContent";
 
 export default function Home() {
   return (
@@ -17,9 +19,9 @@ export default function Home() {
         <Card isCodeAvailable={false} /> */}
 
       </div>
-      <div className="mt-[20px] w-[80%]">
-       <EventList/>
-       {/* <BoxContainer children1={<SideBarEventPage />} children2={<MainContent />} /> */}
+      <div className="mt-[20px] w-[100%]">
+       {/* <EventList/> */}
+       <BoxContainer children1={<SideBarEventPage />} children2={<MainContent />} color="lightblue" />
        </div>
     </main>
   );
