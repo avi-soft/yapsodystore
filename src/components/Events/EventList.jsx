@@ -48,11 +48,7 @@ const EventList = () => {
   return (
     <div>
       {Events.map((event) => (
-<<<<<<< HEAD
-        <SingleEventCard key={event.startDate} event={event} />
-=======
         <SingleEventCard key={event.name} event={event} />
->>>>>>> 09bf2594a3bc6b139508495c1ebfdf002e933aeb
       ))}
     </div>
   );
