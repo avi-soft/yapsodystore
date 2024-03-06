@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.hide_div {
+  display: none;
+}
+.show_div {
+  display: inline-block;
+}
