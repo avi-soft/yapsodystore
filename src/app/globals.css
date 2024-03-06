@@ -8,3 +8,7 @@
 .show_div {
   display: inline-block;
 }
+:root {
+  --highlightColor: #a593e0;
+  --text-primary: #566270;
+}
