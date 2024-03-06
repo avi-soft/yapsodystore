@@ -1,17 +1,14 @@
-"use client";
 import React from "react";
-import { useState } from "react";
 import Link from "next/link";
 import Support from "../support/Support";
 import ContactPresenter from "../contact/ContactPresenter";
 import Events from "./Events";
-import Calendar from "../calendar/calendar";
-import { GiLaptop } from "react-icons/gi";
+import Calendar from "../calendar/Calendar";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
 import { IoShareSocial } from "react-icons/io5";
-import { FaCalendarAlt } from "react-icons/fa";
+import SocialMedia from "../social-media/SocialMedia";
 
 const MainContent = () => {
   const event = {
@@ -20,9 +17,8 @@ const MainContent = () => {
     endDate: "2024-04-20",
     performances: 5,
   };
-  const [openCalender, setOpenCalender] = useState(false);
   return (
-    <div className="mb-[40px] ml-[70px] mt-16 h-screen flex-1 overflow-auto px-[10px] pb-[30px] scrollbar-hide">
+    <div className="mb-[40px] xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
       <section className="mb-8">
         <h1 className="mb-[20px] text-[3.375em] font-normal ">{event.name}</h1>
         <h2 className="m-[15px] mt-[5px] text-[2em] font-normal"></h2>
@@ -30,15 +26,12 @@ const MainContent = () => {
 
         <p className="relative flex gap-4 text-[1em] font-[500] tracking-wider text-[var(--text-primary)]">
           <span>
-            <GiLaptop className="mt-1.5 size-6 align-middle" />
-          </span>
-          <span className="inline-block w-[80%] align-middle">
-            (GMT+0530) India Time
+           <SocialMedia />
           </span>
         </p>
       </section>
 
-      <section className="fixed bottom-[64%] right-0 block rounded bg-[#ffffff] p-[12px] text-[30px] shadow-[0px_1px_4px_0px_rgba(0,0,0,0.335)]">
+      <section className="fixed bottom-[40%] right-0 block rounded bg-[#ffffff] p-[12px] text-[30px] shadow-[0px_1px_4px_0px_rgba(0,0,0,0.335)]">
         <ul>
           <li className="pb-2">
             <Link href={"/"}>
@@ -73,16 +66,10 @@ const MainContent = () => {
             </div>
             <div className="ml-2">
               <span>
-                <FaCalendarAlt
-                  className="size-6 text-[var(--highlightColor)] cursor-pointer"
-                  onClick={() => setOpenCalender(!openCalender)}
+                <Calendar
+                  highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
+                  activeColorCode={"blue"}
                 />
-                {openCalender && (
-                  <Calendar
-                    highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
-                    activeColorCode={"blue"}
-                  />
-                )}
               </span>
             </div>
           </div>

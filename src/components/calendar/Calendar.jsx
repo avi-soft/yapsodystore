@@ -1,5 +1,6 @@
 "use client";
 import { useState, useMemo } from "react";
+import { FaCalendarAlt } from "react-icons/fa";
 import "./calendar.css";
 
 const monthsMap = {
@@ -78,7 +79,7 @@ const Calendar = ({
     <div className="w-full">
       <div className="dropdown">
         <div tabIndex={0} role="button">
-          Upcoming Events (2)
+          <FaCalendarAlt className="size-6 cursor-pointer" />
         </div>
         <div
           tabIndex={0}

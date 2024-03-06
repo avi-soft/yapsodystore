@@ -14,7 +14,7 @@ const SideBarEventPage = () => {
     performances: 5,
   };
   return (
-    <div className="m-auto mt-20 block w-[400px] px-[10px] pb-[30px] pr-[40px] max-xl:w-[100%]">
+    <div className="m-auto mt-20 block w-[400px] px-[10px] pb-[30px] pr-[40px] max-xl:w-[100%] xl:sticky xl:top-0">
       <div className="mb-15px h-[180px] ps-[40px] z-[10]">
         <Image
           src="/default-img.jpg"
