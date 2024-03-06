@@ -1,6 +1,7 @@
 import Calendar from "@/components/calendar/calendar";
 import Search from "@/components/search/search";
 import Card from "@/components/Card";
+import Contact from "@/components/Contact-form/Contact";
 
 export default function Home() {
   return (
@@ -13,6 +14,8 @@ export default function Home() {
         />
         <Card />
         <Card isCodeAvailable={false} />
+
+        <Contact/>
       </div>
     </main>
   );
