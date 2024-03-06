@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from "react";
 
@@ -9,15 +9,15 @@ const UpdatePassword = () => {
     const changeBtn = document.getElementById("user_change_password");
     const updateeBtn = document.getElementById("user_update_password");
 
-    if (form.classList.contains("hide_div")) {
-      form.classList.replace("hide_div", "show_div");
-      updateeBtn.classList.replace("hide_div", "show_div");
-      dots.classList.replace("show_div", "hide_div");
+    if (form.classList.contains("hidden")) {
+      form.classList.replace("hidden", "inline-block");
+      updateeBtn.classList.replace("hidden", "inline-block");
+      dots.classList.replace("inline-block", "hidden");
       changeBtn.innerText = "Cancel";
     } else {
-      dots.classList.replace("hide_div", "show_div");
-      form.classList.replace("show_div", "hide_div");
-      updateeBtn.classList.replace("show_div", "hide_div");
+      dots.classList.replace("hidden", "inline-block");
+      form.classList.replace("inline-block", "hidden");
+      updateeBtn.classList.replace("inline-block", "hidden");
       changeBtn.innerText = "Change Password";
     }
   }
@@ -37,7 +37,7 @@ const UpdatePassword = () => {
           <button
             type="submit"
             id="user_update_password"
-            className="px-5 py-1.5 rounded-sm text-center border border-solid text-[#ffffff] bg-[#8f57a0] border-[#804e8f] hide_div"
+            className="px-5 py-1.5 rounded-sm text-center border border-solid text-[#ffffff] bg-[#8f57a0] border-[#804e8f] hidden"
           >
             Update
           </button>

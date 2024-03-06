@@ -6,9 +6,3 @@
   --highlightColor: #a593e0;
   --text-primary: #566270;
 }
-.hide_div {
-  display: none;
-}
-.show_div {
-  display: inline-block;
-}
