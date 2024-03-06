@@ -1,0 +1,12 @@
+.present-faq{
+    margin: 28px 12px;
+    display: flex;
+    flex-direction: column;
+    font: status-bar;
+    font-size: 14px;
+}
+
+.present-faq .inside-faq{
+    display: flex;
+    flex-direction: row;
+}
