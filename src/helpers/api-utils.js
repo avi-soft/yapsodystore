@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-const BASE_URL = process.env.YAPSODY_API_BASE_URL;
-
-export async function getTheme() {
-  const data = await fetch(BASE_URL + "");
-  Jsondata = await data.json();
-  return Jsondata;
-=======
 import request from "./api-urls";
 
 const BaseUrl =
@@ -38,5 +30,4 @@ export async function getData(...config) {
 export async function getTheme() {
   const response = await getData(BaseUrl + request.getVenueDetails, headerData);
   return response;
->>>>>>> 5468da56db37a36b742cdd752234f406c91c4712
 }
