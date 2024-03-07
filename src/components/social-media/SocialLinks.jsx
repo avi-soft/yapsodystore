@@ -14,7 +14,7 @@ export default function SocialLinks({ url, type }) {
   const height = 22;
 
   return (
-    <p>
+    <span>
       <Link href={url}>
         {type === "website" ? (
           <span>
@@ -27,9 +27,9 @@ export default function SocialLinks({ url, type }) {
             width={width}
             height={height}
             alt={type}
-          ></Image>
+          />
         )}
       </Link>
-    </p>
+    </span>
   );
 }
