@@ -22,7 +22,7 @@ export default function IconLabel({
   return (
     <div
       style={{ color }}
-      className={`flex gap-${gap} cursor-pointer justify-between`}
+      className={`flex gap-${gap} cursor-pointer`}
       {...actions}
     >
       <span>{reactIcon}</span>
