@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import searchImg from "@/../public/icons/magnifying-glass-solid.svg";
+import searchImg from "@/../public/assets/icons/magnifying-glass-solid.svg";
 import styles from "./search.module.css";
 
 const Search = () => {

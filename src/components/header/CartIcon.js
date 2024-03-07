@@ -1,5 +1,5 @@
 import Image from "next/image";
-import boxOffice from "@/../public/two-tickets.png";
+import boxOffice from "@/../public/assets/icons/two-tickets.png";
 
 // CartIcon component definition
 const CartIcon = () => {

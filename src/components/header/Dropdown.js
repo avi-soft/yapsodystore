@@ -5,14 +5,14 @@ import Link from "next/link";
 import { PiUserCircleFill } from "react-icons/pi";
 
 import Image from "next/image";
-import arrowDown from "@/../public/angle-down-solid.svg";
-import arrowUp from "@/../public/angle-up-solid.svg";
-import boxOffice from "@/../public/two-tickets.png";
-import profile from "@/../public/user.png";
-import history from "@/../public/clock.png";
-import support from "@/../public/help.png";
-import logout from "@/../public/logout.png";
-import check from "@/../public/check.png";
+import arrowDown from "@/../public/assets/icons/angle-down-solid.svg";
+import arrowUp from "@/../public/assets/icons/angle-up-solid.svg";
+import boxOffice from "@/../public/assets/icons/two-tickets.png";
+import profile from "@/../public/assets/icons/user.png";
+import history from "@/../public/assets/icons/clock.png";
+import support from "@/../public/assets/icons/help.png";
+import logout from "@/../public/assets/icons/logout.png";
+import check from "@/../public/assets/icons/check.png";
 
 const options = [
   { label: "Arabic-AR", value: "Arabic-AR" },
