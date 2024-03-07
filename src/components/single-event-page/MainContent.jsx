@@ -1,9 +1,8 @@
-import Support from "../support/Support";
-import ContactPresenter from "../contact/ContactPresenter";
 import Events from "./Events";
 import Calendar from "../calendar/Calendar";
 import SocialMedia from "../social-media/SocialMedia";
 import SocialShareWidget from "../social-share-widget/SocialShare";
+import SupportContact from "../support-contact/SupportContact";
 
 const MainContent = () => {
   const event = {
@@ -18,7 +17,7 @@ const MainContent = () => {
         <h1 className="mb-[20px] text-[3.375em] font-normal ">{event.name}</h1>
         <h2 className="m-[15px] mt-[5px] text-[2em] font-normal"></h2>
         <h3 className="m-[15px] mt-[5px] text-[1.7em] font-normal"></h3>
-           <SocialMedia position="start"/>
+        <SocialMedia position="start" />
       </section>
 
       <SocialShareWidget/>
@@ -44,14 +43,7 @@ const MainContent = () => {
         <div className="mt-[18px]">
           <Events />
         </div>
-        <div className="flex gap-4 max-sm:block">
-          <span className="max-sm:mt-[10px]">
-            <Support size="size-6" color="var(--highlightColor)" />
-          </span>
-          <span className="max-sm:mt-[10px]">
-            <ContactPresenter size="size-6" color="var(--highlightColor)" />
-          </span>
-        </div>
+        <SupportContact position="start" />
       </div>
     </div>
   );
