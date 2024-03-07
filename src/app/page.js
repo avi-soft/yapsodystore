@@ -1,6 +1,5 @@
 import Calendar from "@/components/calendar/Calendar";
 import Search from "@/components/search/search";
-import EventList from "@/components/events/MainPageEeventList";
 import SocialMedia from "@/components/social-media/SocialMedia";
 import MainContainer from "@/components/main-container/MainContainer";
 import MainPageEventList from "@/components/events/MainPageEeventList";
@@ -18,7 +17,9 @@ export default function Home() {
         <div className="p-8 flex justify-center">
           <Image src="/store-logo.png" alt="image" width={30} height={30} />
         </div>
-        <SocialMedia />
+        <SocialMedia position="center" />
+        {/* <Card />
+        <Card isCodeAvailable={false} /> */}
       </div>
       <div className="mt-[20px] w-full flex flex-col items-center">
         <Search color={themeColor} />
