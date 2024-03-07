@@ -4,8 +4,7 @@ import { FaTwitter } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
 import { IoShareSocial } from "react-icons/io5";
 export default function SocialShareWidget(){
-    return 
-    <section className="fixed bottom-[40%] right-0 block rounded bg-[#ffffff] p-[12px] text-[30px] shadow-[0px_1px_4px_0px_rgba(0,0,0,0.335)]">
+    return ( <section className="fixed bottom-[40%] right-0 block rounded bg-[#ffffff] p-[12px] text-[30px] shadow-[0px_1px_4px_0px_rgba(0,0,0,0.335)]">
     <ul>
       <li className="pb-2">
         <Link href={"/"}>
@@ -28,5 +27,5 @@ export default function SocialShareWidget(){
         </Link>
       </li>
     </ul>
-  </section>
+  </section>)
 }
