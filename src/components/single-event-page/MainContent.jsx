@@ -1,14 +1,9 @@
-import React from "react";
-import Link from "next/link";
 import Support from "../support/Support";
 import ContactPresenter from "../contact/ContactPresenter";
 import Events from "./Events";
 import Calendar from "../calendar/Calendar";
-import { FaFacebookSquare } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaPinterest } from "react-icons/fa";
-import { IoShareSocial } from "react-icons/io5";
 import SocialMedia from "../social-media/SocialMedia";
+import SocialShareWidget from "../social-share-widget/SocialShare";
 
 const MainContent = () => {
   const event = {
@@ -23,38 +18,10 @@ const MainContent = () => {
         <h1 className="mb-[20px] text-[3.375em] font-normal ">{event.name}</h1>
         <h2 className="m-[15px] mt-[5px] text-[2em] font-normal"></h2>
         <h3 className="m-[15px] mt-[5px] text-[1.7em] font-normal"></h3>
-
-        <p className="relative flex gap-4 text-[1em] font-[500] tracking-wider text-[var(--text-primary)]">
-          <span>
            <SocialMedia />
-          </span>
-        </p>
       </section>
 
-      <section className="fixed bottom-[40%] right-0 block rounded bg-[#ffffff] p-[12px] text-[30px] shadow-[0px_1px_4px_0px_rgba(0,0,0,0.335)]">
-        <ul>
-          <li className="pb-2">
-            <Link href={"/"}>
-              <FaFacebookSquare className="text-[#3b5998]" />
-            </Link>
-          </li>
-          <li className="pb-2">
-            <Link href={"/"}>
-              <FaTwitter className="text-[#4099ff]" />
-            </Link>
-          </li>
-          <li className="pb-2">
-            <Link href={"/"}>
-              <FaPinterest className="text-[#C8232C]" />
-            </Link>
-          </li>
-          <li className="pb-2">
-            <Link href={"/"}>
-              <IoShareSocial className="text-[#c0c0c0]" />
-            </Link>
-          </li>
-        </ul>
-      </section>
+      <SocialShareWidget/>
       <div className="px-[10px] align-top">
         <div className="border-b">
           <div className="flex">
