@@ -45,10 +45,18 @@
     width: 12px;
     border: 1px solid black;
 }
+
+.horizontal-line{
+  width: 30px;
+  height: 23px;
+  display: grid;
+  place-content: center;
+}
+
 .horizontal-line:hover{
     cursor: pointer;
     width: 30px;
-    background-color: #768e31;;
+    background-color: #768e31;
 }
 /* .chat-text hr:hover{
     cursor:pointer;
@@ -146,4 +154,6 @@
     border: 1px solid rgb(47, 57, 65);
     cursor: pointer;
     font-size: 16px;
+    display: grid;
+    place-content: center;
 }
