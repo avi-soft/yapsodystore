@@ -18,6 +18,7 @@ const SideBarEventPage = () => {
       <div className="mb-15px h-[180px] ps-[40px] z-[10]">
         <Image
           src="/default-img.jpg"
+          alt="image"
           width={300}
           height={100}
           className="mb-[30px] h-[180px] min-w-[100%] rounded border-4 border-[#ffffff] bg-[#cccccc] shadow-[0px_2px_4px_0px_rgba(0,0,0,0.3)]"
@@ -52,13 +53,11 @@ const SideBarEventPage = () => {
             <li className="m-0 list-item w-[100%] border-b border-[#c0c0c0] py-[12px]">
               <span>(GMT+0530) India Time</span>
             </li>
-            <li
-              className="m-0 w-[100%] border-b border-[#c0c0c0] py-[12px]"
-            >
-              <Support size="size-6 " />
+            <li className="m-0 w-[100%] border-b border-[#c0c0c0] py-[12px]">
+              <Support size="size-6 " color="var(--text-primary)" />
             </li>
             <li className="m-0 w-[100%] py-[12px]">
-              <ContactPresenter size="size-6 " />
+              <ContactPresenter size="size-6 " color="var(--text-primary)" />
             </li>
           </ul>
         </div>
