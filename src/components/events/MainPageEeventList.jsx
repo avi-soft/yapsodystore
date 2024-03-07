@@ -1,8 +1,8 @@
 import React from "react";
 import SingleEventCard from "./SingleEventCard";
 
-const EventList = () => {
-  const Events = [
+const MainPageEventList = ({ color }) => {
+  const events = [
     {
       name: "MULTI Events",
       location: "Asia/Calcutta",
@@ -47,11 +47,11 @@ const EventList = () => {
 
   return (
     <div className="w-full">
-      {Events.map((event) => (
-        <SingleEventCard key={event.name} event={event} />
+      {events.map((event) => (
+        <SingleEventCard key={event.name} event={event} color={color} />
       ))}
     </div>
   );
 };
 
-export default EventList;
+export default MainPageEventList;

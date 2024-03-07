@@ -61,9 +61,6 @@
     width: 38px;
     height: 39px;
     user-select: none;
-    transition-property: width, height, background;
-    transition-duration: 0.2s;
-    transition-timing-function: ease-out;
   }
   
   .cal-filler {
