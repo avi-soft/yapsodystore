@@ -17,7 +17,7 @@ const MainContent = () => {
         <h1 className="mb-[20px] text-[3.375em] font-normal ">{event.name}</h1>
         <h2 className="m-[15px] mt-[5px] text-[2em] font-normal"></h2>
         <h3 className="m-[15px] mt-[5px] text-[1.7em] font-normal"></h3>
-        <SocialMedia position="start" />
+           <SocialMedia position="start"/>
       </section>
 
       <SocialShareWidget/>
