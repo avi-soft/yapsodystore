@@ -15,7 +15,7 @@ export default function Home() {
         <div className="p-8 flex justify-center">
           <img src="/store-logo.png" alt="image" />
         </div>
-        <SocialMedia />
+        <SocialMedia position="center"/>
         {/* <Card />
         <Card isCodeAvailable={false} /> */}
       </div>

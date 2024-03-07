@@ -1,14 +1,10 @@
-import React from "react";
-import { MdEmail } from "react-icons/md";
+import IconLabel from "@/ui/IconLabel";
 
 const ContactPresenter = ({ size, color }) => {
   return (
-    <div className="flex gap-4 cursor-pointer" style={{ color: color }}>
-      <span>
-        <MdEmail className={`${size}`} />
-      </span>
-      <span>Contact Presenter</span>
-    </div>
+      <IconLabel color={color} size={size} icon="contact" gap={4}>
+        Contact Presenter
+      </IconLabel>
   );
 };
 
