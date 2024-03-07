@@ -52,7 +52,7 @@ const SingleEventCard = ({ event }) => {
           </div>
           <div className="relative mt-[42px] min-h-[1px] px-[20px] text-right w-[100%]">
             <div className="rounded border-[#a593e0] bg-[#a593e0] py-[6px] text-center">
-              <Link href={"/"} className="cursor-pointer text-white">
+              <Link href={"/event/index/26809/new-event"} className="cursor-pointer text-white">
                 More Info
               </Link>
             </div>
@@ -102,7 +102,7 @@ const SingleEventCard = ({ event }) => {
           </div>
           <div className="relative ml-[45px] mr-[-40px] mt-[72px] min-h-[1px] w-[33.33%] px-[25px] text-right max-md:w-[100%] max-md:mt-[60px]">
             <div className="w-[70%] rounded border-[#a593e0] bg-[#a593e0] py-[6px] text-center">
-              <Link href={"/"} className="cursor-pointer text-white">
+              <Link href={"/event/index/26809/new-event"} className="cursor-pointer text-white">
                 More Info
               </Link>
             </div>

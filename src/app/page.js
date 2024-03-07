@@ -1,24 +1,32 @@
-import Calendar from "@/components/calendar/calendar";
+import Calendar from "@/components/calendar/Calendar";
 import Search from "@/components/search/search";
-import Card from "@/components/Card";
 import EventList from "@/components/Events/EventList";
+import SocialMedia from "@/components/social-media/SocialMedia";
+import MainContainer from "@/components/main-container/MainContainer";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between pt-0 pr-[120px] pb-[15px] pl-[120px] m-auto" >
-      <div>
+    <MainContainer
+      coverImage={
+        "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
+      }
+    >
+      <div className="w-full">
+        <div className="p-8 flex justify-center">
+          <img src="/store-logo.png" alt="image" />
+        </div>
+        <SocialMedia />
+        {/* <Card />
+        <Card isCodeAvailable={false} /> */}
+      </div>
+      <div className="mt-[20px] w-full flex flex-col items-center">
         <Search />
         <Calendar
           highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
           activeColorCode={"blue"}
         />
-        {/* <Card />
-        <Card isCodeAvailable={false} /> */}
-
+        <EventList />
       </div>
-      <div className="mt-[20px] w-[80%]">
-       <EventList/>
-       </div>
-    </main>
+    </MainContainer>
   );
 }
