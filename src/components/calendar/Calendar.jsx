@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState, useMemo, Children } from "react";
 import { FaCalendarAlt } from "react-icons/fa";
 import "./calendar.css";
 
@@ -36,6 +36,8 @@ const generateDates = (month, year) => {
 };
 
 const Calendar = ({
+  children,
+  performancesCount,
   highlighted,
   activeColorCode,
   dateClickHandler = (date) => {
@@ -76,79 +78,91 @@ const Calendar = ({
   };
 
   return (
-    <div className="w-full">
-      <div className="dropdown">
-        <div tabIndex={0} role="button">
-          <FaCalendarAlt className="size-6 cursor-pointer" />
+    <div className="border-b mb-2 w-[100%]">
+      <div className="flex">
+        <div className="flex gap-2 pr-2 border-r slate-300">
+          <span>
+            {children} ({performancesCount})
+          </span>
         </div>
-        <div
-          tabIndex={0}
-          className="dropdown-content bg-white cal-calendar-container z-[100] shadow-xl"
-        >
-          <div className="cal-calendar-header">
-            <div className="cal-calendar-navs">
-              <p className="cal-nav-arrows" onClick={goToPrevMonth}>
-                {"<"}
-              </p>
-              <p className="font-bold text-gray-700 select-none m-0">
-                {`${monthsMap[currentMonthYear.month]} ${
-                  currentMonthYear.year
-                }`}
-              </p>
-              <p className="cal-nav-arrows" onClick={goToNextMonth}>
-                {">"}
-              </p>
-            </div>
-          </div>
-          <div className="cal-calendar-days">
-            {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(
-              (d, index) => (
-                <p key={index} className="cal-day">
-                  {d}
-                </p>
-              )
-            )}
-          </div>
-          <div className="cal-calendar-body">
-            {generateDates(currentMonthYear.month, currentMonthYear.year).map(
-              (e, index) => {
-                if (e === 0) {
-                  return (
-                    <p key={index} className="cal-filler">
-                      {e}
+        <div className="ml-2">
+          <div className="w-full">
+            <div className="dropdown">
+              <div tabIndex={0} role="button">
+                <FaCalendarAlt className="size-6 cursor-pointer" />
+              </div>
+              <div
+                tabIndex={0}
+                className="dropdown-content bg-white cal-calendar-container z-[100] shadow-xl"
+              >
+                <div className="cal-calendar-header">
+                  <div className="cal-calendar-navs">
+                    <p className="cal-nav-arrows" onClick={goToPrevMonth}>
+                      {"<"}
                     </p>
-                  );
-                }
+                    <p className="font-bold text-gray-700 select-none m-0">
+                      {`${monthsMap[currentMonthYear.month]} ${
+                        currentMonthYear.year
+                      }`}
+                    </p>
+                    <p className="cal-nav-arrows" onClick={goToNextMonth}>
+                      {">"}
+                    </p>
+                  </div>
+                </div>
+                <div className="cal-calendar-days">
+                  {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(
+                    (d, index) => (
+                      <p key={index} className="cal-day">
+                        {d}
+                      </p>
+                    )
+                  )}
+                </div>
+                <div className="cal-calendar-body">
+                  {generateDates(
+                    currentMonthYear.month,
+                    currentMonthYear.year
+                  ).map((e, index) => {
+                    if (e === 0) {
+                      return (
+                        <p key={index} className="cal-filler">
+                          {e}
+                        </p>
+                      );
+                    }
 
-                return (
-                  <p
-                    key={index}
-                    className={`cal-date ${
-                      selectedDate.toDateString() === e.toDateString() ||
-                      isHighlighted(e)
-                        ? "cal-active-date"
-                        : "cal-no-cursor"
-                    }`}
-                    style={
-                      selectedDate.toDateString() === e.toDateString() ||
-                      isHighlighted(e)
-                        ? { backgroundColor: `${activeColorCode}` }
-                        : null
-                    }
-                    onClick={
-                      isHighlighted(e)
-                        ? () => {
-                            setSelectedDate(e);
-                            dateClickHandler(e);
-                          }
-                        : null
-                    }
-                  >
-                    {e.getDate()}
-                  </p>
-                );
-              }
-            )}
+                    return (
+                      <p
+                        key={index}
+                        className={`cal-date ${
+                          selectedDate.toDateString() === e.toDateString() ||
+                          isHighlighted(e)
+                            ? "cal-active-date"
+                            : "cal-no-cursor"
+                        }`}
+                        style={
+                          selectedDate.toDateString() === e.toDateString() ||
+                          isHighlighted(e)
+                            ? { backgroundColor: `${activeColorCode}` }
+                            : null
+                        }
+                        onClick={
+                          isHighlighted(e)
+                            ? () => {
+                                setSelectedDate(e);
+                                dateClickHandler(e);
+                              }
+                            : null
+                        }
+                      >
+                        {e.getDate()}
+                      </p>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
