@@ -4,7 +4,7 @@ import Chatpage from './chatpage/page'
 import Script from 'next/script'
 import { useState } from 'react'
 import './style.css'
-const page = () => {
+const Page = () => {
   const [showBox, setShowBox] = useState(false);
   return (
     <div className='chatbutton'>
@@ -20,4 +20,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
