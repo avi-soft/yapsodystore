@@ -1,10 +1,13 @@
 import Calendar from "@/components/calendar/Calendar";
 import Search from "@/components/search/search";
-import EventList from "@/components/Events/EventList";
 import SocialMedia from "@/components/social-media/SocialMedia";
 import MainContainer from "@/components/main-container/MainContainer";
+import MainPageEventList from "@/components/events/MainPageEeventList";
+import SupportContact from "@/components/support-contact/SupportContact";
+import Title from "@/components/homepage-header/Title";
 
 export default function Home() {
+  const themeColor = "red";
   return (
     <MainContainer
       coverImage={
@@ -12,20 +15,22 @@ export default function Home() {
       }
     >
       <div className="w-full">
-        <div className="p-8 flex justify-center">
-          <img src="/store-logo.png" alt="image" />
-        </div>
-        <SocialMedia />
+     <Title logoImage="https://s3.amazonaws.com/ft-images/venue_logo/92ba6bf256c6fe122cc882700fe996fa825740a6.jpg" />
+        <SocialMedia position="center" />
+        <SupportContact position="center" />
         {/* <Card />
         <Card isCodeAvailable={false} /> */}
       </div>
       <div className="mt-[20px] w-full flex flex-col items-center">
-        <Search />
+        <Search color={themeColor} />
         <Calendar
+          performancesCount={5}
           highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
-          activeColorCode={"blue"}
-        />
-        <EventList />
+          activeColorCode={themeColor}
+        >
+          Upcoming Events
+        </Calendar>
+        <MainPageEventList color={themeColor} />
       </div>
     </MainContainer>
   );

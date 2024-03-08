@@ -1,7 +1,27 @@
-.chat{
+.chatbutton {
+    position: fixed;
+    bottom: 78px;
+    left: 30px;
+    z-index: 999;
+    margin-top: 0;
+    margin-left: 0
+}
+
+.inside-chatbutton {
+    font-size: 1.07143rem;
+    border-radius: 38px;
+    width: 121px;
+    height: 58px;
+    border: 1px solid;
+    border-style: ridge;
+    background-color: #78a300;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.main-chat-page {
     width: 350px;
     height: 500px;
-    /* background-color: yellow; */
     display: flex;
     flex-direction: column;
     border-radius: 15px;
@@ -10,15 +30,8 @@
     position: relative;
     overflow: hidden;
 }
-.chat-text{
-    /* height: 40px;
-    display: flex;
-    flex-direction: row;
-    background-color: #78a300;
-    font-weight: bold;
-    font-family: system-ui;
-    border-radius: 10px; */
 
+.chat-text {
     position: sticky;
     top: 0;
     left: 0;
@@ -29,39 +42,34 @@
     background-color: #78a300;
     font-weight: bold;
     font-family: system-ui;
-    /* border-radius: 10px; */
     z-index: 1;
     margin-bottom: 10px;
 }
 
-.sagar {
-    flex: 1; /* Fill remaining space */
-    overflow-y: auto; /* Add scrollbar for overflow */
+.chatbox-text {
+    flex: 1;
+    overflow-y: auto;
     background-color: #fff;
 }
 
-
-.chat-text hr{
+.chat-text hr {
     width: 12px;
     border: 1px solid black;
 }
 
-.horizontal-line{
-  width: 30px;
-  height: 23px;
-  display: grid;
-  place-content: center;
+.horizontal-line {
+    width: 30px;
+    height: 23px;
+    display: grid;
+    place-content: center;
 }
 
-.horizontal-line:hover{
+.horizontal-line:hover {
     cursor: pointer;
     width: 30px;
     background-color: #768e31;
 }
-/* .chat-text hr:hover{
-    cursor:pointer;
-    box-shadow: 2px 2px 5px 5px rgb(65, 96, 65);
-} */
+
 .formContainer {
     display: flex;
     flex-direction: column;
@@ -70,18 +78,17 @@
     width: 200px;
     height: auto;
     padding: 20px;
-    
-  }
 
-  .formContainer label {
+}
+
+.formContainer label {
     font-size: 14px;
     font-weight: bold;
     font-kerning: normal;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, sans-serif;
+}
 
-  }
-  
-  .formContainer #inputCreatePost {
+.formContainer #inputCreatePost {
     height: 35px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -90,61 +97,61 @@
     padding-left: 16px;
     font-size: 14px;
     width: 270px;
-    transition: border-color 0.3s, box-shadow 0.3s; /* Add transition for smooth effect */
-  }
-  
-  .formContainer #inputCreatePost:hover {
-    border: 1px solid rgb(42, 40, 40);
-  }
-  
-  .formContainer #inputCreatePost:focus {
-    box-shadow: 0 0 9px rgba(0, 0, 0, 0.3); /* Add grey box shadow */
-    /* border-color: transparent; */
-    outline: 2px solid transparent;
-  }
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
 
-  .inputCreatePost.messageField {
-    height: 82px !important;  /* Set the desired height for the Message field */
+.formContainer #inputCreatePost:hover {
+    border: 1px solid rgb(42, 40, 40);
+}
+
+.formContainer #inputCreatePost:focus {
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.3);
+    outline: 2px solid transparent;
+}
+
+.inputCreatePost.messageField {
+    height: 82px !important;
     padding-top: 0;
     padding-left: 0;
     line-height: 1em;
 }
 
 .inputField {
-  height: 35px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #d2cccc;
-  border-radius: 5px;
-  padding-left: 16px;
-  font-size: 14px;
-  width: 270px;
-  transition: border-color 0.3s, box-shadow 0.3s; /* Add transition for smooth effect */
+    height: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #d2cccc;
+    border-radius: 5px;
+    padding-left: 16px;
+    font-size: 14px;
+    width: 270px;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .inputField.error {
-  border-color: red !important;
-  /* border-color: red; */
-  /* box-shadow: none; */
+    border-color: red !important;
 }
 
 .inputField:focus {
     border-color: red !important;
     box-shadow: none !important;
 }
-  
-  span {
+
+span-text {
     color: red;
-    margin-bottom: 23px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    width: 160px;
 
-  }
+}
 
-.footer{
+.footer {
     display: grid;
     place-content: end;
     border: 1px solid rgb(242 235 235);
 }
-.footer button{
+
+.footer button {
     border-radius: 10px;
     width: 121px;
     height: 46px;

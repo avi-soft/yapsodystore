@@ -1,8 +1,6 @@
 .page-divide{
     display: flex;
     flex-direction: row;
-    margin-top: 75px;   
-    /* please adjust this margin according to the header */
 }
 
 .left-page{
