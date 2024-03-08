@@ -1,5 +1,19 @@
 "use client";
 
+import React, { useState } from "react";
+import Link from "next/link";
+import { PiUserCircleFill } from "react-icons/pi";
+
+import Image from "next/image";
+import arrowDown from "@/../public/assets/icons/angle-down-solid.svg";
+import arrowUp from "@/../public/assets/icons/angle-up-solid.svg";
+import boxOffice from "@/../public/assets/icons/two-tickets.png";
+import profile from "@/../public/assets/icons/user.png";
+import history from "@/../public/assets/icons/clock.png";
+import support from "@/../public/assets/icons/help.png";
+import logout from "@/../public/assets/icons/logout.png";
+import check from "@/../public/assets/icons/check.png";
+
 const options = [
   { label: "Arabic-AR", value: "Arabic-AR" },
   { label: "Dutch-NL", value: "Dutch-NL" },
@@ -20,75 +34,144 @@ const options = [
   { label: "Swedish-SV", value: "Swedish-SV" },
 ];
 
-import React, { useState } from "react";
+const accountOptions = [
+  { label: "Box Office", img: boxOffice, link: "/presenter" },
+  { label: "Profile Settings", img: profile, link: "/account" },
+  { label: "Booking History", img: history, link: "/history" },
+  { label: "Support", img: support, link: "/support" },
+  { label: "Logout", img: logout, link: "/logout" },
+];
 
-import Image from "next/image";
-import arrow from "@/../public/icons/angle-down-solid.svg";
-
-const Dropdown = () => {
+const Dropdown = ({ text }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleButtonClick = () => {
     setIsOpen(!isOpen);
+    document.getElementById(`down-${text}`).classList.toggle("hidden");
+    const up = document.getElementById(`up-${text}`);
+    up.classList.contains("hidden")
+      ? up.classList.replace("hidden", "block")
+      : up.classList.replace("block", "hidden");
   };
   // Function to calculate the minimum width of the dropdown based on label lengths
-  const calculateMinWidth = () => {
-    const maxLength = options.reduce(
+  const calculateMinWidth = (arr) => {
+    const maxLength = arr.reduce(
       (max, option) => (option.label.length > max ? option.label.length : max),
       0
     );
-    return `${maxLength * 20 + 20}px`;
+    return `${maxLength * 20 + 40}px`;
   };
 
   return (
     <div className="relative">
       <div className="flex items-center" onClick={handleButtonClick}>
-        <p className="mr-2 font-bold">EN</p>
+        {text === "EN" ? (
+          <p className="mr-1 font-bold">{text}</p>
+        ) : (
+          <>
+            <p className="myAccount hidden sm:inline-block"> My Account</p>
+            <span className="sm:hidden">
+              <PiUserCircleFill alt="user-male-circle " className="h-10 w-10" />
+            </span>
+          </>
+        )}
         <Image
-          className="pt-1"
-          src={arrow}
-          height={13}
-          width={15}
+          className="pt-1 h-5 w-6"
+          src={arrowDown}
+          height="auto"
+          width="auto"
+          id={`down-${text}`}
           alt="dropdown arrow"
-        ></Image>
+        />
+        <Image
+          className="hidden pt-1 h-5 w-6"
+          id={`up-${text}`}
+          src={arrowUp}
+          height="auto"
+          width="auto"
+          alt="dropdown arrow"
+        />
       </div>
       {/* Conditional rendering of the dropdown content if it's open */}
       {isOpen && (
-        <div className="relative">
-          <div className="absolute right-11 mt-6">
-            <div className="w-0 h-0 border-b-4 border-r-8 border-l-8 border-r-transparent border-l-transparent border-gray-400"></div>
-          </div>
-
-          <ul
-            className={`absolute top-full right-0 mt-7 bg-white border border-gray-300 shadow-md grid grid-cols-2`}
-            style={{ minWidth: calculateMinWidth() }}
-          >
-            {options.map((option, index) => (
-              <li
-                key={index}
-                className={`p-2 truncate border ${
-                  option.label === "English-EN" ? "text-black" : ""
-                }`}
+        <div className="relative shadow-xl">
+          {text === "EN" ? (
+            <>
+              <div className="absolute right-11 mt-5">
+                <div
+                  style={{
+                    filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))",
+                  }}
+                  className="w-0 h-0 border-b-[10px] border-r-[10px] border-l-[10px] border-r-transparent border-l-transparent border-b-gray-300"
+                ></div>{" "}
+              </div>
+              <ul
+                className={`absolute top-full right-0 mt-7 bg-white border border-gray-300 shadow-md grid grid-cols-2 rounded-md`}
+                style={{ minWidth: calculateMinWidth(options) }}
               >
-                {/*Rendering all the languages and the check icon */}
-                {option.label === "English-EN" && (
-                  <span className={`ml-3 flex items-center`}>
-                    {option.label}
-                    <span className="ml-1">
-                      <img
-                        width="14"
-                        height="14"
-                        className=""
-                        src="https://img.icons8.com/ios/50/2DBC2C/checked--v1.png"
-                        alt="checked--v1"
-                      />
-                    </span>
-                  </span>
-                )}
-                {option.label !== "English-EN" && option.label}
-              </li>
-            ))}
-          </ul>
+                {options.map((option, index) => (
+                  <li
+                    key={index}
+                    className={`p-3 truncate border ${
+                      option.label === "English-EN" ? "text-black" : ""
+                    }`}
+                  >
+                    {/*Rendering all the languages and the check icon */}
+                    {option.label === "English-EN" && (
+                      <span className={`ml-3 flex items-center`}>
+                        {option.label}
+                        <span className="ml-1">
+                          <Image
+                            width="14"
+                            height="14"
+                            className="h-auto w-auto"
+                            src={check}
+                            alt="checked--v1"
+                          />
+                        </span>
+                      </span>
+                    )}
+                    {option.label !== "English-EN" && option.label}
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <>
+              <div className="absolute right-11 mt-[10px]">
+                <div
+                  style={{
+                    filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))",
+                  }}
+                  className="w-0 h-0 border-b-[10px] border-r-[10px] border-l-[10px] border-r-transparent border-l-transparent border-b-gray-300"
+                ></div>
+              </div>
+              <ul
+                className="absolute top-full right-0 -mr-4 mt-[19px] bg-white border border-gray-300 shadow-md grid grid-cols-1 rounded-md"
+                style={{ minWidth: "230px" }}
+              >
+                {accountOptions.map((option, index) => (
+                  <li
+                    key={index + 100}
+                    className="p-2 py-4 truncate border text-black"
+                  >
+                    <Link href={option.link}>
+                      <span className={`ml-3 flex items-center`}>
+                        <Image
+                          src={option.img}
+                          alt={option.label}
+                          height="auto"
+                          width="auto"
+                          className="h-6 w-6 "
+                        />
+                        <span className="mx-4">{option.label}</span>
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       )}
     </div>

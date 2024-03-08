@@ -11,9 +11,7 @@ const HeaderLogo = () => {
       <div className={styles.headerLeft}>
         <Link href={"/"}>
           <Image src={logo} alt="Logo" className={styles.headerLogo} priority />
-        </Link>
-        <Link href={"/"} className={styles.headerVenue}>
-          yaptestaddon4
+          <span className={styles.headerVenue}>yaptestaddon4</span>
         </Link>
       </div>
     </div>
