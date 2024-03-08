@@ -1,21 +1,33 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
+
 import SupportOverlay from "./SupportOverlay";
 import SupportCard from "./SupportCard";
-import { LuMessagesSquare } from "react-icons/lu";
+import IconLabel from "@/ui/IconLabel";
 
 const Support = ({ size, color }) => {
   const [open, setOpen] = useState(false);
+  const actions = {
+    onMouseOver: () => setOpen(true),
+    onMouseLeave: () => setOpen(false),
+  };
   return (
-    <div className="flex cursor-pointer gap-4" style={{ color: color }}
-    onMouseOver={() => setOpen(true)}
-              onMouseLeave={() => setOpen(false)}>
-      <span>
-        <LuMessagesSquare className={`${size}`} />
-      </span>
-      <span>Support</span>
-      {open && <SupportOverlay isOpen={open} children={<SupportCard />} />}
+    <div>
+      <IconLabel
+        color={color}
+        size={size}
+        icon="support"
+        gap={4}
+        actions={actions}
+      >
+        Support
+        {open && (
+          <SupportOverlay isOpen={open}>
+            <SupportCard />
+          </SupportOverlay>
+        )}
+      </IconLabel>
     </div>
   );
 };

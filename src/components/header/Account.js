@@ -1,15 +1,18 @@
 import Link from "next/link";
+import { PiUserCircleFill } from "react-icons/pi";
 
 //account definition that changes to logo
 const Account = () => {
   return (
     <div>
-      <Link href={"/account"}>
+      <Link href={"/login"}>
         <p className="myAccount hidden sm:inline-block"> My Account</p>
-        <img width="30" height="30" src="https://img.icons8.com/material-rounded/24/user-male-circle.png" alt="user-male-circle " className="sm:hidden" />
+        <span className="sm:hidden">
+          <PiUserCircleFill alt="user-male-circle " className="h-10 w-10" />
+        </span>
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default Account
+export default Account;
