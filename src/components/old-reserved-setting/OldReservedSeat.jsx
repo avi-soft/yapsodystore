@@ -72,13 +72,13 @@ function OldReservedSeat() {
                 {
                     seats.map((e, Ukey) =>
                     (
-                        <span className='flex'>
+                        <span className='flex' key={Ukey}>
                             <div className='text-slate-500 m-1'>{e.rowId}</div>
                             <div key={Ukey} className='flex'>
                                 {
                                     e.row.map((v, id) =>
                                     (
-                                        <div>
+                                        <div key={id} >
                                             {
                                                 v.hold_code_id != 'null' && <div key={id} className={`h-5 w-5 border-2 m-1 bg-slate-400  rounded border-sky-500`}>
                                                 </div>
