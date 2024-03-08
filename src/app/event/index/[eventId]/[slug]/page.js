@@ -1,9 +1,9 @@
-import BoxContainer from "@/components/single-event-page/BoxContainer";
 import MainContent from "@/components/single-event-page/MainContent";
 import SideBarEventPage from "@/components/single-event-page/SideBarEventPage";
 import MainContainer from "@/components/main-container/MainContainer";
 
 export default function SingleEventPage() {
+  const themeColor = "red";
   return (
     <MainContainer
       coverImage={
@@ -11,9 +11,9 @@ export default function SingleEventPage() {
       }
     >
       <div className={`ml-auto mr-auto w-[100%] rounded-[8px]`}>
-        <div className="flex pb-10 pl-4 pr-4 pt-12 max-xl:block">
-          <SideBarEventPage />
-          <MainContent />
+        <div className="flex pb-10 pl-4 pr-2 pt-12 max-xl:block">
+          <SideBarEventPage color={themeColor} />
+          <MainContent color={themeColor} />
         </div>
       </div>
     </MainContainer>

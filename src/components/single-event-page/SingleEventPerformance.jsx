@@ -1,8 +1,7 @@
-import React from "react";
 import SingleEvent from "./SingleEvent";
 
-const Events = () => {
-  const Events = [
+const SingleEventPerformance = ({ color }) => {
+  const events = [
     {
       date: "2024-04-8",
       time: "16:00",
@@ -14,39 +13,39 @@ const Events = () => {
       date: "2023-04-8",
       time: "16:00",
       timeRemaining: "40 Days 1 hours",
-      ticketPrice: 150.00,
+      ticketPrice: 150.0,
       access: "yes",
     },
     {
       date: "2022-04-8",
       time: "16:00",
       timeRemaining: "40 Days 1 hours",
-      ticketPrice: 250.00,
+      ticketPrice: 250.0,
       access: "No",
     },
     {
       date: "2024-04-8",
       time: "16:00",
       timeRemaining: "40 Days 1 hours",
-      ticketPrice: 520.00,
+      ticketPrice: 520.0,
       access: "yes",
     },
     {
       date: "2024-04-8",
       time: "16:00",
       timeRemaining: "40 Days 1 hours",
-      ticketPrice: 540.00,
+      ticketPrice: 540.0,
       access: "No",
     },
   ];
 
   return (
-    <div>
-      {Events.map((event) => (
-        <SingleEvent key={event.date} Event={event} />
+    <div className="mt-[18px]">
+      {events.map((event) => (
+        <SingleEvent key={event.date} event={event} color={color} />
       ))}
     </div>
   );
 };
 
-export default Events;
+export default SingleEventPerformance;

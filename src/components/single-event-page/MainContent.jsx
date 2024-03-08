@@ -1,11 +1,11 @@
 import Support from "../support/Support";
 import ContactPresenter from "../contact/ContactPresenter";
-import Events from "./Events";
 import Calendar from "../calendar/Calendar";
 import SocialMedia from "../social-media/SocialMedia";
 import SocialShareWidget from "../social-share-widget/SocialShare";
+import SingleEventPerformance from "./SingleEventPerformance";
 
-const MainContent = () => {
+const MainContent = ({ color }) => {
   const event = {
     name: "MULTI Events",
     startdate: "2024-04-08",
@@ -18,32 +18,18 @@ const MainContent = () => {
         <h1 className="mb-[20px] text-[3.375em] font-normal ">{event.name}</h1>
         <h2 className="m-[15px] mt-[5px] text-[2em] font-normal"></h2>
         <h3 className="m-[15px] mt-[5px] text-[1.7em] font-normal"></h3>
-           <SocialMedia />
+        <SocialMedia position="start" />
       </section>
-
-      <SocialShareWidget/>
+      <SocialShareWidget />
       <div className="px-[10px] align-top">
-        <div className="border-b">
-          <div className="flex">
-            <div className="flex gap-2 border-slate-300">
-              <span>Upcoming Events</span>
-              <span className="h-8 border-r border-slate-300 pr-4">
-                ({event.performances})
-              </span>
-            </div>
-            <div className="ml-2">
-              <span>
-                <Calendar
-                  highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
-                  activeColorCode={"blue"}
-                />
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="mt-[18px]">
-          <Events />
-        </div>
+        <Calendar
+          performancesCount={event.performances}
+          highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
+          activeColorCode={color}
+        >
+          Upcoming Events
+        </Calendar>
+        <SingleEventPerformance color={color} />
         <div className="flex gap-4 max-sm:block">
           <span className="max-sm:mt-[10px]">
             <Support size="size-6" color="var(--highlightColor)" />
