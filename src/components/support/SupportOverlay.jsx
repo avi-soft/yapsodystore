@@ -4,12 +4,10 @@ const SupportOverlay = ({ isOpen, children }) => {
   return (
     <>
       {isOpen ? (
-        <div>
-          <div className="z-8 fixed cursor-pointer bg-black/[.5]" />
-          <div className="fixed left-[170px] mt-[-270px] z-10 h-fit max-w-[300px] bg-white">
+          <div className="absolute  ">
             {children}
           </div>
-        </div>
+        
       ) : null}
     </>
   );
