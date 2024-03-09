@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
-
+import Image from "next/image";
 const PaymentMethodList = ({ Paymentmethods }) => {
   const [paymentMethod, setPaymentMethod] = useState("Credit Card");
   return (
@@ -71,7 +71,7 @@ const PaymentMethodList = ({ Paymentmethods }) => {
                   </div>
                 )}
                 {method.photo && (
-                  <img src={method.photo} className="float-right"></img>
+                  <Image src={method.photo} className="float-right" alt={image}></Image>
                 )}
               </div>
             </a>

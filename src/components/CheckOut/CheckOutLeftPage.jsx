@@ -41,7 +41,7 @@ const CheckOutLeftPage = () => {
           <div>
             {user ? (
               <p className="mb-[20px] mt-[20px] font-semibold text-[var(--text-primary)]">
-                You're logged in as abc@gmail.com
+                {`You're logged in as abc@gmail.com`}
               </p>
             ) : (
               <form className="rounded-[6px] py-[10px]">

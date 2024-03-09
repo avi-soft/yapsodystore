@@ -1,9 +1,8 @@
-import Support from "../support/Support";
-import ContactPresenter from "../contact/ContactPresenter";
 import Calendar from "../calendar/Calendar";
 import SocialMedia from "../social-media/SocialMedia";
 import SocialShareWidget from "../social-share-widget/SocialShare";
 import SingleEventPerformance from "./SingleEventPerformance";
+import SupportContact from "../support-contact/SupportContact";
 
 const MainContent = ({ color }) => {
   const event = {
@@ -30,14 +29,7 @@ const MainContent = ({ color }) => {
           Upcoming Events
         </Calendar>
         <SingleEventPerformance color={color} />
-        <div className="flex gap-4 max-sm:block">
-          <span className="max-sm:mt-[10px]">
-            <Support size="size-6" color="var(--highlightColor)" />
-          </span>
-          <span className="max-sm:mt-[10px]">
-            <ContactPresenter size="size-6" color="var(--highlightColor)" />
-          </span>
-        </div>
+        <SupportContact />
       </div>
     </div>
   );
