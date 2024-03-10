@@ -24,7 +24,7 @@ const page = ({onClose}) => {
             </div>
             <div className='sagar'>
                 <div style={{ marginLeft: 24 }}>
-                    <p style={{ marginBottom: 0 }}>By submitting your information, you consent to Yapsody's Privacy Policy. In order to serve you better, transmission and storage of this communication is provided by the #1 chat app</p>
+                    <p style={{ marginBottom: 0 }}>{`By submitting your information, you consent to Yapsody's Privacy Policy. In order to serve you better, transmission and storage of this communication is provided by the #1 chat app`}</p>
                     <Link href='https://www.zendesk.com/in/#'>Zendesk.com</Link>
                 </div>
 

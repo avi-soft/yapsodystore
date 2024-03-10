@@ -3,7 +3,8 @@ import Search from "@/components/search/search";
 import SocialMedia from "@/components/social-media/SocialMedia";
 import MainContainer from "@/components/main-container/MainContainer";
 import MainPageEventList from "@/components/events/MainPageEeventList";
-import Image from "next/image";
+import SupportContact from "@/components/support-contact/SupportContact";
+import Title from "@/components/homepage-header/Title";
 
 
 export default function Home() {
@@ -15,10 +16,9 @@ export default function Home() {
       }
     >
       <div className="w-full">
-        <div className="p-8 flex justify-center">
-          <Image src="/store-logo.png" alt="image" width={30} height={30} />
-        </div>
+     <Title logoImage="https://s3.amazonaws.com/ft-images/venue_logo/92ba6bf256c6fe122cc882700fe996fa825740a6.jpg" />
         <SocialMedia position="center" />
+        <SupportContact position="center" />
         {/* <Card />
         <Card isCodeAvailable={false} /> */}
       </div>

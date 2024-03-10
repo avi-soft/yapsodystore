@@ -1,11 +1,13 @@
 import { TbWorldWww } from "react-icons/tb";
 import { MdEmail } from "react-icons/md";
 import { FaComments } from "react-icons/fa";
+import { HiQuestionMarkCircle } from "react-icons/hi";
 
 const iconList = {
   support: FaComments,
   website: TbWorldWww,
   contact: MdEmail,
+  presenterFaq: HiQuestionMarkCircle,
 };
 export default function IconLabel({
   icon,
