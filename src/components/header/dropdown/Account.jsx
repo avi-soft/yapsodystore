@@ -32,12 +32,8 @@ const Account = ({ handleClick }) => {
         style={{ minWidth: "230px" }}
       >
         {accountOptions.map((option, index) => (
-          <li
-            key={index + 100}
-            className="p-2 py-4 truncate border text-black"
-            onClick={handleClick}
-          >
-            <Link href={option.link}>
+          <li key={index + 100} className="p-2 py-4 truncate border text-black">
+            <Link href={option.link} onClick={handleClick}>
               <span className={`ml-3 flex items-center`}>
                 <Image
                   src={option.img}

@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { PiUserCircleFill } from "react-icons/pi";
 
+import styles from "../Navbar.module.css";
+
 import Language from "./Language";
 import Account from "./Account";
 import Arrows from "./Arrows";
@@ -56,27 +58,37 @@ const Dropdown = ({ text }) => {
   // Function to calculate the minimum width of the dropdown based on label lengths
 
   return (
-    <div className="relative dropdown">
-      <div className="flex items-center " onClick={handleClick}>
-        {text === "EN" ? (
-          <p className="mr-1 font-bold">{text}</p>
-        ) : (
-          <>
-            <p className="myAccount hidden sm:inline-block overflow-hidden text-ellipsis whitespace-nowrap max-w-[120px] ">
-              {text}
-            </p>
-            <span className="sm:hidden">
-              <PiUserCircleFill alt="user-male-circle " className="h-10 w-10" />
-            </span>
-          </>
-        )}
-        <Arrows text={text} />
-      </div>
-      {/* Conditional rendering of the dropdown content if it's open */}
+    <div
+      className={`${styles.pullLeft}   flex items-center flex-shrink-0 dropdown`}
+      onClick={handleClick}
+    >
+      <button className="flex flex-row h-12 items-center ">
+        <div className="relative  ">
+          <div className="flex items-center ">
+            {text === "EN" ? (
+              <p className="mr-1 font-bold">{text}</p>
+            ) : (
+              <>
+                <p className="myAccount hidden sm:inline-block overflow-hidden text-ellipsis whitespace-nowrap max-w-[120px] ">
+                  {text}
+                </p>
+                <span className="sm:hidden">
+                  <PiUserCircleFill
+                    alt="user-male-circle "
+                    className="h-10 w-10"
+                  />
+                </span>
+              </>
+            )}
+            <Arrows text={text} />
+          </div>
+          {/* Conditional rendering of the dropdown content if it's open */}
 
-      {text === "EN"
-        ? isOpen1 && <Language handleClick={handleButtonClick1} />
-        : isOpen2 && <Account handleClick={handleButtonClick2} />}
+          {text === "EN"
+            ? isOpen1 && <Language handleClick={handleButtonClick1} />
+            : isOpen2 && <Account handleClick={handleButtonClick2} />}
+        </div>
+      </button>
     </div>
   );
 };

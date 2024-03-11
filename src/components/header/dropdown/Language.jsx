@@ -50,11 +50,10 @@ const Language = ({ handleClick }) => {
             className={`p-3 truncate border ${
               option.label === "English-EN" ? "text-black" : ""
             }`}
-            onClick={handleClick}
           >
             {/*Rendering all the languages and the check icon */}
             {option.label === "English-EN" && (
-              <span className={`ml-3 flex items-center`}>
+              <span className={`ml-3 flex items-center`} onClick={handleClick}>
                 {option.label}
                 <span className="ml-1">
                   <Image
@@ -67,7 +66,9 @@ const Language = ({ handleClick }) => {
                 </span>
               </span>
             )}
-            {option.label !== "English-EN" && option.label}
+            <span onClick={handleClick}>
+              {option.label !== "English-EN" && option.label}
+            </span>
           </li>
         ))}
       </ul>
