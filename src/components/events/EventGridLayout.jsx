@@ -26,9 +26,9 @@ export default function EventGridLayout({
       className="mb-[20px] flex flex-col justify-between gap-3 rounded border-[1px] px-[10px] py-[10px] w-[100%]"
     >
       <div className="relative min-h-[1px] justify-center">
-        <div className="h-[180px] flex-col pl-[5px] pr-[15px] text-center">
+        <article className="h-[180px] relative overflow-hidden">
           <EventImage src={showImage} />
-          <p className="absolute mt-[-80px] max-w-[100%] rotate-[-30deg] whitespace-nowrap pl-[75px] text-[15px] text-[rgba(51,51,51,0.5)]">
+          <p className=" text-center absolute top-0 bottom-0 left-0 right-0 h-fit m-auto rotate-[-30deg] whitespace-nowrap text-[15px] text-[rgba(51,51,51,0.5)]">
             {!showImage && eventName}
           </p>
         </article>

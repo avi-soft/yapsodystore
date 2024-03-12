@@ -27,9 +27,9 @@ export default function EventListLayout({
       className="mb-[20px] w-[100%] flex justify-between rounded border-[1px]    max-md:flex-col max-md:gap-3"
     >
       <div className="relative min-h-[1px] justify-center max-md:w-[100%]">
-        <div className="h-[180px] flex-col  text-center">
+        <article className="h-[180px] relative overflow-hidden">
           <EventImage src={showImage} />
-          <p className="absolute mt-[-80px] max-w-[100%] rotate-[-30deg] whitespace-nowrap pl-[68px] text-[15px] text-[rgba(51,51,51,0.5)]">
+          <p className=" text-center absolute top-0 bottom-0 left-0 right-0 h-fit m-auto rotate-[-30deg] whitespace-nowrap text-[15px] text-[rgba(51,51,51,0.5)]">
             {!showImage && eventName}
           </p>
         </article>
