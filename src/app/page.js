@@ -6,6 +6,7 @@ import MainPageEventList from "@/components/events/MainPageEeventList";
 import SupportContact from "@/components/support-contact/SupportContact";
 import Title from "@/components/homepage-header/Title";
 
+
 export default function Home() {
   const themeColor = "red";
   return (
