@@ -3,7 +3,7 @@ import React from "react";
 const Dots = () => {
   return (
     <span
-      id="dots"
+      id="hide-password"
       className=" pl-3 mb-[30px] mt-1 pt-1.5 inline-block w-[70px] "
     >
       <div className="h-2 w-2 rounded-full  bg-black inline-block relative"></div>
