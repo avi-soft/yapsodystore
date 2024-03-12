@@ -9,12 +9,12 @@ const EventDetails = ({
   endDate,
   performances,
 }) => (
-  <div className="min-h-[1px] w-[33.33%] pt-2 text-[#566270] max-md:w-[100%]">
+  <div className="min-h-[1px] w-[33.33%] pt-2 text-[#566270] max-md:w-[100%] text-sm">
     <div className="mb-2">
-      <span className="text-black">
+      <span className="text-black text-xl">
         <p>{eventName}</p>
       </span>
-      <span className="flex gap-2 text-[13px]">
+      <span className="flex gap-2 ">
         <span>
           <GiLaptop className="size-5" />
         </span>
@@ -23,7 +23,7 @@ const EventDetails = ({
         </span>
       </span>
     </div>
-    <div className="text-[13px]">
+    <div className="">
       <span className="flex gap-1">
         <span>
           <p>{startDate}</p>
