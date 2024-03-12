@@ -1,6 +1,7 @@
 import React from "react";
 import CheckBox from "@/ui/CheckBox";
 import Link from "next/link";
+import RadioButton from "@/ui/RadioButton";
 
 const GeneralInstructions = ({ color }) => {
   return (
@@ -10,32 +11,45 @@ const GeneralInstructions = ({ color }) => {
           <h3 className="mb-[20px] text-[22px] font-[600] tracking-wide text-[rgba(51,51,51,0.7)] ">
             How do you want to recieve your tickets?
           </h3>
-          <div className="mr-[15px] flex gap-1">
-            <label className="relative mb-[5px] min-h-[20px] max-w-[100%] cursor-pointer pl-[25px] text-[14px] font-normal text-[rgba(1,22,56,0.7)]"></label>
-            <input
-              type="radio"
-              className="absolute mt-[3px] size-4 h-[20px] w-[20px] border-2 border-solid border-[var(--highlightColor)] bg-[var(--highlightColor)] text-[var(--highlightColor)] shadow-[0px_2px_4px_0px_rgba(0,0,0,0,0.12)]"
-              defaultChecked
-            ></input>
+          <div className="ml-[14px] flex gap-4">
+            <label
+              class="relative flex items-center rounded-full cursor-pointer"
+              htmlFor=""
+              data-ripple-dark="true"
+            >
+              <RadioButton color={color} checked={true} />
+            </label>
             <span className="text-[18px]">Print/Email</span>
           </div>
-          <div></div>
         </div>
       </div>
       <div>
         <div className="mb-[5px] mt-[25px] inline-flex cursor-pointer items-center">
-          <CheckBox id={"check"} color={color} />
           <label
-            className="mt-px cursor-pointer select-none font-light text-gray-700"
+            className="relative flex items-center p-3 rounded-full cursor-pointer"
+            htmlFor="check"
+            data-ripple-dark="true"
+          >
+            <CheckBox id={"check"} color={color} checked={true} />
+          </label>
+          <label
+            className="cursor-pointer select-none font-light text-gray-700"
             htmlFor="check"
           >
             Yapsody may notify me of special offers and events in my area
           </label>
         </div>
         <div className="mb-[5px] flex cursor-pointer">
-          <CheckBox id={"check1"} color={color}  />
           <label
-            className="mt-[8px] cursor-pointer select-none font-light text-gray-700"
+            className="relative flex items-center p-3 rounded-full cursor-pointer"
+            htmlFor="check"
+            data-ripple-dark="true"
+          >
+            <CheckBox id={"check1"} color={color} checked={true} />
+          </label>
+
+          <label
+            className="mt-[12px] cursor-pointer select-none font-light text-gray-700"
             htmlFor="check1"
           >
             Presenter may notify me of special offers and events
@@ -48,10 +62,10 @@ const GeneralInstructions = ({ color }) => {
               <Link
                 href={"https://staging.yapsody.com/ticketing/terms-of-use/"}
                 className="underline"
-                style={{color: color}}
+                style={{ color: color }}
               >
                 Terms & Conditions
-              </Link>{" "}
+              </Link>
               and acknowledge that merchants/presenters set their own refund
               policies.
             </span>

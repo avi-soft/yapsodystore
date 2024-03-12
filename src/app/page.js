@@ -8,16 +8,13 @@ import Title from "@/components/homepage-header/Title";
 
 export default function Home() {
   const themeColor = "red";
+  const boxColor = "pink";
   return (
-    <MainContainer
-      coverImage={
-        "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
-      }
-    >
+    <MainContainer boxColor={boxColor}>
       <div className="w-full">
         <Title logoImage="https://s3.amazonaws.com/ft-images/venue_logo/92ba6bf256c6fe122cc882700fe996fa825740a6.jpg" />
         <SocialMedia position="center" />
-        <SupportContact position="center" />
+        <SupportContact position="center" color={themeColor} />
         {/* <Card />
         <Card isCodeAvailable={false} /> */}
       </div>

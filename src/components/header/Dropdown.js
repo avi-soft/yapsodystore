@@ -39,9 +39,10 @@ const accountOptions = [
   { label: "Profile Settings", img: profile, link: "/account" },
   { label: "Booking History", img: history, link: "/history" },
   { label: "Support", img: support, link: "/support" },
-  { label: "Logout", img: logout, link: "/logout" },
+  { label: "Logout", img: logout, link: "/login" },
 ];
 
+// const [isLogin, setLogin] = useState(true);
 const Dropdown = ({ text }) => {
   const [isOpen, setIsOpen] = useState(false);
 

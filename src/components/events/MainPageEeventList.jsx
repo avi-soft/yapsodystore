@@ -44,11 +44,12 @@ const MainPageEventList = ({ color }) => {
       performances: 5,
     },
   ];
+  const view = "grid1";
 
   return (
-    <div className="w-full">
+    <div className={`w-full ${view === "grid" ? "grid grid-cols-3 gap-6 max-md:grid-cols-2 max-sm:grid-cols-1" : ""}`}>
       {events.map((event) => (
-        <SingleEventCard key={event.name} event={event} color={color} />
+        <SingleEventCard key={event.name} event={event} color={color} view={view}/>
       ))}
     </div>
   );

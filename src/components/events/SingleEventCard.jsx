@@ -1,8 +1,8 @@
 import EventGridLayout from "./EventGridLayout";
 import EventListLayout from "./EventListLayout";
 
-const SingleEventCard = ({ event, color }) => {
-  const view = "grid1";
+const SingleEventCard = ({ event, color, view }) => {
+  
 
   return (
     <>

@@ -9,7 +9,7 @@ const EventDetails = ({
   endDate,
   performances,
 }) => (
-  <div className="min-h-[1px] w-[33.33%] pt-2 text-[#566270] max-md:w-[100%]">
+  <div className="min-h-[1px] w-[45%] ml-[4px] pt-2 text-[#566270] max-md:w-[100%] max-md:px-[15px] float-left">
     <div className="mb-2">
       <span className="text-black">
         <p>{eventName}</p>

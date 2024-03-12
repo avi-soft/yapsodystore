@@ -5,7 +5,7 @@ export default function Button({ children, color, to, width }) {
     <Link href={to} passHref>
       <button
         style={{ backgroundColor: color, width: width ? width : null }}
-        className={`mb-0 inline-block rounded-[3px] px-[28px] py-[10px] text-center text-[1em] text-[#ffffff] px-[20px]`}
+        className={`mb-0 inline-block rounded-[3px]  py-[10px] text-center text-[1em] text-[#ffffff] px-[20px]`}
       >
         {children}
       </button>
