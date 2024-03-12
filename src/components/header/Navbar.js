@@ -8,20 +8,25 @@ import styles from "./Navbar.module.css";
 const Navbar = () => {
   const isLogin = true;
   const userName = "yaptestaddon4 test";
+  const isPaymentPage = false;
 
   return (
     <header className={`${styles.header}`}>
       <HeaderLogo />
-      <div
-        className={`${styles.headerRight} flex flex-wrap justify-between items-center`}
-      >
-        <Dropdown text="EN" />
+      {isPaymentPage ? (
+        <div className="float-right">Timer</div>
+      ) : (
+        <div
+          className={`${styles.headerRight} flex flex-wrap justify-between items-center`}
+        >
+          <Dropdown text="EN" />
 
-        <div className={`${styles.pullLeft} flex items-center shrink`}>
-          <CartIcon />
+          <div className={`${styles.pullLeft} flex items-center shrink`}>
+            <CartIcon />
+          </div>
+          {isLogin ? <Dropdown text={userName} /> : <Account />}
         </div>
-        {isLogin ? <Dropdown text={userName} /> : <Account />}
-      </div>
+      )}
     </header>
   );
 };

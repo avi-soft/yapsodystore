@@ -7,7 +7,7 @@ const RadioButton = ({ color, checked }) => {
       name="radio-10"
       className="radio"
       style={{ backgroundColor: color }}
-      defaultChecked={checked}
+      checked={checked}
     />
   );
 };

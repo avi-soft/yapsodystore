@@ -8,25 +8,12 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const coverImage =
-    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg";
   return (
     <html lang="en">
-      <body className=" h-[100%] m-0">
-        <div
-          className="flex flex-col  justify-between items-center overflow-x-hidden"
-          style={{
-            background: coverImage ? `url(${coverImage})` : "#ffffff",
-            height: "100%",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-          }}
-        >
-          <Header />
-          {children}
-          <Footer />
-        </div>
+      <body className="flex flex-col h-screen">
+        <Header />
+        <div className="pt-24 pb-8 flex-1">{children}</div>
+        <Footer />
       </body>
     </html>
   );

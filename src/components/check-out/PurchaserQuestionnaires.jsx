@@ -4,14 +4,14 @@ const PurchaserQuestionnaires = ({ question, color, index }) => {
   const cnt = 0;
   return (
     <div className="flex flex-col gap-2 mb-[15px]">
-      <div className="flex gap-2 text-center items-center ">
+      <div className="flex gap-2 text-center">
         <div
           className="h-8 w-8 rounded-[16px] border-[4px] border-solid border-gray-300 text-center text-gray-300"
           style={{ backgroundColor: color }}
         >
           {index + 1}
         </div>
-        <div className="flex">
+        <div className="flex mt-[2px]">
           <span>
             <p>{question.question}</p>{" "}
           </span>

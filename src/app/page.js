@@ -9,13 +9,16 @@ import CalendarWrapper from "@/components/calendar/CalendarWrapper";
 
 export default function Home() {
   const themeColor = "red";
-  const boxColor = "pink";
   return (
-    <MainContainer boxColor={boxColor}>
+    <MainContainer
+      coverImage={
+        "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
+      }
+    >
       <div className="w-full">
         <Title logoImage="https://s3.amazonaws.com/ft-images/venue_logo/92ba6bf256c6fe122cc882700fe996fa825740a6.jpg" />
         <SocialMedia position="center" />
-        <SupportContact position="center" color={themeColor} />
+        <SupportContact position="center" />
         {/* <Card />
         <Card isCodeAvailable={false} /> */}
       </div>
