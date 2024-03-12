@@ -125,11 +125,11 @@
     box-shadow: none !important;
 }
   
-  span {
+  /* span {
     color: red;
     margin-bottom: 23px;
 
-  }
+  } */
 
 .footer{
     display: grid;

@@ -76,14 +76,11 @@ const Calendar = ({
   };
 
   return (
-    <>
-      <div tabIndex={0} role="button">
-        <FaCalendarAlt className="size-6 cursor-pointer" />
-      </div>
-      <div
-        tabIndex={0}
-        className="dropdown-content bg-white cal-calendar-container z-[100] shadow-xl relative"
-      >
+    
+      
+     
+        <span className=" bg-white cal-calendar-container  shadow-xl relative">
+
         <div className="cal-calendar-header">
           <div className="cal-calendar-navs">
             <p className="cal-nav-arrows" onClick={goToPrevMonth}>
@@ -114,39 +111,40 @@ const Calendar = ({
                   </p>
                 );
               }
-
+              
               return (
                 <p
-                  key={index}
-                  className={`cal-date ${
-                    selectedDate.toDateString() === e.toDateString() ||
-                    isHighlighted(e)
-                      ? "cal-active-date"
-                      : "cal-no-cursor"
-                  }`}
-                  style={
-                    selectedDate.toDateString() === e.toDateString() ||
-                    isHighlighted(e)
-                      ? { backgroundColor: `${activeColorCode}` }
-                      : null
+                key={index}
+                className={`cal-date ${
+                  selectedDate.toDateString() === e.toDateString() ||
+                  isHighlighted(e)
+                  ? "cal-active-date"
+                  : "cal-no-cursor"
+                }`}
+                style={
+                  selectedDate.toDateString() === e.toDateString() ||
+                  isHighlighted(e)
+                  ? { backgroundColor: `${activeColorCode}` }
+                  : null
+                }
+                onClick={
+                  isHighlighted(e)
+                  ? () => {
+                    setSelectedDate(e);
+                    dateClickHandler(e);
                   }
-                  onClick={
-                    isHighlighted(e)
-                      ? () => {
-                          setSelectedDate(e);
-                          dateClickHandler(e);
-                        }
-                      : null
-                  }
+                  : null
+                }
                 >
                   {e.getDate()}
                 </p>
               );
             }
-          )}
+            )}
         </div>
-      </div>
-    </>
+      </span>
+            
+    
   );
 };
 
