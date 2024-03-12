@@ -69,15 +69,15 @@ const Dropdown = ({ text }) => {
               <p className="mr-1 font-bold">{text}</p>
             ) : (
               <>
-                <p className="myAccount hidden sm:inline-block overflow-hidden text-ellipsis whitespace-nowrap max-w-[120px] ">
-                  {text}
-                </p>
-                <span className="sm:hidden">
+                <span className="mr-2">
                   <PiUserCircleFill
                     alt="user-male-circle "
                     className="h-10 w-10"
                   />
                 </span>
+                <p className="myAccount hidden sm:inline-block overflow-hidden text-ellipsis whitespace-nowrap max-w-[120px] ">
+                  {text}
+                </p>
               </>
             )}
             <Arrows text={text} />

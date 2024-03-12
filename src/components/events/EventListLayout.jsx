@@ -32,7 +32,7 @@ export default function EventListLayout({
         performances={performances}
       />
 
-      <div className="relative ml-[45px] mr-[-40px] mt-[72px] min-h-[1px] w-[33.33%] px-[25px] text-right max-md:w-[100%] max-md:mt-[60px]">
+      <div className="relative mt-[72px] min-h-[1px] w-[33.33%] px-[25px] text-right max-md:w-[100%] max-md:mt-[60px]">
         <div className="w-[70%] rounded  py-[6px] text-center">
           <Button
             width={"100%"}
