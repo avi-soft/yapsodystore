@@ -15,11 +15,7 @@ export default function Home() {
       }
     >
       <div className="w-full">
-        <Title
-          logoImage={
-            "https://s3.amazonaws.com/ft-images/venue_logo/92ba6bf256c6fe122cc882700fe996fa825740a6.jpg"
-          }
-        />
+        <Title logoImage="https://s3.amazonaws.com/ft-images/venue_logo/92ba6bf256c6fe122cc882700fe996fa825740a6.jpg" />
         <SocialMedia position="center" />
         <SupportContact position="center" />
         {/* <Card />

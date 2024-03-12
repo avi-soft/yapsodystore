@@ -67,7 +67,6 @@
 @media only screen and (max-width: 430px) {
   .headerVenue {
     display: flex;
-    position: fixed;
     display: inline-block !important;
     max-width: 100px;
   }
