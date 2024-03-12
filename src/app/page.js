@@ -5,6 +5,7 @@ import MainContainer from "@/components/main-container/MainContainer";
 import MainPageEventList from "@/components/events/MainPageEeventList";
 import SupportContact from "@/components/support-contact/SupportContact";
 import Title from "@/components/homepage-header/Title";
+import CalendarWrapper from "@/components/calendar/CalendarWrapper";
 
 
 export default function Home() {
@@ -24,13 +25,12 @@ export default function Home() {
       </div>
       <div className="mt-[20px] w-full flex flex-col items-center">
         <Search color={themeColor} />
-        <Calendar
-          performancesCount={5}
-          highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
-          activeColorCode={themeColor}
-        >
-          Upcoming Events
-        </Calendar>
+        <CalendarWrapper performancesCount={5}>
+          <Calendar
+            highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
+            activeColorCode={themeColor}
+          />
+        </CalendarWrapper>
         <MainPageEventList color={themeColor} />
       </div>
     </MainContainer>

@@ -3,6 +3,7 @@ import SocialMedia from "../social-media/SocialMedia";
 import SocialShareWidget from "../social-share-widget/SocialShare";
 import SingleEventPerformance from "./SingleEventPerformance";
 import SupportContact from "../support-contact/SupportContact";
+import CalendarWrapper from "../calendar/CalendarWrapper";
 
 const MainContent = ({ color }) => {
   const event = {
@@ -21,15 +22,14 @@ const MainContent = ({ color }) => {
       </section>
       <SocialShareWidget />
       <div className="px-[10px] align-top">
-        <Calendar
-          performancesCount={event.performances}
-          highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
-          activeColorCode={color}
-        >
-          Upcoming Events
-        </Calendar>
+        <CalendarWrapper performancesCount={5}>
+          <Calendar
+            highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
+            activeColorCode={color}
+          />
+        </CalendarWrapper>
         <SingleEventPerformance color={color} />
-        <SupportContact />
+        <SupportContact color={color} />
       </div>
     </div>
   );
