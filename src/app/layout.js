@@ -18,14 +18,22 @@ export default async function RootLayout({ children }) {
     termsUrl,
     privacyUrl,
     portalUrl,
+    sellTicketUrl,
     companyName
   } = await getThemeData();
   return (
     <html lang="en">
       <body className="flex flex-col h-screen">
-        <Header langCode={langCode}/>
+        <Header langCode={langCode} />
         <div className="pt-24 pb-8 flex-1">{children}</div>
-        <Footer />
+        <Footer
+          supportUrl={supportUrl}
+          termsUrl={termsUrl}
+          privacyUrl={privacyUrl}
+          portalUrl={portalUrl}
+          sellTicketUrl={sellTicketUrl}
+          companyName={companyName}
+        />
       </body>
     </html>
   );
