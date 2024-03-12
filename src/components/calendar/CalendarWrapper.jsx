@@ -1,11 +1,10 @@
-"use client"
 
-import React, { useState } from 'react';
 
 import { FaCalendarAlt } from "react-icons/fa";
 import { RxCrossCircled } from "react-icons/rx";
 
 export default function CalendarWrapper({ children, performancesCount }) {
+
 
   return (
     <>
@@ -20,6 +19,10 @@ export default function CalendarWrapper({ children, performancesCount }) {
             <FaCalendarAlt className="size-6 cursor-pointer" />
           </div></button>
         </div>
+
+
+        <dialog id="my_modal_5" className="modal modal-center sm:modal-center ">
+          <div className="">
 
 
         <dialog id="my_modal_5" className="modal modal-center sm:modal-center ">
@@ -61,4 +64,5 @@ export default function CalendarWrapper({ children, performancesCount }) {
     </>
   );
 }
+
 

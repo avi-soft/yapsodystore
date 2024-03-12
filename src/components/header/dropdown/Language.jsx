@@ -3,26 +3,26 @@ import Image from "next/image";
 import check from "@/../public/assets/icons/check.png";
 
 const options = [
-  { label: "Arabic-AR", value: "Arabic-AR" },
-  { label: "Bulgarian-BG", value: "Bulgarian-BG" },
-  { label: "Dutch-NL", value: "Dutch-NL" },
-  { label: "English-EN", value: "English-EN" },
-  { label: "French-FR", value: "French-FR" },
-  { label: "German-DE", value: "German-DE" },
-  { label: "Hindi-HI", value: "Hindi-HI" },
-  { label: "Hungarian-HU", value: "Hungarian-HU" },
-  { label: "Italian-IT", value: "Italian-IT" },
-  { label: "Japenese-JA", value: "Japenese-JA" },
-  { label: "Malay-MS", value: "Malay-MS" },
-  { label: "Marathi-MR", value: "Marathi-MR" },
-  { label: "Romanion-RO", value: "Romanion-RO" },
-  { label: "Solvak-SK", value: "Solvak-SK" },
-  { label: "Spanish-ES", value: "Spanish-ES" },
-  { label: "Swedish-SV", value: "Swedish-SV" },
-  { label: "Turkish-TR", value: "Turkish-TR" },
+  { label: "Arabic-AR", code: "AR" },
+  { label: "Bulgarian-BG", code: "BG" },
+  { label: "Dutch-NL", code: "NL" },
+  { label: "English-EN", code: "EN" },
+  { label: "French-FR", code: "FR" },
+  { label: "German-DE", code: "DE" },
+  { label: "Hindi-HI", code: "HI" },
+  { label: "Hungarian-HU", code: "HU" },
+  { label: "Italian-IT", code: "IT" },
+  { label: "Japenese-JA", code: "JA" },
+  { label: "Malay-MS", code: "MS" },
+  { label: "Marathi-MR", code: "MR" },
+  { label: "Romanion-RO", code: "RO" },
+  { label: "Solvak-SK", code: "SK" },
+  { label: "Spanish-ES", code: "ES" },
+  { label: "Swedish-SV", code: "SV" },
+  { label: "Turkish-TR", code: "TR" },
 ];
 
-const Language = ({ handleClick }) => {
+const Language = ({ handleClick,language }) => {
   function calculateMinWidth() {
     const maxLength = options.reduce(
       (max, option) => (option.label.length > max ? option.label.length : max),
@@ -48,11 +48,11 @@ const Language = ({ handleClick }) => {
           <li
             key={index}
             className={`p-3 truncate border text-[#696a6c] ${
-              option.label === "English-EN" ? "text-black" : ""
+              option.code === language ? "text-black" : ""
             }`}
           >
             {/*Rendering all the languages and the check icon */}
-            {option.label === "English-EN" && (
+            {option.code === language && (
               <span
                 className={`ml-2 flex items-center font-bold text-stone-800`}
                 onClick={handleClick}
@@ -70,7 +70,7 @@ const Language = ({ handleClick }) => {
               </span>
             )}
             <span onClick={handleClick}>
-              {option.label !== "English-EN" && option.label}
+              {option.code !== language && option.label}
             </span>
           </li>
         ))}
