@@ -4,22 +4,22 @@ import check from "@/../public/assets/icons/check.png";
 
 const options = [
   { label: "Arabic-AR", value: "Arabic-AR" },
-  { label: "Dutch-NL", value: "Dutch-NL" },
-  { label: "French-FR", value: "French-FR" },
-  { label: "Hindi-HI", value: "Hindi-HI" },
-  { label: "Italian-IT", value: "Italian-IT" },
-  { label: "Malay-MS", value: "Malay-MS" },
-  { label: "Romanion-RO", value: "Romanion-RO" },
-  { label: "Spanish-ES", value: "Spanish-ES" },
-  { label: "Turkish-TR", value: "Turkish-TR" },
   { label: "Bulgarian-BG", value: "Bulgarian-BG" },
+  { label: "Dutch-NL", value: "Dutch-NL" },
   { label: "English-EN", value: "English-EN" },
+  { label: "French-FR", value: "French-FR" },
   { label: "German-DE", value: "German-DE" },
+  { label: "Hindi-HI", value: "Hindi-HI" },
   { label: "Hungarian-HU", value: "Hungarian-HU" },
+  { label: "Italian-IT", value: "Italian-IT" },
   { label: "Japenese-JA", value: "Japenese-JA" },
+  { label: "Malay-MS", value: "Malay-MS" },
   { label: "Marathi-MR", value: "Marathi-MR" },
+  { label: "Romanion-RO", value: "Romanion-RO" },
   { label: "Solvak-SK", value: "Solvak-SK" },
+  { label: "Spanish-ES", value: "Spanish-ES" },
   { label: "Swedish-SV", value: "Swedish-SV" },
+  { label: "Turkish-TR", value: "Turkish-TR" },
 ];
 
 const Language = ({ handleClick }) => {
@@ -47,15 +47,18 @@ const Language = ({ handleClick }) => {
         {options.map((option, index) => (
           <li
             key={index}
-            className={`p-3 truncate border ${
+            className={`p-3 truncate border text-[#696a6c] ${
               option.label === "English-EN" ? "text-black" : ""
             }`}
           >
             {/*Rendering all the languages and the check icon */}
             {option.label === "English-EN" && (
-              <span className={`ml-3 flex items-center`} onClick={handleClick}>
+              <span
+                className={`ml-2 flex items-center font-bold text-stone-800`}
+                onClick={handleClick}
+              >
                 {option.label}
-                <span className="ml-1">
+                <span className="ml-3">
                   <Image
                     width="14"
                     height="14"
