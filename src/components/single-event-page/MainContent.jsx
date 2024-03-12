@@ -4,6 +4,7 @@ import SocialShareWidget from "../social-share-widget/SocialShare";
 import SingleEventPerformance from "./SingleEventPerformance";
 import SupportContact from "../support-contact/SupportContact";
 import CalendarWrapper from "../calendar/CalendarWrapper";
+import { FaLocationDot } from "react-icons/fa6";
 
 const MainContent = ({ color }) => {
   const event = {
@@ -11,6 +12,7 @@ const MainContent = ({ color }) => {
     startdate: "2024-04-08",
     endDate: "2024-04-20",
     performances: 5,
+    location: "Asia/Calcutta",
   };
   return (
     <div className="mb-[40px] xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
@@ -21,6 +23,12 @@ const MainContent = ({ color }) => {
         <SocialMedia position="start" />
       </section>
       <SocialShareWidget />
+      <div className="location text-base my-7 relative text-[#566270] flex items-center">
+        <span className="inline-block h-5 w-5 align-middle pt-[1px] mr-1 ">
+          <FaLocationDot />
+        </span>
+        <span className="w-[80%] inline-block">{event.location}</span>
+      </div>
       <div className="px-[10px] align-top">
         <CalendarWrapper performancesCount={5}>
           <Calendar
