@@ -95,3 +95,7 @@ export async function getThemeData() {
     faqCount: faq_count,
   };
 }
+export async function getLanguageData() {
+  const response = await getData(BaseUrl + request.getLanguage,headerData);
+  return response.data;
+}

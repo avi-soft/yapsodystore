@@ -9,7 +9,7 @@ import Language from "./Language";
 import Account from "./Account";
 import Arrows from "./Arrows";
 
-const Dropdown = ({ text }) => {
+const Dropdown = ({ text, languageData,langCode }) => {
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
 
@@ -52,7 +52,7 @@ const Dropdown = ({ text }) => {
   };
 
   let handleClick;
-  text === "EN"
+  text === "lang"
     ? (handleClick = handleButtonClick1)
     : (handleClick = handleButtonClick2);
   // Function to calculate the minimum width of the dropdown based on label lengths
@@ -65,8 +65,8 @@ const Dropdown = ({ text }) => {
       <button className="flex flex-row h-12 items-center ">
         <div className="relative  ">
           <div className="flex items-center ">
-            {text === "EN" ? (
-              <p className="mr-1 font-bold">{text}</p>
+            {text === "lang" ? (
+              <p className="mr-1 font-bold">{langCode.toUpperCase()}</p>
             ) : (
               <>
                 <span className="mr-2">
@@ -84,8 +84,14 @@ const Dropdown = ({ text }) => {
           </div>
           {/* Conditional rendering of the dropdown content if it's open */}
 
-          {text === "EN"
-            ? isOpen1 && <Language handleClick={handleButtonClick1} />
+          {text === "lang"
+            ? isOpen1 && (
+                <Language
+                  handleClick={handleButtonClick1}
+                  languageData={languageData}
+                  langCode={langCode}
+                />
+              )
             : isOpen2 && <Account handleClick={handleButtonClick2} />}
         </div>
       </button>
