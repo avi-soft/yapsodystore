@@ -21,7 +21,7 @@ const Footer = () => {
       </div>
       <div className={`float-right ${flexRow} p-4 ${styles.list}`}>
         <p className="cursor-pointer">
-          <Link href={"/"}> © 2024 Yapsody LLC All Rights Reserved</Link>
+          <Link href={"https://staging.yapsody.com/ticketing"}> © 2024 Yapsody LLC All Rights Reserved</Link>
         </p>
       </div>
     </div>

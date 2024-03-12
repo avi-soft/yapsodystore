@@ -6,17 +6,12 @@ const PaymentMethodDescription = ({ method, color }) => {
     <div className="block">
       <h3>{method.description}</h3>
       <p className="text-[13px]">{method.title.toLocaleLowerCase()}</p>
-      <div className="flex mt-[2px]">
+      <div className="flex gap-2 mt-[2px]">
+        <CheckBox id={"checkcondition"} color={color} />
         <label
-          className="relative flex items-center p-3 rounded-full cursor-pointer"
-          htmlFor="check"
-          data-ripple-dark="true"
-        >
-          <CheckBox id={"checkcondition"} color={color} checked={false} />
-        </label>
-        <label
-          className="mt-[12px] cursor-pointer select-none font-light text-gray-700 "
+          className="mt-[2px] cursor-pointer select-none font-light text-gray-700 "
           htmlFor="checkcondition"
+          defaultChecked
         >
           I agree to the terms and conditions
         </label>

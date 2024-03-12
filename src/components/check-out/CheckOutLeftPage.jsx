@@ -29,7 +29,6 @@ const CheckOutLeftPage = ({ color }) => {
     // {
     //   question: "Gender",
     //   responseType: "dropdown",
-    //   options: ["Male", "Female", "Others"],
     // },
   ];
 
@@ -46,16 +45,10 @@ const CheckOutLeftPage = ({ color }) => {
       </div>
       {Questionnaires.length ? (
         <div>
-          <h1 className="text-[20px] mb-[15px] mt-[15px]">
-            Purchaser Questinnaire
-          </h1>
-          {Questionnaires.map((question, index) => (
+          <h1>Purchaser Questinnaire</h1>
+          {Questionnaires.map((question) => (
             <div className="flex flex-col" key={question.question}>
-              <PurchaserQuestionnaires
-                question={question}
-                color={color}
-                index={index}
-              />
+              <PurchaserQuestionnaires question={question} />
             </div>
           ))}
         </div>

@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 const BASE_URL = process.env.YAPSODY_API_BASE_URL;
 
-export async function getTheme() {
-  const data = await fetch(BASE_URL + "");
-  Jsondata = await data.json();
-  return Jsondata;
-=======
 import request from "./api-urls";
 
 const BaseUrl =
@@ -18,6 +12,11 @@ const headerData = {
     "venue-code": "myblog",
   },
 };
+export async function getTheme() {
+  const data = await fetch(BASE_URL + "");
+  Jsondata = await data.json();
+  return Jsondata;
+}
 
 export async function getData(...config) {
   try {
@@ -33,10 +32,4 @@ export async function getData(...config) {
     console.error("Error fetching data:", error);
     throw error; // Rethrow the error to be caught by the calling function
   }
-}
-
-export async function getTheme() {
-  const response = await getData(BaseUrl + request.getVenueDetails, headerData);
-  return response;
->>>>>>> 09bf2594a3bc6b139508495c1ebfdf002e933aeb
 }
