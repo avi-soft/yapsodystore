@@ -1,0 +1,30 @@
+/* This style sheet is only used for button so it is optional to import this file */
+.temporary-button {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    width: 900px;
+    margin-bottom: 9px
+}
+
+@media (max-width: 900px) {
+    .temporary-button {
+        width: 568px;
+    }
+}
+
+@media (max-width: 568px) {
+    .temporary-button {
+        width: 300px;
+       
+    }
+
+}
+@media (max-width: 300px) {
+    .temporary-button {
+        width: auto;
+       
+    }
+
+}

@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import styles from "./Navbar.module.css";
 import Dropdown from "@/components/header/Dropdown";
 import HeaderLogo from "@/components/header/HeaderLogo";
@@ -8,7 +6,7 @@ import CartIcon from "@/components/header/CartIcon";
 
 // Navbar component definition
 const Navbar = () => {
-  const isLogin = true;
+  const isLogin =true;
   return (
     <header className={`${styles.header}`}>
       <HeaderLogo />
