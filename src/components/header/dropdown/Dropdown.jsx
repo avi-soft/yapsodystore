@@ -9,13 +9,13 @@ import Language from "./Language";
 import Account from "./Account";
 import Arrows from "./Arrows";
 
-const Dropdown = ({ text, languageData,langCode }) => {
+const Dropdown = ({ type, languageData,langCode }) => {
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
 
   const changeState = () => {
-    document.getElementById(`down-${text}`).classList.toggle("hidden");
-    const up = document.getElementById(`up-${text}`);
+    document.getElementById(`down-${type}`).classList.toggle("hidden");
+    const up = document.getElementById(`up-${type}`);
     up.classList.contains("hidden")
       ? up.classList.replace("hidden", "block")
       : up.classList.replace("block", "hidden");
@@ -30,8 +30,8 @@ const Dropdown = ({ text, languageData,langCode }) => {
         upArrow.forEach((up) => {
           if (up.classList.contains("block")) {
             up.classList.replace("block", "hidden");
-            let text = up.id.slice(3);
-            document.getElementById(`down-${text}`).classList.toggle("hidden");
+            let type = up.id.slice(3);
+            document.getElementById(`down-${type}`).classList.toggle("hidden");
           }
         });
       }
@@ -52,7 +52,7 @@ const Dropdown = ({ text, languageData,langCode }) => {
   };
 
   let handleClick;
-  text === "lang"
+  type === "lang"
     ? (handleClick = handleButtonClick1)
     : (handleClick = handleButtonClick2);
   // Function to calculate the minimum width of the dropdown based on label lengths
@@ -65,7 +65,7 @@ const Dropdown = ({ text, languageData,langCode }) => {
       <button className="flex flex-row h-12 items-center ">
         <div className="relative  ">
           <div className="flex items-center ">
-            {text === "lang" ? (
+            {type === "lang" ? (
               <p className="mr-1 font-bold">{langCode.toUpperCase()}</p>
             ) : (
               <>
@@ -75,16 +75,16 @@ const Dropdown = ({ text, languageData,langCode }) => {
                     className="h-10 w-10"
                   />
                 </span>
-                <p className="myAccount hidden sm:inline-block overflow-hidden text-ellipsis whitespace-nowrap max-w-[120px] ">
-                  {text}
+                <p className="myAccount hidden sm:inline-block overflow-hidden type-ellipsis whitespace-nowrap max-w-[120px] ">
+                  {type}
                 </p>
               </>
             )}
-            <Arrows text={text} />
+            <Arrows type={type} />
           </div>
           {/* Conditional rendering of the dropdown content if it's open */}
 
-          {text === "lang"
+          {type === "lang"
             ? isOpen1 && (
                 <Language
                   handleClick={handleButtonClick1}

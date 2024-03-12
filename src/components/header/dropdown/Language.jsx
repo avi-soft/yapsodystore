@@ -27,7 +27,7 @@ const Language = ({ handleClick, languageData, langCode }) => {
       >
         {languageData.map((option, index) => (
           <li
-            key={option.id}
+            key={index}
             className={`p-3 text-left truncate border text-[#696a6c] ${
               option.short === langCode ? "text-black" : ""
             }`}
@@ -35,7 +35,7 @@ const Language = ({ handleClick, languageData, langCode }) => {
             {/*Rendering all the languages and the check icon */}
             {option.short === langCode && (
               <span
-                className={`ml-2 flex items-center font-bold text-stone-800`}
+                className={` flex items-center font-bold text-stone-800 text-[14px]`}
                 onClick={handleClick}
               >
                 {option.name + "-" + option.short.toUpperCase()}
@@ -50,10 +50,7 @@ const Language = ({ handleClick, languageData, langCode }) => {
                 </span>
               </span>
             )}
-            <span
-              onClick={handleClick}
-              className="text-[14px] tracking-[.4px]"
-            >
+            <span onClick={handleClick} className="text-[14px] tracking-[.4px]">
               {option.short !== langCode &&
                 option.name + "-" + option.short.toUpperCase()}
             </span>

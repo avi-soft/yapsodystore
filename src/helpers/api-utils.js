@@ -5,10 +5,7 @@ const BaseUrl =
   process.env.ENV === "dev"
     ? "https://stage-api.yapsody.com/"
     : "https://api.yapsody.com/";
-const protocol =
-  process.env.ENV === "dev"
-    ? "http://"
-    : "https://";
+const protocol = process.env.ENV === "dev" ? "http://" : "https://";
 const headerData = {
   headers: {
     "venue-code": "myblog",
@@ -102,6 +99,9 @@ export async function getThemeData() {
   };
 }
 export async function getLanguageData() {
-  const response = await getData(BaseUrl + request.getLanguage,headerData);
+  const response = await getData(BaseUrl + request.getLanguage, {
+    ...headerData,
+    next: { revalidate: 5 },
+  });
   return response.data;
 }
