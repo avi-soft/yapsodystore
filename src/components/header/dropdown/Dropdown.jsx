@@ -85,7 +85,7 @@ const Dropdown = ({ type,languageCode }) => {
           {/* Conditional rendering of the dropdown content if it's open */}
 
           {type === "EN"
-            ? isOpen1 && <Language handleClick={handleButtonClick1} />
+            ? isOpen1 && <Language handleClick={handleButtonClick1} language={languageCode}/>
             : isOpen2 && <Account handleClick={handleButtonClick2} />}
         </div>
       </button>
