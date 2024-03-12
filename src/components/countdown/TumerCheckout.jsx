@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'; 
+import './TimerCheckout.css';
 
 const TimerCheckout = () => {
   const totalTime = 10 * 60;
@@ -25,10 +25,7 @@ const TimerCheckout = () => {
     return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
   }
 
-  const calculateProgress = () => {
-    return ((totalTime - timeRemaining) / totalTime) * 360; 
-  }
-
+ 
   return (
     <div className="desktop-timer">
       <img

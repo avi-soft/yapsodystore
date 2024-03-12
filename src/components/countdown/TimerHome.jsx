@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LuShieldAlert } from "react-icons/lu";
-import './App.css';
+import './TimerHome.css';
 
 const TimerHome  = ({ ticketsBooked }) => {
   const [timer, setTimer] = useState(60 * 10); 
@@ -32,9 +31,7 @@ const TimerHome  = ({ ticketsBooked }) => {
       <span className="booking-text">minute(s) left to complete booking</span> <br />
       <span className="ticket-text">{ticketsBooked} ticket(s) reserved</span>
       </div>
-      <div className="icon">
-      <LuShieldAlert size={30}/>
-      </div>
+      
     </div>
   );
 };
