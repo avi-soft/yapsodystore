@@ -112,15 +112,15 @@ const Dropdown = ({ text }) => {
                 {options.map((option, index) => (
                   <li
                     key={index}
-                    className={`p-3 truncate border ${
+                    className={`p-3 truncate border text-[#696a6c] ${
                       option.label === "English-EN" ? "text-black" : ""
                     }`}
                   >
                     {/*Rendering all the languages and the check icon */}
                     {option.label === "English-EN" && (
-                      <span className={`ml-3 flex items-center font-bold`}>
+                      <span className={`ml-2 flex items-center font-bold text-stone-800`}>
                         {option.label}
-                        <span className="ml-1">
+                        <span className="ml-3">
                           <Image
                             width="14"
                             height="14"
