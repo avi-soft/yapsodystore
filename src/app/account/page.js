@@ -1,4 +1,4 @@
-import Tab from "@/components/Tab/Tab";
+import Tab from "@/components/tab/Tab";
 
 export default function Home() {
   const userName = "yaptestaddon4";

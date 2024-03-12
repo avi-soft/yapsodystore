@@ -1,4 +1,4 @@
-import EventPage from "@/components/eventbookpage_leftpart/page";
+import EventPage from "@/components/event-book-page-left-part/page";
 export default function SeatBookingPage({ params }) {
   const { eventid, dateid } = params;
   return (

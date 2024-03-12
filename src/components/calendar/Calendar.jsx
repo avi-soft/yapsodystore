@@ -76,80 +76,69 @@ const Calendar = ({
   };
 
   return (
-    <>
-      <div tabIndex={0} role="button">
-        <FaCalendarDays
-          color={activeColorCode}
-          className="size-6 cursor-pointer"
-        />
+    <span className=" bg-white cal-calendar-container  shadow-xl relative">
+      <div className="cal-calendar-header">
+        <div className="cal-calendar-navs">
+          <p className="cal-nav-arrows" onClick={goToPrevMonth}>
+            {"<"}
+          </p>
+          <p className="font-bold text-gray-700 select-none m-0">
+            {`${monthsMap[currentMonthYear.month]} ${currentMonthYear.year}`}
+          </p>
+          <p className="cal-nav-arrows" onClick={goToNextMonth}>
+            {">"}
+          </p>
+        </div>
       </div>
-      <div
-        tabIndex={0}
-        className="dropdown-content bg-white cal-calendar-container z-[100] shadow-xl relative"
-      >
-        <div className="cal-calendar-header">
-          <div className="cal-calendar-navs">
-            <p className="cal-nav-arrows" onClick={goToPrevMonth}>
-              {"<"}
-            </p>
-            <p className="font-bold text-gray-700 select-none m-0">
-              {`${monthsMap[currentMonthYear.month]} ${currentMonthYear.year}`}
-            </p>
-            <p className="cal-nav-arrows" onClick={goToNextMonth}>
-              {">"}
-            </p>
-          </div>
-        </div>
-        <div className="cal-calendar-days">
-          {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d, index) => (
-            <p key={index} className="cal-day">
-              {d}
-            </p>
-          ))}
-        </div>
-        <div className="cal-calendar-body">
-          {generateDates(currentMonthYear.month, currentMonthYear.year).map(
-            (e, index) => {
-              if (e === 0) {
-                return (
-                  <p key={index} className="cal-filler">
-                    {e}
-                  </p>
-                );
-              }
-
+      <div className="cal-calendar-days">
+        {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d, index) => (
+          <p key={index} className="cal-day">
+            {d}
+          </p>
+        ))}
+      </div>
+      <div className="cal-calendar-body">
+        {generateDates(currentMonthYear.month, currentMonthYear.year).map(
+          (e, index) => {
+            if (e === 0) {
               return (
-                <p
-                  key={index}
-                  className={`cal-date ${
-                    selectedDate.toDateString() === e.toDateString() ||
-                    isHighlighted(e)
-                      ? "cal-active-date"
-                      : "cal-no-cursor"
-                  }`}
-                  style={
-                    selectedDate.toDateString() === e.toDateString() ||
-                    isHighlighted(e)
-                      ? { backgroundColor: `${activeColorCode}` }
-                      : null
-                  }
-                  onClick={
-                    isHighlighted(e)
-                      ? () => {
-                          setSelectedDate(e);
-                          dateClickHandler(e);
-                        }
-                      : null
-                  }
-                >
-                  {e.getDate()}
+                <p key={index} className="cal-filler">
+                  {e}
                 </p>
               );
             }
-          )}
-        </div>
+
+            return (
+              <p
+                key={index}
+                className={`cal-date ${
+                  selectedDate.toDateString() === e.toDateString() ||
+                  isHighlighted(e)
+                    ? "cal-active-date"
+                    : "cal-no-cursor"
+                }`}
+                style={
+                  selectedDate.toDateString() === e.toDateString() ||
+                  isHighlighted(e)
+                    ? { backgroundColor: `${activeColorCode}` }
+                    : null
+                }
+                onClick={
+                  isHighlighted(e)
+                    ? () => {
+                        setSelectedDate(e);
+                        dateClickHandler(e);
+                      }
+                    : null
+                }
+              >
+                {e.getDate()}
+              </p>
+            );
+          }
+        )}
       </div>
-    </>
+    </span>
   );
 };
 

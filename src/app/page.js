@@ -40,6 +40,7 @@ export default async function Home() {
         <CalendarWrapper
           performancesCount={events.length}
           textColor={textColor}
+          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
         >
           <Calendar
             highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
