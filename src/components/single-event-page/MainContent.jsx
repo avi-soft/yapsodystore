@@ -29,7 +29,7 @@ const MainContent = ({ color }) => {
           Upcoming Events
         </Calendar>
         <SingleEventPerformance color={color} />
-        <SupportContact />
+        <SupportContact color={color} />
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+const BASE_URL = process.env.YAPSODY_API_BASE_URL;
 import request from "./api-urls";
 
 const BaseUrl =
