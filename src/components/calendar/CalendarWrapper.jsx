@@ -1,4 +1,4 @@
-
+"use client"
 
 import { FaCalendarAlt } from "react-icons/fa";
 import { RxCrossCircled } from "react-icons/rx";
@@ -19,10 +19,9 @@ export default function CalendarWrapper({ children, performancesCount }) {
             <FaCalendarAlt className="size-6 cursor-pointer" />
           </div></button>
         </div>
+        </div>
 
-
-        <dialog id="my_modal_5" className="modal modal-center sm:modal-center ">
-          <div className="">
+        
 
 
         <dialog id="my_modal_5" className="modal modal-center sm:modal-center ">
@@ -38,9 +37,9 @@ export default function CalendarWrapper({ children, performancesCount }) {
             </div>
           </div>
         </dialog>
-      </div>
+      
         <div className="w-[100%]">
-      <div className="border-b mb-2   sm:block hidden  ">
+      <div className="border-b mb-2  sm:block hidden  ">
         <div className="flex ">
           <div className="flex gap-2 pr-2 border-r slate-300 ">
             <span>Upcoming Events ({performancesCount})</span>
@@ -61,6 +60,7 @@ export default function CalendarWrapper({ children, performancesCount }) {
         </div>
       </div>
       </div>
+      
     </>
   );
 }
