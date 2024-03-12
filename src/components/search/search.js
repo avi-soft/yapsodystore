@@ -1,15 +1,19 @@
 import React from "react";
-import Image from "next/image";
-
-import searchImg from "@/../public/assets/icons/magnifying-glass-solid.svg";
+import { IoSearchSharp } from "react-icons/io5";
 import styles from "./search.module.css";
 
-const Search = ({ color }) => {
+const Search = ({ color, textColor, buttonLinkBoxBorderColor }) => {
+  const inputStyle = {
+    borderColor: color,
+    backgroundColor: color,
+    color: textColor,
+    borderColor: buttonLinkBoxBorderColor,
+  };
   return (
     <div className="mb-6 w-fit">
-      <Image src={searchImg} alt="search" className={styles.icon} />
+      <IoSearchSharp color={textColor} className={styles.icon} />
       <input
-        style={{ borderColor: color, backgroundColor: color }}
+        style={inputStyle}
         type="search"
         name="search"
         id="search"

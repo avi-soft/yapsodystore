@@ -1,6 +1,6 @@
 "use client";
-import { useState, useMemo, Children } from "react";
-import { FaCalendarAlt } from "react-icons/fa";
+import { useState, useMemo } from "react";
+import { FaCalendarDays } from "react-icons/fa6";
 import "./calendar.css";
 
 const monthsMap = {
@@ -78,7 +78,10 @@ const Calendar = ({
   return (
     <>
       <div tabIndex={0} role="button">
-        <FaCalendarAlt className="size-6 cursor-pointer" />
+        <FaCalendarDays
+          color={activeColorCode}
+          className="size-6 cursor-pointer"
+        />
       </div>
       <div
         tabIndex={0}
