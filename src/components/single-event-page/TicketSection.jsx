@@ -30,6 +30,7 @@ export default function TicketSection({ access, ticketPrice, color }) {
             Get Access
           </Button>
         </div>
+
         <SaleStart price={ticketPrice}>Starting From</SaleStart>
       </div>
     </div>

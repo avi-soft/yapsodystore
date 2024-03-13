@@ -1,4 +1,5 @@
-const BASE_URL = process.env.YAPSODY_API_BASE_URL;
+// const BASE_URL = process.env.YAPSODY_API_BASE_URL;
+
 import request from "./api-urls";
 
 const BaseUrl =
@@ -11,6 +12,11 @@ const headerData = {
     "venue-code": "myblog",
   },
 };
+export async function getTheme() {
+  const data = await fetch(BASE_URL + "");
+  Jsondata = await data.json();
+  return Jsondata;
+}
 
 export async function getData(...config) {
   try {
