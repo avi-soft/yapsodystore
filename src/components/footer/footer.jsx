@@ -8,10 +8,10 @@ const Footer = () => {
   const flexRow = "flex flex-row";
   return (
     <div
-      className={`border-t mt-6 border-solid border-gray-300 !bg-white w-full h-16 text-base ${styles.footer}`}
+      className={`border-t mt-6 border-solid border-gray-300 !bg-white font-[450] text-[#454444] w-full h-16 text-base ${styles.footer}`}
     >
       <div className={`float-left ${flexRow} p-4 ${styles.list}`}>
-        <ul className={`${flexRow} flex-wrap gap-4`}>
+        <ul className={`${flexRow} flex-wrap gap-3`}>
           <Item text="Support" link="/support" hide={false} />
           <Item text="Terms" link="/terms" hide={false} />
           <Item text="Privacy" link="/privacy" hide={false} />
