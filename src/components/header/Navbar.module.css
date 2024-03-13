@@ -23,6 +23,8 @@
 .headerLeft {
   height: 100%;
   float: left !important;
+  
+
 }
 .link {
   color: #9055a2;
@@ -34,7 +36,7 @@
   text-overflow: ellipsis;
   display: inline-block;
   max-width: 500px;
-  padding: 2px 10px;
+  padding: 4px;
   font-family: Lato;
   font-size: 1em;
   font-weight: normal;
@@ -76,8 +78,8 @@
     max-width: 70px;
   }
 }
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 380px) {
   .headerVenue {
-    max-width: 50px;
+    max-width: 30px;
   }
 }

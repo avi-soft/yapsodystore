@@ -11,7 +11,7 @@ export default function CalendarWrapper({
 }) {
   return (
     <>
-      <div className="sm:hidden flex  border-b mb-2 gap-2 w-[100%] ">
+      <div className="sm:hidden flex border-b mb-6 gap-2 w-[100%] ">
         <div className="flex ">
           <div className="flex gap-2 pr-2 border-r  slate-300 ">
             <span style={{ color: textColor }}>
@@ -50,8 +50,8 @@ export default function CalendarWrapper({
       </dialog>
 
       <div className="w-[100%]">
-        <div className="border-b mb-2  sm:block hidden  ">
-          <div className="flex ">
+        <div className="border-b mb-6 sm:block hidden  ">
+          <div className="flex pb-[8px]">
             <div className="flex gap-2 pr-2 border-r slate-300 ">
               <span style={{ color: textColor }}>
                 Upcoming Events ({performancesCount})
