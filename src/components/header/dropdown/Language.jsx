@@ -39,7 +39,7 @@ const Language = ({ handleClick, languageData, langCode }) => {
                 onClick={handleClick}
               >
                 {option.name + "-" + option.short.toUpperCase()}
-                <span className="ml-3">
+                <span className="ml-[30px]">
                   <Image
                     width="14"
                     height="14"
