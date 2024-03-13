@@ -1,18 +1,29 @@
 import SalesEnds from "./SalesEnds";
 import EventDateTime from "./EventDateTime";
 import TicketSection from "./TicketSection";
+import { getTimeDifferenceFormatted } from "@/helpers/format-date";
 
-const SingleEvent = ({ event, color }) => {
+const SingleEvent = ({ performance, color }) => {
   return (
     <div
       style={{ borderColor: color }}
       className="mb-[20px] flex justify-between rounded border-[1px] bg-[#ffffff] px-[20px] py-[30px] max-md:block"
     >
-      <EventDateTime date={event.date} time={event.time} />
-      <SalesEnds endTime={event.timeRemaining}>SALE ENDS</SalesEnds>
+      <EventDateTime
+        date={performance.show_start_datetime}
+        time={performance.show_start_datetime}
+      />
+      <SalesEnds
+        endTime={getTimeDifferenceFormatted(
+          performance.show_start_datetime,
+          performance.show_start_datetime
+        )}
+      >
+        SALE ENDS
+      </SalesEnds>
       <TicketSection
-        access={event.access}
-        ticketPrice={event.ticketPrice}
+        access={performance.access_code}
+        ticketPrice={performance.min_price}
         color={color}
       />
     </div>
