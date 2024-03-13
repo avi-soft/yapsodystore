@@ -34,7 +34,7 @@ export async function getData(...config) {
   }
 }
 export async function getEventDetails() {
-  const eventData = await getData(BaseUrl + request.getEvents, {
+  const eventData = await getData(BaseUrl + request.events, {
     ...headerData,
     next: { revalidate: 5 },
   });
@@ -42,7 +42,7 @@ export async function getEventDetails() {
 }
 
 export async function getThemeData() {
-  const themeLayout = await getData(BaseUrl + request.getVenueDetails, {
+  const themeLayout = await getData(BaseUrl + request.venueDetails, {
     ...headerData,
     next: { revalidate: 10 },
   });
@@ -67,7 +67,7 @@ export async function getThemeData() {
     top_image,
     logo_image,
     title_text,
-    upload_type
+    upload_type,
   } = venue_page_setup;
   const {
     trans_time_out,
@@ -109,14 +109,25 @@ export async function getThemeData() {
     brandImage: top_image,
     mainHeadingImage: logo_image,
     mainHeadingText: title_text,
-    mainHeadingType:upload_type,
+    mainHeadingType: upload_type,
     faqCount: faq_count,
   };
 }
 export async function getLanguageData() {
-  const response = await getData(BaseUrl + request.getLanguage, {
+  const response = await getData(BaseUrl + request.language, {
     ...headerData,
     next: { revalidate: 5 },
   });
+  return response.data;
+}
+
+export async function getSingleEventPerformances(eventId) {
+  const response = await getData(
+    BaseUrl + request.singleEventPerformances(eventId),
+    {
+      ...headerData,
+      next: { revalidate: 5 },
+    }
+  );
   return response.data;
 }

@@ -5,7 +5,7 @@ import styles from "./Navbar.module.css";
 import logo from "@/../public/store-logo.png";
 
 // HeaderLogo component definition
-const HeaderLogo = ({ topImage, apiRes, venueName }) => {
+const HeaderLogo = ({ topImage, venueName }) => {
   return (
     <div>
       <div className={styles.headerLeft}>
@@ -13,17 +13,19 @@ const HeaderLogo = ({ topImage, apiRes, venueName }) => {
           <Image src={logo} alt="Logo" className={styles.headerLogo} priority />
         </Link>
         <Link href={"/"} className={styles.headerVenue}>
-          <div className="flex flex-row items-center">
-            {apiRes && (
+          <div className="flex flex-row items-center ">
+            <div className="md:block hidden">
+            {topImage && (
               <Image
                 src={topImage}
                 alt="id"
                 height={50}
                 width={50}
-                className=""
               ></Image>
             )}
-            <span className="ml-5"> {venueName}</span>
+            </div>
+            
+            <div className="ml-1  flex items-center mt-3 md:mt-0 md:ml-4"> {venueName}</div>
           </div>
         </Link>
       </div>
