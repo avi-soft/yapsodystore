@@ -1,9 +1,8 @@
-"use client";
 import { useEffect, useRef, useMemo } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 function Map({ address }) {
   const mapRef = useRef(null);
-  const geocoder = () => new google.maps.Geocoder();
+  const geocoder = useMemo(() => new google.maps.Geocoder(), []);
   useEffect(() => {
     const loader = new Loader({
       apiKey: "AIzaSyBYUaj85xdIZhLl64x4GcqmYEEk3v1hxOs",
