@@ -78,7 +78,7 @@
     max-width: 70px;
   }
 }
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 380px) {
   .headerVenue {
     max-width: 30px;
   }

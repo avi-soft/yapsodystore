@@ -25,7 +25,7 @@ const HeaderLogo = ({ topImage, venueName }) => {
             )}
             </div>
             
-            <div className="ml-1 flex items-center mt-3 md:mt-0"> {venueName}</div>
+            <div className="ml-1  flex items-center mt-3 md:mt-0 md:ml-4"> {venueName}</div>
           </div>
         </Link>
       </div>
