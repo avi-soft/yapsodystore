@@ -1,6 +1,7 @@
 import Button from "@/ui/Button";
 import EventDetails from "./EventDetails";
 import EventImage from "./EventImage";
+import Link from "next/link";
 
 export default function EventListLayout({
   color,
@@ -12,7 +13,7 @@ export default function EventListLayout({
 }) {
   return (
     <div className="mb-[20px] w-[100%] flex justify-between rounded border-[1px] border-[#a593e0] bg-[#ffffff]   max-md:flex-col max-md:gap-3">
-      <div className="relative min-h-[1px] justify-center max-md:w-[100%]">
+      <Link href='/event/index/26809/new-event' className="relative min-h-[1px] justify-center max-md:w-[100%]">
         <div className="h-[180px] flex-col  text-center">
           <EventImage
             src={
@@ -23,7 +24,7 @@ export default function EventListLayout({
             {eventName}
           </p>
         </div>
-      </div>
+      </Link>
       <EventDetails
         eventName={eventName}
         location={location}
@@ -32,8 +33,8 @@ export default function EventListLayout({
         performances={performances}
       />
 
-      <div className="relative mt-[72px] min-h-[1px] w-[33.33%] px-[25px] text-right max-md:w-[100%] max-md:mt-[60px]">
-        <div className="w-[70%] rounded  py-[6px] text-center">
+      <div className="relative mt-[72px] min-h-[1px] w-[30%] px-[25px] text-right max-md:w-[100%] max-md:mt-[60px]">
+        <div className="w-[50%] rounded  py-[6px] text-center float-right">
           <Button
             width={"100%"}
             color={color}

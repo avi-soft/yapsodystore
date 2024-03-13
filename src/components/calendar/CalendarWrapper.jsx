@@ -1,6 +1,6 @@
 export default function CalendarWrapper({ children, performancesCount }) {
   return (
-    <div className="border-b mb-2 w-[100%]">
+    <div className="border-b mb-6 w-[100%] p-3">
       <div className="flex">
         <div className="flex gap-2 pr-2 border-r slate-300">
           <span>Upcoming Events ({performancesCount})</span>

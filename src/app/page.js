@@ -34,5 +34,7 @@ export default function Home() {
         <MainPageEventList color={themeColor} />
       </div>
     </MainContainer>
+
+    
   );
 }
