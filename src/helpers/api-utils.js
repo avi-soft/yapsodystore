@@ -27,6 +27,13 @@ export async function getData(...config) {
     throw error; // Rethrow the error to be caught by the calling function
   }
 }
+export async function getEventDetails() {
+  const eventData = await getData(BaseUrl + request.getEvents, {
+    ...headerData,
+    next: { revalidate: 5 },
+  });
+  return eventData.data.events;
+}
 
 export async function getThemeData() {
   const themeLayout = await getData(BaseUrl + request.getVenueDetails, {

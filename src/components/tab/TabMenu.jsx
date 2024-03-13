@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import Account from "./Account/Account";
-import Notifications from "./Notification/Notifications";
-import History from "./History/History";
+import Account from "./account/Account";
+import Notifications from "./notification/Notifications";
+import History from "./history/History";
 
 const TabMenu = ({ label, tab, minWidth, Focus, Style, user, email }) => {
   function handleFocus(event) {
