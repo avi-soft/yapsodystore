@@ -24,7 +24,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="flex flex-col h-screen">
-        <Header langCode={langCode} />
+        <Header langCode={langCode} venueName={venueName} brandImage={brandImage} iconColor={ buttonLinkBoxBorderColor}/>
         <div className="pt-24 pb-8 flex-1">{children}</div>
         <Footer
           supportUrl={supportUrl}

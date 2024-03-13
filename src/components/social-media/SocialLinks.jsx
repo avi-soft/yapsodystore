@@ -10,7 +10,7 @@ const linkTypes = {
   instagram: "insta_icon.svg",
 };
 
-export default function SocialLinks({ url, type, color }) {
+export default function SocialLinks({ url, type, iconColor }) {
   const width = 22;
   const height = 22;
 
@@ -18,7 +18,9 @@ export default function SocialLinks({ url, type, color }) {
     <span>
       <Link href={url}>
         {type === "website" ? (
-          <IconLabel color={color} size="size-6" icon="website" gap={3}>{url}</IconLabel>
+          <IconLabel color={iconColor} size="size-6" icon="website" gap={3}>
+            {url}
+          </IconLabel>
         ) : (
           <Image
             src={`${basepath}${linkTypes[type]}`}
