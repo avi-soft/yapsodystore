@@ -1,4 +1,6 @@
+import LoadingIcon from "@/app/loadingg";
 import SingleEvent from "./SingleEvent";
+import { Suspense } from "react";
 
 const SingleEventPerformance = ({ color }) => {
   const events = [
@@ -40,11 +42,13 @@ const SingleEventPerformance = ({ color }) => {
   ];
 
   return (
-    <div className="mt-[18px]">
-      {events.map((event) => (
-        <SingleEvent key={event.date} event={event} color={color} />
-      ))}
-    </div>
+    <Suspense fallback={<LoadingIcon />}>
+      <div className="mt-[18px]">
+        {events.map((event) => (
+          <SingleEvent key={event.date} event={event} color={color} />
+        ))}
+      </div>
+    </Suspense>
   );
 };
 

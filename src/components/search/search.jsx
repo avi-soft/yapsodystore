@@ -10,15 +10,15 @@ const Search = ({ color, textColor, buttonLinkBoxBorderColor }) => {
     borderColor: buttonLinkBoxBorderColor,
   };
   return (
-    <div className="mb-6 w-fit">
+    <div className="mb-6 w-fit  ">
       <IoSearchSharp color={textColor} className={styles.icon} />
       <input
         style={inputStyle}
         type="search"
         name="search"
         id="search"
-        className={`${styles.search} md:w-[277px] w-fit`}
-        placeholder="Search Events"
+        className={`${styles.search} md:w-[277px] w-fit placeholder-[#21262c] `}
+        placeholder="Search events"
       />
     </div>
   );
