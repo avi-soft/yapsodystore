@@ -32,7 +32,7 @@ const EventDetails = ({
         </span>
       </span>
     </div>
-    <div className=" text-[13px] font-bold" style={{ color: textColor }}>
+    <div className="text-[13px] font-bold" style={{ color: textColor }}>
       <span className="flex gap-1">
         <span>
           <p>{startDate}</p>
