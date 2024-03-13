@@ -5,7 +5,7 @@ const CheckBox = ({ id, color, checked }) => {
     <input
       type="checkbox"
       id={id}
-      class={`checkbox`}
+      className={`checkbox`}
       style={{
         borderColor: color,
         "--chkbg": color,
