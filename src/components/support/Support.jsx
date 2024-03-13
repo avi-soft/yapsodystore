@@ -2,18 +2,17 @@
 
 import { useState } from "react";
 
-import SupportOverlay from "./SupportOverlay";
 import SupportCard from "./SupportCard";
 import IconLabel from "@/ui/IconLabel";
 
-const Support = ({ size, color }) => {
+const Support = ({ size, color, position="bottom" ,textColor}) => {
   const [open, setOpen] = useState(false);
   const actions = {
     onMouseOver: () => setOpen(true),
     onMouseLeave: () => setOpen(false),
   };
   return (
-    <div>
+    <div className={`dropdown dropdown-hover dropdown-${position}`}>
       <IconLabel
         color={color}
         size={size}
@@ -21,12 +20,10 @@ const Support = ({ size, color }) => {
         gap={4}
         actions={actions}
       >
-        Support
-        {open && (
-          <SupportOverlay isOpen={open}>
-            <SupportCard />
-          </SupportOverlay>
-        )}
+        <div tabIndex={0} role="button">
+          Support
+        </div>
+        <SupportCard boxColor={color} textColor={textColor} />
       </IconLabel>
     </div>
   );

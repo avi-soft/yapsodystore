@@ -4,9 +4,6 @@
     margin-right: 0;
     width: 0;
   }
-  .footer {
-    font-size: 14px;
-  }
 }
 @media only screen and (max-width: 750px) {
   .footer {

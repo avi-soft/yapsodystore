@@ -6,7 +6,7 @@
   border-bottom: solid 1px rgba(0, 0, 0, 0.149);
   height: 57px;
   position: fixed;
-  left: 0;
+  left: 0; 
   right: 0;
   z-index: 2;
   transition: all 0.3s ease-in-out;
@@ -23,6 +23,8 @@
 .headerLeft {
   height: 100%;
   float: left !important;
+  
+
 }
 .link {
   color: #9055a2;
@@ -34,7 +36,7 @@
   text-overflow: ellipsis;
   display: inline-block;
   max-width: 500px;
-  padding: 15px 10px;
+  padding: 4px;
   font-family: Lato;
   font-size: 1em;
   font-weight: normal;
@@ -64,21 +66,20 @@
   padding-bottom: 5px;
 }
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 450px) {
   .headerVenue {
     display: flex;
-    position: fixed;
     display: inline-block !important;
     max-width: 100px;
   }
 }
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 400px) {
   .headerVenue {
     max-width: 70px;
   }
 }
-@media only screen and (max-width: 350px) {
+@media only screen and (max-width: 380px) {
   .headerVenue {
-    max-width: 40px;
+    max-width: 30px;
   }
 }
