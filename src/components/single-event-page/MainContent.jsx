@@ -38,7 +38,7 @@ const MainContent = ({ color, performances }) => {
           />
         </CalendarWrapper>
         <SingleEventPerformance performances={performances} color={color} />
-        <Map address="jammu, jammu and kashmir" />
+        {/* <Map address="jammu, jammu and kashmir" /> */}
         <SupportContact color={color} />
       </div>
     </div>
