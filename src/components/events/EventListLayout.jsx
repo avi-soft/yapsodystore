@@ -2,6 +2,7 @@
 import Button from "@/ui/Button";
 import EventDetails from "./EventDetails";
 import EventImage from "./EventImage";
+import Link from "next/link";
 
 export default function EventListLayout({
   eventId,
@@ -26,14 +27,14 @@ export default function EventListLayout({
       }}
       className="mb-[20px] w-[100%] flex justify-between rounded border-[1px]    max-md:flex-col max-md:gap-3"
     >
-      <div className="relative min-h-[1px] justify-center max-md:w-[100%]">
+      <Link href={`/event/index/${eventId}/${eventName.replace(/[^\w\s]/g, "").replace(/\s+/g, "-").replace(/-+$/, "")}`} className="relative min-h-[1px] justify-center max-md:w-[100%]">
         <div className="h-[180px] flex-col  text-center">
           <EventImage src={showImage} />
           <p className="absolute mt-[-80px] max-w-[100%] rotate-[-30deg] whitespace-nowrap pl-[68px] text-[15px] text-[rgba(51,51,51,0.5)]">
             {!showImage && eventName}
           </p>
         </div>
-      </div>
+      </Link>
       <EventDetails
         locationId={locationId}
         locationType={locationType}
