@@ -29,9 +29,9 @@ const SingleEventCard = ({
     <>
       {view === "grid" ? (
         <EventGridLayout {...commonProps} />
-      ) : (
+       ) : (
         <EventListLayout {...commonProps} />
-      )}
+       )} 
     </>
   );
 };
