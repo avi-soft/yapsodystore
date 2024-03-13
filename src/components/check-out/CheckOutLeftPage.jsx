@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import PaymentMethodList from "./PaymentMethodList";
 import PurchaserQuestionnaires from "./PurchaserQuestionnaires";
 import UserEmail from "./UserEmail";
@@ -29,6 +28,7 @@ const CheckOutLeftPage = ({ color }) => {
     // {
     //   question: "Gender",
     //   responseType: "dropdown",
+    //   options: ["Male", "Female", "Others"]
     // },
   ];
 
@@ -46,9 +46,13 @@ const CheckOutLeftPage = ({ color }) => {
       {Questionnaires.length ? (
         <div>
           <h1>Purchaser Questinnaire</h1>
-          {Questionnaires.map((question) => (
-            <div className="flex flex-col" key={question.question}>
-              <PurchaserQuestionnaires question={question} />
+          {Questionnaires.map((question, index) => (
+            <div className="flex flex-col mt-2" key={question.question}>
+              <PurchaserQuestionnaires
+                question={question}
+                index={index}
+                color={color}
+              />
             </div>
           ))}
         </div>

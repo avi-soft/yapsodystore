@@ -1,16 +1,22 @@
-const BASE_URL = process.env.YAPSODY_API_BASE_URL;
+// const BASE_URL = process.env.YAPSODY_API_BASE_URL;
+
 import request from "./api-urls";
 
 const BaseUrl =
   process.env.ENV === "dev"
     ? "https://stage-api.yapsody.com/"
     : "https://api.yapsody.com/";
-
+const protocol = process.env.ENV === "dev" ? "http://" : "https://";
 const headerData = {
   headers: {
     "venue-code": "myblog",
   },
 };
+export async function getTheme() {
+  const data = await fetch(BASE_URL + "");
+  Jsondata = await data.json();
+  return Jsondata;
+}
 
 export async function getData(...config) {
   try {
@@ -61,6 +67,7 @@ export async function getThemeData() {
     top_image,
     logo_image,
     title_text,
+    upload_type
   } = venue_page_setup;
   const {
     trans_time_out,
@@ -73,6 +80,7 @@ export async function getThemeData() {
     support_url,
     terms_url,
     privacy_url,
+    portal_url,
     name: companyName,
   } = company_details;
   return {
@@ -87,9 +95,11 @@ export async function getThemeData() {
     boxBackgroundColor: newci_inner_background,
     storeBackground: newci_background,
     companyName: companyName,
-    supportUrl: support_url,
+    supportUrl: `${protocol}${support_url}`,
     termsUrl: terms_url,
     privacyUrl: privacy_url,
+    portalUrl: `${protocol}${portal_url}`,
+    sellTicketUrl: `${protocol}${portal_url}/ticketing`,
     cartTimeOut: trans_time_out,
     facebookUrl: facebook_url,
     twitterUrl: twitter_url,
@@ -99,6 +109,14 @@ export async function getThemeData() {
     brandImage: top_image,
     mainHeadingImage: logo_image,
     mainHeadingText: title_text,
+    mainHeadingType:upload_type,
     faqCount: faq_count,
   };
+}
+export async function getLanguageData() {
+  const response = await getData(BaseUrl + request.getLanguage, {
+    ...headerData,
+    next: { revalidate: 5 },
+  });
+  return response.data;
 }
