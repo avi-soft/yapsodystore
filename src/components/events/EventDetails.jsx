@@ -28,7 +28,7 @@ const EventDetails = ({
           {eventName}
         </p>
       </span>
-      <span className="flex gap-2 text-[13px]" style={{ color: textColor }}>
+      <span className="flex gap-2 text-sm" style={{ color: textColor }}>
         <span>
           {locationType == "physical" ? (
             <MdLocationPin className="size-4" />
@@ -41,7 +41,7 @@ const EventDetails = ({
         </span>
       </span>
     </div>
-    <div className="text-[13px] font-bold" style={{ color: textColor }}>
+    <div className=" text-sm font-bold" style={{ color: textColor }}>
       <span className="flex gap-1">
         <span>
           <p>{startDate}</p>

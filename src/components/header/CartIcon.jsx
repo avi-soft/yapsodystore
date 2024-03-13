@@ -10,7 +10,7 @@ const CartIcon = ({ iconColor ,apiRes }) => {
           inline-flex items-center justify-center  
            overflow-hidden border-black border text-sm">0</span>
 
-{apiRes ? (
+{/* {apiRes ? (
           <Image
             width="35"
             height="35"
@@ -18,7 +18,7 @@ const CartIcon = ({ iconColor ,apiRes }) => {
             className="inline-block"
             alt="two-tickets"
           />
-        ) : (
+        ) : ( */}
           <Image
             width="35"
             height="35"
@@ -26,7 +26,7 @@ const CartIcon = ({ iconColor ,apiRes }) => {
             className="inline-block"
             alt="default-image"
           />
-        )}
+        {/* )} */}
 
       </div>
 

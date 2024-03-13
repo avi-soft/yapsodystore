@@ -19,7 +19,17 @@ export default async function Home() {
     storeBackground,
     headingColor,
     textColor,
+    mainHeadingImage,
+    mainHeadingText,
+    venueName,
+    headerAlignment,
+    facebookUrl,
+    twitterUrl,
+    instagramUrl,
+    websiteUrl,
+    mainHeadingType,
   } = await getThemeData();
+
   const events = await getEventDetails();
   return (
     <MainContainer
@@ -27,9 +37,27 @@ export default async function Home() {
       storeBackground={storeBackground}
     >
       <div className="w-full">
-        <Title logoImage={logoImage} />
-        <SocialMedia position="center" />
-        <SupportContact position="center" />
+        <Title
+          mainHeadingImage={mainHeadingImage}
+          mainHeadingText={mainHeadingText}
+          venueName={venueName}
+          headerAlignment={headerAlignment}
+          headingColor={headingColor}
+          mainHeadingType={mainHeadingType}
+        />
+        <SocialMedia
+          position="center"
+          facebookUrl={facebookUrl}
+          twitterUrl={twitterUrl}
+          instagramUrl={instagramUrl}
+          websiteUrl={websiteUrl}
+          iconColor={buttonLinkBoxBorderColor}
+        />
+        <SupportContact
+          position="center"
+          iconColor={buttonLinkBoxBorderColor}
+          textColor={textColor}
+        />
       </div>
       <div className="mt-[20px] w-full flex flex-col items-center">
         <Search
