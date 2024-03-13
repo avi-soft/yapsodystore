@@ -5,7 +5,14 @@ import { useState } from "react";
 import SupportCard from "./SupportCard";
 import IconLabel from "@/ui/IconLabel";
 
-const Support = ({ size, color, position="bottom" ,textColor}) => {
+const Support = ({
+  size,
+  position = "bottom",
+  boxBackgroundColor,
+  iconColor,
+  textColor,
+  boxBorderColor
+}) => {
   const [open, setOpen] = useState(false);
   const actions = {
     onMouseOver: () => setOpen(true),
@@ -14,7 +21,7 @@ const Support = ({ size, color, position="bottom" ,textColor}) => {
   return (
     <div className={`dropdown dropdown-hover dropdown-${position}`}>
       <IconLabel
-        color={color}
+        color={iconColor}
         size={size}
         icon="support"
         gap={4}
@@ -23,7 +30,11 @@ const Support = ({ size, color, position="bottom" ,textColor}) => {
         <div tabIndex={0} role="button">
           Support
         </div>
-        <SupportCard boxColor={color} textColor={textColor} />
+        <SupportCard
+          boxBorderColor={boxBorderColor}
+          textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+        />
       </IconLabel>
     </div>
   );

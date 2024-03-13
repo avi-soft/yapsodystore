@@ -12,11 +12,6 @@ const headerData = {
     "venue-code": "myblog",
   },
 };
-export async function getTheme() {
-  const data = await fetch(BASE_URL + "");
-  Jsondata = await data.json();
-  return Jsondata;
-}
 
 export async function getData(...config) {
   try {
@@ -40,7 +35,6 @@ export async function getEventDetails() {
   });
   return eventData.data.events;
 }
-
 export async function getThemeData() {
   const themeLayout = await getData(BaseUrl + request.venueDetails, {
     ...headerData,
@@ -55,6 +49,7 @@ export async function getThemeData() {
     venue_page_setup,
     venue_settings,
     company_details,
+    currency_details
   } = themeLayout.data;
   const {
     background_image_url,
@@ -83,6 +78,10 @@ export async function getThemeData() {
     portal_url,
     name: companyName,
   } = company_details;
+  const {country,
+      currency,
+      code,
+      symbol}=currency_details;
   return {
     venueName: name,
     venueCode: venue_code,
@@ -111,6 +110,7 @@ export async function getThemeData() {
     mainHeadingText: title_text,
     mainHeadingType: upload_type,
     faqCount: faq_count,
+    currencySymbol:symbol
   };
 }
 export async function getLanguageData() {
@@ -120,14 +120,10 @@ export async function getLanguageData() {
   });
   return response.data;
 }
-
-export async function getSingleEventPerformances(eventId) {
-  const response = await getData(
-    BaseUrl + request.singleEventPerformances(eventId),
-    {
-      ...headerData,
-      next: { revalidate: 5 },
-    }
-  );
+export async function getSingleEventData(eventId) {
+  const response = await getData(BaseUrl + request.singleEvent(eventId), {
+    ...headerData,
+    next: { revalidate: 5 },
+  });
   return response.data;
 }

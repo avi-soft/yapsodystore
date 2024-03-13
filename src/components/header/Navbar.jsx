@@ -12,7 +12,7 @@ const Navbar = async ({ langCode, brandImage, venueName, iconColor }) => {
   const userName = "yaptestaddon4 test";
   // const top_image = "https://s3.amazonaws.com/ft-images/top_logo/affbd71e9b4d30c1b18264f6a91faae8dbfcca5c.jpg"
   const color = "53D63C";
-  const apiRes = true; //if true sends prop values
+  const apiRes = false; //if true sends prop values
 
   return (
     <header className={`${styles.header}`}>

@@ -7,7 +7,17 @@ import CalendarWrapper from "../calendar/CalendarWrapper";
 import { FaLocationDot } from "react-icons/fa6";
 import Map from "../google-map/Map";
 
-const MainContent = ({ color, performances }) => {
+const MainContent = ({
+  color,
+  performances,
+  iconColor,
+  textColor,
+  boxBackgroundColor,
+  boxBorderColor,
+  socialMediaLinks,
+  headingColor,
+  eventData,
+}) => {
   const event = {
     name: "MULTI Events",
     startdate: "2024-04-08",
@@ -15,13 +25,29 @@ const MainContent = ({ color, performances }) => {
     performances: 5,
     location: "Asia/Calcutta",
   };
+  const { event_title1, event_title2, event_title3, images } = eventData;
+
+  const headingStyle = { color: headingColor };
   return (
     <div className="mb-[40px] xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
-      <section className="mb-8">
-        <h1 className="mb-[20px] text-[3.375em] font-normal ">{event.name}</h1>
-        <h2 className="m-[15px] mt-[5px] text-[2em] font-normal"></h2>
-        <h3 className="m-[15px] mt-[5px] text-[1.7em] font-normal"></h3>
-        <SocialMedia position="start" />
+      <section className="mb-8 flex flex-col items-start justify-center gap-2">
+        <h1 className="text-[3.375em] font-normal " style={headingStyle}>
+          {event_title1}{" "}
+        </h1>
+        <h2 className="text-[2em] font-normal" style={headingStyle}>
+          {event_title2}
+        </h2>
+        <h3 className="text-[1.7em] font-normal mb-2" style={headingStyle}>
+          {event_title3}
+        </h3>
+        <SocialMedia
+          position="start"
+          facebookUrl={socialMediaLinks.facebookUrl}
+          twitterUrl={socialMediaLinks.twitterUrl}
+          instagramUrl={socialMediaLinks.instagramUrl}
+          websiteUrl={socialMediaLinks.websiteUrl}
+          iconColor={iconColor}
+        />
       </section>
       <SocialShareWidget />
       <div className="location text-base my-7 relative text-[#566270] flex items-center">
@@ -39,7 +65,12 @@ const MainContent = ({ color, performances }) => {
         </CalendarWrapper>
         <SingleEventPerformance performances={performances} color={color} />
         <Map address="jammu, jammu and kashmir" />
-        <SupportContact color={color} />
+        <SupportContact
+          iconColor={iconColor}
+          textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+          boxBorderColor={boxBorderColor}
+        />
       </div>
     </div>
   );
