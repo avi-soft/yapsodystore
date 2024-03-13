@@ -20,13 +20,9 @@ function Contact() {
             {/* <button type="button" className='bg-blue-500' onClick={changeState}>Click me</button> */}
             
             {prevState && (
-                <div className='mr-auto ml-auto h-full flex flex-col justify-center items-center w-[70%]'>
+                <div className='mr-auto ml-auto flex flex-col justify-center items-center'>
 
-                    <button onClick={changeState} className='flex self-end '>
-                        <RxCrossCircled />
-                        <span>ESC</span>
-                    </button>
-                    <div className='border rounded my-4 mx-2 w-full p-4'>
+                    <div className='border rounded my-4 mx-2 p-4'>
                         <h3 className='py-2 text-lg'>Contact Presenter</h3>
                         <form action="" className='text mb-4 text-slate-500'>
                             <div className='mb-4'>

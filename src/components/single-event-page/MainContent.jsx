@@ -5,8 +5,9 @@ import SingleEventPerformance from "./SingleEventPerformance";
 import SupportContact from "../support-contact/SupportContact";
 import CalendarWrapper from "../calendar/CalendarWrapper";
 import { FaLocationDot } from "react-icons/fa6";
+import Map from "../google-map/Map";
 
-const MainContent = ({ color }) => {
+const MainContent = ({ color, performances }) => {
   const event = {
     name: "MULTI Events",
     startdate: "2024-04-08",
@@ -30,13 +31,14 @@ const MainContent = ({ color }) => {
         <span className="w-[80%] inline-block">{event.location}</span>
       </div>
       <div className="px-[10px] align-top">
-        <CalendarWrapper performancesCount={5}>
+        <CalendarWrapper performancesCount={performances.length}>
           <Calendar
             highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
             activeColorCode={color}
           />
         </CalendarWrapper>
-        <SingleEventPerformance color={color} />
+        <SingleEventPerformance performances={performances} color={color} />
+        <Map address="jammu, jammu and kashmir" />
         <SupportContact color={color} />
       </div>
     </div>

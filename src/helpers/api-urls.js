@@ -1,7 +1,8 @@
 const request = {
-  getVenueDetails: "online/get_venue",
-  getEvents: "online/events",
-  getLanguage: "languages",
-  getLanguageTranslation: "languages/translations?lang=hi",
+  venueDetails: "online/get_venue",
+  events: "online/events",
+  language: "languages",
+  languageTranslation: "languages/translations?lang=hi",
+  singleEventPerformances: (eventId) => `online/events/${eventId}/performances`,
 };
 export default request;
