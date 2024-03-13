@@ -2,33 +2,14 @@ import React from "react";
 import Image from "next/image";
 import check from "@/../public/assets/icons/check.png";
 
-const options = [
-  { label: "Arabic-AR", code: "AR" },
-  { label: "Bulgarian-BG", code: "BG" },
-  { label: "Dutch-NL", code: "NL" },
-  { label: "English-EN", code: "EN" },
-  { label: "French-FR", code: "FR" },
-  { label: "German-DE", code: "DE" },
-  { label: "Hindi-HI", code: "HI" },
-  { label: "Hungarian-HU", code: "HU" },
-  { label: "Italian-IT", code: "IT" },
-  { label: "Japenese-JA", code: "JA" },
-  { label: "Malay-MS", code: "MS" },
-  { label: "Marathi-MR", code: "MR" },
-  { label: "Romanion-RO", code: "RO" },
-  { label: "Solvak-SK", code: "SK" },
-  { label: "Spanish-ES", code: "ES" },
-  { label: "Swedish-SV", code: "SV" },
-  { label: "Turkish-TR", code: "TR" },
-];
-
-const Language = ({ handleClick,language }) => {
+const Language = ({ handleClick, languageData, langCode }) => {
   function calculateMinWidth() {
-    const maxLength = options.reduce(
-      (max, option) => (option.label.length > max ? option.label.length : max),
-      0
-    );
-    return `${maxLength * 20 + 40}px`;
+    const maxLength = languageData.reduce((max, option) => {
+      const newLabel = `${option.name}-${option.short.toUpperCase()}`;
+      return newLabel.length > max ? newLabel.length : max;
+    }, 0);
+
+    return `${maxLength * 20 + 49}px`;
   }
   return (
     <div className="relative shadow-xl">
@@ -42,22 +23,22 @@ const Language = ({ handleClick,language }) => {
       </div>
       <ul
         className={`absolute top-full right-0 mt-7 bg-white border border-gray-300 shadow-md grid grid-cols-2 rounded-md`}
-        style={{ minWidth: calculateMinWidth(options) }}
+        style={{ minWidth: calculateMinWidth(languageData) }}
       >
-        {options.map((option, index) => (
+        {languageData.map((option, index) => (
           <li
             key={index}
-            className={`p-3 truncate border text-[#696a6c] ${
-              option.code === language ? "text-black" : ""
+            className={`p-3 text-left truncate border text-[#696a6c] ${
+              option.short === langCode ? "text-black" : ""
             }`}
           >
             {/*Rendering all the languages and the check icon */}
-            {option.code === language && (
+            {option.short === langCode && (
               <span
-                className={`ml-2 flex items-center font-bold text-stone-800`}
+                className={` flex items-center font-bold text-stone-800 text-[14px]`}
                 onClick={handleClick}
               >
-                {option.label}
+                {option.name + "-" + option.short.toUpperCase()}
                 <span className="ml-3">
                   <Image
                     width="14"
@@ -69,8 +50,9 @@ const Language = ({ handleClick,language }) => {
                 </span>
               </span>
             )}
-            <span onClick={handleClick}>
-              {option.code !== language && option.label}
+            <span onClick={handleClick} className="text-[14px] tracking-[.4px]">
+              {option.short !== langCode &&
+                option.name + "-" + option.short.toUpperCase()}
             </span>
           </li>
         ))}

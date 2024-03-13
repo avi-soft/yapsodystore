@@ -9,7 +9,7 @@ import Language from "./Language";
 import Account from "./Account";
 import Arrows from "./Arrows";
 
-const Dropdown = ({ type,languageCode }) => {
+const Dropdown = ({ type, languageData,langCode }) => {
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
 
@@ -52,7 +52,7 @@ const Dropdown = ({ type,languageCode }) => {
   };
 
   let handleClick;
-  type === "EN"
+  type === "lang"
     ? (handleClick = handleButtonClick1)
     : (handleClick = handleButtonClick2);
   // Function to calculate the minimum width of the dropdown based on label lengths
@@ -65,8 +65,8 @@ const Dropdown = ({ type,languageCode }) => {
       <button className="flex flex-row h-12 items-center ">
         <div className="relative  ">
           <div className="flex items-center ">
-            {type === "EN" ? (
-              <p className="mr-1 font-bold">{languageCode}</p>
+            {type === "lang" ? (
+              <p className="mr-1 font-bold">{langCode.toUpperCase()}</p>
             ) : (
               <>
                 <span className="mr-2">
@@ -75,7 +75,7 @@ const Dropdown = ({ type,languageCode }) => {
                     className="h-10 w-10"
                   />
                 </span>
-                <p className="myAccount hidden sm:inline-block overflow-hidden text-ellipsis whitespace-nowrap max-w-[120px] ">
+                <p className="myAccount hidden sm:inline-block overflow-hidden type-ellipsis whitespace-nowrap max-w-[120px] ">
                   {type}
                 </p>
               </>
@@ -84,8 +84,14 @@ const Dropdown = ({ type,languageCode }) => {
           </div>
           {/* Conditional rendering of the dropdown content if it's open */}
 
-          {type === "EN"
-            ? isOpen1 && <Language handleClick={handleButtonClick1} language={languageCode}/>
+          {type === "lang"
+            ? isOpen1 && (
+                <Language
+                  handleClick={handleButtonClick1}
+                  languageData={languageData}
+                  langCode={langCode}
+                />
+              )
             : isOpen2 && <Account handleClick={handleButtonClick2} />}
         </div>
       </button>
