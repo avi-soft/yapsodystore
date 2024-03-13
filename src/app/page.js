@@ -27,6 +27,7 @@ export default async function Home() {
     twitterUrl,
     instagramUrl,
     websiteUrl,
+    mainHeadingType,
   } = await getThemeData();
 
   const events = await getEventDetails();
@@ -42,6 +43,7 @@ export default async function Home() {
           venueName={venueName}
           headerAlignment={headerAlignment}
           headingColor={headingColor}
+          mainHeadingType={mainHeadingType}
         />
         <SocialMedia
           position="center"
@@ -54,6 +56,7 @@ export default async function Home() {
         <SupportContact
           position="center"
           iconColor={buttonLinkBoxBorderColor}
+          textColor={textColor}
         />
       </div>
       <div className="mt-[20px] w-full flex flex-col items-center">

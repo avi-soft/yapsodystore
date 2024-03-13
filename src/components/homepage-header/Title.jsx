@@ -9,23 +9,28 @@ export default function Title({
   venueName,
   headerAlignment,
   headingColor = "black",
+  mainHeadingType,
 }) {
   const headerAlignmentClass = {
-    left: "start",
+    left: "flex-start",
     center: "center",
-    right: "end",
+    right: "flex-end",
   }[headerAlignment ? headerAlignment : "center"];
   return (
     <div
-      style={{ headingColor }}
-      className={`p-8 flex justify-${headerAlignmentClass}`}
+      style={{
+        color: headingColor,
+        display: "flex",
+        justifyContent: headerAlignmentClass,
+      }}
+      className={`p-8`}
     >
-      {mainHeadingImage ? (
+      {mainHeadingType == "img" && mainHeadingImage ? (
         <img src={mainHeadingImage} alt={venueName} />
-      ) : titleText ? (
+      ) : mainHeadingType == "txt" && mainHeadingText ? (
         <h1 className={`text-4xl`}>{mainHeadingText}</h1>
       ) : (
-        <h1 className="text-4xl">{storeName}</h1>
+        <h1 className="text-4xl">{venueName}</h1>
       )}
     </div>
   );

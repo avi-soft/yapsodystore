@@ -61,6 +61,7 @@ export async function getThemeData() {
     top_image,
     logo_image,
     title_text,
+    upload_type
   } = venue_page_setup;
   const {
     trans_time_out,
@@ -102,6 +103,7 @@ export async function getThemeData() {
     brandImage: top_image,
     mainHeadingImage: logo_image,
     mainHeadingText: title_text,
+    mainHeadingType:upload_type,
     faqCount: faq_count,
   };
 }
