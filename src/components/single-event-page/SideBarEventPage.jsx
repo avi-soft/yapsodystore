@@ -54,7 +54,7 @@ const SideBarEventPage = ({ color }) => {
             <li className="m-0 w-[100%] border-b border-[#c0c0c0] py-[12px]">
               <Support size="size-6 " color="var(--text-primary)" />
             </li>
-            <li className="m-0 w-[100%] py-[12px]">
+            <li className="m-0 w-[100%] py-[12px]" >
               <ContactPresenter size="size-6 " color="var(--text-primary)" />
             </li>
           </ul>

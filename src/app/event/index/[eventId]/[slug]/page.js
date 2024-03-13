@@ -11,6 +11,7 @@ export default function SingleEventPage() {
       }
     >
       <div className={`ml-auto mr-auto w-[100%] rounded-[8px]`}>
+        
         <div className="flex pb-10 pl-4 pr-2 pt-12 max-xl:block">
           <SideBarEventPage color={themeColor} />
           <MainContent color={themeColor} />

@@ -3,28 +3,14 @@
     color: white;
     display: flex;
     flex-direction: row;
-    justify-content: end;
-    width: 900px;
-    margin-bottom: 9px
+    justify-content: flex-end; 
+    align-items: center; 
+    width: 100%; 
+    margin-bottom: 9px;
 }
 
-@media (max-width: 900px) {
-    .temporary-button {
-        width: 568px;
-    }
+.temporary-button button {
+    margin-left: auto; 
 }
 
-@media (max-width: 568px) {
-    .temporary-button {
-        width: 300px;
-       
-    }
 
-}
-@media (max-width: 300px) {
-    .temporary-button {
-        width: auto;
-       
-    }
-
-}
