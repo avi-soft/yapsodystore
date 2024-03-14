@@ -46,6 +46,15 @@ const MainContent = ({
     location_info,
   } = eventData;
   const headingStyle = { color: headingColor };
+  const {
+    event_title1,
+    event_title2,
+    event_title3,
+    images,
+    location_type,
+    location_info,
+  } = eventData;
+  const headingStyle = { color: headingColor };
   return (
     <div className="mb-[40px] xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
       <section className="mb-8 flex flex-col items-start justify-center gap-2">
@@ -80,6 +89,21 @@ const MainContent = ({
           {location_type == "physical"
             ? location_info.name + " - " + location_info.address
             : location_info.webevent_timezone}
+      <div
+        className="location text-base my-7 relative text-[#566270] flex items-center"
+        style={{ color: textColor }}
+      >
+        <span className="mt-1 inline-block h-5 w-5 align-middle pt-[1px] mr-1">
+          {location_type == "physical" ? (
+            <MdLocationPin className="size-4" />
+          ) : (
+            <GiLaptop className="size-4" />
+          )}
+        </span>
+        <span className="w-[100%] inline-block">
+          {location_type == "physical"
+            ? location_info.name + " - " + location_info.address
+            : location_info.webevent_timezone}
         </span>
       </div>
       <div className="px-[10px] align-top">
@@ -88,8 +112,14 @@ const MainContent = ({
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
           performancesCount={performances.length}
         >
+        <CalendarWrapper
+          textColor={textColor}
+          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+          performancesCount={performances.length}
+        >
           <Calendar
             highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
+            activeColorCode={buttonLinkBoxBorderColor}
             activeColorCode={buttonLinkBoxBorderColor}
           />
         </CalendarWrapper>
@@ -104,8 +134,15 @@ const MainContent = ({
           <>
             <div className="flex justify-between h-[80px]">
               <h3 style={{ color: textColor }}>
+              <h3 style={{ color: textColor }}>
                 Sycuan Casino Resort - 5469 Casino Way, El Cajon, CA 92019, USA
               </h3>
+              <a
+                style={{ color: buttonLinkBoxBorderColor }}
+                className="underline"
+                target={"_blank"}
+                href={getDirections()}
+              >
               <a
                 style={{ color: buttonLinkBoxBorderColor }}
                 className="underline"
@@ -123,6 +160,7 @@ const MainContent = ({
           </>
         )}
         <SupportContact
+          iconColor={buttonLinkBoxBorderColor}
           iconColor={buttonLinkBoxBorderColor}
           textColor={textColor}
           boxBackgroundColor={boxBackgroundColor}

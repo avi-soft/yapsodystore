@@ -1,9 +1,9 @@
 // Note- import this page 
 
 import React from 'react'
-import FreqQuest from './faq/page'
+import FreqQuest from './DisplayFaq'
 import './style.css'
-const page = () => {
+const MainFaq = () => {
 
   // Basically i have taken this as an array but this data will come from backend so please make changes accordingly
   // or this data you will get by fetch api's...
@@ -44,4 +44,4 @@ const page = () => {
   )
 }
 
-export default page
+export default MainFaq

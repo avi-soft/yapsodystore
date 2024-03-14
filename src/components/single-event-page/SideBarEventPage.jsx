@@ -14,6 +14,9 @@ const SideBarEventPage = ({
   const isEventTypePhysical =
     eventData.location_type == "physical" &&
     eventData.location_info.show_map != "no";
+  const isEventTypePhysical =
+    eventData.location_type == "physical" &&
+    eventData.location_info.show_map != "no";
 
   return (
     <div className="pl-0 ml-0  mt-20 block w-[30%] px-[10px] pb-[30px] pr-[20px] max-xl:w-[100%] xl:sticky xl:top-0">
@@ -26,6 +29,7 @@ const SideBarEventPage = ({
               performanceCount={eventData.performances_count}
               startDate={eventData.performance_start_time}
               endDate={eventData.performance_end_time}
+              color={textColor}
               color={textColor}
             />
           </li>
@@ -47,6 +51,7 @@ const SideBarEventPage = ({
                 className="p-[6px]"
                 width={"100%"}
                 color={buttonColor}
+                to="#gMap"
                 to="#gMap"
                 padding_y={"6px"}
                 padding_x={"6px"}
