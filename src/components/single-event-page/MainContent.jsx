@@ -5,7 +5,7 @@ import SingleEventPerformance from "./SingleEventPerformance";
 import SupportContact from "../support-contact/SupportContact";
 import CalendarWrapper from "../calendar/CalendarWrapper";
 import { FaLocationDot } from "react-icons/fa6";
-import Map from "../google-map/Map";
+// import Map from "../google-map/Map";
 
 const MainContent = ({ color, performances }) => {
   const event = {
@@ -38,7 +38,7 @@ const MainContent = ({ color, performances }) => {
           />
         </CalendarWrapper>
         <SingleEventPerformance performances={performances} color={color} />
-        <Map address="jammu, jammu and kashmir" />
+        {/* <Map address="jammu, jammu and kashmir" /> */}
         <SupportContact color={color} />
       </div>
     </div>
