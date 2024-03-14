@@ -46,13 +46,12 @@ export default async function SingleEventPage({ params }) {
     eventData,
     performances,
   };
-  console.log(performances);
+  console.log(eventData);
   const themeColor = "red";
   return (
     <MainContainer
-      coverImage={
-        "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
-      }
+      coverImage={backgroundImage}
+      storeBackground={storeBackground}
     >
       <div className={`ml-auto mr-auto w-[100%] rounded-[8px]`}>
         <div className="flex pb-10 pl-4 pr-2 pt-12 max-xl:block">

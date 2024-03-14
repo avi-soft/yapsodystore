@@ -5,6 +5,7 @@ import SingleEventPerformance from "./SingleEventPerformance";
 import SupportContact from "../support-contact/SupportContact";
 import CalendarWrapper from "../calendar/CalendarWrapper";
 import { FaLocationDot } from "react-icons/fa6";
+import Map from "../google-map/Map";
 // import Map from "../google-map/Map";
 
 const MainContent = ({
@@ -25,6 +26,27 @@ const MainContent = ({
     performances: 5,
     location: "Asia/Calcutta",
   };
+  const isEventTypePhysical =
+    eventData.location_type == "physical" &&
+    eventData.location_info.show_map != "no";
+  function getDirections() {
+    var locationInfo = eventData.location_info;
+    var geoPosition = locationInfo.geo_lat + "," + locationInfo.geo_lng;
+
+    var gMapUrl =
+      "https://maps.google.com/?saddr=" +
+      "" +
+      "&center=" +
+      geoPosition +
+      "&daddr=" +
+      encodeURIComponent(locationInfo.address) +
+      "&directionsmode=driving&mapmode=streetview&zoom=10";
+
+    if (locationInfo.geo_lat != 0 && locationInfo.geo_lng != 0) {
+      gMapUrl = gMapUrl + "&saddr=" + geoPosition;
+    }
+    return gMapUrl;
+  }
   return (
     <div className="mb-[40px] xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
       <section className="mb-8">
@@ -48,7 +70,23 @@ const MainContent = ({
           />
         </CalendarWrapper>
         <SingleEventPerformance performances={performances} color={color} />
-        {/* <Map address="jammu, jammu and kashmir" /> */}
+        {isEventTypePhysical && (
+          <>
+            <div className="flex justify-between h-[80px]">
+              <h3 style={{ color: color }}>
+                Sycuan Casino Resort - 5469 Casino Way, El Cajon, CA 92019, USA
+              </h3>
+              <a className="underline" target={"_blank"} href={getDirections()}>
+                Get Directions
+              </a>
+            </div>
+            <Map
+              geo_lat={eventData.location_info.geo_lat}
+              geo_lng={eventData.location_info.geo_lng}
+              key={"AIzaSyBYUaj85xdIZhLl64x4GcqmYEEk3v1hxOs"}
+            />
+          </>
+        )}
         <SupportContact
           iconColor={iconColor}
           textColor={textColor}

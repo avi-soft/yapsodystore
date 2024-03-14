@@ -16,10 +16,10 @@ const Footer = ({
   const currentYear = new Date().getFullYear();
   return (
     <div
-      className={`border-t mt-6 border-solid border-gray-300 !bg-white font-[450] text-[#454444] w-full h-16 text-base ${styles.footer}`}
+      className={`border-t h-fit mt-auto border-solid px-2 border-gray-300 !bg-white font-[450] text-[#454444] w-full  text-base ${styles.footer}`}
     >
       <div className={`float-left ${flexRow} p-4 ${styles.list}`}>
-        <ul className={`${flexRow} flex-wrap gap-3`}>
+        <ul className={`${flexRow} flex-wrap gap-3 `}>
           <Item text="Support" link={supportUrl} hide={false} />
           <Item text="Terms" link={termsUrl} hide={false} />
           <Item text="Privacy" link={privacyUrl} hide={false} />
@@ -34,7 +34,6 @@ const Footer = ({
       <div className={`float-right ${flexRow} p-4 ${styles.list}`}>
         <p className="cursor-pointer">
           <Link href={portalUrl}>
-            {" "}
             © {currentYear} {companyName} All Rights Reserved
           </Link>
         </p>
