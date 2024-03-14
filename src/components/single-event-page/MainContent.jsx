@@ -5,6 +5,8 @@ import SingleEventPerformance from "./SingleEventPerformance";
 import SupportContact from "../support-contact/SupportContact";
 import CalendarWrapper from "../calendar/CalendarWrapper";
 import { FaLocationDot } from "react-icons/fa6";
+
+import BottomView from "../social-share-widget/BottomView";
 // import Map from "../google-map/Map";
 
 const MainContent = ({ color, performances }) => {
@@ -24,6 +26,11 @@ const MainContent = ({ color, performances }) => {
         <SocialMedia position="start" />
       </section>
       <SocialShareWidget />
+
+      <div className="md:hidden block">
+        <BottomView bgColor={"bg-slate-300"} textColor={"white"} />
+      </div>
+
       <div className="location text-base my-7 relative text-[#566270] flex items-center">
         <span className="inline-block h-5 w-5 align-middle pt-[1px] mr-1 ">
           <FaLocationDot />
