@@ -66,14 +66,9 @@ const SideBarEventPage = ({
               textColor={textColor}
               boxBackgroundColor={boxBackgroundColor}
               boxBorderColor={buttonColor}
-              iconColor={textColor}
-              textColor={textColor}
-              boxBackgroundColor={boxBackgroundColor}
-              boxBorderColor={buttonColor}
             />
           </li>
           <li className="m-0 w-[100%] py-[12px]">
-            <ContactPresenter size="size-6 " color={textColor} />
             <ContactPresenter size="size-6 " color={textColor} />
           </li>
         </ul>

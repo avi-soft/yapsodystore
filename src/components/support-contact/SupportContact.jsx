@@ -20,13 +20,6 @@ export default function SupportContact({
           boxBackgroundColor={boxBackgroundColor}
           boxBorderColor={iconColor}
         />
-        <Support
-          size="size-6"
-          iconColor={iconColor}
-          textColor={textColor}
-          boxBackgroundColor={boxBackgroundColor}
-          boxBorderColor={iconColor}
-        />
       </span>
       <span className="max-sm:mt-[10px]">
         <ContactPresenter size="size-6" color={iconColor} />
