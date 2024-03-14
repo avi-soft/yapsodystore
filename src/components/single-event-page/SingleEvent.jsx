@@ -7,7 +7,7 @@ const SingleEvent = ({ performance, color }) => {
   return (
     <div
       style={{ borderColor: color }}
-      className="mb-[20px] flex justify-between rounded border-[1px] bg-[#ffffff] px-[20px] py-[30px] max-md:block"
+      className="mb-[20px] flex justify-between rounded border-[1px] bg-[#ffffff] px-[20px] py-[30px] max-md:block m-h-[330px]"
     >
       <EventDateTime
         date={performance.show_start_datetime}

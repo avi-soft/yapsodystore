@@ -30,6 +30,7 @@ const SideBarEventPage = ({
               performanceCount={eventData.performances_count}
               startDate={eventData.performance_start_time}
               endDate={eventData.performance_end_time}
+              color={textColor}
             />
           </li>
           <li className="m-0 list-item w-[100%] border-b border-[#c0c0c0] py-[12px]">

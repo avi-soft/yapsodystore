@@ -4,9 +4,9 @@ import SocialShareWidget from "../social-share-widget/SocialShare";
 import SingleEventPerformance from "./SingleEventPerformance";
 import SupportContact from "../support-contact/SupportContact";
 import CalendarWrapper from "../calendar/CalendarWrapper";
-import { FaLocationDot } from "react-icons/fa6";
 // import Map from "../google-map/Map";
-
+import { MdLocationPin } from "react-icons/md";
+import { GiLaptop } from "react-icons/gi";
 const MainContent = ({
   color,
   performances,
@@ -25,8 +25,15 @@ const MainContent = ({
     performances: 5,
     location: "Asia/Calcutta",
   };
-  const { event_title1, event_title2, event_title3, images ,location_type,location_info} = eventData;
-   const headingStyle = { color: headingColor };
+  const {
+    event_title1,
+    event_title2,
+    event_title3,
+    images,
+    location_type,
+    location_info,
+  } = eventData;
+  const headingStyle = { color: headingColor };
   return (
     <div className="mb-[40px] xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
       <section className="mb-8 flex flex-col items-start justify-center gap-2">
@@ -40,11 +47,22 @@ const MainContent = ({
         />
       </section>
       <SocialShareWidget />
-      <div className="location text-base my-7 relative text-[#566270] flex items-center">
-        <span className="inline-block h-5 w-5 align-middle pt-[1px] mr-1 ">
-          <FaLocationDot />
+      <div
+        className="location text-base my-7 relative text-[#566270] flex items-center"
+        style={{ color: textColor }}
+      >
+        <span className="mt-1 inline-block h-5 w-5 align-middle pt-[1px] mr-1">
+          {location_type == "physical" ? (
+            <MdLocationPin className="size-4" />
+          ) : (
+            <GiLaptop className="size-4" />
+          )}
         </span>
-        <span className="w-[80%] inline-block">{location_info.name}{" - "}{location_info.address}</span>
+        <span className="w-[100%] inline-block">
+          {location_type == "physical"
+            ? location_info.name + " - " + location_info.address
+            : location_info.webevent_timezone}
+        </span>
       </div>
       <div className="px-[10px] align-top">
         <CalendarWrapper performancesCount={performances.length}>
