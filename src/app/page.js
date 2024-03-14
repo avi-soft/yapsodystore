@@ -1,6 +1,6 @@
 // "use client";
 import Calendar from "@/components/calendar/Calendar";
-import Search from "@/components/search/search";
+import Search from "@/components/search/search.jsx";
 import SocialMedia from "@/components/social-media/SocialMedia";
 import MainContainer from "@/components/main-container/MainContainer";
 import MainPageEventList from "@/components/events/MainPageEeventList";

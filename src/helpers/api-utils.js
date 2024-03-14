@@ -3,7 +3,7 @@
 import request from "./api-urls";
 
 const BaseUrl =
-  process.env.ENV === "dev"
+  process.env.NEXT_PUBLIC_ENV === "dev"
     ? "https://stage-api.yapsody.com/"
     : "https://api.yapsody.com/";
 const protocol = process.env.ENV === "dev" ? "http://" : "https://";
