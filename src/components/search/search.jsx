@@ -50,8 +50,11 @@ const Search = ({ color, textColor, buttonLinkBoxBorderColor }) => {
         type="search"
         name="search"
         id="search"
-        className={`${styles.search} w-[100%]`}
-        placeholder="Search Events"
+        className={`${styles.search} max-sm:w-[100%] lg:w-[340px] placeholder-[#54585c] `}
+        placeholder="Search events"
+      
+        // className={`${styles.search} w-[100%]`}
+        // placeholder="Search Events"
         value={query}
         onChange={handleInputChange}
       />

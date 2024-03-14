@@ -16,13 +16,6 @@ const MainContent = ({
   headingColor,
   eventData,
 }) => {
-  const event = {
-    name: "MULTI Events",
-    startdate: "2024-04-08",
-    endDate: "2024-04-20",
-    performances: 5,
-    location: "Asia/Calcutta",
-  };
   const isEventTypePhysical =
     eventData.location_type == "physical" &&
     eventData.location_info.show_map != "no";
@@ -44,6 +37,8 @@ const MainContent = ({
     }
     return gMapUrl;
   }
+
+  const headingStyle = { color: headingColor };
   const {
     event_title1,
     event_title2,
@@ -52,13 +47,19 @@ const MainContent = ({
     location_type,
     location_info,
   } = eventData;
-  const headingStyle = { color: headingColor };
+
   return (
     <div className="mb-[40px] xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
       <section className="mb-8 flex flex-col items-start justify-center gap-2">
-        <h1 className="text-[3.375em] font-normal ">{event_title1}</h1>
-        <h2 className=" text-[2em] font-normal">{event_title2}</h2>
-        <h3 className=" text-[1.7em] font-normal">{event_title3}</h3>
+        <h1 style={headingStyle} className="text-[3.375em] font-normal ">
+          {event_title1}
+        </h1>
+        <h2 style={headingStyle} className=" text-[2em] font-normal">
+          {event_title2}
+        </h2>
+        <h3 style={headingStyle} className=" text-[1.7em] font-normal">
+          {event_title3}
+        </h3>
         <SocialMedia
           position="start"
           {...socialMediaLinks}
@@ -96,7 +97,10 @@ const MainContent = ({
         </CalendarWrapper>
         <SingleEventPerformance
           performances={performances}
-          color={buttonLinkBoxBorderColor}
+          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+          textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+          headingColor={headingColor}
         />
         {isEventTypePhysical && (
           <>
@@ -123,7 +127,7 @@ const MainContent = ({
         <SupportContact
           iconColor={buttonLinkBoxBorderColor}
           textColor={textColor}
-          boxBackgroundColor={buttonLinkBoxBorderColor}
+          boxBackgroundColor={boxBackgroundColor}
           boxBorderColor={buttonLinkBoxBorderColor}
         />
       </div>
