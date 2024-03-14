@@ -1,20 +1,9 @@
-/* .Freq-main-page{
-    display: flex;
-    flex-direction: row;
-   
-}
-
-.Freq-main-page .left-faq{
-    flex: 75%;
-} */
 .Freq-main-page .right-faq{
-    /* flex: 25%; */
     height:100vh;
     width: 400px;
     border: 1px solid #d8cece;
     overflow-y: auto;
 }
-
 
 .freqaskquest{
     padding: 12px 12px;

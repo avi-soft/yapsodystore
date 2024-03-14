@@ -1,11 +1,10 @@
-
 import React from 'react'
 import FaqQues from './FaqQuestions'
-import ClickB from '../box-appear/temp'
+import ClickFreq from '../box-appear/OnlyForFaq'
 
 const MainFaq = ({onClose}) => {
   return (
-    <ClickB component={FaqQues} onClose={onClose}/>
+    <ClickFreq component={FaqQues} onClose={onClose}/>
   )
   
 }
