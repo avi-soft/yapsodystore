@@ -7,7 +7,17 @@ import CalendarWrapper from "../calendar/CalendarWrapper";
 import { FaLocationDot } from "react-icons/fa6";
 // import Map from "../google-map/Map";
 
-const MainContent = ({ color, performances }) => {
+const MainContent = ({
+  color,
+  performances,
+  iconColor,
+  textColor,
+  boxBackgroundColor,
+  boxBorderColor,
+  socialMediaLinks,
+  headingColor,
+  eventData,
+}) => {
   const event = {
     name: "MULTI Events",
     startdate: "2024-04-08",
@@ -39,7 +49,12 @@ const MainContent = ({ color, performances }) => {
         </CalendarWrapper>
         <SingleEventPerformance performances={performances} color={color} />
         {/* <Map address="jammu, jammu and kashmir" /> */}
-        <SupportContact color={color} />
+        <SupportContact
+          iconColor={iconColor}
+          textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+          boxBorderColor={boxBorderColor}
+        />
       </div>
     </div>
   );

@@ -33,7 +33,7 @@ export default async function RootLayout({ children }) {
           iconColor={buttonLinkBoxBorderColor}
         />
         <div className=" flex-1">{children}</div>
-        <Suspense fallback={<Loading />} />
+        <Suspense fallback={<Loading />}></Suspense>
         <Footer
           supportUrl={supportUrl}
           termsUrl={termsUrl}

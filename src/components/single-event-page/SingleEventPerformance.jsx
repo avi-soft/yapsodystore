@@ -1,6 +1,4 @@
-import LoadingIcon from "@/app/loadingg";
 import SingleEvent from "./SingleEvent";
-import { Suspense } from "react";
 
 const SingleEventPerformance = ({ performances, color }) => {
   return (
