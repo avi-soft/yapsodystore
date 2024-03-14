@@ -36,11 +36,9 @@ export default async function SingleEventPage({ params }) {
     websiteUrl,
   };
   const mainContentProps = {
-    buttonColor: buttonLinkBoxBorderColor,
-    iconColor: buttonLinkBoxBorderColor,
     textColor,
     boxBackgroundColor,
-    boxBorderColor: buttonLinkBoxBorderColor,
+    buttonLinkBoxBorderColor,
     socialMediaLinks,
     headingColor,
     eventData,

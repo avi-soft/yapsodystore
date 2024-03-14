@@ -4,16 +4,14 @@ import SocialShareWidget from "../social-share-widget/SocialShare";
 import SingleEventPerformance from "./SingleEventPerformance";
 import SupportContact from "../support-contact/SupportContact";
 import CalendarWrapper from "../calendar/CalendarWrapper";
-// import Map from "../google-map/Map";
+import Map from "../google-map/Map";
 import { MdLocationPin } from "react-icons/md";
 import { GiLaptop } from "react-icons/gi";
 const MainContent = ({
-  color,
+  buttonLinkBoxBorderColor,
   performances,
-  iconColor,
   textColor,
   boxBackgroundColor,
-  boxBorderColor,
   socialMediaLinks,
   headingColor,
   eventData,
@@ -25,6 +23,27 @@ const MainContent = ({
     performances: 5,
     location: "Asia/Calcutta",
   };
+  const isEventTypePhysical =
+    eventData.location_type == "physical" &&
+    eventData.location_info.show_map != "no";
+  function getDirections() {
+    var locationInfo = eventData.location_info;
+    var geoPosition = locationInfo.geo_lat + "," + locationInfo.geo_lng;
+
+    var gMapUrl =
+      "https://maps.google.com/?saddr=" +
+      "" +
+      "&center=" +
+      geoPosition +
+      "&daddr=" +
+      encodeURIComponent(locationInfo.address) +
+      "&directionsmode=driving&mapmode=streetview&zoom=10";
+
+    if (locationInfo.geo_lat != 0 && locationInfo.geo_lng != 0) {
+      gMapUrl = gMapUrl + "&saddr=" + geoPosition;
+    }
+    return gMapUrl;
+  }
   const {
     event_title1,
     event_title2,
@@ -43,7 +62,7 @@ const MainContent = ({
         <SocialMedia
           position="start"
           {...socialMediaLinks}
-          iconColor={iconColor}
+          iconColor={buttonLinkBoxBorderColor}
         />
       </section>
       <SocialShareWidget />
@@ -65,19 +84,47 @@ const MainContent = ({
         </span>
       </div>
       <div className="px-[10px] align-top">
-        <CalendarWrapper performancesCount={performances.length}>
+        <CalendarWrapper
+          textColor={textColor}
+          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+          performancesCount={performances.length}
+        >
           <Calendar
             highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
-            activeColorCode={color}
+            activeColorCode={buttonLinkBoxBorderColor}
           />
         </CalendarWrapper>
-        <SingleEventPerformance performances={performances} color={color} />
-        {/* <Map address="jammu, jammu and kashmir" /> */}
+        <SingleEventPerformance
+          performances={performances}
+          color={buttonLinkBoxBorderColor}
+        />
+        {isEventTypePhysical && (
+          <>
+            <div className="flex justify-between h-[80px]">
+              <h3 style={{ color: textColor }}>
+                Sycuan Casino Resort - 5469 Casino Way, El Cajon, CA 92019, USA
+              </h3>
+              <a
+                style={{ color: buttonLinkBoxBorderColor }}
+                className="underline"
+                target={"_blank"}
+                href={getDirections()}
+              >
+                Get Directions
+              </a>
+            </div>
+            <Map
+              geo_lat={eventData.location_info.geo_lat}
+              geo_lng={eventData.location_info.geo_lng}
+              key={"AIzaSyBYUaj85xdIZhLl64x4GcqmYEEk3v1hxOs"}
+            />
+          </>
+        )}
         <SupportContact
-          iconColor={iconColor}
+          iconColor={buttonLinkBoxBorderColor}
           textColor={textColor}
-          boxBackgroundColor={boxBackgroundColor}
-          boxBorderColor={boxBorderColor}
+          boxBackgroundColor={buttonLinkBoxBorderColor}
+          boxBorderColor={buttonLinkBoxBorderColor}
         />
       </div>
     </div>
