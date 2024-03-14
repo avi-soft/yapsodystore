@@ -5,7 +5,10 @@ import Button from "@/ui/Button";
 import EventImage from "./EventImage";
 import EventInfo from "./EventInfo";
 
-const SideBarEventPage = ({ color }) => {
+const SideBarEventPage = ({buttonColor,
+            textColor,
+            boxBackgroundColor,
+            eventData}) => {
   const event = {
     name: "MULTI Events",
     startdate: "2024-04-08",
@@ -22,24 +25,27 @@ const SideBarEventPage = ({ color }) => {
             <EventInfo event={event} />
           </li>
           <li className="m-0 list-item w-[100%] border-b border-[#c0c0c0] py-[12px]">
-            <Button width={"100%"} color={color} to={"/"}>
+            <Button width={"100%"} color={buttonColor} to={"/"}>
               Get Ticket
             </Button>
           </li>
           <li className="m-0 list-item w-[100%] border-b border-[#c0c0c0] py-[12px]">
-            <Button width={"100%"} color={color} to={"/"}>
+            <Button width={"100%"} color={buttonColor} to={"/"}>
               Get Direction
             </Button>
           </li>
           <li className="m-0 w-[100%] border-b border-[#c0c0c0] py-[12px]">
             <Support
               size="size-6 "
-              color="var(--text-primary)"
               position="top"
+              iconColor={textColor}
+              textColor={textColor}
+              boxBackgroundColor={boxBackgroundColor}
+              boxBorderColor={buttonColor}
             />
           </li>
           <li className="m-0 w-[100%] py-[12px]">
-            <ContactPresenter size="size-6 " color="var(--text-primary)" />
+            <ContactPresenter size="size-6 " color={textColor} />
           </li>
         </ul>
       </div>
