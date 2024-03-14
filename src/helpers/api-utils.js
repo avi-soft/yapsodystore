@@ -131,3 +131,11 @@ export async function getSingleEventPerformances(eventId) {
   );
   return response.data;
 }
+
+export async function getSingleEventData(eventId) {
+  const response = await getData(BaseUrl + request.singleEvent(eventId), {
+    ...headerData,
+    next: { revalidate: 5 },
+  });
+  return response.data;
+}
