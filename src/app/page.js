@@ -32,7 +32,6 @@ export default async function Home() {
 
   const events = await getEventDetails();
   return (
-<<<<<<< HEAD
     <div className="pt-24 pb-8">
       <MainContainer
         coverImage={backgroundImage}
@@ -44,56 +43,6 @@ export default async function Home() {
             mainHeadingText={mainHeadingText}
             venueName={venueName}
             headerAlignment={headerAlignment}
-=======
-    <MainContainer
-      coverImage={backgroundImage}
-      storeBackground={storeBackground}
-    >
-      <div className="w-full">
-        <Title
-          mainHeadingImage={mainHeadingImage}
-          mainHeadingText={mainHeadingText}
-          venueName={venueName}
-          headerAlignment={headerAlignment}
-          headingColor={headingColor}
-          mainHeadingType={mainHeadingType}
-        />
-        <SocialMedia
-          position="center"
-          facebookUrl={facebookUrl}
-          twitterUrl={twitterUrl}
-          instagramUrl={instagramUrl}
-          websiteUrl={websiteUrl}
-          iconColor={buttonLinkBoxBorderColor}
-        />
-        <SupportContact
-          position="center"
-          iconColor={buttonLinkBoxBorderColor}
-          textColor={textColor}
-          boxBackgroundColor={boxBackgroundColor}
-          boxBorderColor={buttonLinkBoxBorderColor}
-        />
-      </div>
-      <div className="mt-[20px] w-full flex flex-col items-center">
-        <Search
-          color={boxBackgroundColor}
-          textColor={headingColor}
-          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-        />
-        <CalendarWrapper
-          performancesCount={events.length}
-          textColor={textColor}
-          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-        >
-          <Calendar
-            highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
-            activeColorCode={buttonLinkBoxBorderColor}
-          />
-        </CalendarWrapper>
-        <Suspense fallback={<Loading color={buttonLinkBoxBorderColor} />}>
-          <MainPageEventList
-            events={events}
->>>>>>> 5a3f641b17cc6897c106585a61d02ee00c5c72b9
             headingColor={headingColor}
             mainHeadingType={mainHeadingType}
           />
