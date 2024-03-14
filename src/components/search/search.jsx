@@ -16,24 +16,31 @@ const Search = ({ color, textColor, buttonLinkBoxBorderColor }) => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
+
   useEffect(() => {
-    if (query.length >= 3) {
-      getEventDetails(query)
-        .then((data) => {
+    // if (query.length >= 3) {
+      getEventDetails().then((data) => {
           setResults(data);
-          setShowDropdown(true);
+          console.log(results);
+          // setShowDropdown(true);
         })
-        .catch((error) => {
-          setShowDropdown(false);
-        });
-    } else {
-      setShowDropdown(false);
-    }
+    //     .catch((error) => {
+    //       setShowDropdown(false);
+    //     });
+    // } else {
+    //   setShowDropdown(false);
+    // }
   }, [query]);
 
   const handleInputChange = (e) => {
     setQuery(e.target.value);
   };
+
+  // const handleSelectResult = (result) => {
+  //   setQuery(result);
+  //   setShowDropdown(false);
+  //   onSearchSelect(result);
+  // }
 
   return (
     <div className="mb-6 w-[240px] max-sm:w-[100%]">
@@ -53,13 +60,13 @@ const Search = ({ color, textColor, buttonLinkBoxBorderColor }) => {
           {results
             ? results
                 .filter((result) =>
-                  result.event_title1.toLowerCase().includes(query)
+                  result.event_title1.toLowerCase().includes(query.trim())
                 )
                 .map((filterItems, index) => (
                   <div
                     key={index}
                     className="py-2 px-4 cursor-pointer hover:bg-gray-100"
-                    onClick={() => handleSelectResult(filterItems)}
+                    // onClick={() => handleSelectResult(filterItems)}
                   >
                     {filterItems.event_title1}
                   </div>

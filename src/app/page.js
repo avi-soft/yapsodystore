@@ -9,27 +9,10 @@ import Title from "@/components/homepage-header/Title";
 import CalendarWrapper from "@/components/calendar/CalendarWrapper";
 import { getEventDetails, getThemeData } from "@/helpers/api-utils";
 import { Suspense } from "react";
-import Loading from "./loadingg";
-import dynamic from "next/dynamic";
-
-const DynamicSearch = dynamic(() => import("@/components/search/search"), {
-  ssr: false,
-});
+import Loading from "./loading";
 
 export default async function Home() {
-  // const [selectedEvent, setSelectedEvent] = useState(null);
-  const events = await getEventDetails();
-
-  // console.log(events);
-
-  const handleSearch = async (searchQuery) => {
-    try {
-      const searchData = await getEventDetails(searchQuery);
-    } catch (error) {
-      console.log("Error", error);
-    }
-  };
-
+  const eventData = await getEventDetails();
   const {
     boxBackgroundColor,
     buttonLinkBoxBorderColor,
@@ -85,9 +68,10 @@ export default async function Home() {
             color={boxBackgroundColor}
             textColor={headingColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+            // onSearchSelect={handleEventSelect}
           />
           <CalendarWrapper
-            performancesCount={events.length}
+            performancesCount={eventData.length}
             textColor={textColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
           >
@@ -97,16 +81,28 @@ export default async function Home() {
             />
           </CalendarWrapper>
           <Suspense fallback={<Loading color="blue" />}>
+            {/* {selectedEvent != null ? (
+              <MainPageEventList
+                events={setEventData}
+                headingColor={headingColor}
+                boxBackgroundColor={boxBackgroundColor}
+                textColor={textColor}
+                buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+              />
+            ) : ( */}
             <MainPageEventList
-              events={events}
+              events={eventData}
               headingColor={headingColor}
               boxBackgroundColor={boxBackgroundColor}
               textColor={textColor}
               buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
             />
+            {/* )} */}
           </Suspense>
         </div>
       </MainContainer>
     </div>
   );
 }
+
+// export default Home;
