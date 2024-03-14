@@ -8,7 +8,7 @@ import Title from "@/components/homepage-header/Title";
 import CalendarWrapper from "@/components/calendar/CalendarWrapper";
 import { getEventDetails, getThemeData } from "@/helpers/api-utils";
 import { Suspense } from "react";
-import Loading from "./loadingg";
+import Loading from "./loading";
 
 export default async function Home() {
   const {
@@ -62,7 +62,7 @@ export default async function Home() {
             boxBorderColor={buttonLinkBoxBorderColor}
           />
         </div>
-        <div className="mt-[20px] w-full flex flex-col items-center">
+        <div className="w-[95%] mt-[20px] flex flex-col items-center">
           <Search
             color={boxBackgroundColor}
             textColor={headingColor}
@@ -78,7 +78,7 @@ export default async function Home() {
               activeColorCode={buttonLinkBoxBorderColor}
             />
           </CalendarWrapper>
-          <Suspense fallback={<Loading color={buttonLinkBoxBorderColor} />}>
+          <Suspense fallback={<Loading color="blue" />}>
             <MainPageEventList
               events={events}
               headingColor={headingColor}

@@ -1,4 +1,4 @@
-export default function LoadingIcon({ color = "red" }) {
+export default function LoadingIcon({ color}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
