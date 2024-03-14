@@ -57,6 +57,8 @@ export default async function Home() {
           position="center"
           iconColor={buttonLinkBoxBorderColor}
           textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+          boxBorderColor={buttonLinkBoxBorderColor}
         />
       </div>
       <div className="mt-[20px] w-full flex flex-col items-center">

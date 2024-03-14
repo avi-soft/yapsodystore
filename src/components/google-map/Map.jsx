@@ -1,33 +1,31 @@
 "use client";
-import { useEffect, useRef, useMemo } from "react";
+import { useEffect, useRef } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
-function Map({ address }) {
+function Map({ geo_lat, geo_lng, key }) {
+  console.log(geo_lat, geo_lng, key);
   const mapRef = useRef(null);
-  const geocoder = useMemo(() => new google.maps.Geocoder(), []);
   useEffect(() => {
-    const loader = new Loader({
-      apiKey: "AIzaSyBYUaj85xdIZhLl64x4GcqmYEEk3v1hxOs",
-      version: "weekly",
-    });
-    loader.load().then(() => {
-      geocoder.geocode({ address: address }, (results, status) => {
-        if (status === "OK") {
-          const map = new google.maps.Map(mapRef.current, {
-            center: results[0].geometry.location,
-            zoom: 8,
-          });
-          const marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location,
-          });
-        } else {
-          console.error(
-            `Geocode was not successful for the following reason: ${status}`
-          );
-        }
+    const initMap = async () => {
+      const loader = new Loader({
+        apiKey: key,
+        version: "weekly",
       });
-    });
-  }, [address, geocoder]);
-  return <div style={{ height: "400px" }} ref={mapRef} />;
+      const { Map } = await loader.importLibrary("maps");
+      const position = {
+        lat: geo_lat,
+        lng: geo_lng,
+      };
+      const mapOptions = {
+        centre: position,
+        zoom: 17,
+        mapId: "single_event_mapid",
+      };
+      const map = new Map(mapRef.current, mapOptions);
+    };
+    initMap();
+  });
+  return (
+    <div className="rounded-md" style={{ height: "318px" }} ref={mapRef} />
+  );
 }
 export default Map;

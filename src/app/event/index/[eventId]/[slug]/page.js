@@ -29,8 +29,24 @@ export default async function SingleEventPage({ params }) {
     websiteUrl,
     mainHeadingType,
   } = await getThemeData();
-
-  console.log(performances);
+  const socialMediaLinks = {
+    facebookUrl,
+    twitterUrl,
+    instagramUrl,
+    websiteUrl,
+  };
+  const mainContentProps = {
+    buttonColor: buttonLinkBoxBorderColor,
+    iconColor: buttonLinkBoxBorderColor,
+    textColor,
+    boxBackgroundColor,
+    boxBorderColor: buttonLinkBoxBorderColor,
+    socialMediaLinks,
+    headingColor,
+    eventData,
+    performances,
+  };
+  console.log(eventData);
   const themeColor = "red";
   return (
     <MainContainer
@@ -40,8 +56,13 @@ export default async function SingleEventPage({ params }) {
     >
       <div className={`ml-auto mr-auto w-[100%] rounded-[8px]`}>
         <div className="flex pb-10 pl-4 pr-2 pt-12 max-xl:block">
-          <SideBarEventPage color={themeColor} />
-          <MainContent performances={performances} color={themeColor} />
+          <SideBarEventPage
+            buttonColor={buttonLinkBoxBorderColor}
+            textColor={textColor}
+            boxBackgroundColor={boxBackgroundColor}
+            eventData={eventData}
+          />
+          <MainContent {...mainContentProps} />
         </div>
       </div>
     </MainContainer>
