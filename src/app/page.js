@@ -96,7 +96,7 @@ export default async function Home() {
               activeColorCode={buttonLinkBoxBorderColor}
             />
           </CalendarWrapper>
-          <Suspense fallback={<Loading color={buttonLinkBoxBorderColor} />}>
+          <Suspense fallback={<Loading color="blue" />}>
             <MainPageEventList
               events={events}
               headingColor={headingColor}

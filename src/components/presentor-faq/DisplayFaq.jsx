@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react';
 import './style.css'
 
-const Page = ({faq}) => {
+const DisplayFq = ({faq}) => {
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
 
   const toggleAnswerVisibility = () => {
@@ -28,4 +28,4 @@ const Page = ({faq}) => {
 
 }
 
-export default Page
+export default DisplayFq

@@ -29,7 +29,7 @@ const EventDetails = ({
         </p>
       </span>
       <span className="flex gap-2 text-sm" style={{ color: textColor }}>
-        <span>
+        <span className="mt-1">
           {locationType == "physical" ? (
             <MdLocationPin className="size-4" />
           ) : (

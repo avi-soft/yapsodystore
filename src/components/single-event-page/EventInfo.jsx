@@ -1,8 +1,8 @@
 import React from "react";
 import moment from "moment";
-const EventInfo = ({ performanceCount, startDate, endDate }) => {
+const EventInfo = ({ performanceCount, startDate, endDate,color }) => {
   return (
-    <div className="block overflow-hidden tracking-wider text-[#2e2294e]">
+    <div className="block overflow-hidden tracking-wider text-[#2e2294e]" style={{color}}>
       {performanceCount > 1 ? (
         <>
           <div className="flex gap-2">
