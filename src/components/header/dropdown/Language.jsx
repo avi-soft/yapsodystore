@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import check from "@/../public/assets/icons/check.png";
 
-const Language = ({ handleClick, languageData, langCode }) => {
+const Language = ({ languageData, langCode }) => {
   function calculateMinWidth() {
     const maxLength = languageData.reduce((max, option) => {
       const newLabel = `${option.name}-${option.short.toUpperCase()}`;
@@ -12,7 +12,7 @@ const Language = ({ handleClick, languageData, langCode }) => {
     return `${maxLength * 20 + 49}px`;
   }
   return (
-    <div className="relative shadow-xl">
+    <>
       <div className="absolute right-11 mt-5">
         <div
           style={{
@@ -36,7 +36,6 @@ const Language = ({ handleClick, languageData, langCode }) => {
             {option.short === langCode && (
               <span
                 className={` flex items-center font-bold text-stone-800 text-[14px]`}
-                onClick={handleClick}
               >
                 {option.name + "-" + option.short.toUpperCase()}
                 <span className="ml-[30px]">
@@ -50,14 +49,14 @@ const Language = ({ handleClick, languageData, langCode }) => {
                 </span>
               </span>
             )}
-            <span onClick={handleClick} className="text-[14px] tracking-[.4px]">
+            <span className="text-[14px] tracking-[.4px]">
               {option.short !== langCode &&
                 option.name + "-" + option.short.toUpperCase()}
             </span>
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 

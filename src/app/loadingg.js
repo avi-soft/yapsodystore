@@ -13,7 +13,7 @@ export default function LoadingIcon({ color = "red" }) {
       height="50px"
       className="content-loader-animate animate-spin"
       style={{
-        enableBackground: "new 0 0 268.765 268.765;",
+        enableBackground: "new 0 0 268.765 268.765",
         animation: "spin 2s linear infinite",
       }}
     >
