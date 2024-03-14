@@ -8,12 +8,12 @@ export default function SocialMedia({
   instagramUrl,
   websiteUrl,
 }) {
-    const social_links = {
-      facebookUrl,
-      twitterUrl,
-      instagramUrl,
-      websiteUrl,
-    };
+  const social_links = {
+    facebookUrl,
+    twitterUrl,
+    instagramUrl,
+    websiteUrl,
+  };
 
   return (
     <div
@@ -35,6 +35,7 @@ export default function SocialMedia({
           iconColor={iconColor}
         />
       )}
+      <span id="upcoming-event"></span>
     </div>
   );
 }

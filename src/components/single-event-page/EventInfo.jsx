@@ -1,17 +1,25 @@
 import React from "react";
-
-const EventInfo = ({event}) => {
+import moment from "moment";
+const EventInfo = ({ performanceCount, startDate, endDate,color }) => {
   return (
-    <div className="block overflow-hidden tracking-wider text-[#2e2294e]">
-      <div className="flex gap-2">
-        <span>From</span>
-        <span>{event.startdate}</span>
-      </div>
-      <div className="flex gap-2">
-        <span>to</span>
-        <span>{event.endDate}</span>
-      </div>
-      <span>({event.performances} Performances)</span>
+    <div className="block overflow-hidden tracking-wider text-[#2e2294e]" style={{color}}>
+      {performanceCount > 1 ? (
+        <>
+          <div className="flex gap-2">
+            <span>From</span>
+            <span>{moment(startDate).format("MMM D, YYYY")}</span>
+          </div>
+          <div className="flex gap-2">
+            <span>to</span>
+            <span>{moment(endDate).format("MMM D, YYYY")}</span>
+          </div>
+        </>
+      ) : (
+        <div className="flex gap-2">
+          <span>{moment(startDate).format("MMM D,YYYY,LT")}</span>
+        </div>
+      )}
+      <span>({performanceCount} Performances)</span>
     </div>
   );
 };
