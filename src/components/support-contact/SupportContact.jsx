@@ -9,8 +9,17 @@ export default function SupportContact({
 }
 ) {
   return (
-    <div className={`flex gap-x-4 gap-y-1 justify-${position}  p-5 flex-wrap`}>
+    <div
+      className={`flex gap-x-4 gap-y-1 justify-${position}  p-5 flex-wrap mb-16`}
+    >
       <span className="max-sm:mt-[10px] ">
+        <Support
+          size="size-6"
+          iconColor={iconColor}
+          textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+          boxBorderColor={iconColor}
+        />
         <Support
           size="size-6"
           iconColor={iconColor}
