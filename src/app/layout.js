@@ -2,6 +2,8 @@ import "./globals.css";
 import Header from "../components/header/Navbar";
 import Footer from "@/components/footer/footer";
 import { getThemeData } from "@/helpers/api-utils";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export const metadata = {
   title: "Yapsody Online Store",
@@ -19,13 +21,20 @@ export default async function RootLayout({ children }) {
     privacyUrl,
     portalUrl,
     sellTicketUrl,
-    companyName
+    companyName,
   } = await getThemeData();
   return (
     <html lang="en">
       <body className="flex flex-col h-screen">
-        <Header langCode={langCode} venueName={venueName} brandImage={brandImage} iconColor={ buttonLinkBoxBorderColor}/>
-        <div className="pt-24 pb-8 flex-1">{children}</div>
+        <Header
+          langCode={langCode}
+          venueName={venueName}
+          brandImage={brandImage}
+          iconColor={buttonLinkBoxBorderColor}
+        />
+        <Suspense fallback={<Loading />}>
+          <div className=" flex-1">{children}</div>
+        </Suspense>
         <Footer
           supportUrl={supportUrl}
           termsUrl={termsUrl}

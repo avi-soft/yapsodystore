@@ -14,7 +14,7 @@ const EventDetails = ({
   endDate,
   performances,
 }) => (
-  <div className="min-h-[1px] w-[45%] ml-[4px] pl-2 pt-2 text-[#566270] max-md:w-[100%] max-md:px-[15px] float-left">
+  <div className="min-h-[1px] w-[45%] ml-[4px] pl-2 pt-2 text-[#566270] max-md:w-[100%] max-md:px-[15px] text-xl float-left">
     <div className="mb-2">
       <span className="text-black">
         <p
@@ -29,7 +29,7 @@ const EventDetails = ({
         </p>
       </span>
       <span className="flex gap-2 text-sm" style={{ color: textColor }}>
-        <span>
+        <span className="mt-1">
           {locationType == "physical" ? (
             <MdLocationPin className="size-4" />
           ) : (
