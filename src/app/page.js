@@ -62,7 +62,7 @@ export default async function Home() {
             boxBorderColor={buttonLinkBoxBorderColor}
           />
         </div>
-        <div className="w-[95%] mt-[20px] flex flex-col items-center">
+        <div className="mt-[20px] w-full flex flex-col items-center">
           <Search
             color={boxBackgroundColor}
             textColor={headingColor}

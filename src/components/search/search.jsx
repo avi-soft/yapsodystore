@@ -17,7 +17,7 @@ const Search = ({ color, textColor, buttonLinkBoxBorderColor }) => {
         type="search"
         name="search"
         id="search"
-        className={`${styles.search} max-sm:w-[100%] lg:w-[340px] placeholder-[#54585c] `}
+        className={`${styles.search} max-sm:w-[100%] w-fit placeholder-[#21262c] `}
         placeholder="Search events"
       />
     </div>
