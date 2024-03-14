@@ -46,7 +46,7 @@ export default async function SingleEventPage({ params }) {
     eventData,
     performances,
   };
-  console.log(performances);
+  console.log(eventData);
   const themeColor = "red";
   return (
     <MainContainer
