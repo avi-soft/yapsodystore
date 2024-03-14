@@ -1,7 +1,7 @@
 import React from "react";
 import { GiLaptop } from "react-icons/gi";
 import { MdLocationPin } from "react-icons/md";
-
+import moment from "moment";
 const EventDetails = ({
   locationId,
   locationType,
@@ -44,11 +44,11 @@ const EventDetails = ({
     <div className=" text-sm font-bold" style={{ color: textColor }}>
       <span className="flex gap-1">
         <span>
-          <p>{startDate}</p>
+          <p>{moment(startDate).format("MMM D, YYYY")}</p>
         </span>
         <p>-</p>
         <span>
-          <p>{endDate}</p>
+          <p>{moment(endDate).format("MMM D, YYYY")}</p>
         </span>
       </span>
       <span>
