@@ -1,3 +1,4 @@
+// "use client";
 import Calendar from "@/components/calendar/Calendar";
 import Search from "@/components/search/search";
 import SocialMedia from "@/components/social-media/SocialMedia";
@@ -9,8 +10,26 @@ import CalendarWrapper from "@/components/calendar/CalendarWrapper";
 import { getEventDetails, getThemeData } from "@/helpers/api-utils";
 import { Suspense } from "react";
 import Loading from "./loadingg";
+import dynamic from "next/dynamic";
+
+const DynamicSearch = dynamic(() => import("@/components/search/search"), {
+  ssr: false,
+});
 
 export default async function Home() {
+  // const [selectedEvent, setSelectedEvent] = useState(null);
+  const events = await getEventDetails();
+
+  // console.log(events);
+
+  const handleSearch = async (searchQuery) => {
+    try {
+      const searchData = await getEventDetails(searchQuery);
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
+
   const {
     boxBackgroundColor,
     buttonLinkBoxBorderColor,
@@ -30,7 +49,6 @@ export default async function Home() {
     mainHeadingType,
   } = await getThemeData();
 
-  const events = await getEventDetails();
   return (
     <MainContainer
       coverImage={backgroundImage}
@@ -62,10 +80,11 @@ export default async function Home() {
         />
       </div>
       <div className="mt-[20px] w-full flex flex-col items-center">
-        <Search
+        <DynamicSearch
           color={boxBackgroundColor}
           textColor={headingColor}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+          // onSearch={handleSearch}
         />
         <CalendarWrapper
           performancesCount={events.length}
@@ -88,7 +107,5 @@ export default async function Home() {
         </Suspense>
       </div>
     </MainContainer>
-
-    
   );
 }
