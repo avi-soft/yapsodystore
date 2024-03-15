@@ -6,13 +6,9 @@ export default function DescriptionImages({ images }) {
       {images.map((image) => (
         <div
           key={image.id}
-          className="border-[4px] border-[#ddd] rounded p-5 h-[150px] bg-[#fff] w-full relative"
+          className="border-[4px] border-[#ddd] rounded p-5 h-[150px] bg-[#fff] w-full relative cursor-pointer"
         >
-          <Image
-            src={image.thumb_url}
-            alt="image"
-            layout="fill"
-          />
+          <Image src={image.thumb_url} alt="image" layout="fill" />
         </div>
       ))}
     </div>
