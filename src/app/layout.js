@@ -22,27 +22,16 @@ export default async function RootLayout({ children }) {
     portalUrl,
     sellTicketUrl,
     companyName,
+    backgroundImage,
   } = await getThemeData();
   return (
     <html lang="en">
-      <body className="flex flex-col h-screen">
-        <Header
-          langCode={langCode}
-          venueName={venueName}
-          brandImage={brandImage}
-          iconColor={buttonLinkBoxBorderColor}
-        />
+      <body className="flex flex-col">
+       
         <Suspense fallback={<Loading />}>
           <div className=" flex-1">{children}</div>
         </Suspense>
-        <Footer
-          supportUrl={supportUrl}
-          termsUrl={termsUrl}
-          privacyUrl={privacyUrl}
-          portalUrl={portalUrl}
-          sellTicketUrl={sellTicketUrl}
-          companyName={companyName}
-        />
+        
       </body>
     </html>
   );

@@ -6,8 +6,13 @@ import SupportContact from "../support-contact/SupportContact";
 import CalendarWrapper from "../calendar/CalendarWrapper";
 import Map from "../google-map/Map";
 import BottomView from "../social-share-widget/BottomView";
+import EventDescription from "./EventDescription";
+import DescriptionHyperLinks from "./DescriptionHyperlinks";
+import DescriptionImages from "./DescriptionImages";
 import { MdLocationPin } from "react-icons/md";
 import { GiLaptop } from "react-icons/gi";
+import { getDirections } from "@/helpers/common";
+
 const MainContent = ({
   buttonLinkBoxBorderColor,
   performances,
@@ -16,29 +21,11 @@ const MainContent = ({
   socialMediaLinks,
   headingColor,
   eventData,
+  symbol,
 }) => {
   const isEventTypePhysical =
     eventData.location_type == "physical" &&
     eventData.location_info.show_map != "no";
-  function getDirections() {
-    var locationInfo = eventData.location_info;
-    var geoPosition = locationInfo.geo_lat + "," + locationInfo.geo_lng;
-
-    var gMapUrl =
-      "https://maps.google.com/?saddr=" +
-      "" +
-      "&center=" +
-      geoPosition +
-      "&daddr=" +
-      encodeURIComponent(locationInfo.address) +
-      "&directionsmode=driving&mapmode=streetview&zoom=10";
-
-    if (locationInfo.geo_lat != 0 && locationInfo.geo_lng != 0) {
-      gMapUrl = gMapUrl + "&saddr=" + geoPosition;
-    }
-    return gMapUrl;
-  }
-
   const headingStyle = { color: headingColor };
   const {
     event_title1,
@@ -47,10 +34,15 @@ const MainContent = ({
     images,
     location_type,
     location_info,
+    hyperlinks,
+    event_description
   } = eventData;
-
+  const descriptionImages =
+     images.length > 0
+       ? images.filter((image) => image.cover_photo === "no")
+       : "";
   return (
-    <div className="mb-[40px] xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
+    <div className=" xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
       <section className="mb-8 flex flex-col items-start justify-center gap-2">
         <h1 style={headingStyle} className="text-[3.375em] font-normal ">
           {event_title1}
@@ -88,6 +80,16 @@ const MainContent = ({
             : location_info.webevent_timezone}
         </span>
       </div>
+      {event_description && (
+        <EventDescription event_description={event_description} textColor={textColor}/>
+      )}
+      {hyperlinks && (
+        <DescriptionHyperLinks
+          hyperlinks={hyperlinks}
+          color={buttonLinkBoxBorderColor}
+        />
+      )}
+      {descriptionImages && <DescriptionImages images={descriptionImages} />}
       <div className="px-[10px] align-top">
         <CalendarWrapper
           textColor={textColor}
@@ -100,6 +102,7 @@ const MainContent = ({
           />
         </CalendarWrapper>
         <SingleEventPerformance
+          symbol={symbol}
           performances={performances}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
           textColor={textColor}
@@ -116,7 +119,7 @@ const MainContent = ({
                 style={{ color: buttonLinkBoxBorderColor }}
                 className="underline"
                 target={"_blank"}
-                href={getDirections()}
+                href={getDirections(eventData.location_info)}
               >
                 Get Directions
               </a>
@@ -124,7 +127,6 @@ const MainContent = ({
             <Map
               geo_lat={eventData.location_info.geo_lat}
               geo_lng={eventData.location_info.geo_lng}
-              key={"AIzaSyBYUaj85xdIZhLl64x4GcqmYEEk3v1hxOs"}
             />
           </>
         )}

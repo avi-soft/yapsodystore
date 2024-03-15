@@ -28,6 +28,7 @@ export default async function SingleEventPage({ params }) {
     instagramUrl,
     websiteUrl,
     mainHeadingType,
+    symbol,
   } = await getThemeData();
   const socialMediaLinks = {
     facebookUrl,
@@ -43,14 +44,16 @@ export default async function SingleEventPage({ params }) {
     headingColor,
     eventData,
     performances,
+    symbol,
   };
   return (
     <MainContainer
       coverImage={backgroundImage}
       storeBackground={storeBackground}
+      isHome={false}
     >
       <div className={`ml-auto mr-auto w-[100%] rounded-[8px]`}>
-        <div className="flex pb-10 pl-4 pr-2 pt-12 max-xl:block">
+        <div className="flex pb-10 pl-4 pr-2 max-xl:block">
           <SideBarEventPage
             buttonColor={buttonLinkBoxBorderColor}
             textColor={textColor}
