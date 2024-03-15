@@ -14,6 +14,7 @@ export default function LoadingIcon({ color }) {
       className="content-loader-animate animate-spin"
       style={{
         enableBackground: "new 0 0 268.765 268.765",
+        animation: "spin 2s linear infinite",
       }}
     >
       <g id="Settings">
