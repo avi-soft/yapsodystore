@@ -17,7 +17,7 @@ const SingleEvent = ({
         borderColor: buttonLinkBoxBorderColor,
         background: boxBackgroundColor,
       }}
-      className="mb-[20px] flex justify-between rounded border-[1px] bg-[#ffffff] px-[20px] py-[30px] max-md:block m-h-[330px]"
+      className="mb-[20px]  flex justify-between rounded border-[1px] bg-[#ffffff] px-[20px] py-[30px] max-md:block m-h-[330px]"
     >
       <EventDateTime
         date={new Date()}

@@ -12,6 +12,7 @@ import DescriptionImages from "./DescriptionImages";
 import { MdLocationPin } from "react-icons/md";
 import { GiLaptop } from "react-icons/gi";
 import { getDirections } from "@/helpers/common";
+import DescriptionVideos from "./DescriptionVideos";
 
 const MainContent = ({
   buttonLinkBoxBorderColor,
@@ -35,7 +36,8 @@ const MainContent = ({
     location_type,
     location_info,
     hyperlinks,
-    event_description
+    event_description,
+    videos
   } = eventData;
   const descriptionImages =
      images.length > 0
@@ -81,7 +83,10 @@ const MainContent = ({
         </span>
       </div>
       {event_description && (
-        <EventDescription event_description={event_description} textColor={textColor}/>
+        <EventDescription
+          event_description={event_description}
+          textColor={textColor}
+        />
       )}
       {hyperlinks && (
         <DescriptionHyperLinks
@@ -91,6 +96,7 @@ const MainContent = ({
       )}
       {descriptionImages && <DescriptionImages images={descriptionImages} />}
       <div className="px-[10px] align-top">
+        {videos && <DescriptionVideos videos={videos} />}
         <CalendarWrapper
           textColor={textColor}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
