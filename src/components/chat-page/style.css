@@ -145,13 +145,14 @@ span-text {
 
 }
 
-.footer {
+.footer-chat-button {
     display: grid;
     place-content: end;
     border: 1px solid rgb(242 235 235);
+    background-color: #fff;
 }
 
-.footer button {
+.footer-chat-button button {
     border-radius: 10px;
     width: 121px;
     height: 46px;

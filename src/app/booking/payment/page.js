@@ -1,4 +1,4 @@
-import Chat from "@/components/chatbutton/page";
+import Chat from "@/ui/ChatButton";
 import CheckOutLeftPage from "@/components/check-out/CheckOutLeftPage";
 export default function PaymentPage() {
   const themeColor = "red";
