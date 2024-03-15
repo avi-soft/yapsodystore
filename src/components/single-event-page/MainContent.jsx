@@ -35,13 +35,13 @@ const MainContent = ({
   return (
     <div className=" xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
       <section className="mb-8 flex flex-col items-start justify-center gap-2">
-        <h1 style={headingStyle} className="text-[3.375em] font-normal ">
+        <h1 style={headingStyle} className="text-[3.375em] font-normal font-lato ">
           {event_title1}
         </h1>
-        <h2 style={headingStyle} className=" text-[2em] font-normal">
+        <h2 style={headingStyle} className=" text-[18px] font-normal  ">
           {event_title2}
         </h2>
-        <h3 style={headingStyle} className=" text-[1.7em] font-normal">
+        <h3 style={headingStyle} className=" text-[18px] font-normal">
           {event_title3}
         </h3>
         <SocialMedia
@@ -58,14 +58,14 @@ const MainContent = ({
         className="location text-base my-7 relative text-[#566270] flex items-center"
         style={{ color: textColor }}
       >
-        <span className="mt-1 inline-block h-5 w-5 align-middle pt-[1px] mr-1">
+        <span className="mt-1 inline-block h-5 w-5 align-middle pt-[1px] mr-1 ">
           {location_type == "physical" ? (
             <MdLocationPin className="size-4" />
           ) : (
             <GiLaptop className="size-4" />
           )}
         </span>
-        <span className="w-[100%] inline-block">
+        <span className="w-[100%] inline-block font-lato">
           {location_type == "physical"
             ? location_info.name + " - " + location_info.address
             : location_info.webevent_timezone}
@@ -92,7 +92,7 @@ const MainContent = ({
         />
         {isEventTypePhysical && (
           <>
-            <div className="flex justify-between h-[80px]">
+            <div className="flex justify-between h-[80px] text-[16px] font-lato">
               <h3 style={{ color: textColor }}>
                 Sycuan Casino Resort - 5469 Casino Way, El Cajon, CA 92019, USA
               </h3>

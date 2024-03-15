@@ -11,16 +11,22 @@ const linkTypes = {
 };
 
 export default function SocialLinks({ url, type, iconColor }) {
-  const width = 22;
-  const height = 22;
+  const width = 23;
+  const height = 24;
 
   return (
     <span>
+      
       <Link href={url}>
+      
         {type === "website" ? (
-          <IconLabel color={iconColor} size="size-6" icon="website" gap={3}>
+          
+          <IconLabel color={iconColor} size="size-5" icon="website" gap={3}>
+            <div className=" text-[14px]">
             {url}
+            </div>
           </IconLabel>
+          
         ) : (
           <Image
             src={`${basepath}${linkTypes[type]}`}

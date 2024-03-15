@@ -11,9 +11,9 @@ export default function CalendarWrapper({
 }) {
   return (
     <>
-      <div className="sm:hidden flex border-b mb-6 gap-2 w-[100%] ">
-        <div className="flex ">
-          <div className="flex gap-2 pr-2 border-r  slate-300 ">
+      <div className="sm:hidden flex border-b mb-6 gap-2 w-[100%] !font-latofont-lato">
+        <div className="flex !font-lato ">
+          <div className="flex gap-2 pr-2 border-r  !font-lato slate-300  ">
             <span style={{ color: textColor }}>
               Upcoming Events ({performancesCount})
             </span>
