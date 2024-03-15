@@ -22,7 +22,7 @@ const SupportCard = ({
         className={`rounded  p-2 hover:bg-[${boxBorderColor}] hover:text-white`}
       >
         <h2 className="font-bold">Technical Support</h2>
-        <ul className="ml-5 list-disc">
+        <ul className="ml-5 list-disc whitespace-normal">
           <li>Trouble purchasing/receiving /reprinting tickets</li>
           <li>Online payment issues</li>
           <li>Report abuse / fraud</li>
