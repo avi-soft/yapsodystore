@@ -36,6 +36,8 @@ const generateDates = (month, year) => {
 };
 
 const Calendar = ({
+  children,
+  performancesCount,
   highlighted,
   activeColorCode,
   dateClickHandler = (date) => {

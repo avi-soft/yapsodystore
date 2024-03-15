@@ -1,8 +1,11 @@
 import React from "react";
 import moment from "moment";
-const EventInfo = ({ performanceCount, startDate, endDate }) => {
+const EventInfo = ({ performanceCount, startDate, endDate, color }) => {
   return (
-    <div className="block overflow-hidden tracking-wider text-[#2e2294e]">
+    <div
+      className="block overflow-hidden tracking-wider text-[#2e2294e]"
+      style={{ color }}
+    >
       {performanceCount > 1 ? (
         <>
           <div className="flex gap-2">
@@ -13,13 +16,13 @@ const EventInfo = ({ performanceCount, startDate, endDate }) => {
             <span>to</span>
             <span>{moment(endDate).format("MMM D, YYYY")}</span>
           </div>
+          <span>({performanceCount} Performances)</span>
         </>
       ) : (
-        <div className="flex gap-2">
+        <div className="flex">
           <span>{moment(startDate).format("MMM D,YYYY,LT")}</span>
         </div>
       )}
-      <span>({performanceCount} Performances)</span>
     </div>
   );
 };

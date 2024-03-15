@@ -17,6 +17,8 @@ const SingleEventCard = ({
     boxBackgroundColor: boxBackgroundColor,
     buttonLinkBoxBorderColor: buttonLinkBoxBorderColor,
     eventName: event.event_title1,
+    eventNameTitle2: event.event_title2,
+    eventNameTitle3: event.event_title3,
     location: event.venue_location_name + "-" + event.venue_location_address,
     startDate: event.performance_start_time,
     endDate: event.last_performance_start_date,
@@ -29,9 +31,9 @@ const SingleEventCard = ({
     <>
       {view === "grid" ? (
         <EventGridLayout {...commonProps} />
-       ) : (
+      ) : (
         <EventListLayout {...commonProps} />
-       )} 
+      )}
     </>
   );
 };
