@@ -5,11 +5,11 @@ import { FaPinterest } from "react-icons/fa";
 import { IoShareSocial } from "react-icons/io5";
 export default function SocialShareWidget() {
   return (
-    <section className="fixed md:bottom-[40%] bottom-[8%] right-0 block rounded bg-[#ffffff] p-[12px] text-[30px] shadow-[0px_1px_4px_0px_rgba(0,0,0,0.335)]">
+    <section className="fixed md:bottom-[40%] bottom-[8%] z-20 right-0 block rounded bg-[#ffffff] p-[12px] text-[30px] shadow-[0px_1px_4px_0px_rgba(0,0,0,0.335)]">
       <ul>
         <li className="pb-2">
           <Link href={"/"}>
-            <FaFacebookSquare size={24} className="text-[#3b5998]" />
+            <FaFacebookSquare className="text-[#3b5998]" />
           </Link>
         </li>
         <li className="pb-2">
