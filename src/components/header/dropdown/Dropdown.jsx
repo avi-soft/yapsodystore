@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { PiUserCircleFill } from "react-icons/pi";
 
 import styles from "../Navbar.module.css";
@@ -82,7 +82,7 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
                     className="h-10 w-10"
                   />
                 </span>
-                <p className="myAccount hidden sm:inline-block overflow-hidden type-ellipsis whitespace-nowrap max-w-[120px] ">
+                <p className="myAccount hidden sm:inline-block overflow-hidden text-ellipsis whitespace-nowrap max-w-[120px] ">
                   {user}
                 </p>
               </>
@@ -96,7 +96,7 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
               <Language languageData={languageData} langCode={langCode} />
             )}
 
-            {type !== "lang" && isOpenAccount && <Account />}
+            {type === "account" && isOpenAccount && <Account />}
           </div>
         </div>
       </button>
