@@ -62,9 +62,11 @@ const EventDetails = ({
           <p>{moment(endDate).format("MMM D, YYYY")}</p>
         </span>
       </span>
-      <span>
-        <p>({performances} Performances)</p>
-      </span>
+      {performances > 1 && (
+        <span>
+          <p>({performances} Performances)</p>
+        </span>
+      )}
     </div>
   </div>
 );

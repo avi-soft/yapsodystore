@@ -79,13 +79,13 @@ export default async function Home() {
             boxBorderColor={buttonLinkBoxBorderColor}
           />
         </div>
-        <div className="w-[95%] flex flex-col items-center">
-          <Search
-            color={boxBackgroundColor}
-            textColor={headingColor}
-            buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-            // onSearchSelect={handleEventSelect}
-          />
+        <Search
+          color={boxBackgroundColor}
+          textColor={headingColor}
+          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+          // onSearchSelect={handleEventSelect}
+        />
+        <div className="w-[89%] flex flex-col items-center">
           <CalendarWrapper
             performancesCount={events.length}
             textColor={textColor}
