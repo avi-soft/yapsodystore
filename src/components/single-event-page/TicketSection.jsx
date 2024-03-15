@@ -13,7 +13,7 @@ export default function TicketSection({
     <div className="relative ml-[30px] min-h-[1px] w-[33.33%] pl-[10px] pr-[10px] text-center max-md:w-[100%] max-md:ml-[0px] ">
       <div className="relative mt-[10px] inline-block w-[100%]">
         <div className="mt-[5px] text-center w-[100%]">
-          <Button color={color} to="/booking/payment">
+          <Button height={44} width={145} color={color} to="/">
             Get Tickets
           </Button>
         </div>
