@@ -11,11 +11,12 @@ const linkTypes = {
 };
 
 export default function SocialLinks({ url, type, iconColor }) {
-  const width = 22;
-  const height = 22;
+  const width = 23;
+  const height = 24;
 
   return (
     <span>
+      
       <Link href={url}>
         {type === "website" || type === "hyperlinks" ? 
           (

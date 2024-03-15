@@ -13,7 +13,7 @@ const ContactPresenter = ({ size, color }) => {
       //   <div>Contact Presenter</div>
       // </IconLabel>
 
-      <>
+      <div className="font-lato text-[14px] ">
       <IconLabel color={color} size={size} icon="contact" gap={4}>
         <div onClick={handleClick}>
           Contact Presenter
@@ -21,7 +21,7 @@ const ContactPresenter = ({ size, color }) => {
       </IconLabel>
       {showSignIn && <ContactPresent onClose={()=>setShowSignIn(false)}/> }
       
-    </>
+    </div>
      
   );
 };
