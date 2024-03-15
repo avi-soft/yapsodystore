@@ -50,7 +50,7 @@ export default function ClickBox({ component: Component, onClose }) {
                     </div> 
                 </form>
 
-                <div className="modal-box" style={{ width:'auto', maxWidth:'100%', padding: 0 }} id="modal-content">
+                <div className="modal-box" style={{ width:'auto', maxWidth:'100%', padding: 0 ,borderRadius:'9px'}} id="modal-content">
                     <Component />
                 </div>
                 

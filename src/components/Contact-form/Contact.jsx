@@ -1,18 +1,19 @@
 import Link from 'next/link';
-
+import './style.css'
 function Contact() {
     return (
         <>
             {/* By activating we can check that form is show and hide whwn its State changes by clicking on the button */}
 
-            {/* <button type="button" className='bg-blue-500' onClick={changeState}>Click me</button> */}            
-                <div style={{ width: "800px" }}>
-                    <div className=' h-full flex flex-col items-center w-[100%]'>
-                        <div className='relative border rounded my-4 mx-2 w-[100%] p-4'>
-                            <h3 className='py-2 text-lg'>Contact Presenter</h3>
-                            <form action="" className='text mb-4 text-slate-500'>
+            {/* <button type="button" className='bg-blue-500' onClick={changeState}>Click me</button> */}
+            <div className="contact-page-resp" >
+                <div className=' h-full flex flex-col items-center w-[100%]'>
+                    <div className='relative border rounded  w-[100%] p-4'>
+                        <h3 className='py-2 text-lg'>Contact Presenter</h3>
+                        <form action="" className='text mb-4 text-slate-500'>
+                            <div className='contact-middle-part'>
                                 <div className='mb-4'>
-                                    <label className='' htmlFor="">Event Name</label><br />
+                                    <label className='' htmlFor="">Event Name</label> <span className='text-red-500'>*</span><br />
                                     <select className='border text-slate-700 rounded w-full mt-1 py-2 px-4'>
                                         <option value="MULTI Events">MULTI Events</option>
                                         <option value="RS Event 28603">RS Event 28603</option>
@@ -24,38 +25,38 @@ function Contact() {
                                 </div>
 
                                 <div className='mb-4'>
-                                    <label className='' htmlFor="">Full Name</label><br />
+                                    <label className='' htmlFor="">Full Name</label><span className='text-red-500'>*</span><br />
                                     <input className='border rounded w-full outline-blue-300 mt-1 py-2 px-4' type="text" name="" id="" />
                                 </div>
 
                                 <div className='mb-4'>
-                                    <label className='mb-1' htmlFor="">Email</label><br />
+                                    <label className='mb-1 ' htmlFor="">Email</label><span className='text-red-500'>*</span><br />
                                     <input className='border rounded w-full outline-blue-300 mt-1 py-2 px-4' type="text" name="" id="" />
                                 </div>
 
                                 <div className='mb-4'>
-                                    <label className='mb-1' htmlFor="">Message</label><br />
+                                    <label className='mb-1' htmlFor="">Message</label><span className='text-red-500'>*</span><br />
                                     <textarea className='border rounded w-full outline-blue-300 mt-1 py-2 px-4 h-32 resize-none' name="" id="" cols="30" rows="10"></textarea>
                                 </div>
-
-                                <div className='mb-4'>
-                                    <div className='flex justify-between'>
-                                        <div className='text-xs'>
-                                            <div>For technical questions please contact</div>
-                                            <Link className='text-purple-400' href='/'>Yapsody Customer Support.</Link>
-                                        </div>
-                                        <div>
-                                            <button className="bg-purple-400 tracking-wide text-white w-36 font-medium text-sm py-2 px-4 rounded">Send Message</button>
-                                        </div>
+                            </div>
+                            <div className='mb-4'>
+                                <div className='flex justify-between' id='contact-bottom-respons'>
+                                    <div className='text-xs'>
+                                        <div>For technical questions please contact</div>
+                                        <Link className='text-purple-400' href='/'>Yapsody Customer Support.</Link>
+                                    </div>
+                                    <div className='contact-form_button'>
+                                        <button className="bg-purple-400 tracking-wide text-white w-36 font-medium text-sm py-2 px-4 rounded">Send Message</button>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-
+                            </div>
+                        </form>
                     </div>
-                </div>
 
-            
+                </div>
+            </div>
+
+
         </>
     )
 }
