@@ -1,5 +1,5 @@
 import "./globals.css";
-import Header from "../components/header/Navbar.jsx";
+import Header from "../components/header/Navbar";
 import Footer from "@/components/footer/footer";
 import { getThemeData } from "@/helpers/api-utils";
 import { Suspense } from "react";

@@ -1,5 +1,5 @@
 import Calendar from "@/components/calendar/Calendar";
-import Search from "@/components/search/search";
+import Search from "@/components/search/search.jsx";
 import SocialMedia from "@/components/social-media/SocialMedia";
 import MainContainer from "@/components/main-container/MainContainer";
 import MainPageEventList from "@/components/events/MainPageEeventList";
@@ -11,6 +11,7 @@ import { Suspense } from "react";
 import Loading from "./loading";
 
 export default async function Home() {
+  const events = await getEventDetails();
   const {
     boxBackgroundColor,
     buttonLinkBoxBorderColor,
@@ -30,7 +31,6 @@ export default async function Home() {
     mainHeadingType,
   } = await getThemeData();
 
-  const events = await getEventDetails();
   return (
     <div className="pt-24 pb-8">
       <MainContainer storeBackground={storeBackground}>
@@ -64,8 +64,9 @@ export default async function Home() {
           color={boxBackgroundColor}
           textColor={headingColor}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+          // onSearchSelect={handleEventSelect}
         />
-        <div className="w-[85%] mt-[20px] flex flex-col items-center">
+        <div className="w-[85%] flex flex-col items-center">
           <CalendarWrapper
             performancesCount={events.length}
             textColor={textColor}
