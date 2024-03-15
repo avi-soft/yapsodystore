@@ -1,4 +1,3 @@
-"use client";
 import Calendar from "@/components/calendar/Calendar";
 import Search from "@/components/search/search.jsx";
 import SocialMedia from "@/components/social-media/SocialMedia";
@@ -8,27 +7,11 @@ import SupportContact from "@/components/support-contact/SupportContact";
 import Title from "@/components/homepage-header/Title";
 import CalendarWrapper from "@/components/calendar/CalendarWrapper";
 import { getEventDetails, getThemeData } from "@/helpers/api-utils";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import Loading from "./loading";
 
 export default async function Home() {
-  const [events, setEvents] = useState([]);
-  const [themeData, setThemeData] = useState([]);
-  const [eventId, setEventId] = useState();
-
-  const handleEventSelect = (result) => {
-    setEventId(result);
-    console.log(eventId);
-  };
-  useEffect(() => {
-    getEventDetails()
-      .then((data) => setEvents(data))
-      .catch((error) => {});
-
-    getThemeData()
-      .then((data) => setThemeData(data))
-      .catch((error) => {});
-  }, []);
+  const events = await getEventDetails();
   const {
     boxBackgroundColor,
     buttonLinkBoxBorderColor,
@@ -46,7 +29,7 @@ export default async function Home() {
     instagramUrl,
     websiteUrl,
     mainHeadingType,
-  } = themeData;
+  } = await getThemeData();
 
   return (
     <div className="pt-24 pb-8">
@@ -84,7 +67,7 @@ export default async function Home() {
             color={boxBackgroundColor}
             textColor={headingColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-            onSearchSelect={handleEventSelect}
+            // onSearchSelect={handleEventSelect}
           />
           <CalendarWrapper
             performancesCount={events.length}
@@ -97,28 +80,16 @@ export default async function Home() {
             />
           </CalendarWrapper>
           <Suspense fallback={<Loading color="blue" />}>
-            {eventId ? (
-              <MainPageEventList
-                events={events.filter((event) => event.id === eventId)}
-                headingColor={headingColor}
-                boxBackgroundColor={boxBackgroundColor}
-                textColor={textColor}
-                buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-              />
-            ) : (
-              <MainPageEventList
-                events={events}
-                headingColor={headingColor}
-                boxBackgroundColor={boxBackgroundColor}
-                textColor={textColor}
-                buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-              />
-            )}
+            <MainPageEventList
+              events={events}
+              headingColor={headingColor}
+              boxBackgroundColor={boxBackgroundColor}
+              textColor={textColor}
+              buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+            />
           </Suspense>
         </div>
       </MainContainer>
     </div>
   );
 }
-
-// export default Home;
