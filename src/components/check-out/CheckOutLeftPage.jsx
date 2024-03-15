@@ -35,7 +35,7 @@ const CheckOutLeftPage = ({ color }) => {
   const user = false;
 
   return (
-    <div className="mt-15px mb-auto block bg-white pb-[100px] pl-12">
+    <div className="mt-[-28px] mb-auto block bg-white pb-[100px] pl-12">
       <p className="mb-[10px] block text-[22px] font-[600] tracking-wider text-[rgba(51,51,51,0.7)]">
         Checkout
       </p>
