@@ -32,62 +32,62 @@ export default async function Home() {
   } = await getThemeData();
 
   return (
-    <div className="pt-24 pb-8">
-      <MainContainer storeBackground={storeBackground}>
-        <div className="w-full">
-          <Title
-            mainHeadingImage={mainHeadingImage}
-            mainHeadingText={mainHeadingText}
-            venueName={venueName}
-            headerAlignment={headerAlignment}
-            headingColor={headingColor}
-            mainHeadingType={mainHeadingType}
-          />
-          <SocialMedia
-            position="center"
-            facebookUrl={facebookUrl}
-            twitterUrl={twitterUrl}
-            instagramUrl={instagramUrl}
-            websiteUrl={websiteUrl}
-            iconColor={buttonLinkBoxBorderColor}
-          />
-          <SupportContact
-            position="center"
-            iconColor={buttonLinkBoxBorderColor}
-            textColor={textColor}
-            boxBackgroundColor={boxBackgroundColor}
-            boxBorderColor={buttonLinkBoxBorderColor}
-          />
-        </div>
-
+    <MainContainer
+      coverImage={backgroundImage}
+      storeBackground={storeBackground}
+    >
+      <div className="w-full">
+        <Title
+          mainHeadingImage={mainHeadingImage}
+          mainHeadingText={mainHeadingText}
+          venueName={venueName}
+          headerAlignment={headerAlignment}
+          headingColor={headingColor}
+          mainHeadingType={mainHeadingType}
+        />
+        <SocialMedia
+          position="center"
+          facebookUrl={facebookUrl}
+          twitterUrl={twitterUrl}
+          instagramUrl={instagramUrl}
+          websiteUrl={websiteUrl}
+          iconColor={buttonLinkBoxBorderColor}
+        />
+        <SupportContact
+          position="center"
+          iconColor={buttonLinkBoxBorderColor}
+          textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+          boxBorderColor={buttonLinkBoxBorderColor}
+        />
+      </div>
+      <div className="w-[95%] flex flex-col items-center">
         <Search
           color={boxBackgroundColor}
           textColor={headingColor}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
           // onSearchSelect={handleEventSelect}
         />
-        <div className="w-[85%] flex flex-col items-center">
-          <CalendarWrapper
-            performancesCount={events.length}
+        <CalendarWrapper
+          performancesCount={events.length}
+          textColor={textColor}
+          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+        >
+          <Calendar
+            highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
+            activeColorCode={buttonLinkBoxBorderColor}
+          />
+        </CalendarWrapper>
+        <Suspense fallback={<Loading color="blue" />}>
+          <MainPageEventList
+            events={events}
+            headingColor={headingColor}
+            boxBackgroundColor={boxBackgroundColor}
             textColor={textColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-          >
-            <Calendar
-              highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
-              activeColorCode={buttonLinkBoxBorderColor}
-            />
-          </CalendarWrapper>
-          <Suspense fallback={<Loading />}>
-            <MainPageEventList
-              events={events}
-              headingColor={headingColor}
-              boxBackgroundColor={boxBackgroundColor}
-              textColor={textColor}
-              buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-            />
-          </Suspense>
-        </div>
-      </MainContainer>
-    </div>
+          />
+        </Suspense>
+      </div>
+    </MainContainer>
   );
 }

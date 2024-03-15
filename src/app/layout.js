@@ -26,13 +26,7 @@ export default async function RootLayout({ children }) {
   } = await getThemeData();
   return (
     <html lang="en">
-      <body
-        className="flex flex-col"
-        style={{
-          background: backgroundImage ? `url(${backgroundImage})` : "#ffffff",
-          backgroundPosition: "center",
-        }}
-      >
+      <body className="flex flex-col">
         <Header
           langCode={langCode}
           venueName={venueName}

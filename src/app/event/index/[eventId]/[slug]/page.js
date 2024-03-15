@@ -47,20 +47,22 @@ export default async function SingleEventPage({ params }) {
     symbol,
   };
   return (
-    <div className="pt-24 pb-8">
-      <MainContainer storeBackground={storeBackground} isHome={false}>
-        <div className={`ml-auto mr-auto w-[100%] rounded-[8px]`}>
-          <div className="flex pb-10 pl-4 pr-2 max-xl:block">
-            <SideBarEventPage
-              buttonColor={buttonLinkBoxBorderColor}
-              textColor={textColor}
-              boxBackgroundColor={boxBackgroundColor}
-              eventData={eventData}
-            />
-            <MainContent {...mainContentProps} />
-          </div>
+    <MainContainer
+      coverImage={backgroundImage}
+      storeBackground={storeBackground}
+      isHome={false}
+    >
+      <div className={`ml-auto mr-auto w-[100%] rounded-[8px]`}>
+        <div className="flex pb-10 pl-4 pr-2 max-xl:block">
+          <SideBarEventPage
+            buttonColor={buttonLinkBoxBorderColor}
+            textColor={textColor}
+            boxBackgroundColor={boxBackgroundColor}
+            eventData={eventData}
+          />
+          <MainContent {...mainContentProps} />
         </div>
-      </MainContainer>
-    </div>
+      </div>
+    </MainContainer>
   );
 }
