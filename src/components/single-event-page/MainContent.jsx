@@ -6,9 +6,13 @@ import SupportContact from "../support-contact/SupportContact";
 import CalendarWrapper from "../calendar/CalendarWrapper";
 import Map from "../google-map/Map";
 import BottomView from "../social-share-widget/BottomView";
+import EventDescription from "./EventDescription";
+import DescriptionHyperLinks from "./DescriptionHyperlinks";
+import DescriptionImages from "./DescriptionImages";
 import { MdLocationPin } from "react-icons/md";
 import { GiLaptop } from "react-icons/gi";
 import { getDirections } from "@/helpers/common";
+
 const MainContent = ({
   buttonLinkBoxBorderColor,
   performances,
@@ -30,8 +34,13 @@ const MainContent = ({
     images,
     location_type,
     location_info,
+    hyperlinks,
+    event_description
   } = eventData;
-
+  const descriptionImages =
+     images.length > 0
+       ? images.filter((image) => image.cover_photo === "no")
+       : "";
   return (
     <div className=" xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
       <section className="mb-8 flex flex-col items-start justify-center gap-2">
@@ -71,6 +80,16 @@ const MainContent = ({
             : location_info.webevent_timezone}
         </span>
       </div>
+      {event_description && (
+        <EventDescription event_description={event_description} textColor={textColor}/>
+      )}
+      {hyperlinks && (
+        <DescriptionHyperLinks
+          hyperlinks={hyperlinks}
+          color={buttonLinkBoxBorderColor}
+        />
+      )}
+      {descriptionImages && <DescriptionImages images={descriptionImages} />}
       <div className="px-[10px] align-top">
         <CalendarWrapper
           textColor={textColor}
