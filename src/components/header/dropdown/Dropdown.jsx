@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { PiUserCircleFill } from "react-icons/pi";
 
 import styles from "../Navbar.module.css";
@@ -9,11 +9,11 @@ import Language from "./Language";
 import Account from "./Account";
 import Arrows from "./Arrows";
 
-const Dropdown = ({ type, languageData,langCode }) => {
-  const [isOpen1, setIsOpen1] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
+const Dropdown = ({ type, user, languageData, langCode }) => {
+  const [isOpenLang, setIsOpenLang] = useState(false);
+  const [isOpenAccount, setIsOpenAccount] = useState(false);
 
-  const changeState = () => {
+  const changeState = (type) => {
     document.getElementById(`down-${type}`).classList.toggle("hidden");
     const up = document.getElementById(`up-${type}`);
     up.classList.contains("hidden")
@@ -22,18 +22,27 @@ const Dropdown = ({ type, languageData,langCode }) => {
   };
 
   useEffect(() => {
+    function closeArrow(type) {
+      let upArrow = document.getElementById(`up-${type}`);
+      if (upArrow.classList.contains("block")) {
+        upArrow.classList.replace("block", "hidden");
+        document.getElementById(`down-${type}`).classList.toggle("hidden");
+      }
+    }
     const handleOutsideClick = (event) => {
       if (!event.target.closest(".dropdown")) {
-        setIsOpen1(false);
-        setIsOpen2(false);
-        let upArrow = document.querySelectorAll(".up");
-        upArrow.forEach((up) => {
-          if (up.classList.contains("block")) {
-            up.classList.replace("block", "hidden");
-            let type = up.id.slice(3);
-            document.getElementById(`down-${type}`).classList.toggle("hidden");
-          }
-        });
+        setIsOpenLang(false);
+        setIsOpenAccount(false);
+        closeArrow("lang");
+        closeArrow("account");
+      }
+      if (event.target.closest("#Drop-lang")) {
+        setIsOpenAccount(false);
+        closeArrow("account");
+      }
+      if (event.target.closest("#Drop-account")) {
+        setIsOpenLang(false);
+        closeArrow("lang");
       }
     };
     document.addEventListener("mousedown", handleOutsideClick);
@@ -42,25 +51,23 @@ const Dropdown = ({ type, languageData,langCode }) => {
     };
   }, []);
 
-  const handleButtonClick1 = () => {
-    setIsOpen1(!isOpen1);
-    changeState();
-  };
-  const handleButtonClick2 = () => {
-    setIsOpen2(!isOpen2);
-    changeState();
+  const handleLanguageClick = (clickedType) => {
+    setIsOpenLang((isOpenLang) => !isOpenLang);
+    changeState(clickedType);
   };
 
-  let handleClick;
-  type === "lang"
-    ? (handleClick = handleButtonClick1)
-    : (handleClick = handleButtonClick2);
-  // Function to calculate the minimum width of the dropdown based on label lengths
+  const handleAccountClick = (clickedType) => {
+    setIsOpenAccount((isOpenAccount) => !isOpenAccount);
+    changeState(clickedType);
+  };
 
   return (
     <div
+      id={`Drop-${type}`}
       className={`${styles.pullLeft}   flex items-center flex-shrink-0 dropdown`}
-      onClick={handleClick}
+      onClick={() =>
+        type === "lang" ? handleLanguageClick(type) : handleAccountClick(type)
+      }
     >
       <button className="flex flex-row h-12 items-center ">
         <div className="relative  ">
@@ -76,7 +83,7 @@ const Dropdown = ({ type, languageData,langCode }) => {
                   />
                 </span>
                 <p className="myAccount hidden sm:inline-block overflow-hidden type-ellipsis whitespace-nowrap max-w-[120px] ">
-                  {type}
+                  {user}
                 </p>
               </>
             )}
@@ -84,15 +91,13 @@ const Dropdown = ({ type, languageData,langCode }) => {
           </div>
           {/* Conditional rendering of the dropdown content if it's open */}
 
-          {type === "lang"
-            ? isOpen1 && (
-                <Language
-                  handleClick={handleButtonClick1}
-                  languageData={languageData}
-                  langCode={langCode}
-                />
-              )
-            : isOpen2 && <Account handleClick={handleButtonClick2} />}
+          <div className="relative shadow-xl">
+            {type === "lang" && isOpenLang && (
+              <Language languageData={languageData} langCode={langCode} />
+            )}
+
+            {type !== "lang" && isOpenAccount && <Account />}
+          </div>
         </div>
       </button>
     </div>

@@ -8,6 +8,7 @@ import Map from "../google-map/Map";
 import BottomView from "../social-share-widget/BottomView";
 import { MdLocationPin } from "react-icons/md";
 import { GiLaptop } from "react-icons/gi";
+import { getDirections } from "@/helpers/common";
 const MainContent = ({
   buttonLinkBoxBorderColor,
   performances,
@@ -16,29 +17,11 @@ const MainContent = ({
   socialMediaLinks,
   headingColor,
   eventData,
+  symbol,
 }) => {
   const isEventTypePhysical =
     eventData.location_type == "physical" &&
     eventData.location_info.show_map != "no";
-  function getDirections() {
-    var locationInfo = eventData.location_info;
-    var geoPosition = locationInfo.geo_lat + "," + locationInfo.geo_lng;
-
-    var gMapUrl =
-      "https://maps.google.com/?saddr=" +
-      "" +
-      "&center=" +
-      geoPosition +
-      "&daddr=" +
-      encodeURIComponent(locationInfo.address) +
-      "&directionsmode=driving&mapmode=streetview&zoom=10";
-
-    if (locationInfo.geo_lat != 0 && locationInfo.geo_lng != 0) {
-      gMapUrl = gMapUrl + "&saddr=" + geoPosition;
-    }
-    return gMapUrl;
-  }
-
   const headingStyle = { color: headingColor };
   const {
     event_title1,
@@ -50,7 +33,7 @@ const MainContent = ({
   } = eventData;
 
   return (
-    <div className="mb-[40px] xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
+    <div className=" xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
       <section className="mb-8 flex flex-col items-start justify-center gap-2">
         <h1 style={headingStyle} className="text-[3.375em] font-normal ">
           {event_title1}
@@ -100,6 +83,7 @@ const MainContent = ({
           />
         </CalendarWrapper>
         <SingleEventPerformance
+          symbol={symbol}
           performances={performances}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
           textColor={textColor}
@@ -116,7 +100,7 @@ const MainContent = ({
                 style={{ color: buttonLinkBoxBorderColor }}
                 className="underline"
                 target={"_blank"}
-                href={getDirections()}
+                href={getDirections(eventData.location_info)}
               >
                 Get Directions
               </a>
@@ -124,7 +108,6 @@ const MainContent = ({
             <Map
               geo_lat={eventData.location_info.geo_lat}
               geo_lng={eventData.location_info.geo_lng}
-              key={"AIzaSyBYUaj85xdIZhLl64x4GcqmYEEk3v1hxOs"}
             />
           </>
         )}

@@ -22,11 +22,17 @@ export default async function RootLayout({ children }) {
     portalUrl,
     sellTicketUrl,
     companyName,
+    backgroundImage,
   } = await getThemeData();
   return (
     <html lang="en">
-      <body className="flex flex-col h-screen">
-        
+      <body className="flex flex-col">
+        <Header
+          langCode={langCode}
+          venueName={venueName}
+          brandImage={brandImage}
+          iconColor={buttonLinkBoxBorderColor}
+        />
         <Suspense fallback={<Loading />}>
           <div className=" flex-1">{children}</div>
         </Suspense>
