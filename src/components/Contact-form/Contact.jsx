@@ -23,10 +23,10 @@ function Contact() {
                 <div className='mr-auto ml-auto flex flex-col justify-center items-center'>
 
                     <div className='border rounded my-4 mx-2 p-4'>
-                        <h3 className='py-2 text-lg'>Contact Presenter</h3>
+                        <h3 className='py-2 text-lg'>Contact Presenter </h3>
                         <form action="" className='text mb-4 text-slate-500'>
                             <div className='mb-4'>
-                                <label className='' htmlFor="">Event Name</label><br />
+                               <div className='flex gap-0'><label className='' htmlFor="">Event Name</label><span class="text-red-500 pt-1">&nbsp;*</span></div> 
                                 <select className='border text-slate-700 rounded w-full mt-1 py-2 px-4'>
                                     <option value="MULTI Events">MULTI Events</option>
                                     <option value="RS Event 28603">RS Event 28603</option>
@@ -38,17 +38,17 @@ function Contact() {
                             </div>
 
                             <div className='mb-4'>
-                                <label className='' htmlFor="">Full Name</label><br />
+                               <div className='flex gap-0'><label className='' htmlFor="">Full Name</label><span class="text-red-500 pt-1">&nbsp;*</span></div> 
                                 <input className='border rounded w-full outline-blue-300 mt-1 py-2 px-4' type="text" name="" id="" />
                             </div>
 
                             <div className='mb-4'>
-                                <label className='mb-1' htmlFor="">Email</label><br />
+                               <div className='flex gap-0'><label className='mb-1' htmlFor="">Email</label><span class="text-red-500">&nbsp;*</span></div> 
                                 <input className='border rounded w-full outline-blue-300 mt-1 py-2 px-4' type="text" name="" id="" />
                             </div>
 
                             <div className='mb-4'>
-                                <label className='mb-1' htmlFor="">Message</label><br />
+                               <div className='flex gap-0'> <label className='mb-1' htmlFor="">Message</label><span class="text-red-500 pt-1">&nbsp;*</span> </div>
                                 <textarea className='border rounded w-full outline-blue-300 mt-1 py-2 px-4 h-32 resize-none' name="" id="" cols="30" rows="10"></textarea>
                             </div>
 
