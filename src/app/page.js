@@ -1,5 +1,6 @@
+"use client";
 import Calendar from "@/components/calendar/Calendar";
-import Search from "@/components/search/search";
+import Search from "@/components/search/search.jsx";
 import SocialMedia from "@/components/social-media/SocialMedia";
 import MainContainer from "@/components/main-container/MainContainer";
 import MainPageEventList from "@/components/events/MainPageEeventList";
@@ -7,10 +8,27 @@ import SupportContact from "@/components/support-contact/SupportContact";
 import Title from "@/components/homepage-header/Title";
 import CalendarWrapper from "@/components/calendar/CalendarWrapper";
 import { getEventDetails, getThemeData } from "@/helpers/api-utils";
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Loading from "./loading";
 
 export default async function Home() {
+  const [events, setEvents] = useState([]);
+  const [themeData, setThemeData] = useState([]);
+  const [eventId, setEventId] = useState();
+
+  const handleEventSelect = (result) => {
+    setEventId(result);
+    console.log(eventId);
+  };
+  useEffect(() => {
+    getEventDetails()
+      .then((data) => setEvents(data))
+      .catch((error) => {});
+
+    getThemeData()
+      .then((data) => setThemeData(data))
+      .catch((error) => {});
+  }, []);
   const {
     boxBackgroundColor,
     buttonLinkBoxBorderColor,
@@ -28,9 +46,8 @@ export default async function Home() {
     instagramUrl,
     websiteUrl,
     mainHeadingType,
-  } = await getThemeData();
+  } = themeData;
 
-  const events = await getEventDetails();
   return (
     <div className="pt-24 pb-8">
       <MainContainer
@@ -62,11 +79,12 @@ export default async function Home() {
             boxBorderColor={buttonLinkBoxBorderColor}
           />
         </div>
-        <div className="w-[95%] mt-[20px] flex flex-col items-center">
+        <div className="w-[95%] flex flex-col items-center">
           <Search
             color={boxBackgroundColor}
             textColor={headingColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+            onSearchSelect={handleEventSelect}
           />
           <CalendarWrapper
             performancesCount={events.length}
@@ -79,16 +97,28 @@ export default async function Home() {
             />
           </CalendarWrapper>
           <Suspense fallback={<Loading color="blue" />}>
-            <MainPageEventList
-              events={events}
-              headingColor={headingColor}
-              boxBackgroundColor={boxBackgroundColor}
-              textColor={textColor}
-              buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-            />
+            {eventId ? (
+              <MainPageEventList
+                events={events.filter((event) => event.id === eventId)}
+                headingColor={headingColor}
+                boxBackgroundColor={boxBackgroundColor}
+                textColor={textColor}
+                buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+              />
+            ) : (
+              <MainPageEventList
+                events={events}
+                headingColor={headingColor}
+                boxBackgroundColor={boxBackgroundColor}
+                textColor={textColor}
+                buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+              />
+            )}
           </Suspense>
         </div>
       </MainContainer>
     </div>
   );
 }
+
+// export default Home;

@@ -4,10 +4,13 @@ import React from "react";
 import { useState } from "react";
 import PaymentMethodImage from "./PaymentMethodImage";
 import PaymentMethodDescription from "./PaymentMethodDescription";
+import ConfirmPayment from "./ConfirmPayment";
+
 
 const PaymentMethodList = ({ Paymentmethods, color }) => {
   const [paymentMethod, setPaymentMethod] = useState("Credit Card");
   return (
+    <>
     <div>
       <ul className="mt-[20px] inline-block w-[90%] list-none">
         {Paymentmethods.map((method) => (
@@ -47,6 +50,8 @@ const PaymentMethodList = ({ Paymentmethods, color }) => {
         ))}
       </ul>
     </div>
+    <ConfirmPayment paymentMethod={paymentMethod} color={color}/>
+    </>
   );
 };
 
