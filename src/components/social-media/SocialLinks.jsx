@@ -18,16 +18,17 @@ export default function SocialLinks({ url, type, iconColor }) {
     <span>
       
       <Link href={url}>
-      
-        {type === "website" ? (
-          
-          <IconLabel color={iconColor} size="size-5" icon="website" gap={3}>
-            <div className=" text-[14px]">
-            {url}
-            </div>
-          </IconLabel>
-          
-        ) : (
+        {type === "website" || type === "hyperlinks" ? 
+          (
+            <IconLabel
+              color={iconColor}
+              size={type === "website" ?"size-6":"size-4"}
+              icon={type}
+              gap={3}
+            >
+              {url}
+            </IconLabel>
+          ) : (
           <Image
             src={`${basepath}${linkTypes[type]}`}
             width={width}

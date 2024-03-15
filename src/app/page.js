@@ -38,13 +38,18 @@ export default async function Home() {
     privacyUrl,
     portalUrl,
     sellTicketUrl,
-    companyName
+    companyName,
   } = await getThemeData();
 
   return (
     <div>
-    <Header langCode={langCode} venueName={venueName} brandImage={brandImage} iconColor={ buttonLinkBoxBorderColor}/>
-    <div className="pt-24 pb-8">
+      <Header
+        langCode={langCode}
+        venueName={venueName}
+        brandImage={brandImage}
+        iconColor={buttonLinkBoxBorderColor}
+      />
+
       <MainContainer
         coverImage={backgroundImage}
         storeBackground={storeBackground}
@@ -102,15 +107,15 @@ export default async function Home() {
           </Suspense>
         </div>
       </MainContainer>
-    </div>
-    <Footer
-          supportUrl={supportUrl}
-          termsUrl={termsUrl}
-          privacyUrl={privacyUrl}
-          portalUrl={portalUrl}
-          sellTicketUrl={sellTicketUrl}
-          companyName={companyName}
-        />
+
+      <Footer
+        supportUrl={supportUrl}
+        termsUrl={termsUrl}
+        privacyUrl={privacyUrl}
+        portalUrl={portalUrl}
+        sellTicketUrl={sellTicketUrl}
+        companyName={companyName}
+      />
     </div>
   );
 }
