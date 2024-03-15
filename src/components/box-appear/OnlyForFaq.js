@@ -38,8 +38,8 @@ const ClickFaq = ({ component: Component, onClose }) => {
             }}>
 
                 <div className="temporary-button1" style={{ width: componentWidth }} onClick={handleClose}>
-                    <button className="btn btn-sm btn-circle " style={{ color: 'white', backgroundColor: 'transparent' }}>✕</button>
-
+                    
+                    <div style={{fontSize:'24px', color:'white', }}><i className="fa-regular fa-circle-xmark" style={{cursor:'pointer'}}></i></div>
                 </div>
 
                 <div className="modal-box" id='modal-content1'>
