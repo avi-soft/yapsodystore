@@ -47,6 +47,8 @@ export async function getThemeData() {
     next: { revalidate: 10 },
   });
   const {
+    global_discount,
+    new_ci,
     faq_count,
     test_mode,
     language_code,
@@ -55,6 +57,8 @@ export async function getThemeData() {
     venue_page_setup,
     venue_settings,
     company_details,
+    currency_details,
+    account_type,
   } = themeLayout.data;
   const {
     background_image_url,
@@ -83,6 +87,16 @@ export async function getThemeData() {
     portal_url,
     name: companyName,
   } = company_details;
+  const {
+    id,
+    country,
+    currency,
+    code,
+    symbol,
+    html_number,
+    locale,
+    symbol_position,
+  } = currency_details;
   return {
     venueName: name,
     venueCode: venue_code,
@@ -111,6 +125,7 @@ export async function getThemeData() {
     mainHeadingText: title_text,
     mainHeadingType: upload_type,
     faqCount: faq_count,
+    symbol,
   };
 }
 export async function getLanguageData() {

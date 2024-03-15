@@ -33,10 +33,7 @@ export default async function Home() {
   const events = await getEventDetails();
   return (
     <div className="pt-24 pb-8">
-      <MainContainer
-        coverImage={backgroundImage}
-        storeBackground={storeBackground}
-      >
+      <MainContainer storeBackground={storeBackground}>
         <div className="w-full">
           <Title
             mainHeadingImage={mainHeadingImage}
@@ -62,12 +59,13 @@ export default async function Home() {
             boxBorderColor={buttonLinkBoxBorderColor}
           />
         </div>
-        <div className="w-[95%] mt-[20px] flex flex-col items-center">
-          <Search
-            color={boxBackgroundColor}
-            textColor={headingColor}
-            buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-          />
+
+        <Search
+          color={boxBackgroundColor}
+          textColor={headingColor}
+          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+        />
+        <div className="w-[85%] mt-[20px] flex flex-col items-center">
           <CalendarWrapper
             performancesCount={events.length}
             textColor={textColor}
@@ -78,7 +76,7 @@ export default async function Home() {
               activeColorCode={buttonLinkBoxBorderColor}
             />
           </CalendarWrapper>
-          <Suspense fallback={<Loading color="blue" />}>
+          <Suspense fallback={<Loading />}>
             <MainPageEventList
               events={events}
               headingColor={headingColor}

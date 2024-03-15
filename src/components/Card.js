@@ -26,7 +26,7 @@ function Card({ isCodeAvailable = true }) {
           )}
           <div>
             <button class="bg-purple-400 text-lg text-white py-2 px-4 rounded">
-              {isCodeAvailable ? "Get Access" : "Get Ticket"}
+              {isCodeAvailable ? "Get Access" : "Get Tickets"}
             </button>
           </div>
 
