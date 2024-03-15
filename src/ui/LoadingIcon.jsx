@@ -1,4 +1,4 @@
-export default function LoadingIcon({ color}) {
+export default function LoadingIcon({ color }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -13,8 +13,7 @@ export default function LoadingIcon({ color}) {
       height="50px"
       className="content-loader-animate animate-spin"
       style={{
-        enableBackground: "new 0 0 268.765 268.765;",
-        animation: "spin 2s linear infinite",
+        enableBackground: "new 0 0 268.765 268.765",
       }}
     >
       <g id="Settings">
