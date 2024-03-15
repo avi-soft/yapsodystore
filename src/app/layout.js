@@ -22,10 +22,17 @@ export default async function RootLayout({ children }) {
     portalUrl,
     sellTicketUrl,
     companyName,
+    backgroundImage,
   } = await getThemeData();
   return (
     <html lang="en">
-      <body className="flex flex-col h-screen">
+      <body
+        className="flex flex-col"
+        style={{
+          background: backgroundImage ? `url(${backgroundImage})` : "#ffffff",
+          backgroundPosition: "center",
+        }}
+      >
         <Header
           langCode={langCode}
           venueName={venueName}

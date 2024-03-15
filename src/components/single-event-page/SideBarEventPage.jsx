@@ -16,7 +16,7 @@ const SideBarEventPage = ({
     eventData.location_info.show_map != "no";
 
   return (
-    <div className="pl-0 ml-0  mt-20 block w-[30%] px-[10px] pb-[30px] pr-[20px] max-xl:w-[100%] xl:sticky xl:top-0">
+    <div className="pl-0 ml-0  mt-20 block w-[24.5%] px-[10px] pb-[30px] pr-[20px] max-xl:w-[100%] xl:sticky xl:top-0">
       <EventImage eventData={eventData} />
 
       <div className="block">
@@ -27,11 +27,11 @@ const SideBarEventPage = ({
               startDate={eventData.performance_start_time}
               endDate={eventData.performance_end_time}
               color={textColor}
-              
             />
           </li>
           <li className="m-0 list-item w-[100%] border-b py-[12px]">
             <Button
+              height={35}
               width={"100%"}
               color={buttonColor}
               to={"#upcoming-event"}
@@ -39,12 +39,13 @@ const SideBarEventPage = ({
               padding_y={"6px"}
               padding_x={"6px"}
             >
-              Get Ticket
+              Get Tickets
             </Button>
           </li>
           {isEventTypePhysical && (
             <li className="m-0 list-item w-[100%] border-b py-[12px] ">
               <Button
+                height={35}
                 className="p-[6px]"
                 width={"100%"}
                 color={buttonColor}
@@ -52,12 +53,15 @@ const SideBarEventPage = ({
                 padding_y={"6px"}
                 padding_x={"6px"}
               >
-                Get Direction
+                Get Directions
               </Button>
             </li>
           )}
           {eventData.location_type === "web" && (
-            <li className="m-0 list-item w-[100%] border-b py-[12px]" style={{color: textColor}}>
+            <li
+              className="m-0 list-item w-[100%] border-b py-[12px]"
+              style={{ color: textColor }}
+            >
               {eventData.location_info.webevent_timezone}
             </li>
           )}

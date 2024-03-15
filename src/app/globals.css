@@ -9,5 +9,6 @@
 }
 html{
  scroll-behavior: smooth;
+ line-height: unset;
 }
 
