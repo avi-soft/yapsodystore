@@ -33,7 +33,7 @@ export default function TicketSection({
           ></input>
         </div>
         <div className="mt-[18px] text-center w-[100%]">
-          <Button color={color} to="/">
+        <Button color={color} to="/booking/payment">
             Get Access
           </Button>
         </div>

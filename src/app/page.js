@@ -9,6 +9,8 @@ import CalendarWrapper from "@/components/calendar/CalendarWrapper";
 import { getEventDetails, getThemeData } from "@/helpers/api-utils";
 import { Suspense } from "react";
 import Loading from "./loading";
+import Header from "../components/header/Navbar";
+import Footer from "@/components/footer/footer";
 
 export default async function Home() {
   const events = await getEventDetails();
@@ -29,9 +31,19 @@ export default async function Home() {
     instagramUrl,
     websiteUrl,
     mainHeadingType,
+    brandImage,
+    langCode,
+    supportUrl,
+    termsUrl,
+    privacyUrl,
+    portalUrl,
+    sellTicketUrl,
+    companyName
   } = await getThemeData();
 
   return (
+    <div>
+    <Header langCode={langCode} venueName={venueName} brandImage={brandImage} iconColor={ buttonLinkBoxBorderColor}/>
     <div className="pt-24 pb-8">
       <MainContainer
         coverImage={backgroundImage}
@@ -90,6 +102,15 @@ export default async function Home() {
           </Suspense>
         </div>
       </MainContainer>
+    </div>
+    <Footer
+          supportUrl={supportUrl}
+          termsUrl={termsUrl}
+          privacyUrl={privacyUrl}
+          portalUrl={portalUrl}
+          sellTicketUrl={sellTicketUrl}
+          companyName={companyName}
+        />
     </div>
   );
 }
