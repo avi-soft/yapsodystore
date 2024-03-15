@@ -1,13 +1,12 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
-function Map({ geo_lat, geo_lng, key }) {
-  console.log(geo_lat, geo_lng, key);
+function Map({ geo_lat, geo_lng }) {
   const mapRef = useRef(null);
   useEffect(() => {
     const initMap = async () => {
       const loader = new Loader({
-        apiKey: key,
+        apiKey: "AIzaSyDNCnit7EIwT9wRy_20R7uk0dwKFFh0jAU",
         version: "weekly",
       });
       const { Map } = await loader.importLibrary("maps");
