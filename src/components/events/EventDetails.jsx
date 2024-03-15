@@ -16,7 +16,7 @@ const EventDetails = ({
   eventNameTitle2,
   eventNameTitle3,
 }) => (
-  <div className="min-h-[1px] w-[45%] ml-[4px] pl-2 pt-2 text-[#566270] max-md:w-[100%] max-md:px-[15px] text-xl float-left">
+  <div className="min-h-[1px] w-[45%] ml-[4px] pl-2 pt-2  text-[#566270] max-md:w-[100%] max-md:px-[15px] text-xl float-left">
     <div className="mb-2">
       <span
         style={{
@@ -33,7 +33,7 @@ const EventDetails = ({
         >
           {eventName}
         </p>
-        <span className="text-[16px]">
+        <span className="text-[14px]">
           <p>{eventNameTitle2}</p>
           <p>{eventNameTitle3}</p>
         </span>

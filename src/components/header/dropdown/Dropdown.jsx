@@ -73,7 +73,7 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
         <div className="relative  ">
           <div className="flex items-center ">
             {type === "lang" ? (
-              <p className="mr-1 font-bold">{langCode.toUpperCase()}</p>
+              <p className="mr-1 font-semibold font-roboto">{langCode.toUpperCase()}</p>
             ) : (
               <>
                 <span className="mr-2">
