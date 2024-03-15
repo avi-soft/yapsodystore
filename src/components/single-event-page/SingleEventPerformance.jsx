@@ -6,11 +6,13 @@ const SingleEventPerformance = ({
   textColor,
   boxBackgroundColor,
   headingColor,
+  symbol,
 }) => {
   return (
     <div className="mt-[18px]">
       {performances.map((performance) => (
         <SingleEvent
+          symbol={symbol}
           key={performance.id}
           performance={performance}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
