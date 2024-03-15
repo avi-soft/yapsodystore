@@ -22,7 +22,7 @@ const Language = ({ handleClick, languageData, langCode }) => {
         ></div>{" "}
       </div>
       <ul
-        className={`absolute top-full right-0 mt-7 bg-white border border-gray-300 shadow-md grid grid-cols-2 rounded-md`}
+        className={`absolute top-full mt-7 bg-white border border-gray-300 shadow-md grid grid-cols-2 rounded-md md:right-0 -right-[135px]`}
         style={{ minWidth: calculateMinWidth(languageData) }}
       >
         {languageData.map((option, index) => (
