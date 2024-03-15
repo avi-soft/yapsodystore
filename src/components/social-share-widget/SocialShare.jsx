@@ -14,17 +14,17 @@ export default function SocialShareWidget() {
         </li>
         <li className="pb-2">
           <Link href={"/"}>
-            <FaTwitter className="text-[#4099ff]" />
+            <FaTwitter size={24} className="text-[#4099ff]" />
           </Link>
         </li>
         <li className="pb-2">
           <Link href={"/"}>
-            <FaPinterest className="text-[#C8232C]" />
+            <FaPinterest size={24} className="text-[#C8232C]" />
           </Link>
         </li>
         <li className="pb-2 hidden md:block">
           <Link href={"/"}>
-            <IoShareSocial className="text-[#c0c0c0]" />
+            <IoShareSocial size={24} className="text-[#c0c0c0]" />
           </Link>
         </li>
       </ul>
