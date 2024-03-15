@@ -5,6 +5,7 @@ import SingleEventPerformance from "./SingleEventPerformance";
 import SupportContact from "../support-contact/SupportContact";
 import CalendarWrapper from "../calendar/CalendarWrapper";
 import Map from "../google-map/Map";
+import BottomView from "../social-share-widget/BottomView";
 import { MdLocationPin } from "react-icons/md";
 import { GiLaptop } from "react-icons/gi";
 const MainContent = ({
@@ -67,6 +68,9 @@ const MainContent = ({
         />
       </section>
       <SocialShareWidget />
+      <div className="md:hidden block">
+        <BottomView bgColor={"bg-slate-300"} textColor={"white"} />
+      </div>
       <div
         className="location text-base my-7 relative text-[#566270] flex items-center"
         style={{ color: textColor }}
