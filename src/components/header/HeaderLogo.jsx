@@ -10,7 +10,7 @@ const HeaderLogo = ({ topImage, venueName }) => {
     <div>
       <div className={styles.headerLeft}>
         <Link href={"/"}>
-          <Image src={logo} alt="Logo" className={styles.headerLogo} priority />
+          <Image src={logo} size={26} alt="Logo" className={styles.headerLogo} priority />
         </Link>
         <Link href={"/"} className={styles.headerVenue}>
           <div className="flex flex-row items-center ">

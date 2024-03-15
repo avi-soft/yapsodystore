@@ -57,9 +57,9 @@ export default function EventListLayout({
         performances={performances}
       />
       <div className="relative ml-[45px]  min-h-[1px] w-[30%] px-[25px] text-right mt-auto mb-auto max-md:w-[100%] max-md:ml-auto max-md:mr-auto max-md:mt-[2px]">
-        <div className="w-[50%] max-md:w-[100%] rounded py-[6px] float-right">
+        <div className="w-[50%] max-md:w-[100%] rounded py-[6px] float-right font-lato text-[18px]">
           <Button
-            height={43.7}
+           
             width={"100%"}
             color={buttonLinkBoxBorderColor}
             to={`/event/index/${eventId}/${eventName
