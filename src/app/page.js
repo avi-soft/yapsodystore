@@ -79,24 +79,26 @@ export default async function Home() {
             boxBorderColor={buttonLinkBoxBorderColor}
           />
         </div>
-        <div className="w-[95%] flex flex-col items-center">
-          <Search
-            color={boxBackgroundColor}
-            textColor={headingColor}
-            buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-            // onSearchSelect={handleEventSelect}
+        <div className="md:w-1/4 flex justify-center">
+        <Search
+          color={boxBackgroundColor}
+          textColor={headingColor}
+          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+          // onSearchSelect={handleEventSelect}
           />
+        </div>
+        <div className="w-[89%] flex flex-col items-center">
           <CalendarWrapper
             performancesCount={events.length}
             textColor={textColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
           >
-            <Calendar
+            <Calendar isHome={true}
               highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
               activeColorCode={buttonLinkBoxBorderColor}
             />
           </CalendarWrapper>
-          <Suspense fallback={<Loading color="blue" />}>
+          <Suspense fallback={<Loading />}>
             <MainPageEventList
               events={events}
               headingColor={headingColor}

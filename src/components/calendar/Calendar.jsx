@@ -46,6 +46,7 @@ const Calendar = ({
   dateClickHandler = (date) => {
     console.log("Date clicked", date);
   },
+  isHome = false,
 }) => {
   const initialSelectedDate = null;
 
@@ -85,14 +86,21 @@ const Calendar = ({
       <div className="cal-calendar-header">
         <div className="cal-calendar-navs">
           <p className="cal-nav-arrows" onClick={goToPrevMonth}>
-            <Image src={PrevMonth} className="h-[10px] w-[10px] " alt="Prev_month"/>
-          
+            <Image
+              src={PrevMonth}
+              className="h-[10px] w-[10px] "
+              alt="Prev_month"
+            />
           </p>
           <p className="font-medium text-gray-700 select-none m-0">
             {`${monthsMap[currentMonthYear.month]} ${currentMonthYear.year}`}
           </p>
           <p className="cal-nav-arrows" onClick={goToNextMonth}>
-          <Image src={NextMonth}   className="h-[10px] w-[10px]"alt="Next_month"/>
+            <Image
+              src={NextMonth}
+              className="h-[10px] w-[10px]"
+              alt="Next_month"
+            />
           </p>
         </div>
       </div>
@@ -124,9 +132,14 @@ const Calendar = ({
                     : "cal-no-cursor"
                 }`}
                 style={
-                  selectedDate.toDateString() === e.toDateString() ||
-                  isHighlighted(e)
-                    ? { backgroundColor: `${activeColorCode}` }
+                  (selectedDate.toDateString() === e.toDateString() ||
+                    isHighlighted(e)) &&
+                  !isHome
+                    ? { backgroundColor: `${activeColorCode}`, color: "white" }
+                    : (selectedDate.toDateString() === e.toDateString() ||
+                        isHighlighted(e)) &&
+                      isHome
+                    ? { color: "black" }
                     : null
                 }
                 onClick={

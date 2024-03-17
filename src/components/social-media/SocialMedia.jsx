@@ -17,7 +17,7 @@ export default function SocialMedia({
 
   return (
     <div
-      className={`flex flex-row justify-${position} items-center gap-4 flex-wrap`}
+      className={`flex flex-row justify-${position} items-center gap-4 flex-wrap mb-4`}
     >
       {social_links.facebookUrl && (
         <SocialLinks url={social_links.facebookUrl} type="facebook" />

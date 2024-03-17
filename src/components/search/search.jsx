@@ -51,7 +51,7 @@ const Search = ({
   // const eventData = await getEventDetails()
 
   return (
-    <div className="mb-6 w-[340px] max-sm:w-[100%]">
+    <div className="mb-6 mt-[18px] w-[100%]">
       <IoSearchSharp color={textColor} className={styles.icon} />
       <input
         style={inputStyle}

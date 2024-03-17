@@ -27,7 +27,6 @@
     user-select: none; 
 }
 .cal-active-date{
-    color:white !important;
     border:none;
     border-radius:40px !important
 }

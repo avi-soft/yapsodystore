@@ -21,10 +21,11 @@ const SingleEventCard = ({
     eventNameTitle3: event.event_title3,
     location: event.venue_location_name + "-" + event.venue_location_address,
     startDate: event.performance_start_time,
-    endDate: event.last_performance_start_date,
+    endDate: event.performance_end_time,
     performances: event.performances_count,
     headingColor: headingColor,
     textColor: textColor,
+    showStartDateOnly:event.show_start_date_only
   };
 
   return (
