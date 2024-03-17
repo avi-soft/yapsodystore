@@ -1,4 +1,3 @@
-"use client";
 import Button from "@/ui/Button";
 import EventDetails from "./EventDetails";
 import EventImage from "./EventImage";
@@ -20,6 +19,7 @@ export default function EventListLayout({
   performances,
   eventNameTitle2,
   eventNameTitle3,
+  showStartDateOnly,
 }) {
   return (
     <div
@@ -55,9 +55,10 @@ export default function EventListLayout({
         startDate={startDate}
         endDate={endDate}
         performances={performances}
+        showStartDateOnly={showStartDateOnly}
       />
       <div className="relative ml-[45px]  min-h-[1px] w-[30%] px-[25px] text-right mt-auto mb-auto max-md:w-[100%] max-md:ml-auto max-md:mr-auto max-md:mt-[2px]">
-        <div className="w-[50%] max-md:w-[100%] rounded py-[6px] float-right font-lato text-[18px]">
+        <div className=" max-md:w-[100%] rounded py-[6px] float-right font-lato text-[18px]">
           <Button
             height={"43.7px"}
             width={"124px"}

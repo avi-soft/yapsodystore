@@ -26,7 +26,7 @@ function Map({ geo_lat, geo_lng }) {
   return (
     <div
       id="gMap"
-      className="rounded-md"
+      className="rounded-md mb-[20px]"
       style={{ height: "318px" }}
       ref={mapRef}
     />
