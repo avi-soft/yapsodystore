@@ -19,7 +19,7 @@ const Support = ({
     onMouseLeave: () => setOpen(false),
   };
   return (
-    <div className={`dropdown dropdown-hover dropdown-${position}`}>
+    <div className={`dropdown dropdown-hover text-[14px]  dropdown-${position}`}>
       <IconLabel
         color={iconColor}
         size={size}

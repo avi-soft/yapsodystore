@@ -29,7 +29,7 @@ const SideBarEventPage = ({
               color={textColor}
             />
           </li>
-          <li className="m-0 list-item w-[100%] border-b py-[12px]">
+          <li className="m-0 list-item w-[100%]   text-[14px] border-b py-[12px]">
             <Button
               height={35}
               width={"100%"}
@@ -43,19 +43,21 @@ const SideBarEventPage = ({
             </Button>
           </li>
           {isEventTypePhysical && (
-            <li className="m-0 list-item w-[100%] border-b py-[12px] ">
-              <Button
-                height={35}
-                className="p-[6px]"
-                width={"100%"}
-                color={buttonColor}
-                to="#gMap"
-                padding_y={"6px"}
-                padding_x={"6px"}
-              >
-                Get Directions
-              </Button>
-            </li>
+            <div className="md:block hidden">
+              <li className="m-0 list-item w-[100%] font-lato text-[14px] border-b py-[12px] ">
+                <Button
+                  height={35}
+                  className="p-[6px]"
+                  width={"100%"}
+                  color={buttonColor}
+                  to="#gMap"
+                  padding_y={"6px"}
+                  padding_x={"6px"}
+                >
+                  Get Directions
+                </Button>
+              </li>
+            </div>
           )}
           {eventData.location_type === "web" && (
             <li

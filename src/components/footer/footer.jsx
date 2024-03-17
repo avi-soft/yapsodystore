@@ -16,7 +16,7 @@ const Footer = ({
   const currentYear = new Date().getFullYear();
   return (
     <div
-      className={`border-t min-h-[57.65px] mt-auto border-solid px-2 border-gray-300 !bg-white font-[450] text-[#454444] w-full  text-base ${styles.footer}`}
+      className={`border-t font-lato min-h-[57.65px] mt-auto border-solid px-2 border-gray-300 !bg-white  text-[#454444] w-full  text-base ${styles.footer}`}
     >
       <div className={`float-left ${flexRow} p-4 ${styles.list}`}>
         <ul className={`${flexRow} flex-wrap gap-3 `}>
