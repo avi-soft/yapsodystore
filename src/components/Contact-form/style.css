@@ -1,0 +1,36 @@
+.contact-page-resp{
+    width: 768px;
+    overflow: hidden;
+    font-family: Lato;
+    font-size: 12px;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: .4px;
+}
+
+@media (max-width:768px) {
+    .contact-page-resp{
+        width: 450px;
+        overflow: hidden;
+    }
+    #contact-bottom-respons{
+        flex-direction: column;
+    }
+    .contact-form_button button{
+        width: 100%;
+    }
+    .contact-middle-part {
+        overflow-y: auto;
+        max-height: 300px; /* Adjust the max-height as needed */
+    }
+    
+}
+
+@media (max-width:450px) {
+    .contact-page-resp{
+        width: 250px;
+    }
+    .contact-middle-part{
+        overflow-y:auto;
+    }
+}

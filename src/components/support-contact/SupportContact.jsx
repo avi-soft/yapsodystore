@@ -6,12 +6,13 @@ export default function SupportContact({
   iconColor = "black",
   textColor,
   boxBackgroundColor,
+  faqCount
 }) {
   return (
-    <div className={`flex gap-x-4 gap-y-1 justify-${position} flex-wrap`}>
+    <div className={`flex gap-x-4 justify-${position} flex-wrap`}>
       <span className="max-sm:mt-[10px] ">
         <Support
-          size="size-6"
+          size="size-5"
           iconColor={iconColor}
           textColor={textColor}
           boxBackgroundColor={boxBackgroundColor}
@@ -19,11 +20,13 @@ export default function SupportContact({
         />
       </span>
       <span className="max-sm:mt-[10px]">
-        <ContactPresenter size="size-6" color={iconColor} />
+        <ContactPresenter size="size-5" color={iconColor} />
       </span>
-      <span className="max-sm:mt-[10px]">
-        <PresenterFaq size="size-6" color={iconColor} />
-      </span>
+      {faqCount > 0 && (
+        <span className="max-sm:mt-[10px]">
+          <PresenterFaq size="size-5" color={iconColor} />
+        </span>
+      )}
     </div>
   );
 }

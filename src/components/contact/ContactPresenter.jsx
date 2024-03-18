@@ -1,12 +1,12 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import IconLabel from "@/ui/IconLabel";
 import ContactPresent from "../Contact-form/ContactPresentor";
 
 const ContactPresenter = ({ size, color }) => {
   const [showSignIn, setShowSignIn] = useState(false);
   const handleClick = () => {
-    setShowSignIn(true);
+    setShowSignIn(!showSignIn);
   };
   return (
     // <IconLabel color={color} size={size} icon="contact" gap={4}>
@@ -15,11 +15,13 @@ const ContactPresenter = ({ size, color }) => {
 
     <div
       onClick={handleClick}
-      className="font-lato text-[14px] flex items-center"
+      className="font-lato text-[16px] flex items-center cursor-pointer"
     >
-      <IconLabel color={color} size={size} icon="contact" gap={4} />
-      <span style={{ color: color }}>Presenter</span>
-      {showSignIn && <ContactPresent onClose={() => setShowSignIn(false)} />}
+      <IconLabel color={color} size={size} icon="contact" gap={3} />
+      <span style={{ color: color }}>Contact Presenter</span>
+      {showSignIn && (
+        <ContactPresent onClose={() => setShowSignIn(!showSignIn)} />
+      )}
     </div>
   );
 };

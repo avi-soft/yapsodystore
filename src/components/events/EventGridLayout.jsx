@@ -1,3 +1,4 @@
+import { goToEvent } from "@/helpers/common";
 import Button from "@/ui/Button";
 import EventDetails from "./EventDetails";
 import EventImage from "./EventImage";
@@ -37,6 +38,7 @@ export default function EventListLayout({
         </article>
       </div>
       <EventDetails
+        eventId={eventId}
         locationId={locationId}
         locationType={locationType}
         headingColor={headingColor}
@@ -55,10 +57,7 @@ export default function EventListLayout({
           <Button
             width={"100%"}
             color={buttonLinkBoxBorderColor}
-            to={`/event/index/${eventId}/${eventName
-              .replace(/[^\w\s]/g, "")
-              .replace(/\s+/g, "-")
-              .replace(/-+$/, "")}`}
+            to={goToEvent(eventId, eventName)}
           >
             More Info
           </Button>

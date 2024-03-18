@@ -1,6 +1,8 @@
 import SingleEvent from "./SingleEvent";
 
 const SingleEventPerformance = ({
+  eventid,
+  dateid,
   performances,
   buttonLinkBoxBorderColor,
   textColor,
@@ -12,6 +14,8 @@ const SingleEventPerformance = ({
     <div className="mt-[18px]">
       {performances.map((performance) => (
         <SingleEvent
+          eventid={eventid}
+          dateid={dateid}
           symbol={symbol}
           key={performance.id}
           performance={performance}

@@ -11,6 +11,8 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import Header from "../components/header/Navbar";
 import Footer from "@/components/footer/footer";
+import Header from "../components/header/Navbar";
+import Footer from "@/components/footer/footer";
 
 export default async function Home() {
   const events = await getEventDetails();
@@ -39,6 +41,7 @@ export default async function Home() {
     portalUrl,
     sellTicketUrl,
     companyName,
+    faqCount
   } = await getThemeData();
 
   return (
@@ -71,20 +74,21 @@ export default async function Home() {
             websiteUrl={websiteUrl}
             iconColor={buttonLinkBoxBorderColor}
           />
-          <SupportContact
-            position="center"
-            iconColor={buttonLinkBoxBorderColor}
-            textColor={textColor}
-            boxBackgroundColor={boxBackgroundColor}
-            boxBorderColor={buttonLinkBoxBorderColor}
-          />
         </div>
+        <SupportContact
+          position="center"
+          iconColor={buttonLinkBoxBorderColor}
+          textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+          boxBorderColor={buttonLinkBoxBorderColor}
+          faqCount={faqCount}
+        />
         <div className="md:w-1/4 flex justify-center">
-        <Search
-          color={boxBackgroundColor}
-          textColor={headingColor}
-          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-          // onSearchSelect={handleEventSelect}
+          <Search
+            color={boxBackgroundColor}
+            textColor={headingColor}
+            buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+            // onSearchSelect={handleEventSelect}
           />
         </div>
         <div className="w-[89%] flex flex-col items-center">
@@ -93,7 +97,8 @@ export default async function Home() {
             textColor={textColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
           >
-            <Calendar isHome={true}
+            <Calendar
+              isHome={true}
               highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
               activeColorCode={buttonLinkBoxBorderColor}
             />
