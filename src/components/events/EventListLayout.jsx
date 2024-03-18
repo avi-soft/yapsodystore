@@ -2,6 +2,7 @@ import Button from "@/ui/Button";
 import EventDetails from "./EventDetails";
 import EventImage from "./EventImage";
 import Link from "next/link";
+import { goToEvent } from "@/helpers/common";
 
 export default function EventListLayout({
   eventId,
@@ -30,10 +31,7 @@ export default function EventListLayout({
       className="mb-[20px] min-h-[154px] w-[100%] flex justify-between rounded border-[1px] max-md:flex-col max-md:gap-3"
     >
       <Link
-        href={`/event/index/${eventId}/${eventName
-          .replace(/[^\w\s]/g, "")
-          .replace(/\s+/g, "-")
-          .replace(/-+$/, "")}`}
+        href={goToEvent(eventId, eventName)}
         className="relative min-h-[100%] justify-center max-md:w-[100%] max-md:h-[180px] px-[4px] py-[4px]"
       >
         <div className="lg:w-[190px] lg:h-[142.5px] md:w-[170px] md:h-[127.5px] max-h-[154px] w-[95%] relative overflow-hidden object-fill">
@@ -44,6 +42,7 @@ export default function EventListLayout({
         </div>
       </Link>
       <EventDetails
+        eventId={eventId}
         locationId={locationId}
         locationType={locationType}
         headingColor={headingColor}
@@ -63,10 +62,7 @@ export default function EventListLayout({
             height={"43.7px"}
             width={"124px"}
             color={buttonLinkBoxBorderColor}
-            to={`/event/index/${eventId}/${eventName
-              .replace(/[^\w\s]/g, "")
-              .replace(/\s+/g, "-")
-              .replace(/-+$/, "")}`}
+            to={goToEvent(eventId, eventName)}
           >
             More Info
           </Button>
