@@ -41,7 +41,13 @@ export async function getEventDetails() {
   // console.log(eventData.data.events);
   return eventData.data.events;
 }
-
+export async function getFaqs() {
+  const faqs = await getData(BaseUrl + request.faq, {
+    ...headerData,
+    next: { revalidate: 10 },
+  });
+  return faqs.data;
+}
 export async function getThemeData() {
   const themeLayout = await getData(BaseUrl + request.venueDetails, {
     ...headerData,

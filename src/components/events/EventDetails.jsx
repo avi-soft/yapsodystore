@@ -20,8 +20,8 @@ const EventDetails = ({
   showStartDateOnly,
   eventId,
 }) => (
-  <div className="min-h-[1px] w-[45%] ml-[4px] pl-2 pt-2  text-[#566270] max-md:w-[100%] max-md:px-[15px] text-xl float-left">
-    <div className="mb-2">
+  <div className="min-h-[1px] w-[45%] pl-2 pt-2  text-[#566270] max-md:w-[100%] max-md:px-[15px] text-xl float-left">
+    <div className="mb-1">
       <div
         style={{
           color: headingColor,
