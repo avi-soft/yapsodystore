@@ -6,7 +6,7 @@ import ContactPresent from "../Contact-form/ContactPresentor";
 const ContactPresenter = ({ size, color }) => {
   const [showSignIn, setShowSignIn] = useState(false);
   const handleClick = () => {
-    setShowSignIn(true);
+    setShowSignIn(!showSignIn);
   };
   return (
     // <IconLabel color={color} size={size} icon="contact" gap={4}>
@@ -18,8 +18,8 @@ const ContactPresenter = ({ size, color }) => {
       className="font-lato text-[14px] flex items-center"
     >
       <IconLabel color={color} size={size} icon="contact" gap={4} />
-      <span style={{ color: color }}>Presenter</span>
-      {showSignIn && <ContactPresent onClose={() => setShowSignIn(false)} />}
+      <span style={{ color: color }} >Presenter</span>
+      {showSignIn && <ContactPresent onClose={() => setShowSignIn(!showSignIn)} />}
     </div>
   );
 };
