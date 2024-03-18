@@ -5,6 +5,7 @@ const SupportCard = ({
   boxBorderColor = "black",
   textColor = "black",
   boxBackgroundColor = "white",
+  position,
 }) => {
   const [isHovered1, setIsHovered1] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
@@ -38,10 +39,9 @@ const SupportCard = ({
     opacity: isHovered2 && "0.5",
   };
   return (
-    <>
       <div
-        className="dropdown-content left-[-75%] z-10 h-fit w-[300px] bg-white flex-col gap-2 rounded-[4px] border p-3 shadow-md "
         style={{ color: textColor, backgroundColor: boxBackgroundColor }}
+        className="p-3 "
       >
         <div
           style={boxStyle1}
@@ -69,7 +69,7 @@ const SupportCard = ({
           </ul>
         </div>
       </div>
-    </>
+
   );
 };
 
