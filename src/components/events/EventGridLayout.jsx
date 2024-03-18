@@ -1,4 +1,4 @@
-"use client";
+import { goToEvent } from "@/helpers/common";
 import Button from "@/ui/Button";
 import EventDetails from "./EventDetails";
 import EventImage from "./EventImage";
@@ -19,6 +19,7 @@ export default function EventListLayout({
   performances,
   eventNameTitle2,
   eventNameTitle3,
+  showStartDateOnly,
 }) {
   return (
     <div
@@ -37,6 +38,7 @@ export default function EventListLayout({
         </article>
       </div>
       <EventDetails
+        eventId={eventId}
         locationId={locationId}
         locationType={locationType}
         headingColor={headingColor}
@@ -48,16 +50,14 @@ export default function EventListLayout({
         performances={performances}
         eventNameTitle2={eventNameTitle2}
         eventNameTitle3={eventNameTitle3}
+        showStartDateOnly={showStartDateOnly}
       />
       <div className="relative ml-[45px]  min-h-[1px] w-[30%] px-[25px] text-right mt-auto mb-auto max-md:w-[100%] max-md:ml-auto max-md:mr-auto max-md:mt-[2px]">
-        <div className="w-[50%] max-md:w-[100%] rounded py-[6px] float-right">
+        <div className="w-[50%] max-md:w-[100%] rounded py-[6px] float-right ">
           <Button
             width={"100%"}
             color={buttonLinkBoxBorderColor}
-            to={`/event/index/${eventId}/${eventName
-              .replace(/[^\w\s]/g, "")
-              .replace(/\s+/g, "-")
-              .replace(/-+$/, "")}`}
+            to={goToEvent(eventId, eventName)}
           >
             More Info
           </Button>

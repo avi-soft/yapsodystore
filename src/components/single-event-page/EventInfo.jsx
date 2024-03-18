@@ -3,7 +3,7 @@ import moment from "moment";
 const EventInfo = ({ performanceCount, startDate, endDate, color }) => {
   return (
     <div
-      className="block overflow-hidden tracking-wider text-[#2e2294e]"
+      className="block overflow-hidden font-lato tracking-wider text-[#2e2294e]"
       style={{ color }}
     >
       {performanceCount > 1 ? (

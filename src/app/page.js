@@ -11,6 +11,8 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import Header from "../components/header/Navbar";
 import Footer from "@/components/footer/footer";
+import Header from "../components/header/Navbar";
+import Footer from "@/components/footer/footer";
 
 export default async function Home() {
   const events = await getEventDetails();
@@ -38,13 +40,19 @@ export default async function Home() {
     privacyUrl,
     portalUrl,
     sellTicketUrl,
-    companyName
+    companyName,
+    faqCount
   } = await getThemeData();
 
   return (
     <div>
-    <Header langCode={langCode} venueName={venueName} brandImage={brandImage} iconColor={ buttonLinkBoxBorderColor}/>
-    <div className="pt-24 pb-8">
+      <Header
+        langCode={langCode}
+        venueName={venueName}
+        brandImage={brandImage}
+        iconColor={buttonLinkBoxBorderColor}
+      />
+
       <MainContainer
         coverImage={backgroundImage}
         storeBackground={storeBackground}
@@ -66,32 +74,36 @@ export default async function Home() {
             websiteUrl={websiteUrl}
             iconColor={buttonLinkBoxBorderColor}
           />
-          <SupportContact
-            position="center"
-            iconColor={buttonLinkBoxBorderColor}
-            textColor={textColor}
-            boxBackgroundColor={boxBackgroundColor}
-            boxBorderColor={buttonLinkBoxBorderColor}
-          />
         </div>
-        <div className="w-[95%] flex flex-col items-center">
+        <SupportContact
+          position="center"
+          iconColor={buttonLinkBoxBorderColor}
+          textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+          boxBorderColor={buttonLinkBoxBorderColor}
+          faqCount={faqCount}
+        />
+        <div className="md:w-1/4 flex justify-center">
           <Search
             color={boxBackgroundColor}
             textColor={headingColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
             // onSearchSelect={handleEventSelect}
           />
+        </div>
+        <div className="w-[89%] flex flex-col items-center">
           <CalendarWrapper
             performancesCount={events.length}
             textColor={textColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
           >
             <Calendar
+              isHome={true}
               highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
               activeColorCode={buttonLinkBoxBorderColor}
             />
           </CalendarWrapper>
-          <Suspense fallback={<Loading color="blue" />}>
+          <Suspense fallback={<Loading />}>
             <MainPageEventList
               events={events}
               headingColor={headingColor}
@@ -102,15 +114,15 @@ export default async function Home() {
           </Suspense>
         </div>
       </MainContainer>
-    </div>
-    <Footer
-          supportUrl={supportUrl}
-          termsUrl={termsUrl}
-          privacyUrl={privacyUrl}
-          portalUrl={portalUrl}
-          sellTicketUrl={sellTicketUrl}
-          companyName={companyName}
-        />
+
+      <Footer
+        supportUrl={supportUrl}
+        termsUrl={termsUrl}
+        privacyUrl={privacyUrl}
+        portalUrl={portalUrl}
+        sellTicketUrl={sellTicketUrl}
+        companyName={companyName}
+      />
     </div>
   );
 }

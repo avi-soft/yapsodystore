@@ -16,7 +16,7 @@ const SideBarEventPage = ({
     eventData.location_info.show_map != "no";
 
   return (
-    <div className="pl-0 ml-0  mt-20 block w-[24.5%] px-[10px] pb-[30px] pr-[20px] max-xl:w-[100%] xl:sticky xl:top-0">
+    <div className="pl-0 ml-0  mt-20 block w-[300px] px-[10px] pb-[30px] pr-[20px] max-xl:w-[100%] xl:sticky xl:top-0">
       <EventImage eventData={eventData} />
 
       <div className="block">
@@ -29,7 +29,7 @@ const SideBarEventPage = ({
               color={textColor}
             />
           </li>
-          <li className="m-0 list-item w-[100%] border-b py-[12px]">
+          <li className="m-0 list-item w-[100%]   text-[14px] border-b py-[12px]">
             <Button
               height={35}
               width={"100%"}
@@ -43,19 +43,21 @@ const SideBarEventPage = ({
             </Button>
           </li>
           {isEventTypePhysical && (
-            <li className="m-0 list-item w-[100%] border-b py-[12px] ">
-              <Button
-                height={35}
-                className="p-[6px]"
-                width={"100%"}
-                color={buttonColor}
-                to="#gMap"
-                padding_y={"6px"}
-                padding_x={"6px"}
-              >
-                Get Directions
-              </Button>
-            </li>
+            <div className="md:block hidden">
+              <li className="m-0 list-item w-[100%] font-lato text-[14px] border-b py-[12px] ">
+                <Button
+                  height={35}
+                  className="p-[6px]"
+                  width={"100%"}
+                  color={buttonColor}
+                  to="#gMap"
+                  padding_y={"6px"}
+                  padding_x={"6px"}
+                >
+                  Get Directions
+                </Button>
+              </li>
+            </div>
           )}
           {eventData.location_type === "web" && (
             <li
