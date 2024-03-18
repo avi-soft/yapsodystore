@@ -20,7 +20,7 @@ const Support = ({
   };
   return (
     <div
-      className={`dropdown dropdown-hover text-[14px]  dropdown-${position}`}
+      className={`dropdown dropdown-hover text-[16px]  dropdown-${position}`}
     >
       <IconLabel
         color={iconColor}
