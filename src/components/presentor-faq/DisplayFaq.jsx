@@ -12,7 +12,7 @@ const DisplayFq = ({faq}) => {
   return (
     <div className='present-faq'>
       <div className='inside-faq'>
-        <div style={{fontWeight:'bold', color:'#1d1d2c' , cursor:'pointer', flex:80}}  onClick={toggleAnswerVisibility}>
+        <div style={{fontWeight:'600', color:'rgba(1, 22, 56, 0.7)' , cursor:'pointer', flex:80, fontSize:'1rem'}}  onClick={toggleAnswerVisibility}>
           {faq.question}
         </div>
         <div style={{flex:20 , display:'flex', justifyContent:'center', color:'grey'}}>

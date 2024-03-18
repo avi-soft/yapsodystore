@@ -1,6 +1,6 @@
 import "./globals.css";
 import Header from "../components/header/Navbar";
-import Footer from "@/components/footer/footer";
+import Footer from "@/components/footer/footer.jsx";
 import { getThemeData } from "@/helpers/api-utils";
 import { Suspense } from "react";
 import Loading from "./loading";
