@@ -6,14 +6,22 @@ import MainPageEventList from "@/components/events/MainPageEeventList";
 import SupportContact from "@/components/support-contact/SupportContact";
 import Title from "@/components/homepage-header/Title";
 import CalendarWrapper from "@/components/calendar/CalendarWrapper";
-import { getEventDetails, getThemeData } from "@/helpers/api-utils";
+import {
+  getEventDetails,
+  getSearchEvents,
+  getThemeData,
+} from "@/helpers/api-utils";
 import { Suspense } from "react";
 import Loading from "./loading";
 import Header from "../components/header/Navbar";
 import Footer from "@/components/footer/footer";
 
-export default async function Home() {
-  const events = await getEventDetails();
+export default async function Home({ searchParams }) {
+  const search =
+    typeof searchParams.search === "string" ? searchParams.search : undefined;
+  const events = search
+    ? await getSearchEvents(search)
+    : await getEventDetails();
   const {
     boxBackgroundColor,
     buttonLinkBoxBorderColor,
@@ -39,7 +47,7 @@ export default async function Home() {
     portalUrl,
     sellTicketUrl,
     companyName,
-    faqCount
+    faqCount,
   } = await getThemeData();
 
   return (
@@ -86,6 +94,7 @@ export default async function Home() {
             color={boxBackgroundColor}
             textColor={headingColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+            search={search}
             // onSearchSelect={handleEventSelect}
           />
         </div>
