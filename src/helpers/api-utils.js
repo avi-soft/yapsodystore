@@ -33,6 +33,19 @@ export async function getData(...config) {
     throw error; // Rethrow the error to be caught by the calling function
   }
 }
+export async function getSearchEvents(query) {
+  const eventData = await getData(
+    BaseUrl +
+      request.events +
+      `?asc_by=performance_start_time&limit=200&search_query=${query}`,
+    {
+      ...headerData,
+      next: { revalidate: 5 },
+    }
+  );
+  // console.log(eventData.data.events);
+  return eventData.data.events;
+}
 export async function getEventDetails() {
   const eventData = await getData(BaseUrl + request.events, {
     ...headerData,
@@ -41,7 +54,14 @@ export async function getEventDetails() {
   // console.log(eventData.data.events);
   return eventData.data.events;
 }
-
+export async function getFaqs() {
+  const faqs = await getData(BaseUrl + request.faq, {
+    ...headerData,
+    next: { revalidate: 10 },
+  });
+  console.log(faqs.data);
+  return faqs.data;
+}
 export async function getThemeData() {
   const themeLayout = await getData(BaseUrl + request.venueDetails, {
     ...headerData,
