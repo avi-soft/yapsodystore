@@ -16,9 +16,9 @@ const accountOptions = [
   { label: "Logout", img: logout, link: "/logout" },
 ];
 
-const Account = ({ handleClick }) => {
+const Account = () => {
   return (
-    <div className="relative shadow-xl">
+    <>
       <div className="absolute right-11 mt-[10px]">
         <div
           style={{
@@ -33,7 +33,7 @@ const Account = ({ handleClick }) => {
       >
         {accountOptions.map((option, index) => (
           <li key={index + 100} className="p-2 py-4 truncate border text-black">
-            <Link href={option.link} onClick={handleClick}>
+            <Link href={option.link}>
               <span className={`ml-3 flex items-center`}>
                 <Image
                   src={option.img}
@@ -48,7 +48,7 @@ const Account = ({ handleClick }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 

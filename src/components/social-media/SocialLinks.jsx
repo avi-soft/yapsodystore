@@ -10,16 +10,25 @@ const linkTypes = {
   instagram: "insta_icon.svg",
 };
 
-export default function SocialLinks({ url, type, color }) {
-  const width = 22;
-  const height = 22;
+export default function SocialLinks({ url, type, iconColor }) {
+  const width = 23;
+  const height = 24;
 
   return (
     <span>
+      
       <Link href={url}>
-        {type === "website" ? (
-          <IconLabel color={color} size="size-6" icon="website" gap={3}>{url}</IconLabel>
-        ) : (
+        {type === "website" || type === "hyperlinks" ? 
+          (
+            <IconLabel
+              color={iconColor}
+              size={type === "website" ?"size-6":"size-4"}
+              icon={type}
+              gap={3}
+            >
+              {url}
+            </IconLabel>
+          ) : (
           <Image
             src={`${basepath}${linkTypes[type]}`}
             width={width}

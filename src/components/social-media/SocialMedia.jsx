@@ -1,27 +1,41 @@
 import SocialLinks from "./SocialLinks";
 
-const social_links = {
-  facebook_url: "https://facebook.com/9gags",
-  twitter_url: "https://twitter.com/9gags",
-  instagram_url: "https://instagram.com/9gags",
-  website_url: "https://stackoverflow.com/",
-};
+export default function SocialMedia({
+  position,
+  iconColor = "black",
+  facebookUrl,
+  twitterUrl,
+  instagramUrl,
+  websiteUrl,
+}) {
+  const social_links = {
+    facebookUrl,
+    twitterUrl,
+    instagramUrl,
+    websiteUrl,
+  };
 
-export default function SocialMedia({position,color="red"}) {
   return (
-    <div className={`flex flex-row justify-${position} items-center gap-4 flex-wrap`}>
-      {social_links.facebook_url && (
-        <SocialLinks url={social_links.facebook_url} type="facebook" />
+    <div
+      className={`flex flex-row justify-${position} items-center gap-4 flex-wrap mb-4`}
+    >
+      {social_links.facebookUrl && (
+        <SocialLinks url={social_links.facebookUrl} type="facebook" />
       )}
-      {social_links.twitter_url && (
-        <SocialLinks url={social_links.twitter_url} type="twitter" />
+      {social_links.twitterUrl && (
+        <SocialLinks url={social_links.twitterUrl} type="twitter" />
       )}
-      {social_links.instagram_url && (
-        <SocialLinks url={social_links.instagram_url} type="instagram" />
+      {social_links.instagramUrl && (
+        <SocialLinks url={social_links.instagramUrl} type="instagram" />
       )}
-      {social_links.website_url && (
-        <SocialLinks url={social_links.website_url} type="website" color={color}/>
+      {social_links.websiteUrl && (
+        <SocialLinks
+          url={social_links.websiteUrl}
+          type="website"
+          iconColor={iconColor}
+        />
       )}
+      <span id="upcoming-event"></span>
     </div>
   );
 }

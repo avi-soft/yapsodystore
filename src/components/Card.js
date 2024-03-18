@@ -8,7 +8,7 @@ function Card({ isCodeAvailable = true }) {
           <h4 className="text-[20px] mb-2">2024-04-8</h4>
           <p className="text-base">16:00</p>
         </div>
-        <div className="text-center text-slate-500">
+        <div className="text-center  text-slate-500">
           <p>Sale Ends</p>
           <div className="text font-medium">41 Days 4 hours</div>
         </div>
@@ -25,8 +25,8 @@ function Card({ isCodeAvailable = true }) {
             </div>
           )}
           <div>
-            <button class="bg-purple-400 text-lg text-white py-2 px-4 rounded">
-              {isCodeAvailable ? "Get Access" : "Get Ticket"}
+            <button className="bg-purple-400 text-lg text-white py-2 px-4 rounded">
+              {isCodeAvailable ? "Get Access" : "Get Tickets"}
             </button>
           </div>
 

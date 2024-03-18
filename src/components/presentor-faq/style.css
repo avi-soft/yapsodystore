@@ -1,24 +1,46 @@
-.Freq-main-page{
-    display: flex;
-    flex-direction: row;
-}
-
-.Freq-main-page .left-faq{
-    flex: 75%;
-}
 .Freq-main-page .right-faq{
-    flex: 25%;
     height:100vh;
-    width: 300px;
+    width: 400px;
     border: 1px solid #d8cece;
     overflow-y: auto;
 }
 
-
 .freqaskquest{
-    padding: 12px 12px;
+    padding: 16px 14px;
     border-bottom: 1px solid #eadcdc;
-    font-family: math;
-    font-weight: bold;
-    font-size: 19px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: .5px;
+    color: #353054;
+}
+
+.present-faq{
+   
+    display: flex;
+    flex-direction: column;
+    font: status-bar;
+    font-size: 14px;
+}
+
+.present-faq .inside-faq{
+    display: flex;
+    flex-direction: row;
+}
+
+.delay-1
+{
+    transition-delay: 2s;
+}
+
+
+@media (max-width:440px){
+    .Freq-main-page .right-faq{
+        width: 300px;
+    }
+}
+@media (max-width:340px){
+    .Freq-main-page .right-faq{
+        width: 200px;
+        max-height: 100%;
+    }
 }

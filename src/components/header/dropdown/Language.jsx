@@ -2,36 +2,17 @@ import React from "react";
 import Image from "next/image";
 import check from "@/../public/assets/icons/check.png";
 
-const options = [
-  { label: "Arabic-AR", value: "Arabic-AR" },
-  { label: "Bulgarian-BG", value: "Bulgarian-BG" },
-  { label: "Dutch-NL", value: "Dutch-NL" },
-  { label: "English-EN", value: "English-EN" },
-  { label: "French-FR", value: "French-FR" },
-  { label: "German-DE", value: "German-DE" },
-  { label: "Hindi-HI", value: "Hindi-HI" },
-  { label: "Hungarian-HU", value: "Hungarian-HU" },
-  { label: "Italian-IT", value: "Italian-IT" },
-  { label: "Japenese-JA", value: "Japenese-JA" },
-  { label: "Malay-MS", value: "Malay-MS" },
-  { label: "Marathi-MR", value: "Marathi-MR" },
-  { label: "Romanion-RO", value: "Romanion-RO" },
-  { label: "Solvak-SK", value: "Solvak-SK" },
-  { label: "Spanish-ES", value: "Spanish-ES" },
-  { label: "Swedish-SV", value: "Swedish-SV" },
-  { label: "Turkish-TR", value: "Turkish-TR" },
-];
-
-const Language = ({ handleClick }) => {
+const Language = ({ languageData, langCode }) => {
   function calculateMinWidth() {
-    const maxLength = options.reduce(
-      (max, option) => (option.label.length > max ? option.label.length : max),
-      0
-    );
-    return `${maxLength * 20 + 40}px`;
+    const maxLength = languageData.reduce((max, option) => {
+      const newLabel = `${option.name}-${option.short.toUpperCase()}`;
+      return newLabel.length > max ? newLabel.length : max;
+    }, 0);
+
+    return `${maxLength * 20 + 49}px`;
   }
   return (
-    <div className="relative shadow-xl">
+    <>
       <div className="absolute right-11 mt-5">
         <div
           style={{
@@ -41,24 +22,23 @@ const Language = ({ handleClick }) => {
         ></div>{" "}
       </div>
       <ul
-        className={`absolute top-full right-0 mt-7 bg-white border border-gray-300 shadow-md grid grid-cols-2 rounded-md`}
-        style={{ minWidth: calculateMinWidth(options) }}
+        className={`absolute top-full mt-7 bg-white border border-gray-300 shadow-md grid grid-cols-2 rounded-md md:right-0 -right-[135px]`}
+        style={{ minWidth: calculateMinWidth(languageData) }}
       >
-        {options.map((option, index) => (
+        {languageData.map((option, index) => (
           <li
             key={index}
-            className={`p-3 truncate border text-[#696a6c] ${
-              option.label === "English-EN" ? "text-black" : ""
+            className={`p-3 text-left truncate border  text-[#696a6c] ${
+              option.short === langCode ? "text-black" : ""
             }`}
           >
             {/*Rendering all the languages and the check icon */}
-            {option.label === "English-EN" && (
+            {option.short === langCode && (
               <span
-                className={`ml-2 flex items-center font-bold text-stone-800`}
-                onClick={handleClick}
+                className={` flex items-center font-bold text-stone-800 text-[14px]`}
               >
-                {option.label}
-                <span className="ml-3">
+                {option.name + "-" + option.short.toUpperCase()}
+                <span className="ml-[30px]">
                   <Image
                     width="14"
                     height="14"
@@ -69,13 +49,14 @@ const Language = ({ handleClick }) => {
                 </span>
               </span>
             )}
-            <span onClick={handleClick}>
-              {option.label !== "English-EN" && option.label}
+            <span className="text-[14px] tracking-[.4px]">
+              {option.short !== langCode &&
+                option.name + "-" + option.short.toUpperCase()}
             </span>
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 

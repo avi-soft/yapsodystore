@@ -4,20 +4,33 @@ const width = 50;
 const height = 50;
 
 export default function Title({
-  logoImage,
-  titleText = "Online Store",
-  storeName = "test store",
-  position = "center",
-  color = "black",
+  mainHeadingImage,
+  mainHeadingText,
+  venueName,
+  headerAlignment,
+  headingColor = "black",
+  mainHeadingType,
 }) {
+  const headerAlignmentClass = {
+    left: "flex-start",
+    center: "center",
+    right: "flex-end",
+  }[headerAlignment ? headerAlignment : "center"];
   return (
-    <div style={{ color }} className={`p-8 flex justify-${position} `}>
-      {logoImage ? (
-        <img src={logoImage} width={width} height={height} alt="aaa" />
-      ) : titleText ? (
-        <h1 className={`text-4xl`}>{titleText}</h1>
+    <div
+      style={{
+        color: headingColor,
+        display: "flex",
+        justifyContent: headerAlignmentClass,
+      }}
+      className={`p-8`}
+    >
+      {mainHeadingType == "img" && mainHeadingImage ? (
+        <img src={mainHeadingImage} alt={venueName} />
+      ) : mainHeadingType == "txt" && mainHeadingText ? (
+        <h1 className={`text-4xl`}>{mainHeadingText}</h1>
       ) : (
-        <h1 className="text-4xl">{storeName}</h1>
+        <h1 className="text-4xl">{venueName}</h1>
       )}
     </div>
   );

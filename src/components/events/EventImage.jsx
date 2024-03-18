@@ -1,10 +1,8 @@
 const EventImage = ({ src }) => {
-  return (
-    <img
-      src={src}
-      className="h-[100%] min-w-[100%] rounded border-4 border-[#ffffff] bg-[#cccccc] "
-    ></img>
-  );
+  src = src
+    ? src
+    : "https://yaptestaddon4.staging.yapsody.com/images/new_ci/styles/images/default-img.jpg";
+  return <img src={src} className="rounded-[2px]  bg-[#cccccc] "></img>;
 };
 
 export default EventImage;

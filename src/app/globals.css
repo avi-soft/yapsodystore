@@ -7,3 +7,8 @@
   --highlightColor: #a593e0;
   --text-primary: #566270;
 }
+html{
+ scroll-behavior: smooth;
+ line-height: unset;
+}
+

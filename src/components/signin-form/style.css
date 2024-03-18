@@ -1,0 +1,200 @@
+.inside-main-signin {
+  position: relative;
+  width: 900px;
+  height: 380px;
+  border: 1px solid black;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  opacity: 1;
+  z-index: 1;
+}
+
+.login-form {
+  flex: 60%;
+}
+
+.login-form .login-title {
+  margin: 12px;
+  padding: 18px;
+  border-bottom: 1px solid #bab1b1;
+  ;
+  font-size: 20px;
+  color: rgb(74, 72, 72);
+}
+
+.form-Container {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 200px;
+  height: auto;
+  padding-top: 15px;
+  position: relative;
+
+}
+
+.form-Container label {
+  font-size: 12px;
+  color: #6b6c6e;
+  font-weight: normal;
+  letter-spacing: .4px;
+  text-transform: capitalize;
+  width: 121px;
+
+}
+
+.form-Container #inputCreatePost {
+  height: 29px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #d2cccc;
+  border-radius: 5px;
+  padding-left: 16px;
+  font-size: 14px;
+  width: 480px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-Container #inputCreatePost:hover {
+  border: 1px solid rgb(42, 40, 40);
+}
+
+.form-Container #inputCreatePost:focus {
+  box-shadow: 0 0 9px rgba(0, 0, 0, 0.3);
+
+  outline: 2px solid transparent;
+}
+
+.inputCreatePost.messageField {
+  height: 82px !important;
+  padding-top: 0;
+  padding-left: 0;
+  line-height: 1em;
+}
+
+.inputField.error {
+  border-color: red !important;
+
+}
+
+.inputField:focus {
+  border-color: red !important;
+  box-shadow: none !important;
+}
+
+span-layout{
+  color: white;
+  width: 222px;
+  height: 28px;
+  background-color: red;
+  display: grid;
+  place-content: center;
+  font-size: 13px;
+}
+
+
+.createorbutton {
+  display: flex;
+  flex-direction: row;
+  margin: 27px;
+}
+
+.createorbutton .linkforsignin {
+  flex: 80%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  letter-spacing: .4px;
+  text-transform: capitalize;
+}
+
+.createorbutton .button-login {
+  flex: 20%;
+  display: grid;
+  place-content: center;
+}
+
+.button-login button {
+  background-color: #a593e0 !important;
+  color: #ffffff !important;
+  border: none;
+  width: 64px;
+  height: 30px;
+  display: grid;
+  place-content: center;
+  
+}
+
+.button-login button:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .main-signin-page {
+    width: 100%;
+  }
+
+  .inside-main-signin {
+    width: 568px;
+  }
+
+  .form-Container #inputCreatePost {
+    width: 242px;
+  }
+
+  span-layout {
+    width: auto;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 568px) {
+
+  .main-signin-page {
+    width: 100%;
+  }
+
+  .inside-main-signin {
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-image {
+    display: none;
+  }
+
+  .login-form {
+    width: 100%;
+  }
+
+  .form-Container #inputCreatePost {
+    width: 100%;
+  }
+
+  span-layout {
+    width: auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-signin-page {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .inside-main-signin {
+    border-radius: 0;
+    border: none;
+  }
+
+}
