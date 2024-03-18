@@ -27,7 +27,7 @@ const HeaderLogo = ({ topImage, venueName }) => {
             </div>
 
             <div
-              className={`ml-1  flex items-center mt-3 md:mt-0 md:ml-4 ${styles.headerVenue} `}
+              className={`  flex items-center mt-2 md:mt-0 md:ml-0 lg:ml-4 ${styles.headerVenue} `}
             >
               {venueName}
             </div>

@@ -5,10 +5,10 @@ const CartIcon = ({ iconColor ,apiRes }) => {
   return (
     <div>
 
-      <div className="relative inline-block mt-2 pb-1">
-        <span className="absolute bottom-[20px] left-4 bg-white w-5 h-5 rounded-full  
-          inline-flex items-center justify-center  
-           overflow-hidden border-black border text-sm">0</span>
+      <div className="relative inline-block mt-2">
+        <span className="absolute bottom-[15px] left-4 bg-white w-[25px] h-[25px] font-roboto rounded-full  
+          inline-flex items-center justify-center 
+           overflow-hidden border-black border ">0</span>
 
 {/* {apiRes ? (
           <Image
