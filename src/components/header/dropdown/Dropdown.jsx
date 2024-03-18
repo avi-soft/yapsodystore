@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { PiUserCircleFill } from "react-icons/pi";
+import Image from "next/image";
 
 import styles from "../Navbar.module.css";
 
@@ -10,6 +10,7 @@ import Account from "./Account";
 import Arrows from "./Arrows";
 
 const Dropdown = ({ type, user, languageData, langCode }) => {
+  let color = "#000000";
   const [isOpenLang, setIsOpenLang] = useState(false);
   const [isOpenAccount, setIsOpenAccount] = useState(false);
 
@@ -81,12 +82,18 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
           ) : (
             <div className="flex items-center mr-2">
               <span className="mr-2 pl-2">
-                <PiUserCircleFill
-                  alt="user-male-circle "
-                  className="h-10 w-10"
+                <Image
+                  height={36}
+                  width={36}
+                  src={`https://img.icons8.com/ios-filled/50/${color.slice(
+                    1,
+                    7
+                  )}/user-male-circle.png`}
+                  alt="user-male-circle"
+                  className="w-9 h-9"
                 />
               </span>
-              <p className="myAccount text-base hidden sm:inline-block overflow-hidden text-ellipsis whitespace-nowrap max-w-[110px] ">
+              <p className="ml-1 myAccount text-base hidden sm:inline-block overflow-hidden text-ellipsis whitespace-nowrap max-w-[110px] ">
                 {user}
               </p>
               <Arrows type={type} />
