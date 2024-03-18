@@ -64,7 +64,7 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
   return (
     <div
       id={`Drop-${type}`}
-      className={`${styles.pullLeft}   flex items-center flex-shrink-0 dropdown`}
+      className={`${styles.pullLeft} h-[57px]  flex items-center flex-shrink-0 dropdown`}
       onClick={() =>
         type === "lang" ? handleLanguageClick(type) : handleAccountClick(type)
       }
