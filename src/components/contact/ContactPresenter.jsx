@@ -1,5 +1,5 @@
-'use client'
-import { useState} from "react";
+"use client";
+import { useState } from "react";
 import IconLabel from "@/ui/IconLabel";
 import ContactPresent from "../Contact-form/ContactPresentor";
 
@@ -15,10 +15,10 @@ const ContactPresenter = ({ size, color }) => {
 
     <div
       onClick={handleClick}
-      className="font-lato text-[14px] flex items-center"
+      className="font-lato text-[14px] flex items-center cursor-pointer"
     >
-      <IconLabel color={color} size={size} icon="contact" gap={4} />
-      <span style={{ color: color }} >Presenter</span>
+      <IconLabel color={color} size={size} icon="contact" gap={3} />
+      <span style={{ color: color }}>Presenter</span>
       {showSignIn && <ContactPresent onClose={() => setShowSignIn(!showSignIn)} />}
     </div>
   );

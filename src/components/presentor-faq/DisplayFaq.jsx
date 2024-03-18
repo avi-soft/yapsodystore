@@ -33,5 +33,5 @@ const DisplayFq = ({ faq, index, expandIndex, setExpandIndex }) => {
     </div>
   );
 };
-
+  
 export default DisplayFq;

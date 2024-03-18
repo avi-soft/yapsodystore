@@ -41,3 +41,10 @@ export function getDirections(locationInfo) {
   }
   return gMapUrl;
 }
+
+export function goToEvent(eventId, eventName) {
+  return `/event/index/${eventId}/${eventName
+    .replace(/[^\w\s]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+$/, "")}`;
+}
