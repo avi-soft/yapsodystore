@@ -4,6 +4,8 @@ import TicketSection from "./TicketSection";
 import { calculateRemainingTime } from "@/helpers/common";
 
 const SingleEvent = ({
+  eventid,
+  dateid,
   performance,
   buttonLinkBoxBorderColor,
   textColor,
@@ -32,6 +34,8 @@ const SingleEvent = ({
         SALE ENDS
       </SalesEnds>
       <TicketSection
+        eventid={eventid}
+        dateid={dateid}
         symbol={symbol}
         access={performance.access_code}
         ticketPrice={performance.min_price}
