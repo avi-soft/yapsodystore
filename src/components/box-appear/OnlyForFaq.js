@@ -1,5 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import { RxCrossCircled } from "react-icons/rx";
+
 import Script from 'next/script';
 
 const ClickFaq = ({ component: Component, onClose }) => {
@@ -39,7 +41,7 @@ const ClickFaq = ({ component: Component, onClose }) => {
 
                 <div className="temporary-button1" style={{ width: componentWidth }} onClick={handleClose}>
                     
-                    <div style={{fontSize:'24px', color:'white', }}><i className="fa-regular fa-circle-xmark" style={{cursor:'pointer'}}></i></div>
+                    <div style={{fontSize:'24px', color:'white', }}><RxCrossCircled className="cursor-pointer" /></div>
                 </div>
 
                 <div className="modal-box" id='modal-content1'>

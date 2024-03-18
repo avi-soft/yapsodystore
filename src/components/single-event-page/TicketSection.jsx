@@ -3,6 +3,8 @@ import Button from "@/ui/Button";
 import SaleStart from "./SaleStart";
 
 export default function TicketSection({
+  eventid,
+  dateid,
   access,
   ticketPrice,
   color,
@@ -16,7 +18,7 @@ export default function TicketSection({
           <Button
             styles={{ padding: "10px 28px" }}
             color={color}
-            to="/booking/payment"
+            to={`/event/book/${eventid}/${dateid}`}
           >
             Get Tickets
           </Button>
@@ -47,7 +49,7 @@ export default function TicketSection({
             <Button
               styles={{ padding: "10px 28px" }}
               color={color}
-              to="/booking/payment"
+              to={`/event/book/${eventid}/${dateid}`}
             >
               Get Access
             </Button>
