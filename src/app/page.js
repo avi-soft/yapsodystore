@@ -9,6 +9,8 @@ import CalendarWrapper from "@/components/calendar/CalendarWrapper";
 import { getEventDetails, getThemeData } from "@/helpers/api-utils";
 import { Suspense } from "react";
 import Loading from "./loading";
+import Header from "../components/header/Navbar";
+import Footer from "@/components/footer/footer";
 
 export default async function Home() {
   const events = await getEventDetails();
@@ -29,65 +31,93 @@ export default async function Home() {
     instagramUrl,
     websiteUrl,
     mainHeadingType,
+    brandImage,
+    langCode,
+    supportUrl,
+    termsUrl,
+    privacyUrl,
+    portalUrl,
+    sellTicketUrl,
+    companyName,
   } = await getThemeData();
 
   return (
-    <MainContainer
-      coverImage={backgroundImage}
-      storeBackground={storeBackground}
-    >
-      <div className="w-full">
-        <Title
-          mainHeadingImage={mainHeadingImage}
-          mainHeadingText={mainHeadingText}
-          venueName={venueName}
-          headerAlignment={headerAlignment}
-          headingColor={headingColor}
-          mainHeadingType={mainHeadingType}
-        />
-        <SocialMedia
-          position="center"
-          facebookUrl={facebookUrl}
-          twitterUrl={twitterUrl}
-          instagramUrl={instagramUrl}
-          websiteUrl={websiteUrl}
-          iconColor={buttonLinkBoxBorderColor}
-        />
-        <SupportContact
-          position="center"
-          iconColor={buttonLinkBoxBorderColor}
-          textColor={textColor}
-          boxBackgroundColor={boxBackgroundColor}
-          boxBorderColor={buttonLinkBoxBorderColor}
-        />
-      </div>
-      <div className="w-[95%] flex flex-col items-center">
+    <div>
+      <Header
+        langCode={langCode}
+        venueName={venueName}
+        brandImage={brandImage}
+        iconColor={buttonLinkBoxBorderColor}
+      />
+
+      <MainContainer
+        coverImage={backgroundImage}
+        storeBackground={storeBackground}
+      >
+        <div className="w-full">
+          <Title
+            mainHeadingImage={mainHeadingImage}
+            mainHeadingText={mainHeadingText}
+            venueName={venueName}
+            headerAlignment={headerAlignment}
+            headingColor={headingColor}
+            mainHeadingType={mainHeadingType}
+          />
+          <SocialMedia
+            position="center"
+            facebookUrl={facebookUrl}
+            twitterUrl={twitterUrl}
+            instagramUrl={instagramUrl}
+            websiteUrl={websiteUrl}
+            iconColor={buttonLinkBoxBorderColor}
+          />
+          <SupportContact
+            position="center"
+            iconColor={buttonLinkBoxBorderColor}
+            textColor={textColor}
+            boxBackgroundColor={boxBackgroundColor}
+            boxBorderColor={buttonLinkBoxBorderColor}
+          />
+        </div>
+        <div className="md:w-1/4 flex justify-center">
         <Search
           color={boxBackgroundColor}
           textColor={headingColor}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
           // onSearchSelect={handleEventSelect}
-        />
-        <CalendarWrapper
-          performancesCount={events.length}
-          textColor={textColor}
-          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-        >
-          <Calendar
-            highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
-            activeColorCode={buttonLinkBoxBorderColor}
           />
-        </CalendarWrapper>
-        <Suspense fallback={<Loading color="blue" />}>
-          <MainPageEventList
-            events={events}
-            headingColor={headingColor}
-            boxBackgroundColor={boxBackgroundColor}
+        </div>
+        <div className="w-[89%] flex flex-col items-center">
+          <CalendarWrapper
+            performancesCount={events.length}
             textColor={textColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-          />
-        </Suspense>
-      </div>
-    </MainContainer>
+          >
+            <Calendar isHome={true}
+              highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
+              activeColorCode={buttonLinkBoxBorderColor}
+            />
+          </CalendarWrapper>
+          <Suspense fallback={<Loading />}>
+            <MainPageEventList
+              events={events}
+              headingColor={headingColor}
+              boxBackgroundColor={boxBackgroundColor}
+              textColor={textColor}
+              buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+            />
+          </Suspense>
+        </div>
+      </MainContainer>
+
+      <Footer
+        supportUrl={supportUrl}
+        termsUrl={termsUrl}
+        privacyUrl={privacyUrl}
+        portalUrl={portalUrl}
+        sellTicketUrl={sellTicketUrl}
+        companyName={companyName}
+      />
+    </div>
   );
 }

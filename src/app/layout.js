@@ -1,6 +1,6 @@
 import "./globals.css";
 import Header from "../components/header/Navbar";
-import Footer from "@/components/footer/footer";
+import Footer from "@/components/footer/footer.jsx";
 import { getThemeData } from "@/helpers/api-utils";
 import { Suspense } from "react";
 import Loading from "./loading";
@@ -27,23 +27,11 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="flex flex-col">
-        <Header
-          langCode={langCode}
-          venueName={venueName}
-          brandImage={brandImage}
-          iconColor={buttonLinkBoxBorderColor}
-        />
+       
         <Suspense fallback={<Loading />}>
           <div className=" flex-1">{children}</div>
         </Suspense>
-        <Footer
-          supportUrl={supportUrl}
-          termsUrl={termsUrl}
-          privacyUrl={privacyUrl}
-          portalUrl={portalUrl}
-          sellTicketUrl={sellTicketUrl}
-          companyName={companyName}
-        />
+        
       </body>
     </html>
   );

@@ -23,7 +23,7 @@ const ChatOption = ({onClose}) => {
                     <ChatFormPage/>
                 </div>
             </div>
-            <div className='footer'>
+            <div className='footer-chat-button'>
                 <button>Start Chat</button>
             </div>
         </div>

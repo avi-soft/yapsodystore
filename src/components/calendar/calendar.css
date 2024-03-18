@@ -1,7 +1,7 @@
 .cal-calendar-container {
     width: fit-content;
     height: fit-content;
-    border-radius: 10px;
+    border-radius: 3px;
     display: flex;
     flex-direction: column;
   }
@@ -10,7 +10,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 10px;
+    padding: 25px 14px;
+    
   }
   
   .cal-calendar-navs {
@@ -26,7 +27,6 @@
     user-select: none; 
 }
 .cal-active-date{
-    color:white !important;
     border:none;
     border-radius:40px !important
 }
@@ -47,6 +47,7 @@
   .cal-calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    font-weight: normal;
   }
   
   .cal-date {
