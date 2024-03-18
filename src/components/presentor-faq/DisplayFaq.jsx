@@ -1,62 +1,37 @@
-"use client";
-import React from "react";
-import { useState } from "react";
-import { MdOutlineKeyboardArrowUp } from "react-icons/md";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+'use client'
+import React, { useState } from 'react';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import './style.css';
 
-import "./style.css";
-
-const DisplayFq = ({ faq }) => {
-  const [isAnswerVisible, setIsAnswerVisible] = useState(false);
+const DisplayFq = ({ faq, index, expandIndex, setExpandIndex }) => {
+  const isExpanded = index === expandIndex;
 
   const toggleAnswerVisibility = () => {
-    setIsAnswerVisible(!isAnswerVisible);
+    setExpandIndex(isExpanded ? null : index);
   };
+
   return (
-    <div className="present-faq">
-      <div
-        className="inside-faq cursor-pointer"
-        onClick={toggleAnswerVisibility}
-      >
+    <div className='present-faq' >
+      <div className='delay-1'>
+      <div className='inside-faq ' onClick={toggleAnswerVisibility} >
         <div
-          style={{
-            fontWeight: "600",
-            color: "rgba(1, 22, 56, 0.7)",
-            cursor: "pointer",
-            flex: 80,
-            fontSize: "1rem",
-          }}
-          // onClick={toggleAnswerVisibility}
+          style={{ fontWeight: '600', color: 'rgba(1, 22, 56, 0.7)', cursor: 'pointer', flex: 90, fontSize: '1rem', padding: '0px 14px', fontFamily: 'Lato'}
+        }
+          onClick={toggleAnswerVisibility}
         >
-          {faq.question}
+          <h4>{faq.question}</h4>
         </div>
-        <div
-          style={{
-            flex: 20,
-            display: "flex",
-            justifyContent: "center",
-            color: "grey",
-          }}
-        >
-          <span>
-            {isAnswerVisible ? (
-              <span>
-                <MdOutlineKeyboardArrowDown />
-              </span>
-            ) : (
-              <span>
-                <MdOutlineKeyboardArrowUp />
-              </span>
-            )}
-          </span>
+        <div style={{ flex: 10, display: 'flex', justifyContent: 'center', color: 'grey', fontSize: '22px' }}>
+          <spa>{isExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}</spa>
         </div>
       </div>
+      </div>
 
-      {isAnswerVisible && (
-        <div style={{ color: "#343131", margin: "9px 0px " }}>{faq.answer}</div>
+      {isExpanded && (
+        <div style={{ color: '#343131', marginTop: '24px', marginLeft: '14px' }}>{faq.answer}</div>
       )}
     </div>
   );
 };
-
+  
 export default DisplayFq;

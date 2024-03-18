@@ -1,7 +1,10 @@
 'use client'
 import FreqQuest from './DisplayFaq'
+import { useState } from 'react'
 import './style.css'
 export default function FaqQues(){
+  const [expandIndex, setExpandIndex] = useState(null);
+
     // Basically i have taken this as an array but this data will come from backend so please make changes accordingly
   // or this data you will get by fetch api's...
   const faq = [
@@ -32,7 +35,13 @@ export default function FaqQues(){
           {faq.map((value, index) => (
             <div  key={index}>
                 {/* this component will render accordingly to the data...*/}
-              <FreqQuest key={value.question} faq={value} />    
+              {/* <FreqQuest key={value.question} faq={value} />     */}
+              <FreqQuest
+                faq={value}
+                index={index}
+                expandIndex={expandIndex}
+                setExpandIndex={setExpandIndex}
+              />
             </div>
           ))}
         </div>
