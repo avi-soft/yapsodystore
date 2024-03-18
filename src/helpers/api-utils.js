@@ -46,6 +46,7 @@ export async function getFaqs() {
     ...headerData,
     next: { revalidate: 10 },
   });
+  console.log(faqs.data);
   return faqs.data;
 }
 export async function getThemeData() {
