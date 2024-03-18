@@ -40,7 +40,7 @@ const SupportCard = ({
   return (
     <>
       <div
-        className="dropdown-content left-[-75%] z-10 h-fit w-[300px] bg-white flex-col gap-2 rounded-[4px] border p-3 shadow-md relative"
+        className="dropdown-content left-[-75%] z-10 h-fit w-[300px] bg-white flex-col gap-2 rounded-[4px] border p-3 shadow-md "
         style={{ color: textColor, backgroundColor: boxBackgroundColor }}
       >
         <div
