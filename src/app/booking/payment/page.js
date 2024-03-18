@@ -1,6 +1,5 @@
 "use client"
 import { useState } from 'react';
-
 import Cart from "@/components/event-book-page/ticketcart/Cart"
 import Selector from "@/components/event-book-page/ticketselector/TicketSelector"
 
