@@ -2,6 +2,9 @@
 import { useState, useMemo } from "react";
 import { FaCalendarDays } from "react-icons/fa6";
 import "./calendar.css";
+import NextMonth from "../../../public/greater-than-symbol.png";
+import PrevMonth from "../../../public/less-than-symbol.png";
+import Image from "next/image";
 
 const monthsMap = {
   0: "January",
@@ -43,6 +46,7 @@ const Calendar = ({
   dateClickHandler = (date) => {
     console.log("Date clicked", date);
   },
+  isHome = false,
 }) => {
   const initialSelectedDate = null;
 
@@ -82,18 +86,26 @@ const Calendar = ({
       <div className="cal-calendar-header">
         <div className="cal-calendar-navs">
           <p className="cal-nav-arrows" onClick={goToPrevMonth}>
-            {"<"}
+            <Image
+              src={PrevMonth}
+              className="h-[10px] w-[10px] "
+              alt="Prev_month"
+            />
           </p>
-          <p className="font-bold text-gray-700 select-none m-0">
+          <p className="font-medium text-gray-700 select-none m-0">
             {`${monthsMap[currentMonthYear.month]} ${currentMonthYear.year}`}
           </p>
           <p className="cal-nav-arrows" onClick={goToNextMonth}>
-            {">"}
+            <Image
+              src={NextMonth}
+              className="h-[10px] w-[10px]"
+              alt="Next_month"
+            />
           </p>
         </div>
       </div>
       <div className="cal-calendar-days">
-        {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d, index) => (
+        {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((d, index) => (
           <p key={index} className="cal-day">
             {d}
           </p>
@@ -120,9 +132,14 @@ const Calendar = ({
                     : "cal-no-cursor"
                 }`}
                 style={
-                  selectedDate.toDateString() === e.toDateString() ||
-                  isHighlighted(e)
-                    ? { backgroundColor: `${activeColorCode}` }
+                  (selectedDate.toDateString() === e.toDateString() ||
+                    isHighlighted(e)) &&
+                  !isHome
+                    ? { backgroundColor: `${activeColorCode}`, color: "white" }
+                    : (selectedDate.toDateString() === e.toDateString() ||
+                        isHighlighted(e)) &&
+                      isHome
+                    ? { color: "black" }
                     : null
                 }
                 onClick={

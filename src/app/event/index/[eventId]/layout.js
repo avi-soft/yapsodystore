@@ -24,7 +24,7 @@ export default async function Layout({children})  {
             <>
             
             <Header langCode={langCode} venueName={venueName} brandImage={brandImage} iconColor={buttonLinkBoxBorderColor} />
-            <div className="pt-16 pb-8 flex-1">{children}</div>
+            <div className="pb-8 flex-1">{children}</div>
             <Footer
                 supportUrl={supportUrl}
                 termsUrl={termsUrl}

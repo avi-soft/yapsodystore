@@ -33,14 +33,14 @@ export default function CalendarWrapper({
         </div>
       </div>
 
-      <dialog id="my_modal_5" className="modal modal-center sm:modal-center ">
+      <dialog id="my_modal_5" className="modal modal-center sm:modal-center bg-[#2b313d] bg-opacity-90 z-[1050px]">
         <div className="">
           <div className="dropdown">{children}</div>
-          <div className="flex justify-center mt-5">
+          <div className="flex justify-center mt-6 ">
             <form method="dialog">
               <div className="flex flex-row items-center ">
-                <RxCrossCircled className="cursor-pointer text-white" />
-                <button className=" ml-2 bg-transparent text-white items-center">
+                <RxCrossCircled size={24} className="cursor-pointer  text-white" />
+                <button className=" ml-2 w-10 h-[50px] bg-transparent text-white items-center ">
                   CLOSE
                 </button>
               </div>
