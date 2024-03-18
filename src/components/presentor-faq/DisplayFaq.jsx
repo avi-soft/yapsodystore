@@ -14,7 +14,10 @@ const DisplayFq = ({ faq }) => {
   };
   return (
     <div className="present-faq">
-      <div className="inside-faq cursor-pointer" onClick={toggleAnswerVisibility}>
+      <div
+        className="inside-faq cursor-pointer"
+        onClick={toggleAnswerVisibility}
+      >
         <div
           style={{
             fontWeight: "600",
