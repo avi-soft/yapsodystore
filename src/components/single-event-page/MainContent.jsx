@@ -37,16 +37,19 @@ const MainContent = ({
     location_info,
     hyperlinks,
     event_description,
-    videos
+    videos,
   } = eventData;
   const descriptionImages =
-     images.length > 0
-       ? images.filter((image) => image.cover_photo === "no")
-       : "";
+    images.length > 0
+      ? images.filter((image) => image.cover_photo === "no")
+      : "";
   return (
     <div className=" xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
       <section className="mb-8 flex flex-col items-start justify-center gap-2">
-        <h1 style={headingStyle} className="text-[3.375em] font-normal font-lato ">
+        <h1
+          style={headingStyle}
+          className="text-[3.375em] font-normal font-lato "
+        >
           {event_title1}
         </h1>
         <h2 style={headingStyle} className=" text-[18px] font-normal  ">
@@ -63,21 +66,24 @@ const MainContent = ({
       </section>
       <SocialShareWidget />
       <div className="md:hidden block">
-        <BottomView bgColor={"bg-slate-300"} textColor={"white"} />
+        <BottomView
+          isEventTypePhysical={isEventTypePhysical}
+          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+        />
       </div>
       <div
         className="location text-base my-7 relative text-[#566270] flex items-center"
         style={{ color: textColor }}
       >
         <span className="mt-1 inline-block h-5 w-5 align-middle pt-[1px] mr-1 ">
-          {location_type == "physical" ? (
+          {isEventTypePhysical ? (
             <MdLocationPin className="size-4" />
           ) : (
             <GiLaptop className="size-4" />
           )}
         </span>
         <span className="w-[100%] inline-block font-lato">
-          {location_type == "physical"
+          {isEventTypePhysical
             ? location_info.name + " - " + location_info.address
             : location_info.webevent_timezone}
         </span>
@@ -117,9 +123,9 @@ const MainContent = ({
         />
         {isEventTypePhysical && (
           <>
-            <div className="flex justify-between h-[80px] text-[16px] font-lato">
+            <div className="flex justify-between h-[80px] text-[16px] font-lato tracking-[0.7px]">
               <h3 style={{ color: textColor }}>
-                Sycuan Casino Resort - 5469 Casino Way, El Cajon, CA 92019, USA
+                {location_info.name} - {location_info.address}
               </h3>
               <a
                 style={{ color: buttonLinkBoxBorderColor }}
@@ -136,12 +142,14 @@ const MainContent = ({
             />
           </>
         )}
-        <SupportContact
-          iconColor={buttonLinkBoxBorderColor}
-          textColor={textColor}
-          boxBackgroundColor={boxBackgroundColor}
-          boxBorderColor={buttonLinkBoxBorderColor}
-        />
+        <div>
+          <SupportContact
+            iconColor={buttonLinkBoxBorderColor}
+            textColor={textColor}
+            boxBackgroundColor={boxBackgroundColor}
+            boxBorderColor={buttonLinkBoxBorderColor}
+          />
+        </div>
       </div>
     </div>
   );
