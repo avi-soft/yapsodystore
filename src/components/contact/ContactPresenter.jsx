@@ -15,7 +15,7 @@ const ContactPresenter = ({ size, color }) => {
 
     <div onClick={handleClick} className="font-lato text-[14px] flex">
       <IconLabel color={color} size={size} icon="contact" gap={4} />
-      <span style={{ color: color }}>Presenter</span>
+      <span style={{ color: color }}>Contact Presenter</span>
       {showSignIn && <ContactPresent onClose={() => setShowSignIn(false)} />}
     </div>
   );

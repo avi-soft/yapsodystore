@@ -39,6 +39,7 @@ export default async function Home() {
     portalUrl,
     sellTicketUrl,
     companyName,
+    faqCount
   } = await getThemeData();
 
   return (
@@ -78,6 +79,7 @@ export default async function Home() {
           textColor={textColor}
           boxBackgroundColor={boxBackgroundColor}
           boxBorderColor={buttonLinkBoxBorderColor}
+          faqCount={faqCount}
         />
         <div className="md:w-1/4 flex justify-center">
           <Search
