@@ -2,8 +2,9 @@
 import React from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import styles from "./search.module.css";
-import { getEventDetails } from "@/helpers/api-utils";
-import { useEffect, useState } from "react";
+import { getSearchEvents } from "@/helpers/api-utils";
+import { useState } from "react";
+import { debounce } from "@/helpers/common";
 
 const Search = ({
   color,
@@ -22,12 +23,12 @@ const Search = ({
   const [results, setResults] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  useEffect(() => {
-    if (query.length >= 3) {
-      getEventDetails()
+  const handleInputChange = debounce((e) => {
+    const { value } = e.target;
+    if (value) {
+      getSearchEvents(value)
         .then((data) => {
           setResults(data);
-          // console.log(results);
           setShowDropdown(true);
         })
         .catch((error) => {
@@ -36,19 +37,13 @@ const Search = ({
     } else {
       setShowDropdown(false);
     }
-  }, [query]);
-
-  const handleInputChange = (e) => {
-    setQuery(e.target.value);
-  };
+  }, 500);
 
   const handleSelectResult = (result) => {
     setQuery("");
     setShowDropdown(false);
     onSearchSelect(result);
   };
-
-  // const eventData = await getEventDetails()
 
   return (
     <div className="mb-6 mt-[18px] w-[100%]">
@@ -60,7 +55,7 @@ const Search = ({
         id="search"
         className={`${styles.search} w-[100%] placeholder-[#54585c] `}
         placeholder="Search events"
-        value={query}
+        // value={query}
         onChange={handleInputChange}
       />
       {showDropdown && (
