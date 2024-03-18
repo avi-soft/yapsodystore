@@ -2,6 +2,7 @@
 import React, { useState, useEffect} from 'react';
 import Script from 'next/script';
 import './style.css';
+import { RxCrossCircled } from "react-icons/rx";
 
 export default function ClickBox({ component: Component, onClose }) {
 
@@ -43,7 +44,7 @@ export default function ClickBox({ component: Component, onClose }) {
                     <div className="temporary-button" style={{ width: componentWidth }} onClick={handleClose}>
                             {/* <button className="btn btn-sm btn-circle btn-ghost close-button" style={{ borderWidth: 2 }}>✕</button> */}
                             <div style={{display:'flex', flexDirection:'row',  cursor: 'pointer'}} onClick={()=>document.getElementById('my_modal_1').close()}>
-                                <div style={{fontSize:'24px'}}><i className="fa-regular fa-circle-xmark"></i></div>
+                                <div style={{fontSize:'24px'}}><RxCrossCircled /></div>
                                 <div style={{ marginLeft: 6, display: 'grid', placeContent: 'center',fontSize:'1em', textTransform:'uppercase' }} >ESC</div>
                             </div>
                         
