@@ -1,19 +1,37 @@
-// const BASE_URL = process.env.YAPSODY_API_BASE_URL;
-
 import request from "./api-urls";
 
-const BaseUrl =
-  process.env.NEXT_PUBLIC_ENV === "dev"
-    ? "https://stage-api.yapsody.com/"
-    : "https://api.yapsody.com/";
-const protocol = process.env.ENV === "dev" ? "http://" : "https://";
+const envConfig = {
+  dev: {
+    baseUrl: "https://stage-api.yapsody.com/",
+    protocol: "http://",
+    venueCode: "myblog",
+  },
+  staging: {
+    baseUrl: "https://stage-api.yapsody.com/",
+    protocol: "http://",
+    venueCode: "myblog",
+  },
+  prod: {
+    baseUrl: "https://api.yapsody.com/",
+    protocol: "https://",
+    venueCode: "myblog",
+  },
+};
+
+const { baseUrl, protocol, venueCode } = envConfig[
+  process.env.NEXT_PUBLIC_ENV
+] || {
+  baseUrl: "",
+  protocol: "",
+};
+
 const headerData = {
   headers: {
-    "venue-code": "myblog",
+    "venue-code": venueCode,
   },
 };
 export async function getTheme() {
-  const data = await fetch(BASE_URL + "");
+  const data = await fetch(baseUrl + "");
   Jsondata = await data.json();
   return Jsondata;
 }
@@ -35,7 +53,7 @@ export async function getData(...config) {
 }
 export async function getSearchEvents(query) {
   const eventData = await getData(
-    BaseUrl +
+    baseUrl +
       request.events +
       `?asc_by=performance_start_time&limit=200&search_query=${query}`,
     {
@@ -47,7 +65,7 @@ export async function getSearchEvents(query) {
   return eventData.data.events;
 }
 export async function getEventDetails() {
-  const eventData = await getData(BaseUrl + request.events, {
+  const eventData = await getData(baseUrl + request.events, {
     ...headerData,
     next: { revalidate: 5 },
   });
@@ -55,7 +73,7 @@ export async function getEventDetails() {
   return eventData.data.events;
 }
 export async function getFaqs() {
-  const faqs = await getData(BaseUrl + request.faq, {
+  const faqs = await getData(baseUrl + request.faq, {
     ...headerData,
     next: { revalidate: 10 },
   });
@@ -63,7 +81,7 @@ export async function getFaqs() {
   return faqs.data;
 }
 export async function getThemeData() {
-  const themeLayout = await getData(BaseUrl + request.venueDetails, {
+  const themeLayout = await getData(baseUrl + request.venueDetails, {
     ...headerData,
     next: { revalidate: 10 },
   });
@@ -150,7 +168,7 @@ export async function getThemeData() {
   };
 }
 export async function getLanguageData() {
-  const response = await getData(BaseUrl + request.language, {
+  const response = await getData(baseUrl + request.language, {
     ...headerData,
     next: { revalidate: 5 },
   });
@@ -159,7 +177,7 @@ export async function getLanguageData() {
 
 export async function getSingleEventPerformances(eventId) {
   const response = await getData(
-    BaseUrl + request.singleEventPerformances(eventId),
+    baseUrl + request.singleEventPerformances(eventId),
     {
       ...headerData,
       next: { revalidate: 5 },
@@ -169,7 +187,7 @@ export async function getSingleEventPerformances(eventId) {
 }
 
 export async function getSingleEventData(eventId) {
-  const response = await getData(BaseUrl + request.singleEvent(eventId), {
+  const response = await getData(baseUrl + request.singleEvent(eventId), {
     ...headerData,
     next: { revalidate: 5 },
   });

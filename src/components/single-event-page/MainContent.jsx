@@ -111,7 +111,7 @@ const MainContent = ({
           performancesCount={performances.length}
         >
           <Calendar
-            highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
+            highlighted={[new Date(2024, 2, 10)]}
             activeColorCode={buttonLinkBoxBorderColor}
           />
         </CalendarWrapper>
