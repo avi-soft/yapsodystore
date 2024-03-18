@@ -11,8 +11,6 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import Header from "../components/header/Navbar";
 import Footer from "@/components/footer/footer";
-import Header from "../components/header/Navbar";
-import Footer from "@/components/footer/footer";
 
 export default async function Home() {
   const events = await getEventDetails();
