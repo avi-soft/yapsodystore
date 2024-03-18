@@ -18,7 +18,7 @@ const Footer = ({
     <div
       className={`border-t font-lato min-h-[57.65px] mt-auto border-solid px-2 border-gray-300 !bg-white  text-[#454444] w-full  text-base ${styles.footer}`}
     >
-      <div className={`float-left ${flexRow} p-4 ${styles.list}`}>
+      <div className={`float-left ${flexRow} p-[17px] ${styles.list}`}>
         <ul className={`${flexRow} flex-wrap gap-3 `}>
           <Item text="Support" link={supportUrl} hide={false} />
           <Item text="Terms" link={termsUrl} hide={false} />
@@ -31,7 +31,7 @@ const Footer = ({
           />
         </ul>
       </div>
-      <div className={`float-right ${flexRow} p-4 ${styles.list}`}>
+      <div className={`float-right ${flexRow} p-[17px] ${styles.list}`}>
         <p className="cursor-pointer">
           <Link href={portalUrl}>
             © {currentYear} {companyName} All Rights Reserved
