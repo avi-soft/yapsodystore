@@ -71,20 +71,20 @@ export default async function Home() {
             websiteUrl={websiteUrl}
             iconColor={buttonLinkBoxBorderColor}
           />
-          <SupportContact
-            position="center"
-            iconColor={buttonLinkBoxBorderColor}
-            textColor={textColor}
-            boxBackgroundColor={boxBackgroundColor}
-            boxBorderColor={buttonLinkBoxBorderColor}
-          />
         </div>
+        <SupportContact
+          position="center"
+          iconColor={buttonLinkBoxBorderColor}
+          textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+          boxBorderColor={buttonLinkBoxBorderColor}
+        />
         <div className="md:w-1/4 flex justify-center">
-        <Search
-          color={boxBackgroundColor}
-          textColor={headingColor}
-          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-          // onSearchSelect={handleEventSelect}
+          <Search
+            color={boxBackgroundColor}
+            textColor={headingColor}
+            buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+            // onSearchSelect={handleEventSelect}
           />
         </div>
         <div className="w-[89%] flex flex-col items-center">
@@ -93,7 +93,8 @@ export default async function Home() {
             textColor={textColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
           >
-            <Calendar isHome={true}
+            <Calendar
+              isHome={true}
               highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
               activeColorCode={buttonLinkBoxBorderColor}
             />

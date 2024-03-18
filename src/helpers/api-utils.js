@@ -18,7 +18,7 @@ export async function getTheme() {
   return Jsondata;
 }
 
-export async function getData(...config) {
+export async function getData(...config) { 
   try {
     const [url, headerData = {}] = config;
     const response = await fetch(url, headerData);
