@@ -6,7 +6,11 @@ import MainPageEventList from "@/components/events/MainPageEeventList";
 import SupportContact from "@/components/support-contact/SupportContact";
 import Title from "@/components/homepage-header/Title";
 import CalendarWrapper from "@/components/calendar/CalendarWrapper";
-import { getEventDetails, getThemeData } from "@/helpers/api-utils";
+import {
+  getEventDetails,
+  getSearchEvents,
+  getThemeData,
+} from "@/helpers/api-utils";
 import { Suspense } from "react";
 import Loading from "./loading";
 import Header from "../components/header/Navbar";
@@ -14,8 +18,12 @@ import Footer from "@/components/footer/footer";
 // import BottomView from "@/components/social-share-widget/BottomView";
 
 
-export default async function Home() {
-  const events = await getEventDetails();
+export default async function Home({ searchParams }) {
+  const search =
+    typeof searchParams.search === "string" ? searchParams.search : undefined;
+  const events = search
+    ? await getSearchEvents(search)
+    : await getEventDetails();
   const {
     boxBackgroundColor,
     buttonLinkBoxBorderColor,
@@ -41,7 +49,7 @@ export default async function Home() {
     portalUrl,
     sellTicketUrl,
     companyName,
-    faqCount
+    faqCount,
   } = await getThemeData();
 
   return (
@@ -57,7 +65,7 @@ export default async function Home() {
         coverImage={backgroundImage}
         storeBackground={storeBackground}
       >
-        <div className="w-full">
+        <div className="w-full px-2.5">
           <Title
             mainHeadingImage={mainHeadingImage}
             mainHeadingText={mainHeadingText}
@@ -83,15 +91,16 @@ export default async function Home() {
           boxBorderColor={buttonLinkBoxBorderColor}
           faqCount={faqCount}
         />
-        <div className="md:w-1/4 flex justify-center">
+        <div className="md:w-1/4 px-2.5 flex justify-center">
           <Search
             color={boxBackgroundColor}
             textColor={headingColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+            search={search}
             // onSearchSelect={handleEventSelect}
           />
         </div>
-        <div className="w-[89%] flex flex-col items-center">
+        <div className="w-full px-2.5 flex flex-col items-center">
           <CalendarWrapper
             performancesCount={events.length}
             textColor={textColor}

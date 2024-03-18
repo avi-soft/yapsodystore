@@ -9,7 +9,7 @@ export default function SocialShareWidget() {
       <ul>
         <li className="pb-2">
           <Link href={"/"}>
-            <FaFacebookSquare className="text-[#3b5998]" />
+            <FaFacebookSquare size={24} className="text-[#3b5998]" />
           </Link>
         </li>
         <li className="pb-2">
