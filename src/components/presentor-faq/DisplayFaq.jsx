@@ -11,7 +11,7 @@ const DisplayFq = ({ faq, index, expandIndex, setExpandIndex }) => {
   };
 
   return (
-    <div className='present-faq' >
+    <div className='present-faq py-[16px]' >
       <div className='delay-1'>
       <div className='inside-faq ' onClick={toggleAnswerVisibility} >
         <div
@@ -30,6 +30,7 @@ const DisplayFq = ({ faq, index, expandIndex, setExpandIndex }) => {
       {isExpanded && (
         <div style={{ color: '#343131', marginTop: '24px', marginLeft: '14px' }}>{faq.answer}</div>
       )}
+      
     </div>
   );
 };

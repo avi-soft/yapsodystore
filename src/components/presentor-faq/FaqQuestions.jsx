@@ -33,7 +33,7 @@ export default function FaqQues(){
         <div className='freqaskquest'>Frequently Asked Questions</div>
         <div className='container'>
           {faq.map((value, index) => (
-            <div  key={index}>
+            <div  key={index} className="border-b">
                 {/* this component will render accordingly to the data...*/}
               {/* <FreqQuest key={value.question} faq={value} />     */}
               <FreqQuest
@@ -42,7 +42,9 @@ export default function FaqQues(){
                 expandIndex={expandIndex}
                 setExpandIndex={setExpandIndex}
               />
+              
             </div>
+            
           ))}
         </div>
       </div>
