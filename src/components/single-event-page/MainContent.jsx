@@ -23,6 +23,7 @@ const MainContent = ({
   headingColor,
   eventData,
   symbol,
+  
 }) => {
   const isEventTypePhysical =
     eventData.location_type == "physical" &&
@@ -66,13 +67,9 @@ const MainContent = ({
           iconColor={buttonLinkBoxBorderColor}
         />
       </section>
-      <SocialShareWidget />
-      <div className="md:hidden block">
-        <BottomView
-          isEventTypePhysical={isEventTypePhysical}
-          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-        />
-      </div>
+       <SocialShareWidget />
+
+      
       <div
         className="location text-base my-7 relative text-[#566270] flex items-center"
         style={{ color: textColor }}
@@ -155,6 +152,7 @@ const MainContent = ({
           />
         </div>
       </div>
+      
     </div>
   );
 };

@@ -11,6 +11,8 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import Header from "../components/header/Navbar";
 import Footer from "@/components/footer/footer";
+// import BottomView from "@/components/social-share-widget/BottomView";
+
 
 export default async function Home() {
   const events = await getEventDetails();
@@ -112,7 +114,12 @@ export default async function Home() {
           </Suspense>
         </div>
       </MainContainer>
-
+      {/* <div className="md:hidden block" >
+        <BottomView
+          // isEventTypePhysical={isEventTypePhysical}
+          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+        />
+      </div> */}
       <Footer
         supportUrl={supportUrl}
         termsUrl={termsUrl}

@@ -45,6 +45,7 @@ export default async function SingleEventPage({ params }) {
     eventData,
     performances,
     symbol,
+    
   };
   return (
     <MainContainer
@@ -60,7 +61,7 @@ export default async function SingleEventPage({ params }) {
             boxBackgroundColor={boxBackgroundColor}
             eventData={eventData}
           />
-          <MainContent {...mainContentProps} />
+          <MainContent {...mainContentProps}  />
         </div>
       </div>
     </MainContainer>

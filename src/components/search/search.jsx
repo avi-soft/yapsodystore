@@ -42,7 +42,8 @@ const Search = ({
   const handleSelectResult = (result) => {
     setQuery("");
     setShowDropdown(false);
-    onSearchSelect(result);
+    onSearchSelect(
+      result);
   };
 
   return (
