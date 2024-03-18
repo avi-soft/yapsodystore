@@ -18,7 +18,7 @@ export async function getTheme() {
   return Jsondata;
 }
 
-export async function getData(...config) { 
+export async function getData(...config) {
   try {
     const [url, headerData = {}] = config;
     const response = await fetch(url, headerData);
@@ -38,7 +38,7 @@ export async function getEventDetails() {
     ...headerData,
     next: { revalidate: 5 },
   });
-  // console.log(BaseUrl + request.events);
+  // console.log(eventData.data.events);
   return eventData.data.events;
 }
 
@@ -153,5 +153,7 @@ export async function getSingleEventData(eventId) {
     ...headerData,
     next: { revalidate: 5 },
   });
+
+  // console.log(response.data);
   return response.data;
 }

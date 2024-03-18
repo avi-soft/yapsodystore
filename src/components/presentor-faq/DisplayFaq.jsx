@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
 import { useState } from "react";
+import { MdOutlineKeyboardArrowUp } from "react-icons/md";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+
 import "./style.css";
 
 const DisplayFq = ({ faq }) => {
@@ -11,7 +14,10 @@ const DisplayFq = ({ faq }) => {
   };
   return (
     <div className="present-faq">
-      <div className="inside-faq">
+      <div
+        className="inside-faq cursor-pointer"
+        onClick={toggleAnswerVisibility}
+      >
         <div
           style={{
             fontWeight: "600",
@@ -20,7 +26,7 @@ const DisplayFq = ({ faq }) => {
             flex: 80,
             fontSize: "1rem",
           }}
-          onClick={toggleAnswerVisibility}
+          // onClick={toggleAnswerVisibility}
         >
           {faq.question}
         </div>
@@ -33,7 +39,15 @@ const DisplayFq = ({ faq }) => {
           }}
         >
           <span>
-            {isAnswerVisible ? <span>&#8896;</span> : <span>&#8897;</span>}
+            {isAnswerVisible ? (
+              <span>
+                <MdOutlineKeyboardArrowDown />
+              </span>
+            ) : (
+              <span>
+                <MdOutlineKeyboardArrowUp />
+              </span>
+            )}
           </span>
         </div>
       </div>
