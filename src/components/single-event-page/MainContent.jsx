@@ -78,14 +78,14 @@ const MainContent = ({
         style={{ color: textColor }}
       >
         <span className="mt-1 inline-block h-5 w-5 align-middle pt-[1px] mr-1 ">
-          {isEventTypePhysical ? (
+          {location_type === "physical" ? (
             <MdLocationPin className="size-4" />
           ) : (
             <GiLaptop className="size-4" />
           )}
         </span>
         <span className="w-[100%] inline-block font-lato">
-          {isEventTypePhysical
+          {location_type === "physical"
             ? location_info.name + " - " + location_info.address
             : location_info.webevent_timezone}
         </span>
