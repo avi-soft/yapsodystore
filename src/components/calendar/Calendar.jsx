@@ -1,10 +1,10 @@
-
 "use client";
 import { useState, useMemo } from "react";
-
+import { FaCalendarDays } from "react-icons/fa6";
 import "./calendar.css";
-import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
+import NextMonth from "../../../public/greater-than-symbol.png";
+import PrevMonth from "../../../public/less-than-symbol.png";
+import Image from "next/image";
 
 const monthsMap = {
   0: "January",
@@ -82,17 +82,25 @@ const Calendar = ({
   };
 
   return (
-    <span className={`bg-white cal-calendar-container shadow-xl relative `} >
+    <span className=" bg-white cal-calendar-container  shadow-xl relative">
       <div className="cal-calendar-header">
         <div className="cal-calendar-navs">
           <p className="cal-nav-arrows" onClick={goToPrevMonth}>
-            <IoIosArrowBack size={14} color="gray" />
+            <Image
+              src={PrevMonth}
+              className="h-[10px] w-[10px] "
+              alt="Prev_month"
+            />
           </p>
           <p className="font-medium text-gray-700 select-none m-0">
             {`${monthsMap[currentMonthYear.month]} ${currentMonthYear.year}`}
           </p>
           <p className="cal-nav-arrows" onClick={goToNextMonth}>
-            <IoIosArrowForward size={14} color="gray" />
+            <Image
+              src={NextMonth}
+              className="h-[10px] w-[10px]"
+              alt="Next_month"
+            />
           </p>
         </div>
       </div>
