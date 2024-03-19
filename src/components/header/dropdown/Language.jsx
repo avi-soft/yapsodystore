@@ -13,7 +13,7 @@ const Language = ({ languageData, langCode }) => {
   }
   return (
     <>
-      <div className="absolute right-11 mt-5">
+      <div className="absolute  mt-5" style={{right:'180%'}}>
         <div
           style={{
             filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))",
