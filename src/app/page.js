@@ -15,14 +15,13 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import Header from "../components/header/Navbar";
 import Footer from "@/components/footer/footer";
-// import BottomView from "@/components/social-share-widget/BottomView";
 
 
 export default async function Home({ searchParams }) {
   const search =
     typeof searchParams.search === "string" ? searchParams.search : undefined;
   const events = search
-    ? await getSearchEvents(search)
+    ? await getSearchEvents(search) 
     : await getEventDetails();
   const {
     boxBackgroundColor,
@@ -123,12 +122,6 @@ export default async function Home({ searchParams }) {
           </Suspense>
         </div>
       </MainContainer>
-      {/* <div className="md:hidden block" >
-        <BottomView
-          // isEventTypePhysical={isEventTypePhysical}
-          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-        />
-      </div> */}
       <Footer
         supportUrl={supportUrl}
         termsUrl={termsUrl}

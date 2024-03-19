@@ -61,7 +61,18 @@ export async function getSearchEvents(query) {
       next: { revalidate: 5 },
     }
   );
-  // console.log(eventData.data.events);
+  return eventData.data.events;
+}
+export async function getCalenderEvents(startDate, endDate) {
+  const eventData = await getData(
+    baseUrl +
+      request.events +
+      `?asc_by=performance_start_time&end_date=${startDate}&limit=200&start_date=${endDate}`,
+    {
+      ...headerData,
+      next: { revalidate: 5 },
+    }
+  );
   return eventData.data.events;
 }
 export async function getEventDetails() {
