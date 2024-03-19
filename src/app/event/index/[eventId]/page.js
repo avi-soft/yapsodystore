@@ -5,7 +5,7 @@ import MainContainer from "@/components/main-container/MainContainer";
 export default function SingleEventPage() {
   const themeColor = "red";
   return (
-    <div className="pt-24 pb-8">
+    <div className="pt-24 pb-8 ">
       <MainContainer
         coverImage={
           "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"

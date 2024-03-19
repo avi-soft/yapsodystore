@@ -5,17 +5,16 @@ const SupportCard = ({
   boxBorderColor = "black",
   textColor = "black",
   boxBackgroundColor = "white",
-  onClose,
-  
+  position,
 }) => {
   const [isHovered1, setIsHovered1] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
 
   const [showNonTechSupp,setShowNonTechSupp] = useState(false);
 
-  const handleopenclose=()=>{
-    onClose();
-  }
+  // const handleopenclose=()=>{
+  //   onClose();
+  // }
   const handleclickonNonTechnical = ()=>{
     setShowNonTechSupp(!showNonTechSupp);
   }
@@ -26,7 +25,7 @@ const SupportCard = ({
 
   const handleMouseLeave1 = () => {
     setIsHovered1(false);
-    handleopenclose();
+    
   };
 
   const handleMouseEnter2 = () => {
@@ -35,7 +34,7 @@ const SupportCard = ({
 
   const handleMouseLeave2 = () => {
     setIsHovered2(false);
-    handleopenclose();
+    
   };
   const borderColor = `1px solid ${boxBorderColor}`;
   const boxStyle1 = {
@@ -49,12 +48,12 @@ const SupportCard = ({
     color: isHovered2 ? "white" : textColor,
     backgroundColor: isHovered2 ? boxBorderColor : boxBackgroundColor,
     opacity: isHovered2 && "0.5",
+    cursor:'pointer',
   };
   return (
-    <>
       <div
-        className="dropdown-content left-[-75%] z-10 h-fit w-[300px] bg-white flex-col gap-2 rounded-[4px] border p-3 shadow-md relative"
         style={{ color: textColor, backgroundColor: boxBackgroundColor }}
+        className="p-3 "
       >
         <div
           style={boxStyle1}
@@ -85,7 +84,7 @@ const SupportCard = ({
           {showNonTechSupp && (<ContactPresent onClose={()=>setShowNonTechSupp(!showNonTechSupp)} />)}
         </div>
       </div>
-    </>
+
   );
 };
 

@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import arrowUp from "@/../public/assets/icons/angle-up-solid.svg";
 import SupportCard from "./SupportCard";
 import IconLabel from "@/ui/IconLabel";
-
+import SupportWrapper from "./SupportWrapper";
+import CommentWrapper from "./CommentWrapper";
 const Support = ({
   size,
   position = "bottom",
@@ -15,18 +15,23 @@ const Support = ({
 }) => {
   const [open, setOpen] = useState(false);
 
-  const toggleOpen = ()=>{
-    setOpen(!open);
-  }
 
   const actions = {
-    onclick:toggleOpen,
     onMouseOver: () => setOpen(true),
     onMouseLeave: () => setOpen(false),
   };
+  const toggleOnClick=()=>{
+    if (window.innerWidth < 1024) { 
+           document.getElementById("esc_modal").showModal()
+    }else{
+
+    }
+  }
   return (
     <div
       className={`dropdown dropdown-hover text-[16px]  dropdown-${position}`}
+      onClick={toggleOnClick}
+      // onClick={() => document.getElementById("esc_modal").showModal()}
     >
       <IconLabel
         color={iconColor}
@@ -38,19 +43,23 @@ const Support = ({
         <div tabIndex={0} role="button">
           Support
         </div>
-        <div
-          style={{ filter: "drop-shadow(rgba(0, 0, 0, 0.1) 0px 4px 6px)" }}
-          className={`${
-            !open ? "invisible" : null
-          } w-0 h-0 border-b-[10px] border-r-[10px] border-l-[10px] border-r-transparent border-l-transparent border-b-gray-300`}
-        ></div>
+      </IconLabel>
+      <SupportWrapper>
         <SupportCard
           boxBorderColor={boxBorderColor}
           textColor={textColor}
           boxBackgroundColor={boxBackgroundColor}
-          onClose={toggleOpen}
+          position={position}
         />
-      </IconLabel>
+      </SupportWrapper>
+      <CommentWrapper position={position}>
+        <SupportCard
+          boxBorderColor={boxBorderColor}
+          textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+          position={position}
+        />
+      </CommentWrapper>
     </div>
   );
 };
