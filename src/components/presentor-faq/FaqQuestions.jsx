@@ -16,24 +16,6 @@ export default function FaqQues() {
   }, []);
 
   return (
-<<<<<<< HEAD
-    <div className='Freq-main-page'>
-      {/* <div className='left-faq'>left</div> */}
-      <div className='right-faq'>
-        <div className='freqaskquest'>Frequently Asked Questions</div>
-        <div className='container'>
-          {faq.map((value, index) => (
-            <div  key={index}>
-              <FreqQuest
-                faq={value}
-                index={index}
-                expandIndex={expandIndex}
-                setExpandIndex={setExpandIndex}
-              />
-            </div>
-          ))}
-        </div>
-=======
     <div className="Freq-main-page">
       <div className="right-faq">
         <div className="freqaskquest">Frequently Asked Questions</div>
@@ -56,7 +38,6 @@ export default function FaqQues() {
             ))}
           </div>
         )}
->>>>>>> 905ece3834735aabe28b71388b1afc9b96d6a69e
       </div>
     </div>
   );
