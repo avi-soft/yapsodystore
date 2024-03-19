@@ -17,7 +17,7 @@ export default function MainContainer({
       <div
         className="w-full h-screen fixed top-0 left-0 -z-10"
         style={{
-          background: coverImage ? `url(${coverImage})` : "#ffffff",
+          background: coverImage ? `url(${coverImage})` : storeBackground,
           backgroundPosition: "center",
         }}
       ></div>
