@@ -1,88 +1,116 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { IoSearchSharp } from "react-icons/io5";
+import { ImCross } from "react-icons/im";
 import styles from "./search.module.css";
-import { getEventDetails } from "@/helpers/api-utils";
-import { useEffect, useState } from "react";
+import { getSearchEvents } from "@/helpers/api-utils";
+import { useRouter } from "next/navigation";
 
-const Search = ({
-  color,
-  textColor,
-  buttonLinkBoxBorderColor,
-  onSearchSelect,
-}) => {
+const Search = ({ color, textColor, buttonLinkBoxBorderColor, search }) => {
   const inputStyle = {
-    borderColor: color,
     backgroundColor: color,
     color: textColor,
     borderColor: buttonLinkBoxBorderColor,
   };
 
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(search || "");
   const [results, setResults] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
+  const router = useRouter();
+
+  const handleInputChange = useCallback((e) => {
+    const inputValue = e.target.value;
+    setQuery(inputValue);
+  }, []);
 
   useEffect(() => {
-    if (query.length >= 3) {
-      getEventDetails()
-        .then((data) => {
-          setResults(data);
-          // console.log(results);
-          setShowDropdown(true);
-        })
-        .catch((error) => {
-          setShowDropdown(false);
-        });
-    } else {
-      setShowDropdown(false);
-    }
+    const timer = setTimeout(() => {
+      if (query.length >= 3) {
+        getSearchEvents(query)
+          .then((data) => {
+            setResults(data);
+            setShowDropdown(true);
+          })
+          .catch(() => {
+            setShowDropdown(false);
+          });
+      } else {
+        setShowDropdown(false);
+      }
+    }, 500); // Debounce time in milliseconds
+
+    return () => clearTimeout(timer);
   }, [query]);
 
-  const handleInputChange = (e) => {
-    setQuery(e.target.value);
-  };
+  const handleSelectResult = useCallback(
+    (id, name) => {
+      router.push(`/?search=${name}`);
+      setQuery(name);
+      setShowDropdown(false);
+    },
+    [router]
+  );
 
-  const handleSelectResult = (result) => {
+  const clearSearch = useCallback(() => {
     setQuery("");
-    setShowDropdown(false);
-    onSearchSelect(result);
-  };
+    router.push(`/`);
+  }, [router]);
 
-  // const eventData = await getEventDetails()
+  const dropdownContent = useMemo(() => {
+    if (!results.length) {
+      return (
+        <div
+          onClick={() => setShowDropdown(false)}
+          className={`pb-1 px-1 border-2 cursor-pointer`}
+        >
+          {"Sorry, We could not find any event. Try something else."}
+        </div>
+      );
+    }
+    return results
+      .filter((result) =>
+        result.event_title1.toLowerCase().includes(query.trim())
+      )
+      .map((filterItems, index) => (
+        <div
+          key={index}
+          className={`pb-1 px-1 border-2 cursor-pointer`}
+          onClick={() =>
+            handleSelectResult(filterItems.id, filterItems.event_title1)
+          }
+        >
+          {filterItems.event_title1}
+        </div>
+      ));
+  }, [results, query, handleSelectResult]);
 
   return (
-    <div className="mb-6 mt-[18px] w-[100%]">
-      <IoSearchSharp color={textColor} className={styles.icon} />
+    <div className="relative mb-[15px] mt-[18px]">
+      <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+        <IoSearchSharp color={textColor} className={styles.icon} />
+      </div>
       <input
+        type="text"
         style={inputStyle}
-        type="search"
-        name="search"
-        id="search"
-        className={`${styles.search} w-[100%] placeholder-[#54585c] `}
+        className="h-[40px] border rounded-[5px] py-2 px-9 pr-10 focus:outline-none focus:border-blue-500"
         placeholder="Search events"
         value={query}
         onChange={handleInputChange}
       />
-      {showDropdown && (
-        <div
-          className="absolute border-[2px] bg-white w-[340px]  border-gray-200 shadow-md rounded-md z-10 max-sm:w-[84%]"
-          style={{ borderColor: buttonLinkBoxBorderColor }}
+      {query && (
+        <button
+          className="absolute inset-y-0 right-0 px-2 py-2"
+          onClick={clearSearch}
         >
-          {results
-            ? results
-                .filter((result) =>
-                  result.event_title1.toLowerCase().includes(query.trim())
-                )
-                .map((filterItems, index) => (
-                  <div
-                    key={index}
-                    className={`pb-1 px-1 border-2 cursor-pointer hover:bg-gray-100 `}
-                    onClick={() => handleSelectResult(filterItems.id)}
-                  >
-                    {filterItems.event_title1}
-                  </div>
-                ))
-            : ""}
+          <ImCross color={textColor} size={11} />
+        </button>
+      )}
+      {showDropdown && !search && (
+        <div
+          className="max-h-25vh overflow-y-scroll rounded-[2px] mt-2 absolute w-[100%] z-50 text-base "
+          style={inputStyle}
+        >
+          {dropdownContent}
         </div>
       )}
     </div>

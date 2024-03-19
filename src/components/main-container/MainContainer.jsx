@@ -6,10 +6,10 @@ export default function MainContainer({
 }) {
   let px = isHome ? "lg:px-[120px]" : "lg:px-[30px]";
   return (
-    <main className="pt-24 pb-8">
+    <main className="pt-24 pb-4 md:pb-[50px] ">
       <div
         style={{ backgroundColor: storeBackground }}
-        className={`flex ${px}  min-h-screen flex-col items-center font-lato justify-between pb-[15px] m-auto w-[97.5%] md:w-[90%] max-w-[1300px]
+        className={`flex ${px}  min-h-screen flex-col items-center font-lato pb-[15px] m-auto w-[97.5%] md:w-[90%] max-w-[1300px]
           bg-300 bg-opacity-90 rounded-md opacity-[0.95]`}
       >
         {children}
