@@ -14,7 +14,13 @@ const Support = ({
   boxBorderColor,
 }) => {
   const [open, setOpen] = useState(false);
+
+  const toggleOpen = ()=>{
+    setOpen(!open);
+  }
+
   const actions = {
+    onclick:toggleOpen,
     onMouseOver: () => setOpen(true),
     onMouseLeave: () => setOpen(false),
   };
@@ -42,6 +48,7 @@ const Support = ({
           boxBorderColor={boxBorderColor}
           textColor={textColor}
           boxBackgroundColor={boxBackgroundColor}
+          onClose={toggleOpen}
         />
       </IconLabel>
     </div>

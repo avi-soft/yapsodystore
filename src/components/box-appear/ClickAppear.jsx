@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect} from 'react';
-import Script from 'next/script';
+
 import './style.css';
 import { RxCrossCircled } from "react-icons/rx";
 
@@ -31,7 +31,7 @@ export default function ClickBox({ component: Component, onClose }) {
     return (
         <div>
             {/* <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>open modal</button> */}
-            <Script src="https://kit.fontawesome.com/8d4b434c6d.js" crossorigin="anonymous"/>
+            
             <dialog id="my_modal_1" className="modal" style={{ 
                 backgroundColor: 'rgb(51 48 48 / 84%)',
                 display: 'flex',

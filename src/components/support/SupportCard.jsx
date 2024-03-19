@@ -1,13 +1,24 @@
 "use client";
 import React, { useState } from "react";
-
+import ContactPresent from "../Contact-form/ContactPresentor";
 const SupportCard = ({
   boxBorderColor = "black",
   textColor = "black",
   boxBackgroundColor = "white",
+  onClose,
+  
 }) => {
   const [isHovered1, setIsHovered1] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
+
+  const [showNonTechSupp,setShowNonTechSupp] = useState(false);
+
+  const handleopenclose=()=>{
+    onClose();
+  }
+  const handleclickonNonTechnical = ()=>{
+    setShowNonTechSupp(!showNonTechSupp);
+  }
 
   const handleMouseEnter1 = () => {
     setIsHovered1(true);
@@ -15,6 +26,7 @@ const SupportCard = ({
 
   const handleMouseLeave1 = () => {
     setIsHovered1(false);
+    handleopenclose();
   };
 
   const handleMouseEnter2 = () => {
@@ -23,6 +35,7 @@ const SupportCard = ({
 
   const handleMouseLeave2 = () => {
     setIsHovered2(false);
+    handleopenclose();
   };
   const borderColor = `1px solid ${boxBorderColor}`;
   const boxStyle1 = {
@@ -61,12 +74,15 @@ const SupportCard = ({
           className={`mt-[10px] rounded p-2 hover:bg-[${boxBorderColor}] hover:text-white`}
           onMouseEnter={handleMouseEnter2}
           onMouseLeave={handleMouseLeave2}
+
+          onClick={handleclickonNonTechnical}
         >
           <h2 className="font-bold">Non-technical Support</h2>
           <ul className="ml-5 list-disc">
             <li>Venue / Event information</li>
             <li>Refunds & exchanges</li>
           </ul>
+          {showNonTechSupp && (<ContactPresent onClose={()=>setShowNonTechSupp(!showNonTechSupp)} />)}
         </div>
       </div>
     </>

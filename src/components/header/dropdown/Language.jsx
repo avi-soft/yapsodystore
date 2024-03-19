@@ -28,7 +28,7 @@ const Language = ({ languageData, langCode }) => {
         {languageData.map((option, index) => (
           <li
             key={index}
-            className={`p-3 text-left truncate border  text-[#696a6c] ${
+            className={`p-3 text-left text-[#696a6c] ${
               option.short === langCode ? "text-black" : ""
             }`}
           >
