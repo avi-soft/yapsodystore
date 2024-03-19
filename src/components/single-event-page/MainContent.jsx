@@ -96,15 +96,17 @@ const MainContent = ({
           textColor={textColor}
         />
       )}
-      {hyperlinks && (
+      {hyperlinks.length > 1 && (
         <DescriptionHyperLinks
           hyperlinks={hyperlinks}
           color={buttonLinkBoxBorderColor}
         />
       )}
-      {descriptionImages && <DescriptionImages images={descriptionImages} />}
+      {descriptionImages.length > 1 && (
+        <DescriptionImages images={descriptionImages} />
+      )}
       <div className="px-[10px] align-top">
-        {videos && <DescriptionVideos videos={videos} />}
+        {videos.length > 1 && <DescriptionVideos videos={videos} />}
         <CalendarWrapper
           textColor={textColor}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
