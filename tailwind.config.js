@@ -12,9 +12,17 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        lato: ['Lato, Helvetica, Arial, sans-serif'],
+        roboto: ['Roboto, Arial'],
+        onlyLato: ['Lato']
+       },
     },
   },
-  plugins: [require("daisyui"),require("@tailwindcss/forms"), require('tailwind-scrollbar-hide')],
+  plugins: [
+    require("daisyui"),
+    require("@tailwindcss/forms")({ strategy: "class" }),
+  ],
   daisyui: {
     themes: false, // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
     darkTheme: [], // name of one of the included themes for dark mode

@@ -1,67 +1,86 @@
-"use client";
 import React from "react";
-import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import Support from "../support/Support";
 import ContactPresenter from "../contact/ContactPresenter";
+import Button from "@/ui/Button";
+import EventImage from "./EventImage";
+import EventInfo from "./EventInfo";
 
-const SideBarEventPage = () => {
-  const event = {
-    name: "MULTI Events",
-    startdate: "2024-04-08",
-    endDate: "2024-04-20",
-    performances: 5,
-  };
+const SideBarEventPage = ({
+  buttonColor,
+  textColor,
+  boxBackgroundColor,
+  eventData,
+}) => {
+  const isEventTypePhysical =
+    eventData.location_type == "physical" &&
+    eventData.location_info.show_map != "no";
+
   return (
-    <div className="m-auto mt-20 block w-[400px] px-[10px] pb-[30px] pr-[40px] max-xl:w-[100%] xl:sticky xl:top-0">
-      <div className="mb-15px h-[180px] ps-[40px] z-[10]">
-        <Image
-          src="/default-img.jpg"
-          width={300}
-          height={100}
-          className="mb-[30px] h-[180px] min-w-[100%] rounded border-4 border-[#ffffff] bg-[#cccccc] shadow-[0px_2px_4px_0px_rgba(0,0,0,0.3)]"
-        ></Image>
-        <p className="absolute mt-[-115px] max-w-[100%] rotate-[-30deg] whitespace-nowrap pl-[95px] text-[rgba(51,51,51,0.5)] max-xl:ml-[100px] max-xl:mt-[-130px] max-xl:rotate-[]">
-          {event.name}
-        </p>
-      </div>
+    <div className="pl-0 ml-0  mt-20 block w-[300px] px-[10px] pb-[30px] pr-[20px] max-xl:w-[100%] xl:sticky xl:top-0">
+      <EventImage eventData={eventData} />
+
       <div className="block">
-        <div className="block">
-          <ul className=" m-0 mt-[20px] block max-w-[100%] list-none p-0 ps-[40px] text-[var(--text-primary)]">
-            <li className="m-0 list-item w-[100%] border-b border-[#c0c0c0] py-[12px]">
-              <div className="block overflow-hidden tracking-wider text-[#2e2294e]">
-                <div className="flex gap-2">
-                  <span>From</span>
-                  <span>{event.startdate}</span>
-                </div>
-                <div className="flex gap-2">
-                  <span>to</span>
-                  <span>{event.endDate}</span>
-                </div>
-                <span>({event.performances} Performances)</span>
-                <div
-                  className={`mt-[10px] h-[35px] w-[100%] rounded border-[var(--highlightColor)] bg-[var(--highlightColor)] py-[6px] text-center`}
-                >
-                  <Link href={"/"} className="cursor-pointer text-white">
-                    Get Tickets
-                  </Link>
-                </div>
-              </div>
-            </li>
-            <li className="m-0 list-item w-[100%] border-b border-[#c0c0c0] py-[12px]">
-              <span>(GMT+0530) India Time</span>
-            </li>
-            <li
-              className="m-0 w-[100%] border-b border-[#c0c0c0] py-[12px]"
+        <ul className=" m-0 mt-[20px] block max-w-[100%] list-none p-0 text-[var(--text-primary)]">
+          <li className="m-0 list-item w-[100%] py-[12px] ">
+            <EventInfo
+              performanceCount={eventData.performances_count}
+              startDate={eventData.performance_start_time}
+              endDate={eventData.performance_end_time}
+              color={textColor}
+            />
+          </li>
+          <li className="m-0 list-item w-[100%]   text-[14px] border-b py-[12px]">
+            <Button
+              height={35}
+              width={"100%"}
+              color={buttonColor}
+              to={"#upcoming-event"}
+              className="p-[6px]"
+              padding_y={"6px"}
+              padding_x={"6px"}
             >
-              <Support size="size-6 " />
+              Get Tickets
+            </Button>
+          </li>
+          {isEventTypePhysical && (
+            <div className="md:block hidden">
+              <li className="m-0 list-item w-[100%] font-lato text-[14px] border-b py-[12px] ">
+                <Button
+                  height={35}
+                  className="p-[6px]"
+                  width={"100%"}
+                  color={buttonColor}
+                  to="#gMap"
+                  padding_y={"6px"}
+                  padding_x={"6px"}
+                >
+                  Get Directions
+                </Button>
+              </li>
+            </div>
+          )}
+          {eventData.location_type === "web" && (
+            <li
+              className="m-0 list-item w-[100%] border-b py-[12px]"
+              style={{ color: textColor }}
+            >
+              {eventData.location_info.webevent_timezone}
             </li>
-            <li className="m-0 w-[100%] py-[12px]">
-              <ContactPresenter size="size-6 " />
-            </li>
-          </ul>
-        </div>
+          )}
+          <li className="m-0 w-[100%] border-b py-[12px]">
+            <Support
+              size="size-6 "
+              position="top"
+              iconColor={textColor}
+              textColor={textColor}
+              boxBackgroundColor={boxBackgroundColor}
+              boxBorderColor={buttonColor}
+            />
+          </li>
+          <li className="m-0 w-[100%] py-[12px]">
+            <ContactPresenter size="size-6 " color={textColor} />
+          </li>
+        </ul>
       </div>
     </div>
   );

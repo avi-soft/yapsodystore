@@ -1,7 +1,10 @@
+
 "use client";
 import { useState, useMemo } from "react";
-import { FaCalendarAlt } from "react-icons/fa";
+
 import "./calendar.css";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
 const monthsMap = {
   0: "January",
@@ -36,11 +39,14 @@ const generateDates = (month, year) => {
 };
 
 const Calendar = ({
+  children,
+  performancesCount,
   highlighted,
   activeColorCode,
   dateClickHandler = (date) => {
     console.log("Date clicked", date);
   },
+  isHome = false,
 }) => {
   const initialSelectedDate = null;
 
@@ -76,83 +82,74 @@ const Calendar = ({
   };
 
   return (
-    <div className="w-full">
-      <div className="dropdown">
-        <div tabIndex={0} role="button">
-          <FaCalendarAlt className="size-6 cursor-pointer" />
-        </div>
-        <div
-          tabIndex={0}
-          className="dropdown-content bg-white cal-calendar-container z-[100] shadow-xl"
-        >
-          <div className="cal-calendar-header">
-            <div className="cal-calendar-navs">
-              <p className="cal-nav-arrows" onClick={goToPrevMonth}>
-                {"<"}
-              </p>
-              <p className="font-bold text-gray-700 select-none m-0">
-                {`${monthsMap[currentMonthYear.month]} ${
-                  currentMonthYear.year
-                }`}
-              </p>
-              <p className="cal-nav-arrows" onClick={goToNextMonth}>
-                {">"}
-              </p>
-            </div>
-          </div>
-          <div className="cal-calendar-days">
-            {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(
-              (d, index) => (
-                <p key={index} className="cal-day">
-                  {d}
-                </p>
-              )
-            )}
-          </div>
-          <div className="cal-calendar-body">
-            {generateDates(currentMonthYear.month, currentMonthYear.year).map(
-              (e, index) => {
-                if (e === 0) {
-                  return (
-                    <p key={index} className="cal-filler">
-                      {e}
-                    </p>
-                  );
-                }
-
-                return (
-                  <p
-                    key={index}
-                    className={`cal-date ${
-                      selectedDate.toDateString() === e.toDateString() ||
-                      isHighlighted(e)
-                        ? "cal-active-date"
-                        : "cal-no-cursor"
-                    }`}
-                    style={
-                      selectedDate.toDateString() === e.toDateString() ||
-                      isHighlighted(e)
-                        ? { backgroundColor: `${activeColorCode}` }
-                        : null
-                    }
-                    onClick={
-                      isHighlighted(e)
-                        ? () => {
-                            setSelectedDate(e);
-                            dateClickHandler(e);
-                          }
-                        : null
-                    }
-                  >
-                    {e.getDate()}
-                  </p>
-                );
-              }
-            )}
-          </div>
+    <span className={`bg-white cal-calendar-container shadow-xl relative `} >
+      <div className="cal-calendar-header">
+        <div className="cal-calendar-navs">
+          <p className="cal-nav-arrows" onClick={goToPrevMonth}>
+            <IoIosArrowBack size={14} color="gray" />
+          </p>
+          <p className="font-medium text-gray-700 select-none m-0">
+            {`${monthsMap[currentMonthYear.month]} ${currentMonthYear.year}`}
+          </p>
+          <p className="cal-nav-arrows" onClick={goToNextMonth}>
+            <IoIosArrowForward size={14} color="gray" />
+          </p>
         </div>
       </div>
-    </div>
+      <div className="cal-calendar-days">
+        {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((d, index) => (
+          <p key={index} className="cal-day">
+            {d}
+          </p>
+        ))}
+      </div>
+      <div className="cal-calendar-body">
+        {generateDates(currentMonthYear.month, currentMonthYear.year).map(
+          (e, index) => {
+            if (e === 0) {
+              return (
+                <p key={index} className="cal-filler">
+                  {e}
+                </p>
+              );
+            }
+
+            return (
+              <p
+                key={index}
+                className={`cal-date ${
+                  selectedDate.toDateString() === e.toDateString() ||
+                  isHighlighted(e)
+                    ? "cal-active-date"
+                    : "cal-no-cursor"
+                }`}
+                style={
+                  (selectedDate.toDateString() === e.toDateString() ||
+                    isHighlighted(e)) &&
+                  !isHome
+                    ? { backgroundColor: `${activeColorCode}`, color: "white" }
+                    : (selectedDate.toDateString() === e.toDateString() ||
+                        isHighlighted(e)) &&
+                      isHome
+                    ? { color: "black" }
+                    : null
+                }
+                onClick={
+                  isHighlighted(e)
+                    ? () => {
+                        setSelectedDate(e);
+                        dateClickHandler(e);
+                      }
+                    : null
+                }
+              >
+                {e.getDate()}
+              </p>
+            );
+          }
+        )}
+      </div>
+    </span>
   );
 };
 

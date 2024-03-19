@@ -1,0 +1,31 @@
+/* This style sheet is only used for button so it is optional to import this file */
+.temporary-button {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 9px;
+}
+
+.temporary-button button {
+    margin-left: auto;
+}
+
+
+.temporary-button1 {
+    position: absolute;
+    top: 7px;
+    right: 42px;
+}
+
+#modal-content1 {
+    width: auto;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    max-height: 100%;
+    height: 100%;
+    border-radius: 0px;
+}

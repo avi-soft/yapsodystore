@@ -1,21 +1,63 @@
 "use client";
-
-import React, { useState } from "react";
-import SupportOverlay from "./SupportOverlay";
+import Image from "next/image";
+import { useState } from "react";
 import SupportCard from "./SupportCard";
-import { LuMessagesSquare } from "react-icons/lu";
-
-const Support = ({ size, color }) => {
+import IconLabel from "@/ui/IconLabel";
+import SupportWrapper from "./SupportWrapper";
+import CommentWrapper from "./CommentWrapper";
+const Support = ({
+  size,
+  position = "bottom",
+  boxBackgroundColor,
+  iconColor,
+  textColor,
+  boxBorderColor,
+}) => {
   const [open, setOpen] = useState(false);
+  const actions = {
+    onMouseOver: () => setOpen(true),
+    onMouseLeave: () => setOpen(false),
+  };
+  const toggleOnClick=()=>{
+    if (window.innerWidth < 1024) { 
+           document.getElementById("esc_modal").showModal()
+    }else{
+
+    }
+  }
   return (
-    <div className="flex cursor-pointer gap-4" style={{ color: color }}
-    onMouseOver={() => setOpen(true)}
-              onMouseLeave={() => setOpen(false)}>
-      <span>
-        <LuMessagesSquare className={`${size}`} />
-      </span>
-      <span>Support</span>
-      {open && <SupportOverlay isOpen={open} children={<SupportCard />} />}
+    <div
+      className={`dropdown dropdown-hover text-[16px]  dropdown-${position}`}
+      onClick={toggleOnClick}
+      // onClick={() => document.getElementById("esc_modal").showModal()}
+    >
+      <IconLabel
+        color={iconColor}
+        size={size}
+        icon="support"
+        gap={4}
+        actions={actions}
+      >
+        <div tabIndex={0} role="button">
+          Support
+        </div>
+      </IconLabel>
+      <SupportWrapper>
+        <SupportCard
+          boxBorderColor={boxBorderColor}
+          textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+          position={position}
+        />
+      </SupportWrapper>
+      <CommentWrapper position={position}>
+        <SupportCard
+          boxBorderColor={boxBorderColor}
+          textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+          position={position}
+        />
+      </CommentWrapper>
     </div>
   );
 };

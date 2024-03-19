@@ -1,32 +1,135 @@
 import Calendar from "@/components/calendar/Calendar";
-import Search from "@/components/search/search";
-import EventList from "@/components/Events/EventList";
+import Search from "@/components/search/search.jsx";
 import SocialMedia from "@/components/social-media/SocialMedia";
 import MainContainer from "@/components/main-container/MainContainer";
+import MainPageEventList from "@/components/events/MainPageEeventList";
+import SupportContact from "@/components/support-contact/SupportContact";
+import Title from "@/components/homepage-header/Title";
+import CalendarWrapper from "@/components/calendar/CalendarWrapper";
+import {
+  getEventDetails,
+  getSearchEvents,
+  getThemeData,
+} from "@/helpers/api-utils";
+import { Suspense } from "react";
+import Loading from "./loading";
+import Header from "../components/header/Navbar";
+import Footer from "@/components/footer/footer";
 
-export default function Home() {
+export default async function Home({ searchParams }) {
+  const search =
+    typeof searchParams.search === "string" ? searchParams.search : undefined;
+  const events = search
+    ? await getSearchEvents(search)
+    : await getEventDetails();
+  const {
+    boxBackgroundColor,
+    buttonLinkBoxBorderColor,
+    backgroundImage,
+    logoImage,
+    storeBackground,
+    headingColor,
+    textColor,
+    mainHeadingImage,
+    mainHeadingText,
+    venueName,
+    headerAlignment,
+    facebookUrl,
+    twitterUrl,
+    instagramUrl,
+    websiteUrl,
+    mainHeadingType,
+    brandImage,
+    langCode,
+    supportUrl,
+    termsUrl,
+    privacyUrl,
+    portalUrl,
+    sellTicketUrl,
+    companyName,
+    faqCount,
+  } = await getThemeData();
+
   return (
-    <MainContainer
-      coverImage={
-        "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg"
-      }
-    >
-      <div className="w-full">
-        <div className="p-8 flex justify-center">
-          <img src="/store-logo.png" alt="image" />
+    <div>
+      <Header
+        langCode={langCode}
+        venueName={venueName}
+        brandImage={brandImage}
+        iconColor={buttonLinkBoxBorderColor}
+      />
+
+      <MainContainer
+        coverImage={backgroundImage}
+        storeBackground={storeBackground}
+      >
+        <div className="w-full px-2.5">
+          <Title
+            mainHeadingImage={mainHeadingImage}
+            mainHeadingText={mainHeadingText}
+            venueName={venueName}
+            headerAlignment={headerAlignment}
+            headingColor={headingColor}
+            mainHeadingType={mainHeadingType}
+          />
+          <SocialMedia
+            position="center"
+            facebookUrl={facebookUrl}
+            twitterUrl={twitterUrl}
+            instagramUrl={instagramUrl}
+            websiteUrl={websiteUrl}
+            iconColor={buttonLinkBoxBorderColor}
+          />
         </div>
-        <SocialMedia />
-        {/* <Card />
-        <Card isCodeAvailable={false} /> */}
-      </div>
-      <div className="mt-[20px] w-full flex flex-col items-center">
-        <Search />
-        <Calendar
-          highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
-          activeColorCode={"blue"}
+        <SupportContact
+          position="center"
+          iconColor={buttonLinkBoxBorderColor}
+          textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+          boxBorderColor={buttonLinkBoxBorderColor}
+          faqCount={faqCount}
         />
-        <EventList />
-      </div>
-    </MainContainer>
+        <div className="md:w-1/4 px-2.5 flex justify-center">
+          <Search
+            color={boxBackgroundColor}
+            textColor={headingColor}
+            buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+            search={search}
+            // onSearchSelect={handleEventSelect}
+          />
+        </div>
+        <div className="w-full px-2.5 flex flex-col items-center">
+          <CalendarWrapper
+            performancesCount={events.length}
+            textColor={textColor}
+            buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+          >
+            <Calendar
+              isHome={true}
+              highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
+              activeColorCode={buttonLinkBoxBorderColor}
+            />
+          </CalendarWrapper>
+          <Suspense fallback={<Loading />}>
+            <MainPageEventList
+              events={events}
+              headingColor={headingColor}
+              boxBackgroundColor={boxBackgroundColor}
+              textColor={textColor}
+              buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+            />
+          </Suspense>
+        </div>
+      </MainContainer>
+
+      <Footer
+        supportUrl={supportUrl}
+        termsUrl={termsUrl}
+        privacyUrl={privacyUrl}
+        portalUrl={portalUrl}
+        sellTicketUrl={sellTicketUrl}
+        companyName={companyName}
+      />
+    </div>
   );
 }
