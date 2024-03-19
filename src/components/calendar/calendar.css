@@ -4,6 +4,7 @@
     border-radius: 3px;
     display: flex;
     flex-direction: column;
+    right:35px;
   }
   
   .cal-calendar-header {

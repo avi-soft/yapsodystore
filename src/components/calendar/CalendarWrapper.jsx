@@ -1,7 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import { FaCalendarAlt } from "react-icons/fa";
 import { RxCrossCircled } from "react-icons/rx";
+
 
 export default function CalendarWrapper({
   children,
@@ -9,6 +12,26 @@ export default function CalendarWrapper({
   textColor,
   buttonLinkBoxBorderColor,
 }) {
+
+
+  useEffect(()=>{
+    const handleOutsideClick = (event) => {
+      if (!event.target.closest(".calendar")) {
+       document.querySelector(".calendarContent").classList.add("hidden");
+      }
+    }
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  },[])
+
+function reOpen(){
+ const content= document.querySelector(".calendarContent");
+ if(content.classList.contains("hidden")){
+  content.classList.remove("hidden");
+ }
+}
   return (
     <>
       <div className="sm:hidden flex border-b mb-6 gap-2 w-[100%] !font-latofont-lato">
@@ -57,19 +80,17 @@ export default function CalendarWrapper({
                 Upcoming Events ({performancesCount})
               </span>
             </div>
-            <div className="ml-2">
+            <div className="ml-2" onClick={reOpen}>
               <div className="w-full">
-                <div className="dropdown">
-                  <div tabIndex={0} role="button">
-                    <FaCalendarAlt
-                      color={buttonLinkBoxBorderColor}
-                      className="size-6 cursor-pointer"
-                    />
-                  </div>
-                  <div tabIndex={0} className="dropdown-content z-[100]">
+                <details className="dropdown calendar">
+                  <summary className="list-none " > <FaCalendarAlt
+                    color={buttonLinkBoxBorderColor}
+                    className="size-6 cursor-pointer"
+                  /></summary>
+                  <ul className="p-2 calendarContent shadow menu dropdown-content z-[1]  rounded-box w-52">
                     {children}
-                  </div>
-                </div>
+                  </ul>
+                </details>
               </div>
             </div>
           </div>
