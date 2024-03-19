@@ -6,7 +6,7 @@ import Button from "@/ui/Button";
 function BottomView({ buttonLinkBoxBorderColor, isEventTypePhysical }) {
   return (
     <div
-      className={`items-center justify-between text flex z-20 py-[21px] px-[15px] bg-[#e0e1ea] text-white w-[100%] left-0 right-0 border border-white bottom-[0%] fixed`}
+      className={`items-center justify-between text flex z-20 py-[12px] px-[15px] bg-[#e0e1ea] text-white w-[100%] left-0 right-0 border border-white bottom-[0%] h-[52px] fixed`}
     >
       <div className="text mr-5 flex gap-7">
         <ul>
@@ -22,10 +22,10 @@ function BottomView({ buttonLinkBoxBorderColor, isEventTypePhysical }) {
         {isEventTypePhysical && (
           <Button
             height={"100%"}
-            className="p-[6px]"
+            className="p-[6px] "
             width={"100%"}
             to="#gMap"
-            styles={{ padding: "1px 10px" }}
+            styles={{ padding: "5px 10px" }}
             color={buttonLinkBoxBorderColor}
           >
             Get Directions
