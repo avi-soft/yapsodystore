@@ -3,16 +3,16 @@ import request from "./api-urls";
 const envConfig = {
   dev: {
     baseUrl: "https://stage-api.yapsody.com/",
-    protocol: "http://",
+    protocol: "https://",
     venueCode: "myblog",
   },
   staging: {
     baseUrl: "https://stage-api.yapsody.com/",
-    protocol: "http://",
+    protocol: "https://",
     venueCode: "testmuskan",
   },
   prod: {
-    baseUrl: "https://api.yapsody.com/",
+    baseUrl: "https://stage-api.yapsody.com/",
     protocol: "https://",
     venueCode: "testmuskan",
   },
@@ -21,8 +21,8 @@ const envConfig = {
 const { baseUrl, protocol, venueCode } = envConfig[
   process.env.NEXT_PUBLIC_ENV
 ] || {
-  baseUrl: "",
-  protocol: "",
+  baseUrl: "https://stage-api.yapsody.com/",
+  protocol: "https://",
   venueCode: "myblog",
 };
 
