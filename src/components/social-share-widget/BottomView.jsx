@@ -1,14 +1,13 @@
-"use client"
-import Link from "next/link";
+"use client";
 import { IoShareSocial } from "react-icons/io5";
 import ContactPresenter from "../contact/ContactPresenter";
 import Button from "@/ui/Button";
 // import { useState } from "react";
 
-function BottomView({ buttonLinkBoxBorderColor, isEventTypePhysical }) {
-  // const handleChange = (state) => {
-  //   onChangeState(state);
-  // }
+function BottomView({ buttonLinkBoxBorderColor, isEventTypePhysical, onChangeState }) {
+  const handleChange = (state) => {
+    onChangeState(state);
+  };
 
   return (
     <div
@@ -17,9 +16,9 @@ function BottomView({ buttonLinkBoxBorderColor, isEventTypePhysical }) {
       <div className="text mr-5 flex gap-7">
         <ul>
           <li>
-            <Link href={""} >
+            <button onClick={() => handleChange(false)}>
               <IoShareSocial size={24} color={buttonLinkBoxBorderColor} />
-            </Link>
+            </button>
           </li>
         </ul>
         <ContactPresenter size="size-6" color={buttonLinkBoxBorderColor} />

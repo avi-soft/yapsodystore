@@ -45,8 +45,6 @@ const Calendar = ({
   activeColorCode,
   dateClickHandler = (date) => {
     console.log("Date clicked", date);
-
-    
   },
   isHome = false,
 }) => {
