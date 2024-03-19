@@ -3,26 +3,27 @@ import request from "./api-urls";
 const envConfig = {
   dev: {
     baseUrl: "https://stage-api.yapsody.com/",
-    protocol: "http://",
+    protocol: "https://",
     venueCode: "myblog",
   },
   staging: {
     baseUrl: "https://stage-api.yapsody.com/",
-    protocol: "http://",
-    venueCode: "myblog",
+    protocol: "https://",
+    venueCode: "testmuskan",
   },
   prod: {
-    baseUrl: "https://api.yapsody.com/",
+    baseUrl: "https://stage-api.yapsody.com/",
     protocol: "https://",
-    venueCode: "myblog",
+    venueCode: "testmuskan",
   },
 };
 
 const { baseUrl, protocol, venueCode } = envConfig[
   process.env.NEXT_PUBLIC_ENV
 ] || {
-  baseUrl: "",
-  protocol: "",
+  baseUrl: "https://stage-api.yapsody.com/",
+  protocol: "https://",
+  venueCode: "myblog",
 };
 
 const headerData = {
@@ -48,7 +49,7 @@ export async function getData(...config) {
     return response.json();
   } catch (error) {
     console.error("Error fetching data:", error);
-    throw error; // Rethrow the error to be caught by the calling function
+    return { status: 404 };
   }
 }
 export async function getSearchEvents(query) {
@@ -61,14 +62,18 @@ export async function getSearchEvents(query) {
       next: { revalidate: 5 },
     }
   );
-  // console.log(eventData.data.events);
   return eventData.data.events;
 }
 export async function getEventDetails() {
-  const eventData = await getData(baseUrl + request.events, {
-    ...headerData,
-    next: { revalidate: 5 },
-  });
+  const eventData = await getData(
+    baseUrl +
+      request.events +
+      `?asc_by=performance_start_time&limit=200&search_query=`,
+    {
+      ...headerData,
+      next: { revalidate: 5 },
+    }
+  );
   // console.log(eventData.data.events);
   return eventData.data.events;
 }
@@ -191,7 +196,5 @@ export async function getSingleEventData(eventId) {
     ...headerData,
     next: { revalidate: 5 },
   });
-
-  // console.log(response.data);
-  return response.data;
+  return response.status == 404 ? response : response.data;
 }

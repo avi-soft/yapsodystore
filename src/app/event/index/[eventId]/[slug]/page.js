@@ -6,11 +6,13 @@ import {
   getSingleEventPerformances,
   getThemeData,
 } from "@/helpers/api-utils";
+import { notFound } from "next/navigation";
 
 export default async function SingleEventPage({ params }) {
   const { eventId } = params;
-  const { performances } = await getSingleEventPerformances(eventId);
   const eventData = await getSingleEventData(eventId);
+  if (eventData.status == 404) return notFound();
+  const { performances } = await getSingleEventPerformances(eventId);
   const {
     boxBackgroundColor,
     buttonLinkBoxBorderColor,
