@@ -9,12 +9,12 @@ const envConfig = {
   staging: {
     baseUrl: "https://stage-api.yapsody.com/",
     protocol: "http://",
-    venueCode: "myblog",
+    venueCode: "testmuskan",
   },
   prod: {
     baseUrl: "https://api.yapsody.com/",
     protocol: "https://",
-    venueCode: "myblog",
+    venueCode: "testmuskan",
   },
 };
 
@@ -23,6 +23,7 @@ const { baseUrl, protocol, venueCode } = envConfig[
 ] || {
   baseUrl: "",
   protocol: "",
+  venueCode: "myblog",
 };
 
 const headerData = {
