@@ -12,7 +12,6 @@ const DisplayFq = ({ faq, index, expandIndex, setExpandIndex }) => {
 
   return (
     <div className='present-faq' >
-      <div className='delay-1'>
       <div className='inside-faq ' onClick={toggleAnswerVisibility} >
         <div
           style={{ fontWeight: '600', color: 'rgba(1, 22, 56, 0.7)', cursor: 'pointer', flex: 90, fontSize: '1rem', padding: '0px 14px', fontFamily: 'Lato'}
@@ -21,10 +20,9 @@ const DisplayFq = ({ faq, index, expandIndex, setExpandIndex }) => {
         >
           <h4>{faq.question}</h4>
         </div>
-        <div style={{ flex: 10, display: 'flex', justifyContent: 'center', color: 'grey', fontSize: '22px' }}>
+        <div style={{ flex: 10, display: 'flex', justifyContent: 'center', color: 'grey', fontSize: '22px', transitionDelay:'5s' }}>
           <spa>{isExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}</spa>
         </div>
-      </div>
       </div>
 
       {isExpanded && (

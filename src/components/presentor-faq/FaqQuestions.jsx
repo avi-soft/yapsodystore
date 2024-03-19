@@ -34,8 +34,6 @@ export default function FaqQues(){
         <div className='container'>
           {faq.map((value, index) => (
             <div  key={index}>
-                {/* this component will render accordingly to the data...*/}
-              {/* <FreqQuest key={value.question} faq={value} />     */}
               <FreqQuest
                 faq={value}
                 index={index}

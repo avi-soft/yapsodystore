@@ -15,7 +15,7 @@
 }
 
 .present-faq{
-   
+    transition: margin-top 0.5s ease, opacity 0.5s ease;
     display: flex;
     flex-direction: column;
     font: status-bar;
@@ -27,6 +27,14 @@
 .present-faq .inside-faq{
     display: flex;
     flex-direction: row;
+    transition-delay: 2s;
+    transition: 1000ms;
+}
+
+.inside-faq
+{
+    transition: background-color 0.5s ease;
+
 }
 
 .delay-1
