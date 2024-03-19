@@ -75,14 +75,14 @@ const MainContent = ({
         style={{ color: textColor }}
       >
         <span className="mt-1 inline-block h-5 w-5 align-middle pt-[1px] mr-1 ">
-          {isEventTypePhysical ? (
+          {location_type === "physical" ? (
             <MdLocationPin className="size-4" />
           ) : (
             <GiLaptop className="size-4" />
           )}
         </span>
         <span className="w-[100%] inline-block font-lato">
-          {isEventTypePhysical
+          {location_type === "physical"
             ? location_info.name + " - " + location_info.address
             : location_info.webevent_timezone}
         </span>
@@ -93,15 +93,17 @@ const MainContent = ({
           textColor={textColor}
         />
       )}
-      {hyperlinks && (
+      {hyperlinks.length > 1 && (
         <DescriptionHyperLinks
           hyperlinks={hyperlinks}
           color={buttonLinkBoxBorderColor}
         />
       )}
-      {descriptionImages && <DescriptionImages images={descriptionImages} />}
+      {descriptionImages.length > 1 && (
+        <DescriptionImages images={descriptionImages} />
+      )}
       <div className="px-[10px] align-top">
-        {videos && <DescriptionVideos videos={videos} />}
+        {videos.length > 1 && <DescriptionVideos videos={videos} />}
         <CalendarWrapper
           textColor={textColor}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
