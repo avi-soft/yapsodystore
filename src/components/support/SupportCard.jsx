@@ -42,6 +42,7 @@ const SupportCard = ({
     color: isHovered1 ? "white" : textColor,
     backgroundColor: isHovered1 ? boxBorderColor : boxBackgroundColor,
     opacity: isHovered1 && "0.5",
+    cursor:'pointer',
   };
   const boxStyle2 = {
     border: borderColor,
