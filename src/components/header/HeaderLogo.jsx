@@ -6,10 +6,6 @@ import logo from "@/../public/store-logo.png";
 
 // HeaderLogo component definition
 const HeaderLogo = ({ topImage, venueName }) => {
-
-  //HeaderLogo style for when topImage is present and when it isn't
- let headerStyle= topImage ? "mt-2 md:mt-0 md:ml-0 lg:ml-4 lg:mt-0" : "mt-[9px]"
-
   return (
     <div>
       <div className={styles.headerLeft}>
@@ -31,7 +27,7 @@ const HeaderLogo = ({ topImage, venueName }) => {
             </div>
 
             <div
-              className={`${headerStyle} ${styles.headerVenue} `}
+              className={`  flex items-center mt-2 md:mt-0 md:ml-0 lg:ml-4 ${styles.headerVenue} `}
             >
               {venueName}
             </div>
