@@ -9,9 +9,21 @@ const PresenterFaq = ({ size, color }) => {
   };
   return (
     <div className="font-lato text-[14px] flex">
-      <IconLabel color={color} size={size} icon="presenterFaq" gap={4}>
-        <div onClick={showFaqfunct}>Presenter FAQ</div>
-      </IconLabel>
+      <div
+        className="flex items-center cursor-pointer"
+        onClick={showFaqfunct}
+      >
+        <IconLabel
+          color={color}
+          size={size}
+          icon="presenterFaq"
+          gap={2}
+        ></IconLabel>
+        <div className="mt-[2px]" style={{ color: color }}>
+          Presenter FAQ
+        </div>
+      </div>
+
       {showFaq && (
         <MainFaq
           onClose={() => {

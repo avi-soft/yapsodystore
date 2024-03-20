@@ -27,7 +27,7 @@ const Navbar = async ({ langCode, brandImage, venueName, iconColor }) => {
       >
         <Dropdown langCode={langCode} languageData={languageData} type="lang" />
 
-        <div className={`${styles.pullLeft} flex items-center shrink`}>
+        <div className={`${styles.pullLeft} h-[57px] flex items-center shrink`}>
           <CartIcon iconColor={iconColor} />
         </div>
         {isLogin ? <Dropdown type="account" user={userName} /> : <Account />}

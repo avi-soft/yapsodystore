@@ -1,44 +1,75 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
 const SupportCard = ({
   boxBorderColor = "black",
   textColor = "black",
   boxBackgroundColor = "white",
+  position,
 }) => {
+  const [isHovered1, setIsHovered1] = useState(false);
+  const [isHovered2, setIsHovered2] = useState(false);
+
+  const handleMouseEnter1 = () => {
+    setIsHovered1(true);
+  };
+
+  const handleMouseLeave1 = () => {
+    setIsHovered1(false);
+  };
+
+  const handleMouseEnter2 = () => {
+    setIsHovered2(true);
+  };
+
+  const handleMouseLeave2 = () => {
+    setIsHovered2(false);
+  };
   const borderColor = `1px solid ${boxBorderColor}`;
-  const boxStyle = {
+  const boxStyle1 = {
     border: borderColor,
-    color: textColor,
-    backgroundColor: boxBackgroundColor,
+    color: isHovered1 ? "white" : textColor,
+    backgroundColor: isHovered1 ? boxBorderColor : boxBackgroundColor,
+    opacity: isHovered1 && "0.5",
+  };
+  const boxStyle2 = {
+    border: borderColor,
+    color: isHovered2 ? "white" : textColor,
+    backgroundColor: isHovered2 ? boxBorderColor : boxBackgroundColor,
+    opacity: isHovered2 && "0.5",
   };
   return (
-    <div
-      className="dropdown-content left-[-75%] z-10 h-fit w-[300px] bg-white flex-col gap-2 rounded-[4px] border p-3 shadow-md relative"
-      style={{ color: textColor, backgroundColor: boxBackgroundColor }}
-    >
       <div
-        style={boxStyle}
-        className={`rounded  p-2 hover:bg-[${boxBorderColor}] hover:text-white`}
+        style={{ color: textColor, backgroundColor: boxBackgroundColor }}
+        className="p-3 "
       >
-        <h2 className="font-bold">Technical Support</h2>
-        <ul className="ml-5 list-disc whitespace-normal">
-          <li>Trouble purchasing/receiving /reprinting tickets</li>
-          <li>Online payment issues</li>
-          <li>Report abuse / fraud</li>
-        </ul>
+        <div
+          style={boxStyle1}
+          className={`rounded  p-2 hover:bg-[${boxBorderColor}] hover:text-white`}
+          onMouseEnter={handleMouseEnter1}
+          onMouseLeave={handleMouseLeave1}
+        >
+          <h2 className="font-bold">Technical Support</h2>
+          <ul className="ml-5 list-disc whitespace-normal">
+            <li>Trouble purchasing/receiving /reprinting tickets</li>
+            <li>Online payment issues</li>
+            <li>Report abuse / fraud</li>
+          </ul>
+        </div>
+        <div
+          style={boxStyle2}
+          className={`mt-[10px] rounded p-2 hover:bg-[${boxBorderColor}] hover:text-white`}
+          onMouseEnter={handleMouseEnter2}
+          onMouseLeave={handleMouseLeave2}
+        >
+          <h2 className="font-bold">Non-technical Support</h2>
+          <ul className="ml-5 list-disc">
+            <li>Venue / Event information</li>
+            <li>Refunds & exchanges</li>
+          </ul>
+        </div>
       </div>
-      <div
-        style={boxStyle}
-        className={`mt-[10px] rounded p-2 hover:bg-[${boxBorderColor}] hover:text-white`}
-      >
-        <h2 className="font-bold">Non-technical Support</h2>
-        <ul className="ml-5 list-disc">
-          <li>Venue / Event information</li>
-          <li>Refunds & exchanges</li>
-        </ul>
-      </div>
-    </div>
+
   );
 };
 

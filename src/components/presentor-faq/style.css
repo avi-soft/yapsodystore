@@ -6,9 +6,8 @@
 }
 
 .freqaskquest{
-    padding: 12px 12px;
+    padding: 16px 14px;
     border-bottom: 1px solid #eadcdc;
-    font-family: math;
     font-weight: 600;
     font-size: 1rem;
     letter-spacing: .5px;
@@ -16,7 +15,7 @@
 }
 
 .present-faq{
-    margin: 28px 12px;
+   
     display: flex;
     flex-direction: column;
     font: status-bar;
@@ -26,6 +25,11 @@
 .present-faq .inside-faq{
     display: flex;
     flex-direction: row;
+}
+
+.delay-1
+{
+    transition-delay: 2s;
 }
 
 

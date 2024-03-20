@@ -41,3 +41,20 @@ export function getDirections(locationInfo) {
   }
   return gMapUrl;
 }
+
+export function goToEvent(eventId, eventName) {
+  return `/event/index/${eventId}/${eventName
+    .replace(/[^\w\s]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+$/, "")}`;
+}
+export function debounce(fn, duration) {
+  let timer;
+
+  return function (e) {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(fn, duration, e);
+  };
+}

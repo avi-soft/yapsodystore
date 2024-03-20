@@ -1,31 +1,54 @@
-'use client'
-import React from 'react'
-import { useState } from 'react';
-import './style.css'
+"use client";
+import React, { useState } from "react";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import "./style.css";
 
-const DisplayFq = ({faq}) => {
-  const [isAnswerVisible, setIsAnswerVisible] = useState(false);
+const DisplayFq = ({ faq, index, expandIndex, setExpandIndex }) => {
+  const isExpanded = index === expandIndex;
 
   const toggleAnswerVisibility = () => {
-    setIsAnswerVisible(!isAnswerVisible);
+    setExpandIndex(isExpanded ? null : index);
   };
+
   return (
-    <div className='present-faq'>
-      <div className='inside-faq'>
-        <div style={{fontWeight:'600', color:'rgba(1, 22, 56, 0.7)' , cursor:'pointer', flex:80, fontSize:'1rem'}}  onClick={toggleAnswerVisibility}>
-          {faq.question}
+    <div className="present-faq py-[16px] transition-all">
+      <div className="inside-faq " onClick={toggleAnswerVisibility}>
+        <div
+          style={{
+            fontWeight: "600",
+            color: "rgba(1, 22, 56, 0.7)",
+            cursor: "pointer",
+            flex: 90,
+            fontSize: "1rem",
+            padding: "0px 10px",
+            fontFamily: "Lato",
+          }}
+          onClick={toggleAnswerVisibility}
+        >
+          <h4>{faq.quest}</h4>
         </div>
-        <div style={{flex:20 , display:'flex', justifyContent:'center', color:'grey'}}>
-          <spa>{isAnswerVisible ? <span >&#8896;</span> : <span >&#8897;</span>}</spa>
+        <div
+          style={{
+            flex: 10,
+            display: "flex",
+            justifyContent: "center",
+            color: "grey",
+            fontSize: "22px",
+          }}
+        >
+          <spa>{isExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}</spa>
         </div>
       </div>
-        
-      {isAnswerVisible && (
-      <div style={{color:'#343131' , margin:'9px 0px '}}>{faq.answer}</div>
+
+      {isExpanded && (
+        <div
+          style={{ color: "#343131", marginTop: "24px", marginLeft: "14px" }}
+        >
+          {faq.ans}
+        </div>
       )}
     </div>
-  )
+  );
+};
 
-}
-
-export default DisplayFq
+export default DisplayFq;

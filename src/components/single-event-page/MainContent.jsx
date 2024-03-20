@@ -29,6 +29,8 @@ const MainContent = ({
     eventData.location_info.show_map != "no";
   const headingStyle = { color: headingColor };
   const {
+    id,
+    performance_id,
     event_title1,
     event_title2,
     event_title3,
@@ -109,11 +111,13 @@ const MainContent = ({
           performancesCount={performances.length}
         >
           <Calendar
-            highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
+            highlighted={[new Date(2024, 2, 10)]}
             activeColorCode={buttonLinkBoxBorderColor}
           />
         </CalendarWrapper>
         <SingleEventPerformance
+          eventid={id}
+          dateid={performance_id}
           symbol={symbol}
           performances={performances}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}

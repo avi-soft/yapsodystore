@@ -1,10 +1,10 @@
 "use client";
-
+import Image from "next/image";
 import { useState } from "react";
-
 import SupportCard from "./SupportCard";
 import IconLabel from "@/ui/IconLabel";
-
+import SupportWrapper from "./SupportWrapper";
+import CommentWrapper from "./CommentWrapper";
 const Support = ({
   size,
   position = "bottom",
@@ -18,8 +18,19 @@ const Support = ({
     onMouseOver: () => setOpen(true),
     onMouseLeave: () => setOpen(false),
   };
+  const toggleOnClick=()=>{
+    if (window.innerWidth < 1024) { 
+           document.getElementById("esc_modal").showModal()
+    }else{
+
+    }
+  }
   return (
-    <div className={`dropdown dropdown-hover text-[14px]  dropdown-${position}`}>
+    <div
+      className={`dropdown dropdown-hover text-[16px]  dropdown-${position}`}
+      onClick={toggleOnClick}
+      // onClick={() => document.getElementById("esc_modal").showModal()}
+    >
       <IconLabel
         color={iconColor}
         size={size}
@@ -30,12 +41,23 @@ const Support = ({
         <div tabIndex={0} role="button">
           Support
         </div>
+      </IconLabel>
+      <SupportWrapper>
         <SupportCard
           boxBorderColor={boxBorderColor}
           textColor={textColor}
           boxBackgroundColor={boxBackgroundColor}
+          position={position}
         />
-      </IconLabel>
+      </SupportWrapper>
+      <CommentWrapper position={position}>
+        <SupportCard
+          boxBorderColor={boxBorderColor}
+          textColor={textColor}
+          boxBackgroundColor={boxBackgroundColor}
+          position={position}
+        />
+      </CommentWrapper>
     </div>
   );
 };
