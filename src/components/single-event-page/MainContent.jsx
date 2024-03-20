@@ -54,9 +54,11 @@ const MainContent = ({
         >
           {event_title1}
         </h1>
+       
         <h2 style={headingStyle} className=" text-[18px] font-normal  ">
           {event_title2}
         </h2>
+        
         <h3 style={headingStyle} className=" text-[18px] font-normal">
           {event_title3}
         </h3>
