@@ -63,11 +63,23 @@ export async function getSearchEvents(query) {
   );
   return eventData.data.events;
 }
+export async function getDateEvents(startDate, endDate) {
+  const eventData = await getData(
+    baseUrl +
+      request.events +
+      `?asc_by=performance_start_time&end_date=${endDate}&limit=200&start_date=${startDate}`,
+    {
+      ...headerData,
+      next: { revalidate: 5 },
+    }
+  );
+  return eventData.data.events;
+}
 export async function getCalenderEvents(startDate, endDate) {
   const eventData = await getData(
     baseUrl +
       request.events +
-      `?asc_by=performance_start_time&end_date=${startDate}&limit=200&start_date=${endDate}`,
+      `/calender?end_date=${endDate}&start_date=${startDate}`,
     {
       ...headerData,
       next: { revalidate: 5 },

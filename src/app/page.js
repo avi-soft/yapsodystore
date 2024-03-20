@@ -7,6 +7,8 @@ import SupportContact from "@/components/support-contact/SupportContact";
 import Title from "@/components/homepage-header/Title";
 import CalendarWrapper from "@/components/calendar/CalendarWrapper";
 import {
+  getDateEvents,
+  getCalenderEvents,
   getEventDetails,
   getSearchEvents,
   getThemeData,
@@ -16,13 +18,31 @@ import Loading from "./loading";
 import Header from "../components/header/Navbar";
 import Footer from "@/components/footer/footer";
 
-
 export default async function Home({ searchParams }) {
   const search =
     typeof searchParams.search === "string" ? searchParams.search : undefined;
-  const events = search
-    ? await getSearchEvents(search) 
-    : await getEventDetails();
+
+  const start_date =
+    typeof searchParams.start_date === "string"
+      ? searchParams.start_date
+      : undefined;
+  const end_date =
+    typeof searchParams.end_date === "string"
+      ? searchParams.end_date
+      : undefined;
+  let events = [];
+  if (search) {
+    events = await getSearchEvents(search);
+  } else if (start_date && end_date && start_date === end_date) {
+    events = await getDateEvents(start_date, end_date);
+  } else if (start_date && end_date && start_date !== end_date) {
+    events = await getCalenderEvents(start_date, end_date);
+  } else {
+    events = await getEventDetails();
+  }
+
+  const eventList = await getEventDetails();
+
   const {
     boxBackgroundColor,
     buttonLinkBoxBorderColor,
@@ -50,6 +70,15 @@ export default async function Home({ searchParams }) {
     companyName,
     faqCount,
   } = await getThemeData();
+  const highlightedDates = [];
+  {
+    eventList.map((e) =>
+      highlightedDates.push(
+        new Date(e.performance_start_time),
+        new Date(e.performance_end_time)
+      )
+    );
+  }
 
   return (
     <div>
@@ -101,13 +130,14 @@ export default async function Home({ searchParams }) {
         </div>
         <div className="w-full px-2.5 flex flex-col items-center">
           <CalendarWrapper
-            performancesCount={events.length}
+            performancesCount={events.length ? events.length : 0}
             textColor={textColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+            searchParams={searchParams}
           >
             <Calendar
               isHome={true}
-              highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
+              highlighted={highlightedDates}
               activeColorCode={buttonLinkBoxBorderColor}
             />
           </CalendarWrapper>

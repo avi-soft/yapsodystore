@@ -1,10 +1,11 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback, use } from "react";
 import { FaCalendarDays } from "react-icons/fa6";
 import "./calendar.css";
 import NextMonth from "../../../public/greater-than-symbol.png";
 import PrevMonth from "../../../public/less-than-symbol.png";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const monthsMap = {
   0: "January",
@@ -49,6 +50,7 @@ const Calendar = ({
   isHome = false,
 }) => {
   const initialSelectedDate = null;
+  const router = useRouter();
 
   const [selectedDate, setSelectedDate] = useState(
     initialSelectedDate || new Date(1996, 3, 2)
@@ -62,6 +64,22 @@ const Calendar = ({
     () => dateClickHandler(initialSelectedDate || new Date()),
     [initialSelectedDate]
   );
+
+  const handleSelectDate = useCallback(
+    (date) => {
+      let year = date.getFullYear();
+      let month = date.getMonth() + 1;
+      let day = date.getDate();
+      month = month < 10 ? "0" + month : month;
+      day = day < 10 ? "0" + day : day;
+
+      const finalDate = year + "-" + month + "-" + day;
+      router.push(`/?end_date=${finalDate}&limit=200&start_date=${finalDate}`);
+      // console.log(finalDate);
+    },
+    [router]
+  );
+
   const isHighlighted = (date) =>
     highlighted.map((d) => d.toDateString()).includes(date.toDateString());
 
@@ -81,25 +99,55 @@ const Calendar = ({
     }));
   };
 
+  const handleMonthSearch = (month, year) => {
+    let startDay = "01";
+    let endDay = getNumberOfDays(month, year);
+
+    month = month < 10 ? "0" + month : month;
+    let startDate = year + "-" + month + "-" + startDay;
+    let endDate = year + "-" + month + "-" + endDay;
+    router.push(`/?end_date=${endDate}&limit=200&start_date=${startDate}`);
+    console.log("startDate", startDate);
+    console.log("endDate", endDate);
+  };
+
   return (
     <span className=" bg-white cal-calendar-container  shadow-xl relative">
       <div className="cal-calendar-header">
         <div className="cal-calendar-navs">
-          <p className="cal-nav-arrows" onClick={goToPrevMonth}>
+          <p
+            className="cal-nav-arrows"
+            // onClick={() =>
+            //   handleMonthSearch(
+            //     currentMonthYear.month + 1,
+            //     currentMonthYear.year
+            //   )
+            // }
+          >
             <Image
               src={PrevMonth}
               className="h-[10px] w-[10px] "
               alt="Prev_month"
+              onClick={goToPrevMonth}
             />
           </p>
           <p className="font-medium text-gray-700 select-none m-0">
             {`${monthsMap[currentMonthYear.month]} ${currentMonthYear.year}`}
           </p>
-          <p className="cal-nav-arrows" onClick={goToNextMonth}>
+          <p
+            className="cal-nav-arrows"
+            // onClick={() =>
+            //   handleMonthSearch(
+            //     currentMonthYear.month + 1,
+            //     currentMonthYear.year
+            //   )
+            // }
+          >
             <Image
               src={NextMonth}
               className="h-[10px] w-[10px]"
               alt="Next_month"
+              onClick={goToNextMonth}
             />
           </p>
         </div>
@@ -147,6 +195,8 @@ const Calendar = ({
                     ? () => {
                         setSelectedDate(e);
                         dateClickHandler(e);
+
+                        handleSelectDate(e);
                       }
                     : null
                 }
