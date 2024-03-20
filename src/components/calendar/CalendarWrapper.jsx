@@ -14,6 +14,9 @@ export default function CalendarWrapper({
   buttonLinkBoxBorderColor,
   searchParams,
   monthsMap,
+  isHome,
+  eventData,
+  eventId,
 }) {
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -45,7 +48,9 @@ export default function CalendarWrapper({
       : undefined;
 
   const clearSearch = useCallback(() => {
-    router.push(`/`);
+    isHome
+      ? router.push(`/`)
+      : router.push(`/event/index/${eventId}/${eventData.event_title1}`);
   }, [router]);
 
   return (
@@ -70,17 +75,32 @@ export default function CalendarWrapper({
             </div>
           </button>
         </div>
-        {start_date && end_date && start_date !== end_date && (
-          <div
-            className="pl-1 mt-1 flex cursor-pointer"
-            onClick={clearSearch}
-            style={{ color: textColor }}
-          >
-            {monthsMap[parseInt(start_date.substring(5, 7))]}{" "}
-            {start_date.substring(0, 4)}
-            {<RxCrossCircled size={20} />}
-          </div>
-        )}
+        {isHome
+          ? start_date &&
+            end_date &&
+            start_date !== end_date && (
+              <div
+                className="pl-1 mt-1 flex cursor-pointer"
+                onClick={clearSearch}
+                style={{ color: textColor }}
+              >
+                {monthsMap[parseInt(start_date.substring(5, 7)) - 1]}{" "}
+                {start_date.substring(0, 4)}
+                {<RxCrossCircled size={20} />}
+              </div>
+            )
+          : start_date &&
+            end_date && (
+              <div
+                className="pl-1 mt-1 flex cursor-pointer"
+                onClick={clearSearch}
+                style={{ color: textColor }}
+              >
+                {monthsMap[parseInt(start_date.substring(5, 7)) - 1]}{" "}
+                {start_date.substring(0, 4)}
+                {<RxCrossCircled size={20} />}
+              </div>
+            )}
       </div>
 
       <dialog
@@ -129,17 +149,32 @@ export default function CalendarWrapper({
                 </details>
               </div>
             </div>
-            {start_date && end_date && start_date !== end_date && (
-              <div
-                className="pl-1 mt-1 flex cursor-pointer"
-                onClick={clearSearch}
-                style={{ color: textColor }}
-              >
-                {monthsMap[parseInt(start_date.substring(5, 7))]}{" "}
-                {start_date.substring(0, 4)}
-                {<RxCrossCircled size={20} />}
-              </div>
-            )}
+            {isHome
+              ? start_date &&
+                end_date &&
+                start_date !== end_date && (
+                  <div
+                    className="pl-1 mt-1 flex cursor-pointer"
+                    onClick={clearSearch}
+                    style={{ color: textColor }}
+                  >
+                    {monthsMap[parseInt(start_date.substring(5, 7)) - 1]}{" "}
+                    {start_date.substring(0, 4)}
+                    {<RxCrossCircled size={20} />}
+                  </div>
+                )
+              : start_date &&
+                end_date && (
+                  <div
+                    className="pl-1 mt-1 flex cursor-pointer"
+                    onClick={clearSearch}
+                    style={{ color: textColor }}
+                  >
+                    {monthsMap[parseInt(start_date.substring(5, 7)) - 1]}{" "}
+                    {start_date.substring(0, 4)}
+                    {<RxCrossCircled size={20} />}
+                  </div>
+                )}
           </div>
         </div>
       </div>

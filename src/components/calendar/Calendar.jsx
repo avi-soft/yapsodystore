@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import "./calendar.css";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
@@ -33,7 +33,6 @@ const Calendar = ({
   isHome = false,
   monthsMap,
 }) => {
-  // console.log("para",params);
   const initialSelectedDate = null;
   const router = useRouter();
 
@@ -75,26 +74,11 @@ const Calendar = ({
   const isHighlighted = (date) =>
     highlighted.map((d) => d.toDateString()).includes(date.toDateString());
 
-  const goToPrevMonth = () => {
-    setCurrentMonthYear((prev) => ({
-      ...prev,
-      month: prev.month !== 0 ? prev.month - 1 : 11,
-      year: prev.month === 0 ? prev.year - 1 : prev.year,
-    }));
-  };
-
-  const goToNextMonth = () => {
-    setCurrentMonthYear((prev) => ({
-      ...prev,
-      month: prev.month !== 11 ? prev.month + 1 : 0,
-      year: prev.month === 11 ? prev.year + 1 : prev.year,
-    }));
-  };
-
   const handleMonthSearch = useCallback(
     (month, year) => {
       let startDay = "01";
       let endDay = getNumberOfDays(month, year);
+      month = month + 1;
 
       month = month < 10 ? "0" + month : month;
       let startDate = year + "-" + month + "-" + startDay;
@@ -110,45 +94,46 @@ const Calendar = ({
     },
     [router]
   );
+  const goToPrevMonth = () => {
+    setCurrentMonthYear((prev) => {
+      const prevMonth = prev.month !== 0 ? prev.month - 1 : 11;
+      const prevYear = prev.month === 0 ? prev.year - 1 : prev.year;
+
+      handleMonthSearch(prevMonth, prevYear);
+
+      return {
+        ...prev,
+        month: prevMonth,
+        year: prevYear,
+      };
+    });
+  };
+
+  const goToNextMonth = () => {
+    setCurrentMonthYear((prev) => {
+      const nextMonth = prev.month !== 11 ? prev.month + 1 : 0;
+      const nextYear = prev.month === 11 ? prev.year + 1 : prev.year;
+
+      handleMonthSearch(nextMonth, nextYear);
+      return {
+        ...prev,
+        month: nextMonth,
+        year: nextYear,
+      };
+    });
+  };
 
   return (
     <span className={`bg-white cal-calendar-container shadow-xl relative `}>
       <div className="cal-calendar-header">
         <div className="cal-calendar-navs">
-          <p
-            className="cal-nav-arrows"
-            onClick={() => {
-              goToPrevMonth();
-              handleMonthSearch(
-                currentMonthYear.month + 1,
-                currentMonthYear.year
-              );
-            }}
-          >
-            <IoIosArrowBack
-              size={14}
-              color="gray"
-              onClick={() =>
-                handleMonthSearch(
-                  currentMonthYear.month + 1,
-                  currentMonthYear.year
-                )
-              }
-            />
+          <p className="cal-nav-arrows" onClick={goToPrevMonth}>
+            <IoIosArrowBack size={14} color="gray" />
           </p>
           <p className="font-medium text-gray-700 select-none m-0">
             {`${monthsMap[currentMonthYear.month]} ${currentMonthYear.year}`}
           </p>
-          <p
-            className="cal-nav-arrows"
-            onClick={() => {
-              goToNextMonth();
-              handleMonthSearch(
-                currentMonthYear.month + 1,
-                currentMonthYear.year
-              );
-            }}
-          >
+          <p className="cal-nav-arrows" onClick={goToNextMonth}>
             <IoIosArrowForward size={14} color="gray" />
           </p>
         </div>
@@ -196,7 +181,6 @@ const Calendar = ({
                     ? () => {
                         setSelectedDate(e);
                         // dateClickHandler(e);
-
                         handleSelectDate(e);
                       }
                     : null

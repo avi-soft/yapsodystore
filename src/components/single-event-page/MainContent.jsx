@@ -25,6 +25,7 @@ const MainContent = ({
   symbol,
   searchParams,
   monthsMap,
+  eventId,
   highlightedDates,
 }) => {
   const isEventTypePhysical =
@@ -108,6 +109,9 @@ const MainContent = ({
           performancesCount={performances.length}
           searchParams={searchParams}
           monthsMap={monthsMap}
+          isHome={false}
+          eventData={eventData}
+          eventId={eventId}
         >
           <Calendar
             highlighted={highlightedDates}

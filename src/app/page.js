@@ -50,7 +50,6 @@ export default async function Home({ searchParams }) {
     events = await getSearchEvents(search);
   } else if (start_date && end_date && start_date === end_date) {
     events = await getDateEvents(start_date, end_date);
-    // console.log(events);
   } else if (start_date && end_date && start_date !== end_date) {
     const dates = await getCalenderEvents(start_date, end_date);
     const keys = Object.keys(dates);
@@ -64,14 +63,6 @@ export default async function Home({ searchParams }) {
     events = await getEventDetails();
   }
   const eventList = await getEventDetails();
-
-  // const abc = await getCalenderEvents("2024-03-01", "2024-03-31");
-  // const keys = Object.keys(abc);
-  // for (const key of keys) {
-  //   console.log(key);
-  //   // events.push(await getDateEvents(key, key));
-  // }
-  // console.log("abc", abc);
 
   const {
     boxBackgroundColor,
@@ -103,10 +94,7 @@ export default async function Home({ searchParams }) {
   const highlightedDates = [];
   {
     eventList.map((e) =>
-      highlightedDates.push(
-        new Date(e.performance_start_time),
-        new Date(e.performance_end_time)
-      )
+      highlightedDates.push(new Date(e.performance_start_time))
     );
   }
 
@@ -155,7 +143,6 @@ export default async function Home({ searchParams }) {
             textColor={headingColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
             search={search}
-            // onSearchSelect={handleEventSelect}
           />
         </div>
         <div className="w-full px-2.5 flex flex-col items-center">
@@ -165,6 +152,7 @@ export default async function Home({ searchParams }) {
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
             searchParams={searchParams}
             monthsMap={monthsMap}
+            isHome={true}
           >
             <Calendar
               isHome={true}

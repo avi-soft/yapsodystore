@@ -40,7 +40,7 @@ export default async function SingleEventPage({ params, searchParams }) {
   const eventData = await getSingleEventData(eventId);
 
   if (eventData.status == 404) return notFound();
-  let performances;
+  let performances = [];
   if (start_date && end_date && start_date === end_date) {
     const performanceObject = await getDatePerformances(
       eventId,
@@ -48,7 +48,7 @@ export default async function SingleEventPage({ params, searchParams }) {
       end_date
     );
     performances = performanceObject.performances;
-  } else if (start_date && end_date && start_date === end_date) {
+  } else if (start_date && end_date && start_date !== end_date) {
     const dates = await getCalenderPerformances(eventId, start_date, end_date);
     const keys = Object.keys(dates);
     for (const key of keys) {
@@ -64,6 +64,7 @@ export default async function SingleEventPage({ params, searchParams }) {
   } else {
     ({ performances } = await getSingleEventPerformances(eventId));
   }
+  const allPerformances = await getSingleEventPerformances(eventId);
 
   const {
     boxBackgroundColor,
@@ -91,12 +92,11 @@ export default async function SingleEventPage({ params, searchParams }) {
     websiteUrl,
   };
   const highlightedDates = [];
-  {
-    highlightedDates.push(
-      new Date(eventData.performance_start_time),
-      new Date(eventData.performance_end_time)
-    );
+
+  for (const performance of allPerformances.performances) {
+    highlightedDates.push(new Date(performance.show_start_datetime));
   }
+
   const mainContentProps = {
     textColor,
     boxBackgroundColor,
@@ -110,9 +110,8 @@ export default async function SingleEventPage({ params, searchParams }) {
     monthsMap,
     highlightedDates,
     eventId,
+    searchParams,
   };
-
-  console.log("deep: " ,(performances))
 
   return (
     <MainContainer
