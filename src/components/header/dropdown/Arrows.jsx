@@ -1,27 +1,18 @@
 import React from "react";
 
-import Image from "next/image";
-import arrowDown from "@/../public/assets/icons/angle-down-solid.svg";
-import arrowUp from "@/../public/assets/icons/angle-up-solid.svg";
+import { LiaAngleDownSolid } from "react-icons/lia";
+import { LiaAngleUpSolid } from "react-icons/lia";
 
 const Arrows = ({ type }) => {
   return (
     <>
-      <Image
-        className="pt-1 h-5 w-5 down"
-        src={arrowDown}
-        height="auto"
-        width="auto"
+      <LiaAngleDownSolid
+        className="ml-[2px] h-3 w-3 down"
         id={`down-${type}`}
-        alt="dropdown arrow"
       />
-      <Image
-        className="hidden pt-1 h-5 w-5 up"
+      <LiaAngleUpSolid
+        className="ml-[2px] h-3 w-3 mt-1 hidden up"
         id={`up-${type}`}
-        src={arrowUp}
-        height="auto"
-        width="auto"
-        alt="dropdown arrow"
       />
     </>
   );
