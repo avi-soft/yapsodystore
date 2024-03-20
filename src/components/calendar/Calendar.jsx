@@ -1,3 +1,4 @@
+
 "use client";
 import { useState, useMemo, useCallback, use } from "react";
 import { FaCalendarDays } from "react-icons/fa6";
@@ -112,7 +113,7 @@ const Calendar = ({
   };
 
   return (
-    <span className=" bg-white cal-calendar-container  shadow-xl relative">
+    <span className={`bg-white cal-calendar-container shadow-xl relative `} >
       <div className="cal-calendar-header">
         <div className="cal-calendar-navs">
           <p

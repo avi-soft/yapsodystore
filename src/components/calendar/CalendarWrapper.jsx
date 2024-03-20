@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import { FaCalendarAlt } from "react-icons/fa";
 import { RxCrossCircled } from "react-icons/rx";
 import { useRouter } from "next/navigation";
@@ -81,7 +83,7 @@ export default function CalendarWrapper({
                 Upcoming Events ({performancesCount})
               </span>
             </div>
-            <div className="ml-2">
+            <div className="ml-2" onClick={reOpen}>
               <div className="w-full">
                 <div className="dropdown">
                   <div tabIndex={0} role="button">
