@@ -29,7 +29,7 @@ const SideBarEventPage = ({
               color={textColor}
             />
           </li>
-          <li className="m-0 list-item w-[100%]   text-[14px] border-b py-[12px]">
+       
           <li className="m-0 list-item w-[100%]   text-[14px] border-b py-[12px]">
             <Button
               height={35}
