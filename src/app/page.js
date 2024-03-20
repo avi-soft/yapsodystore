@@ -12,9 +12,9 @@ import {
   getThemeData,
 } from "@/helpers/api-utils";
 import { Suspense } from "react";
-import Loading from "./loading";
 import Header from "../components/header/Navbar";
 import Footer from "@/components/footer/footer";
+import LoadingIcon from "@/ui/LoadingIcon";
 
 export default async function Home({ searchParams }) {
   const search =
@@ -110,7 +110,7 @@ export default async function Home({ searchParams }) {
               activeColorCode={buttonLinkBoxBorderColor}
             />
           </CalendarWrapper>
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<LoadingIcon />}>
             <MainPageEventList
               events={events}
               headingColor={headingColor}
