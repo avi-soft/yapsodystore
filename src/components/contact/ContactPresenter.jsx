@@ -20,7 +20,8 @@ const ContactPresenter = ({ size, color }) => {
       <IconLabel color={color} size={size} icon="contact" gap={3} />
       <span style={{ color: color }}>Contact Presenter</span>
       {showSignIn && (
-        <ContactPresent onClose={() => setShowSignIn(!showSignIn)} />
+        // <ContactPresent onClose={() => setShowSignIn(!showSignIn)} />
+        <ContactPresent />
       )}
     </div>
   );

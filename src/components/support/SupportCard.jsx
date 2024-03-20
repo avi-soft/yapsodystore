@@ -82,7 +82,8 @@ const SupportCard = ({
             <li>Venue / Event information</li>
             <li>Refunds & exchanges</li>
           </ul>
-          {showNonTechSupp && (<ContactPresent onClose={()=>setShowNonTechSupp(!showNonTechSupp)} />)}
+          {/* {showNonTechSupp && (<ContactPresent onClose={()=>setShowNonTechSupp(!showNonTechSupp)} />)} */}
+          {showNonTechSupp && (<ContactPresent  />)}
         </div>
       </div>
 
