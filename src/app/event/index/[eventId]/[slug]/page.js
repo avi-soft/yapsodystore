@@ -112,6 +112,8 @@ export default async function SingleEventPage({ params, searchParams }) {
     eventId,
   };
 
+  console.log("deep: " ,(performances))
+
   return (
     <MainContainer
       coverImage={backgroundImage}
