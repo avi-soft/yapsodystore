@@ -4,26 +4,28 @@ import IconLabel from "@/ui/IconLabel";
 import ContactPresent from "../Contact-form/ContactPresentor";
 
 const ContactPresenter = ({ size, color }) => {
-  const [showSignIn, setShowSignIn] = useState(false);
-  const handleClick = () => {
-    setShowSignIn(!showSignIn);
+  const [showContpage, setShowContpage] = useState(false);
+  const ShowContactPresenterPage = () => {
+    setShowContpage(!showContpage);
   };
   return (
     // <IconLabel color={color} size={size} icon="contact" gap={4}>
     //   <div>Contact Presenter</div>
     // </IconLabel>
+    <>
+      <div
+        onClick={ShowContactPresenterPage}
+        className="font-lato text-[16px] flex items-center cursor-pointer"
+      >
+        <IconLabel color={color} size={size} icon="contact" gap={3} />
+        <span style={{ color: color }}>Contact Presenter</span>
 
-    <div
-      onClick={handleClick}
-      className="font-lato text-[16px] flex items-center cursor-pointer"
-    >
-      <IconLabel color={color} size={size} icon="contact" gap={3} />
-      <span style={{ color: color }}>Contact Presenter</span>
-      {showSignIn && (
-        // <ContactPresent onClose={() => setShowSignIn(!showSignIn)} />
-        <ContactPresent />
+      </div>
+      {showContpage && (
+        <ContactPresent onClose={() => setShowContpage(!showContpage)} />
+
       )}
-    </div>
+    </>
   );
 };
 

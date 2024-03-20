@@ -12,9 +12,7 @@ const SupportCard = ({
 
   const [showNonTechSupp,setShowNonTechSupp] = useState(false);
 
-  // const handleopenclose=()=>{
-  //   onClose();
-  // }
+  
   const handleclickonNonTechnical = ()=>{
     setShowNonTechSupp(!showNonTechSupp);
   }
@@ -82,9 +80,11 @@ const SupportCard = ({
             <li>Venue / Event information</li>
             <li>Refunds & exchanges</li>
           </ul>
-          {/* {showNonTechSupp && (<ContactPresent onClose={()=>setShowNonTechSupp(!showNonTechSupp)} />)} */}
-          {showNonTechSupp && (<ContactPresent  />)}
+          
+          {/* {showNonTechSupp && (<ContactPresent  />)} */}
         </div>
+
+        {showNonTechSupp && (<ContactPresent onClose={()=>setShowNonTechSupp(!showNonTechSupp)} />)}
       </div>
 
   );

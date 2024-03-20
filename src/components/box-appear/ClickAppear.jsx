@@ -1,22 +1,21 @@
 'use client'
 import React, { useState, useEffect} from 'react';
-
 import './style.css';
 import { RxCrossCircled } from "react-icons/rx";
 
-export default function ClickBox({ component: Component}) {
+export default function ClickBox({ component: Component, onClose}) {
 
     const [componentWidth, setComponentWidth] = useState(0)
-    // const handleClose=()=>{
-    //     onClose();
-    // }
+    const handleClose1=()=>{
+        onClose();
+    }
     useEffect(() => {
         document.getElementById('my_modal_1').showModal();
     }, []);
 
     useEffect(() => {
         function handleResize() {
-            const modalContent = document.getElementById('modal-content');
+            const modalContent = document.getElementById('modal-content2');
             setComponentWidth(modalContent.offsetWidth);
         }
 
@@ -38,20 +37,20 @@ export default function ClickBox({ component: Component}) {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center'
-            }}>
-                <form method="dialog">
+            }} >
+                {/* <form method="dialog"> */}
                 
                     <div className="temporary-button" style={{ width: componentWidth }}  >
                             {/* <button className="btn btn-sm btn-circle btn-ghost close-button" style={{ borderWidth: 2 }}>✕</button> */}
-                            <div style={{display:'flex', flexDirection:'row',  cursor: 'pointer'}} >
+                            <div style={{display:'flex', flexDirection:'row',  cursor: 'pointer'}} onClick={handleClose1}>
                                 <div style={{fontSize:'24px'}}><RxCrossCircled /></div>
                                 <div style={{ marginLeft: 6, display: 'grid', placeContent: 'center',fontSize:'1em', textTransform:'uppercase' }} >ESC</div>
                             </div>
                         
                     </div> 
-                </form>
-
-                <div className="modal-box" style={{ width:'auto', maxWidth:'100%', padding: 0 ,borderRadius:'9px'}} id="modal-content">
+                {/* </form> */}
+ 
+                <div className="modal-box" style={{ width:'auto', maxWidth:'100%', padding: 0 ,borderRadius:'9px'}} id="modal-content2">
                     <Component />
                 </div>
                 
