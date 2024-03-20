@@ -95,6 +95,7 @@ export default async function Home({ searchParams }) {
             textColor={headingColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
             search={search}
+            placeholderColor={textColor}
             // onSearchSelect={handleEventSelect}
           />
         </div>
