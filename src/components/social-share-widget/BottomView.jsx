@@ -24,10 +24,10 @@ function BottomView({ buttonLinkBoxBorderColor, isEventTypePhysical, onChangeSta
         {isEventTypePhysical && (
           <Button
             height={"100%"}
-            className="p-[6px]"
+            className="p-[6px] "
             width={"100%"}
             to="#gMap"
-            styles={{ padding: "1px 10px" }}
+            styles={{ padding: "5px 10px" }}
             color={buttonLinkBoxBorderColor}
           >
             Get Directions
