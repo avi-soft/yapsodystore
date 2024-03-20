@@ -7,7 +7,7 @@ import { RxCrossCircled } from "react-icons/rx";
 export default function ClickBox({ component: Component, onClose }) {
 
     const [componentWidth, setComponentWidth] = useState(0)
-    const handleClose=()=>{
+    const handleClose1=()=>{
         onClose();
     }
     useEffect(() => {
@@ -41,9 +41,9 @@ export default function ClickBox({ component: Component, onClose }) {
             }}>
                 <form method="dialog">
                 
-                    <div className="temporary-button" style={{ width: componentWidth }} onClick={handleClose}>
+                    <div className="temporary-button" style={{ width: componentWidth }} >
                             {/* <button className="btn btn-sm btn-circle btn-ghost close-button" style={{ borderWidth: 2 }}>✕</button> */}
-                            <div style={{display:'flex', flexDirection:'row',  cursor: 'pointer'}} onClick={()=>document.getElementById('my_modal_1').close()}>
+                            <div style={{display:'flex', flexDirection:'row',  cursor: 'pointer'}} onClick={handleClose1}>
                                 <div style={{fontSize:'24px'}}><RxCrossCircled /></div>
                                 <div style={{ marginLeft: 6, display: 'grid', placeContent: 'center',fontSize:'1em', textTransform:'uppercase' }} >ESC</div>
                             </div>
