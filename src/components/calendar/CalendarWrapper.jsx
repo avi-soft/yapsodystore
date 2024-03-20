@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { FaCalendarAlt } from "react-icons/fa";
 import { RxCrossCircled } from "react-icons/rx";
 import { useRouter } from "next/navigation";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 
 export default function CalendarWrapper({
   children,
@@ -13,7 +13,26 @@ export default function CalendarWrapper({
   textColor,
   buttonLinkBoxBorderColor,
   searchParams,
+  monthsMap,
 }) {
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (!event.target.closest(".calendar")) {
+        document.querySelector(".calendarContent").classList.add("hidden");
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
+  function reOpen() {
+    const content = document.querySelector(".calendarContent");
+    if (content.classList.contains("hidden")) {
+      content.classList.remove("hidden");
+    }
+  }
   const router = useRouter();
   const start_date =
     typeof searchParams.start_date === "string"
@@ -51,6 +70,17 @@ export default function CalendarWrapper({
             </div>
           </button>
         </div>
+        {start_date && end_date && start_date !== end_date && (
+          <div
+            className="pl-1 mt-1 flex cursor-pointer"
+            onClick={clearSearch}
+            style={{ color: textColor }}
+          >
+            {monthsMap[parseInt(start_date.substring(5, 7))]}{" "}
+            {start_date.substring(0, 4)}
+            {<RxCrossCircled size={20} />}
+          </div>
+        )}
       </div>
 
       <dialog
@@ -85,28 +115,29 @@ export default function CalendarWrapper({
             </div>
             <div className="ml-2" onClick={reOpen}>
               <div className="w-full">
-                <div className="dropdown">
-                  <div tabIndex={0} role="button">
+                <details className="dropdown calendar">
+                  <summary className="list-none ">
+                    {" "}
                     <FaCalendarAlt
                       color={buttonLinkBoxBorderColor}
                       className="size-6 cursor-pointer"
                     />
-                  </div>
-
-                  <div tabIndex={0} className="dropdown-content z-[100]">
+                  </summary>
+                  <ul className="p-2 calendarContent shadow menu dropdown-content z-[1]  rounded-box w-52">
                     {children}
-                  </div>
-                </div>
+                  </ul>
+                </details>
               </div>
             </div>
-            {start_date && end_date && (
-              <div>
-                <button
-                  onClick={clearSearch}
-                  className="cursor-pointer text-white"
-                >
-                  <p>clear Search</p>
-                </button>
+            {start_date && end_date && start_date !== end_date && (
+              <div
+                className="pl-1 mt-1 flex cursor-pointer"
+                onClick={clearSearch}
+                style={{ color: textColor }}
+              >
+                {monthsMap[parseInt(start_date.substring(5, 7))]}{" "}
+                {start_date.substring(0, 4)}
+                {<RxCrossCircled size={20} />}
               </div>
             )}
           </div>

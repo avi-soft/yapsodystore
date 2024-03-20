@@ -23,6 +23,9 @@ const MainContent = ({
   headingColor,
   eventData,
   symbol,
+  searchParams,
+  monthsMap,
+  highlightedDates,
 }) => {
   const isEventTypePhysical =
     eventData.location_type == "physical" &&
@@ -103,10 +106,14 @@ const MainContent = ({
           textColor={textColor}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
           performancesCount={performances.length}
+          searchParams={searchParams}
+          monthsMap={monthsMap}
         >
           <Calendar
-            highlighted={[new Date(2024, 2, 10)]}
+            highlighted={highlightedDates}
             activeColorCode={buttonLinkBoxBorderColor}
+            monthsMap={monthsMap}
+            isHome={false}
           />
         </CalendarWrapper>
         <SingleEventPerformance

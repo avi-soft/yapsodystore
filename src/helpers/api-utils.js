@@ -86,7 +86,7 @@ export async function getCalenderEvents(startDate, endDate) {
       next: { revalidate: 5 },
     }
   );
-  return eventData.data.events;
+  return eventData.data;
 }
 export async function getEventDetails() {
   const eventData = await getData(
@@ -214,7 +214,30 @@ export async function getSingleEventPerformances(eventId) {
   );
   return response.data;
 }
-
+export async function getDatePerformances(eventId, startDate, endDate) {
+  const response = await getData(
+    baseUrl +
+      request.singleEventPerformances(eventId) +
+      `?asc_by=show_start_datetime&end_date=${endDate}&event_preview=false&include_ci_data=true&limit=10&start_date=${startDate}`,
+    {
+      ...headerData,
+      next: { revalidate: 5 },
+    }
+  );
+  return response.data;
+}
+export async function getCalenderPerformances(eventId, startDate, endDate) {
+  const response = await getData(
+    baseUrl +
+      request.singleEventPerformances(eventId) +
+      `/calender?end_date=${endDate}&start_date=${startDate}`,
+    {
+      ...headerData,
+      next: { revalidate: 5 },
+    }
+  );
+  return response.data;
+}
 export async function getSingleEventData(eventId) {
   const response = await getData(baseUrl + request.singleEvent(eventId), {
     ...headerData,

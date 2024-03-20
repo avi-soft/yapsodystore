@@ -2,7 +2,7 @@ import MainContent from "@/components/single-event-page/MainContent";
 import SideBarEventPage from "@/components/single-event-page/SideBarEventPage";
 import MainContainer from "@/components/main-container/MainContainer";
 
-export default function SingleEventPage() {
+export default function SingleEventPage({searchParams}) {
   const themeColor = "red";
   return (
     <div className="pt-24 pb-8 ">
@@ -14,7 +14,7 @@ export default function SingleEventPage() {
         <div className={`ml-auto mr-auto w-[100%] rounded-[8px]`}>
           <div className="flex pb-10 pl-4 pr-4 pt-12 max-xl:block">
             <SideBarEventPage color={themeColor} />
-            <MainContent color={themeColor} />
+            <MainContent color={themeColor} searchParams={searchParams} />
           </div>
         </div>
       </MainContainer>

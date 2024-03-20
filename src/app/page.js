@@ -18,6 +18,21 @@ import Loading from "./loading";
 import Header from "../components/header/Navbar";
 import Footer from "@/components/footer/footer";
 
+const monthsMap = {
+  0: "January",
+  1: "February",
+  2: "March",
+  3: "April",
+  4: "May",
+  5: "June",
+  6: "July",
+  7: "August",
+  8: "September",
+  9: "October",
+  10: "November",
+  11: "December",
+};
+
 export default async function Home({ searchParams }) {
   const search =
     typeof searchParams.search === "string" ? searchParams.search : undefined;
@@ -35,13 +50,28 @@ export default async function Home({ searchParams }) {
     events = await getSearchEvents(search);
   } else if (start_date && end_date && start_date === end_date) {
     events = await getDateEvents(start_date, end_date);
+    // console.log(events);
   } else if (start_date && end_date && start_date !== end_date) {
-    events = await getCalenderEvents(start_date, end_date);
+    const dates = await getCalenderEvents(start_date, end_date);
+    const keys = Object.keys(dates);
+    for (const key of keys) {
+      const singleDateEvents = await getDateEvents(key, key);
+      for (const event of singleDateEvents) {
+        events.push(event);
+      }
+    }
   } else {
     events = await getEventDetails();
   }
-
   const eventList = await getEventDetails();
+
+  // const abc = await getCalenderEvents("2024-03-01", "2024-03-31");
+  // const keys = Object.keys(abc);
+  // for (const key of keys) {
+  //   console.log(key);
+  //   // events.push(await getDateEvents(key, key));
+  // }
+  // console.log("abc", abc);
 
   const {
     boxBackgroundColor,
@@ -130,15 +160,17 @@ export default async function Home({ searchParams }) {
         </div>
         <div className="w-full px-2.5 flex flex-col items-center">
           <CalendarWrapper
-            performancesCount={events.length ? events.length : 0}
+            performancesCount={events.length}
             textColor={textColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
             searchParams={searchParams}
+            monthsMap={monthsMap}
           >
             <Calendar
               isHome={true}
               highlighted={highlightedDates}
               activeColorCode={buttonLinkBoxBorderColor}
+              monthsMap={monthsMap}
             />
           </CalendarWrapper>
           <Suspense fallback={<Loading />}>
