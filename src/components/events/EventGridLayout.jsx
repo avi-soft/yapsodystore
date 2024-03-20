@@ -27,7 +27,7 @@ export default function EventListLayout({
         borderColor: buttonLinkBoxBorderColor,
         backgroundColor: boxBackgroundColor,
       }}
-      className="mb-[20px] min-h-[180px] w-[100%] flex justify-between rounded border-[1px] max-md:flex-col max-md:gap-3"
+      className="mb-[20px] min-h-[180px] w-[100%] flex h-40 justify-between rounded border-[1px] max-md:flex-col max-md:gap-3"
     >
       <div className="relative min-h-[1px] justify-center">
         <article className="h-[180px] relative overflow-hidden">
