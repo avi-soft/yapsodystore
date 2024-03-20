@@ -63,7 +63,7 @@ export default async function Home({ searchParams }) {
         coverImage={backgroundImage}
         storeBackground={storeBackground}
       >
-        <div className="w-full px-2.5">
+        <div className="w-full px-2.5 mb-[10px]">
           <Title
             mainHeadingImage={mainHeadingImage}
             mainHeadingText={mainHeadingText}
@@ -81,6 +81,7 @@ export default async function Home({ searchParams }) {
             iconColor={buttonLinkBoxBorderColor}
           />
         </div>
+        <div className="border-t-[1px] border-white w-[93.5vw] md:border-hidden"> 
         <SupportContact
           position="center"
           iconColor={buttonLinkBoxBorderColor}
@@ -89,6 +90,7 @@ export default async function Home({ searchParams }) {
           boxBorderColor={buttonLinkBoxBorderColor}
           faqCount={faqCount}
         />
+        </div>
         <div className="md:w-1/4 px-2.5 flex justify-center">
           <Search
             color={boxBackgroundColor}
