@@ -6,8 +6,7 @@ import { useState } from "react";
 import SignIn from "../signin-form/SigninMain";
 
 //account definition that changes to logo
-const Account = () => {
-  let color = "#000000";
+const Account = ({ color }) => {
   const [show, setshow] = useState(false); // apply this is function to show or close this component when click
   function showSignIn() {
     setshow(!show);
@@ -29,12 +28,13 @@ const Account = () => {
             7
           )}/user-male-circle.png`}
           alt="user-male-circle"
-          className="w-9 h-9 mx-2.5"
+          className="w-8 h-8 xs:mx-2.5"
         />
       </span>
 
       {show && (
         <SignIn
+          color={color}
           onClose={() => {
             setshow(!show);
           }}

@@ -2,6 +2,8 @@
 import MidContainer from "./ContainerSignIn";
 import ClickSignIn from "../box-appear/ClickSignIn";
 
-export default function SignIn({ onClose }) {
-  return <ClickSignIn component={MidContainer} onClose={onClose} />;
+export default function SignIn({ color, onClose }) {
+  return (
+    <ClickSignIn color={color} component={MidContainer} onClose={onClose} />
+  );
 }

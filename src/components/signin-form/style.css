@@ -19,7 +19,7 @@
   margin: 12px;
   padding: 18px;
   border-bottom: 1px solid #bab1b1;
-  font-size: 20px;
+  font-size: 16px;
   color: rgb(74, 72, 72);
 }
 
@@ -49,7 +49,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
   border: 1px solid #d2cccc;
-  border-radius: 5px;
+  border-radius: 0;
   padding-left: 16px;
   font-size: 14px;
   width: 480px;
@@ -61,7 +61,8 @@
 }
 
 .form-Container .inputFieldSignin:focus {
-  box-shadow: 0 0 9px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
 
   outline: 2px solid transparent;
 }
@@ -115,11 +116,12 @@ span-layout {
 }
 
 .button-login button {
-  background-color: #a593e0 !important;
   color: #ffffff !important;
   border: none;
-  width: 64px;
+  width: 40px;
   height: 30px;
+  padding: 6px 22px;
+  border-radius: 2px;
   display: grid;
   place-content: center;
 }

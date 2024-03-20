@@ -16,7 +16,7 @@ const SideBarEventPage = ({
     eventData.location_info.show_map != "no";
 
   return (
-    <div className="pl-0 ml-0  mt-20 block w-[300px] px-[10px] pb-[30px] pr-[20px] max-xl:w-[100%] xl:sticky xl:top-0">
+    <div className="xl:float-left pl-0 ml-0 xl:!sticky block w-full xl:w-[300px] px-[10px] pb-[30px] pr-[20px] max-xl:w-[100%]  xl:top-0">
       <EventImage eventData={eventData} />
 
       <div className="block">

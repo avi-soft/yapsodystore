@@ -4,7 +4,7 @@ import Script from "next/script";
 import "./style.css";
 import { RxCrossCircled } from "react-icons/rx";
 
-export default function ClickSignIn({ component: Component, onClose }) {
+export default function ClickSignIn({ component: Component, onClose, color }) {
   const [componentWidth, setComponentWidth] = useState(0);
   const handleClose = () => {
     onClose();
@@ -104,7 +104,7 @@ export default function ClickSignIn({ component: Component, onClose }) {
           }}
           id="modal-content-signin"
         >
-          <Component />
+          <Component color={color} />
         </div>
       </dialog>
     </div>

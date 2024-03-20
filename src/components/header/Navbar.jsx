@@ -30,7 +30,11 @@ const Navbar = async ({ langCode, brandImage, venueName, iconColor }) => {
         <div className={`${styles.pullLeft} h-[57px] flex items-center shrink`}>
           <CartIcon iconColor={iconColor} />
         </div>
-        {isLogin ? <Dropdown type="account" user={userName} /> : <Account />}
+        {isLogin ? (
+          <Dropdown type="account" user={userName} />
+        ) : (
+          <Account color={iconColor} />
+        )}
       </div>
     </header>
   );

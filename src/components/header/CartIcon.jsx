@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const CartIcon = ({ iconColor, apiRes }) => {
   return (
-    <div className="py-1 px-2.5">
+    <div className="py-1 xs:px-2.5">
       <div className="relative inline-block mt-1.5 ">
         <span
           className="absolute bottom-[15px] left-3 bg-white w-[25px] h-[25px] font-roboto rounded-full  

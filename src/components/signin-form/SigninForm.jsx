@@ -24,7 +24,7 @@ export default function FormSignin() {
       >
         <Form className="form-Container">
           <div style={{ display: "flex", flexDirection: "row" }}>
-            <label>Email Address </label>
+            <label className="font-lato">Email Address </label>
             <ErrorMessage name="email" component="span-layout" />
           </div>
           <Field
@@ -32,11 +32,11 @@ export default function FormSignin() {
             id="inputSigninForm"
             name="email"
             type="email"
-            className="inputFieldSignin pointer-events-auto"
+            className="inputFieldSignin pointer-events-auto "
             onClick={(e) => e.stopPropagation()}
           />
           <div style={{ display: "flex", flexDirection: "row" }}>
-            <label>Password </label>
+            <label className="font-lato">Password </label>
             <ErrorMessage name="password" component="span-layout" />
           </div>
           <Field
@@ -44,7 +44,7 @@ export default function FormSignin() {
             id="inputSigninPassword "
             name="password"
             type="password"
-            className="inputFieldSignin pointer-events-auto"
+            className="inputFieldSignin pointer-events-auto "
             onClick={(e) => e.stopPropagation()}
           />
         </Form>
