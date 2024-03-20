@@ -4,14 +4,11 @@ import Script from "next/script";
 import "./style.css";
 import { RxCrossCircled } from "react-icons/rx";
 
-export default function ClickBox({ component: Component, onClose }) {
+export default function ClickSignIn({ component: Component, onClose, color }) {
   const [componentWidth, setComponentWidth] = useState(0);
   const handleClose = () => {
     onClose();
   };
-  useEffect(() => {
-    document.getElementById("my_modal_1").showModal();
-  }, []);
 
   // Add event listener for escape key
   useEffect(() => {
@@ -30,8 +27,12 @@ export default function ClickBox({ component: Component, onClose }) {
   }, [onClose]);
 
   useEffect(() => {
+    document.getElementById("my_modal_3").showModal();
+  }, []);
+
+  useEffect(() => {
     function handleResize() {
-      const modalContent = document.getElementById("modal-content");
+      const modalContent = document.getElementById("modal-content-signin");
       setComponentWidth(modalContent.offsetWidth);
     }
 
@@ -51,8 +52,8 @@ export default function ClickBox({ component: Component, onClose }) {
         crossorigin="anonymous"
       />
       <dialog
-        id="my_modal_1"
-        className="!pointer-events-none modal"
+        id="my_modal_3"
+        className=" !pointer-events-none modal"
         style={{
           backgroundColor: "rgb(51 48 48 / 84%)",
           display: "flex",
@@ -61,20 +62,19 @@ export default function ClickBox({ component: Component, onClose }) {
           justifyContent: "center",
         }}
       >
-        <form method=" dialog">
-          <div
-            className="temporary-button pointer-events-auto"
-            style={{ width: componentWidth }}
-            onClick={handleClose}
-          >
-            {/* <button className="btn btn-sm btn-circle btn-ghost close-button" style={{ borderWidth: 2 }}>✕</button> */}
+        <div
+          className="temporary-button !pointer-events-auto"
+          style={{ width: componentWidth }}
+          onClick={handleClose}
+        >
+          <form method="dialog">
             <div
               style={{
                 display: "flex",
                 flexDirection: "row",
                 cursor: "pointer",
               }}
-              onClick={() => document.getElementById("my_modal_1").close()}
+              onClick={() => document.getElementById("my_modal_3").close()}
             >
               <div style={{ fontSize: "24px" }}>
                 <RxCrossCircled />
@@ -91,8 +91,8 @@ export default function ClickBox({ component: Component, onClose }) {
                 ESC
               </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
 
         <div
           className="modal-box"
@@ -102,9 +102,9 @@ export default function ClickBox({ component: Component, onClose }) {
             padding: 0,
             borderRadius: "9px",
           }}
-          id="modal-content"
+          id="modal-content-signin"
         >
-          <Component />
+          <Component color={color} />
         </div>
       </dialog>
     </div>

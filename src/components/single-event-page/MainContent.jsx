@@ -49,7 +49,7 @@ const MainContent = ({
       : "";
   
   return (
-    <div className=" xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
+    <div className="xl:ml-[375px] ml-0 mt-16 flex-1 px-[10px] pb-[30px] block scrollbar-hide">
       <section className="mb-8 flex flex-col items-start justify-center gap-2">
         <h1
           style={headingStyle}
@@ -95,17 +95,17 @@ const MainContent = ({
           textColor={textColor}
         />
       )}
-      {hyperlinks.length > 1 && (
+      {hyperlinks.length > 0 && (
         <DescriptionHyperLinks
           hyperlinks={hyperlinks}
           color={buttonLinkBoxBorderColor}
         />
       )}
-      {descriptionImages.length > 1 && (
+      {descriptionImages.length > 0 && (
         <DescriptionImages images={descriptionImages} />
       )}
       <div className="px-[10px] align-top">
-        {videos.length > 1 && <DescriptionVideos videos={videos} />}
+        {videos.length > 0 && <DescriptionVideos videos={videos} />}
         <CalendarWrapper
           textColor={textColor}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
