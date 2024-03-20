@@ -1,14 +1,13 @@
-"use client"
+"use client";
 
 import React from "react";
 import Script from "next/script";
 
 import "./style.css";
 import TicketSelectorHeading from "./TicketSelectorHeading";
-import GeneralEvent from "../eventTypes/GeneralEvent";
-import SeatsIoEvent from "../eventTypes/SeatsIOEvent";
-import OldSeatingEvent from "../eventTypes/OldSeatingEvent";
-
+import GeneralEvent from "../event-types/general-events/GeneralEvent";
+import SeatsIoEvent from "../event-types/seats-io-events/SeatsIoEvent";
+import OldSeatingEvent from "../event-types/old-seating-events/OldSeatingEvent";
 
 const TicketSelector = ({
   selectedTickets,
@@ -16,9 +15,8 @@ const TicketSelector = ({
   eventSeatData,
   sectionData,
   pricingData,
-  handleRemoveTicket
+  handleRemoveTicket,
 }) => {
-
   const { event_seating_type, is_seats_io } = eventSeatData;
   return (
     <div>

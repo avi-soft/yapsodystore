@@ -1,5 +1,5 @@
 import styles from "@/components/event-book-page/ticketcart/Card.module.css";
-import TicketDropdown from "../ticketcart/Ticketdropdown";
+import TicketDropdown from "../../ticketcart/Ticketdropdown";
 export default function GeneralEvent({
   selectedTickets,
   handleTicketChange,
