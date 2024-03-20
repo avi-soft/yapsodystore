@@ -4,6 +4,8 @@ import TicketSection from "./TicketSection";
 import { calculateRemainingTime } from "@/helpers/common";
 
 const SingleEvent = ({
+  eventid,
+  dateid,
   performance,
   buttonLinkBoxBorderColor,
   textColor,
@@ -17,7 +19,7 @@ const SingleEvent = ({
         borderColor: buttonLinkBoxBorderColor,
         background: boxBackgroundColor,
       }}
-      className="mb-[20px] flex justify-between rounded border-[1px] bg-[#ffffff] px-[20px] py-[30px] max-md:block m-h-[330px]"
+      className="mb-[20px]  flex justify-between rounded border-[1px] bg-[#ffffff] px-[20px] py-[30px] max-md:block m-h-[330px]"
     >
       <EventDateTime
         date={new Date()}
@@ -32,6 +34,8 @@ const SingleEvent = ({
         SALE ENDS
       </SalesEnds>
       <TicketSection
+        eventid={eventid}
+        dateid={dateid}
         symbol={symbol}
         access={performance.access_code}
         ticketPrice={performance.min_price}

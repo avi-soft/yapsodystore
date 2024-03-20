@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { PiUserCircleFill } from "react-icons/pi";
+import Image from "next/image";
 
 import styles from "../Navbar.module.css";
 
@@ -10,6 +10,7 @@ import Account from "./Account";
 import Arrows from "./Arrows";
 
 const Dropdown = ({ type, user, languageData, langCode }) => {
+  let color = "#000000";
   const [isOpenLang, setIsOpenLang] = useState(false);
   const [isOpenAccount, setIsOpenAccount] = useState(false);
 
@@ -64,31 +65,40 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
   return (
     <div
       id={`Drop-${type}`}
-      className={`${styles.pullLeft}   flex items-center flex-shrink-0 dropdown`}
+      className={`${styles.pullLeft} h-[57px]  flex items-center flex-shrink-0 dropdown`}
       onClick={() =>
         type === "lang" ? handleLanguageClick(type) : handleAccountClick(type)
       }
     >
       <button className="flex flex-row h-12 items-center ">
         <div className="relative  ">
-          <div className="flex items-center ">
-            {type === "lang" ? (
-              <p className="mr-1 font-bold">{langCode.toUpperCase()}</p>
-            ) : (
-              <>
-                <span className="mr-2">
-                  <PiUserCircleFill
-                    alt="user-male-circle "
-                    className="h-10 w-10"
-                  />
-                </span>
-                <p className="myAccount hidden sm:inline-block overflow-hidden text-ellipsis whitespace-nowrap max-w-[120px] ">
-                  {user}
-                </p>
-              </>
-            )}
-            <Arrows type={type} />
-          </div>
+          {type === "lang" ? (
+            <div className="flex items-center">
+              <p className="mr-1 font-semibold font-roboto">
+                {langCode.toUpperCase()}
+              </p>
+              <Arrows type={type} />
+            </div>
+          ) : (
+            <div className="flex items-center mr-2">
+              <span className="mr-2 pl-2">
+                <Image
+                  height={36}
+                  width={36}
+                  src={`https://img.icons8.com/ios-filled/50/${color.slice(
+                    1,
+                    7
+                  )}/user-male-circle.png`}
+                  alt="user-male-circle"
+                  className="w-9 h-9"
+                />
+              </span>
+              <p className="ml-1 myAccount text-base hidden sm:inline-block overflow-hidden text-ellipsis whitespace-nowrap max-w-[110px] ">
+                {user}
+              </p>
+              <Arrows type={type} />
+            </div>
+          )}
           {/* Conditional rendering of the dropdown content if it's open */}
 
           <div className="relative shadow-xl">

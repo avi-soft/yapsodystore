@@ -8,7 +8,7 @@ const Arrows = ({ type }) => {
   return (
     <>
       <Image
-        className="pt-1 h-5 w-6 down"
+        className="pt-1 h-5 w-5 down"
         src={arrowDown}
         height="auto"
         width="auto"
@@ -16,7 +16,7 @@ const Arrows = ({ type }) => {
         alt="dropdown arrow"
       />
       <Image
-        className="hidden pt-1 h-5 w-6 up"
+        className="hidden pt-1 h-5 w-5 up"
         id={`up-${type}`}
         src={arrowUp}
         height="auto"

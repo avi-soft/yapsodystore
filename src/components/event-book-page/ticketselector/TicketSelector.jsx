@@ -12,13 +12,13 @@ const TicketSelector = ({ selectedTickets, handleTicketChange }) => {
 
 
   return (
-    <div className="page-divide pl-2">
+    <div>
       <Script
         src="https://kit.fontawesome.com/8d4b434c6d.js"
         crossorigin="anonymous"
       />
-      <div >
-        <div className="getticket-main  ">
+       {/*Event Details */}
+        <div className="getticket-main md:w-[70vw] xl:w-[80vw]  ">
           <div className="mainbox-event md:block hidden border-solid border-b-[1px] py-2 pb-6  ">
 
 
@@ -38,11 +38,12 @@ const TicketSelector = ({ selectedTickets, handleTicketChange }) => {
                 <i className="fa-solid fa-clock" ></i>
                 <span className="ml-3">2024-04-19 17:00</span>
               </div>
-<div className="border-b-[1px] md:hidden z-50"></div>
+              <div className="border-b-[1px] md:hidden z-50"></div>
             </div>
           </div>
         </div>
-        <div className={`select-ticket ${styles.event} `}>
+        {/* Select Tickets*/ }
+        <div className={`${styles.event} select-ticket lg:w-[50vw] md:w-[38vw]  max-lg:w-[50vw] xl:w-[61vw] max-sm:w-[85vw] md:pr-[100px]`}>
           <div className="part">
             <div className="upper-part">Adult </div>
           </div>
@@ -51,14 +52,13 @@ const TicketSelector = ({ selectedTickets, handleTicketChange }) => {
               <div className="dollar">$50.00</div>
             </div>
           </div>
-          <div className=" flex lg:w-[50vw] md:w-[38vw]  max-lg:w-[50vw] xl:w-[61vw] max-sm:w-[85vw] md:pr-[100px]">
+          <div className=" flex ">
             <div className="lower-part flex flex-row items-center w-full md:w-auto">
               <label htmlFor="quantity" className="mr-2">Quantity</label>
               <TicketDropdown value={selectedTickets} onChange={handleTicketChange} />
             </div>
           </div>
         </div>
-      </div>
 
 
     </div>

@@ -1,19 +1,38 @@
-// const BASE_URL = process.env.YAPSODY_API_BASE_URL;
-
 import request from "./api-urls";
 
-const BaseUrl =
-  process.env.NEXT_PUBLIC_ENV === "dev"
-    ? "https://stage-api.yapsody.com/"
-    : "https://api.yapsody.com/";
-const protocol = process.env.ENV === "dev" ? "http://" : "https://";
+const envConfig = {
+  dev: {
+    baseUrl: "https://stage-api.yapsody.com/",
+    protocol: "https://",
+    venueCode: "myblog",
+  },
+  staging: {
+    baseUrl: "https://stage-api.yapsody.com/",
+    protocol: "https://",
+    venueCode: "testmuskan",
+  },
+  prod: {
+    baseUrl: "https://stage-api.yapsody.com/",
+    protocol: "https://",
+    venueCode: "testmuskan",
+  },
+};
+
+const { baseUrl, protocol, venueCode } = envConfig[
+  process.env.NEXT_PUBLIC_ENV
+] || {
+  baseUrl: "https://stage-api.yapsody.com/",
+  protocol: "https://",
+  venueCode: "myblog",
+};
+
 const headerData = {
   headers: {
-    "venue-code": "myblog",
+    "venue-code": venueCode,
   },
 };
 export async function getTheme() {
-  const data = await fetch(BASE_URL + "");
+  const data = await fetch(baseUrl + "");
   Jsondata = await data.json();
   return Jsondata;
 }
@@ -30,20 +49,44 @@ export async function getData(...config) {
     return response.json();
   } catch (error) {
     console.error("Error fetching data:", error);
-    throw error; // Rethrow the error to be caught by the calling function
+    return { status: 404 };
   }
 }
-export async function getEventDetails() {
-  const eventData = await getData(BaseUrl + request.events, {
-    ...headerData,
-    next: { revalidate: 5 },
-  });
-  // console.log(BaseUrl + request.events);
+export async function getSearchEvents(query) {
+  const eventData = await getData(
+    baseUrl +
+      request.events +
+      `?asc_by=performance_start_time&limit=200&search_query=${query}`,
+    {
+      ...headerData,
+      next: { revalidate: 5 },
+    }
+  );
   return eventData.data.events;
 }
-
+export async function getEventDetails() {
+  const eventData = await getData(
+    baseUrl +
+      request.events +
+      `?asc_by=performance_start_time&limit=200&search_query=`,
+    {
+      ...headerData,
+      next: { revalidate: 5 },
+    }
+  );
+  // console.log(eventData.data.events);
+  return eventData.data.events;
+}
+export async function getFaqs() {
+  const faqs = await getData(baseUrl + request.faq, {
+    ...headerData,
+    next: { revalidate: 10 },
+  });
+  console.log(faqs.data);
+  return faqs.data;
+}
 export async function getThemeData() {
-  const themeLayout = await getData(BaseUrl + request.venueDetails, {
+  const themeLayout = await getData(baseUrl + request.venueDetails, {
     ...headerData,
     next: { revalidate: 10 },
   });
@@ -130,7 +173,7 @@ export async function getThemeData() {
   };
 }
 export async function getLanguageData() {
-  const response = await getData(BaseUrl + request.language, {
+  const response = await getData(baseUrl + request.language, {
     ...headerData,
     next: { revalidate: 5 },
   });
@@ -139,7 +182,7 @@ export async function getLanguageData() {
 
 export async function getSingleEventPerformances(eventId) {
   const response = await getData(
-    BaseUrl + request.singleEventPerformances(eventId),
+    baseUrl + request.singleEventPerformances(eventId),
     {
       ...headerData,
       next: { revalidate: 5 },
@@ -149,9 +192,9 @@ export async function getSingleEventPerformances(eventId) {
 }
 
 export async function getSingleEventData(eventId) {
-  const response = await getData(BaseUrl + request.singleEvent(eventId), {
+  const response = await getData(baseUrl + request.singleEvent(eventId), {
     ...headerData,
     next: { revalidate: 5 },
   });
-  return response.data;
+  return response.status == 404 ? response : response.data;
 }

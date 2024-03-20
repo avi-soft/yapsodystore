@@ -3,6 +3,7 @@ import React from "react";
 import Header from "@/components/header/Navbar";
 import Footer from "@/components/footer/footer";
 import { getThemeData, getEventDetails } from "@/helpers/api-utils";
+import BookingHeader from "@/components/event-book-page/ticketselector/BookingHeader";
 export default async function Layout({ children }) {
   const {
     venueName,
@@ -20,21 +21,8 @@ export default async function Layout({ children }) {
   const events = await getEventDetails();
   return (
     <>
-      <Header
-        langCode={langCode}
-        venueName={venueName}
-        brandImage={brandImage}
-        iconColor={buttonLinkBoxBorderColor}
-      />
-      <div className="pb-8 flex-1">{children}</div>
-      <Footer
-        supportUrl={supportUrl}
-        termsUrl={termsUrl}
-        privacyUrl={privacyUrl}
-        portalUrl={portalUrl}
-        sellTicketUrl={sellTicketUrl}
-        companyName={companyName}
-      />
+      <BookingHeader />
+      {children}
     </>
   );
 }

@@ -2,6 +2,8 @@ import React from "react";
 import { GiLaptop } from "react-icons/gi";
 import { MdLocationPin } from "react-icons/md";
 import moment from "moment";
+import Link from "next/link";
+import { goToEvent } from "@/helpers/common";
 const EventDetails = ({
   locationId,
   locationType,
@@ -15,56 +17,65 @@ const EventDetails = ({
   performances,
   eventNameTitle2,
   eventNameTitle3,
+  showStartDateOnly,
+  eventId,
 }) => (
-  <div className="min-h-[1px] w-[45%] ml-[4px] pl-2 pt-2 text-[#566270] max-md:w-[100%] max-md:px-[15px] text-xl float-left">
-    <div className="mb-2">
-      <span
+  <div className="min-h-[1px] w-[45%] pl-2 pt-2  text-[#566270] max-md:w-[100%] max-md:px-[10px] text-xl float-left">
+    <div className="mb-1">
+      <div
         style={{
           color: headingColor,
         }}
-        className="text-black"
+        className="font-normal m-0 leading-[1.2]"
       >
-        <p
-          style={{
-            overflowWrap: "break-word",
-            wordWrap: "break-word",
-            wordBreak: "break-word",
-          }}
-        >
-          {eventName}
-        </p>
+        <Link href={goToEvent(eventId, eventName)}>
+          <p className="overflow-wrap-break word-wrap-break break-word">
+            {eventName}
+          </p>
+        </Link>
         <span className="text-[16px]">
-          <p>{eventNameTitle2}</p>
-          <p>{eventNameTitle3}</p>
+          <h2>{eventNameTitle2}</h2>
+          <h2>{eventNameTitle3}</h2>
         </span>
-      </span>
-      <span></span>
-      <span className="flex gap-2 text-sm" style={{ color: textColor }}>
-        <span className="mt-1">
-          {locationType == "physical" ? (
-            <MdLocationPin className="size-4" />
-          ) : (
-            <GiLaptop className="size-4" />
-          )}
+      </div>
+      <Link href={goToEvent(eventId, eventName)}>
+        <span className="flex gap-2 text-sm" style={{ color: textColor }}>
+          <span className="mt-1">
+            {locationType == "physical" ? (
+              <MdLocationPin className="size-4" />
+            ) : (
+              <GiLaptop className="size-4" />
+            )}
+          </span>
+          <span>
+            <p>{locationType == "physical" ? location : locationId}</p>
+          </span>
         </span>
-        <span>
-          <p>{locationType == "physical" ? location : locationId}</p>
-        </span>
-      </span>
+      </Link>
     </div>
-    <div className=" text-sm font-bold" style={{ color: textColor }}>
+    <div
+      className=" text-sm font-bold leading-[1.7]"
+      style={{ color: textColor }}
+    >
       <span className="flex gap-1">
         <span>
           <p>{moment(startDate).format("MMM D, YYYY")}</p>
         </span>
-        <p>-</p>
+        {showStartDateOnly == "no" && (
+          <>
+            {" "}
+            <p>-</p>
+            <span>
+              <p>{moment(endDate).format("MMM D, YYYY")}</p>
+            </span>
+          </>
+        )}
+      </span>
+      {performances > 1 && (
         <span>
-          <p>{moment(endDate).format("MMM D, YYYY")}</p>
+          <p>({performances} Performances)</p>
         </span>
-      </span>
-      <span>
-        <p>({performances} Performances)</p>
-      </span>
+      )}
     </div>
   </div>
 );
