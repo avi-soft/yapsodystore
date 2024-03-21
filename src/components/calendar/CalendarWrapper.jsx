@@ -61,18 +61,18 @@ function reOpen(){
         className="modal modal-center sm:modal-center bg-[#2b313d] bg-opacity-90 z-[1050px]"
       >
         <div className="">
-          <div className="dropdown">{children}</div>
+          <div className="dropdown left-10">{children}</div>
           <div className="flex justify-center mt-6 ">
             <form method="dialog">
-              <div className="flex flex-row items-center ">
+              <button className="flex flex-row">
                 <RxCrossCircled
                   size={24}
-                  className="cursor-pointer  text-white"
+                  className="cursor-pointer  text-white"  
                 />
-                <button className=" ml-2 w-10 h-[50px] bg-transparent text-white items-center ">
+                <span className=" ml-2 w-10 h-[50px] bg-transparent text-white  ">
                   CLOSE
-                </button>
-              </div>
+                </span>
+              </button>
             </form>
           </div>
         </div>
