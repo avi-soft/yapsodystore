@@ -6,7 +6,13 @@ import styles from "./search.module.css";
 import { getSearchEvents } from "@/helpers/api-utils";
 import { useRouter } from "next/navigation";
 
-const Search = ({ color, textColor, buttonLinkBoxBorderColor, search }) => {
+const Search = ({
+  color,
+  textColor,
+  buttonLinkBoxBorderColor,
+  search,
+  placeholderColor,
+}) => {
   const inputStyle = {
     backgroundColor: color,
     color: textColor,
@@ -67,6 +73,7 @@ const Search = ({ color, textColor, buttonLinkBoxBorderColor, search }) => {
         </div>
       );
     }
+
     return results
       .filter((result) =>
         result.event_title1.toLowerCase().includes(query.trim())
@@ -89,12 +96,26 @@ const Search = ({ color, textColor, buttonLinkBoxBorderColor, search }) => {
       <div className="absolute inset-y-0 left-0  flex items-center pointer-events-none ">
         <IoSearchSharp color={textColor} className={styles.icon} />
       </div>
+      <style>
+        {`
+          #search-input::placeholder {
+            color: ${placeholderColor};
+          }
+          #search-input:focus {
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+            0 0 8px rgba(102, 175, 233, 0.6);
+          }
+        `}
+      </style>
       <input
         type="text"
         style={inputStyle}
+
         className="focus:outline-none focus:border-[red] h-[40px] border text-[14px] rounded-[5px]  px-9 pr-10  xl:w-[290px] lg:w-[250px] w-[201px] 2xl:w-[333px] transition-width"
+
         placeholder="Search events"
         value={query}
+        id="search-input"
         onChange={handleInputChange}
       />
       {query && (
