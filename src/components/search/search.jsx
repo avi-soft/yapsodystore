@@ -67,7 +67,9 @@ const Search = ({
       return (
         <div
           onClick={() => setShowDropdown(false)}
+
           className={`px-[3px] py-[2px] border-2 cursor-pointer rounded-[4px] leading-[20px] border-red-700 text-[14px] overflow-y-scroll`}
+
         >
           {"Sorry, We could not find any event. Try something else."}
         </div>
@@ -92,7 +94,9 @@ const Search = ({
   }, [results, query, handleSelectResult]);
 
   return (
+
     <div className="relative mb-[10px] mt-[38px] ">
+
       <div className="absolute inset-y-0 left-0  flex items-center pointer-events-none ">
         <IoSearchSharp color={textColor} className={styles.icon} />
       </div>
@@ -111,7 +115,9 @@ const Search = ({
         type="text"
         style={inputStyle}
 
+
         className="focus:outline-none  h-[40px] border  text-[14px] rounded-[5px]  px-9 pr-10  xl:w-[279px] lg:w-[250px] w-[201px] 2xl:w-[333px] transition-width"
+
 
         placeholder="Search events"
         value={query}

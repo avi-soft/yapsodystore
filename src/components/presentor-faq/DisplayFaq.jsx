@@ -4,14 +4,14 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import "./style.css";
 
 const DisplayFq = ({ faq, index, expandIndex, setExpandIndex }) => {
-  const isExpanded = index === expandIndex;
+  const isExpanded = index === expandIndex;  
 
   const toggleAnswerVisibility = () => {
     setExpandIndex(isExpanded ? null : index);
   };
 
   return (
-    <div className="present-faq py-[16px] transition-all">
+    <div className={`present-faq py-[16px] `}>
       <div className="inside-faq " onClick={toggleAnswerVisibility}>
         <div
           style={{

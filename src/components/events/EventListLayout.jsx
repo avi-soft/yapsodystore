@@ -28,7 +28,7 @@ export default function EventListLayout({
         borderColor: buttonLinkBoxBorderColor,
         backgroundColor: boxBackgroundColor,
       }}
-      className="mb-[20px] min-h-[154px] w-[100%] flex justify-between rounded border-[1px] max-md:flex-col max-md:gap-3"
+      className="mb-[20px] min-h-[155px] w-[100%] flex justify-between rounded border-[1px] max-md:flex-col max-md:gap-3"
     >
       <Link
         href={goToEvent(eventId, eventName)}
