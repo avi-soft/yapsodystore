@@ -21,11 +21,11 @@ function BottomView({ buttonLinkBoxBorderColor, isEventTypePhysical }) {
       <div className="text-[14px]">
         {isEventTypePhysical && (
           <Button
-            height={"100%"}
+            height={"23px"}
             className="p-[6px] "
-            width={"100%"}
+            width={"116px"}
             to="#gMap"
-            styles={{ padding: "5px 10px" }}
+            styles={{ padding: "1px 10px" }}
             color={buttonLinkBoxBorderColor}
           >
             Get Directions
