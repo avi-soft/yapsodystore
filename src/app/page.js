@@ -138,7 +138,7 @@ export default async function Home({ searchParams }) {
           boxBorderColor={buttonLinkBoxBorderColor}
           faqCount={faqCount}
         />
-        <div className="md:w-1/4 px-2.5 flex justify-center">
+        <div className="md:w-1/4 px-2.5 flex justify-center max-base:w-[100%]">
           <Search
             color={boxBackgroundColor}
             textColor={headingColor}

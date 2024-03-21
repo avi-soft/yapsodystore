@@ -92,7 +92,7 @@ const Search = ({
   }, [results, query, handleSelectResult]);
 
   return (
-    <div className="relative mb-[15px] mt-[18px]">
+    <div className="relative mb-[15px] mt-[18px] max-base:w-[100%]">
       <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
         <IoSearchSharp color={textColor} className={styles.icon} />
       </div>
@@ -110,7 +110,7 @@ const Search = ({
       <input
         type="text"
         style={inputStyle}
-        className={`h-[40px] border rounded-[5px] py-2 px-9 pr-10 focus:outline-none focus:border-blue-500`}
+        className={`h-[40px] border rounded-[5px] py-2 px-9 pr-10 focus:outline-none focus:border-blue-500 max-base:w-[100%]`}
         placeholder="Search events"
         value={query}
         id="search-input"
