@@ -28,7 +28,7 @@ const EventDetails = ({
         style={{
           color: headingColor,
         }}
-        className="font-normal m-0 leading-[1.2]"
+        className="font-normal m-0 leading-[1.2] max-xs:mb-[13px]"
       >
         <Link href={goToEvent(eventId, eventName)}>
           <p className="overflow-wrap-break word-wrap-break break-word">
@@ -41,7 +41,7 @@ const EventDetails = ({
         </span>
       </div>
       <Link href={goToEvent(eventId, eventName)}>
-        <span className="flex gap-1 text-sm" style={{ color: textColor }}>
+        <span className="flex gap-1 text-sm max-xs:mb-[12px]" style={{ color: textColor }}>
           <span className="mt-1">
             {locationType == "physical" ? (
               <MdLocationPin className="size-4" />
@@ -56,7 +56,7 @@ const EventDetails = ({
       </Link>
     </div>
     <div
-      className=" text-sm font-bold leading-[1.7]"
+      className=" text-sm font-bold leading-[1.7] max-xs:mb-[5px]"
       style={{ color: textColor }}
     >
       <span className="flex gap-1">

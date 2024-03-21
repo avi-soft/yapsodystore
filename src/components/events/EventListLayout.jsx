@@ -57,10 +57,10 @@ export default function EventListLayout({
         showStartDateOnly={showStartDateOnly}
         buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
       />
-      <div className="relative ml-[45px]  min-h-[1px] w-[30%] px-[24px] text-right mt-auto mb-auto max-md:w-[100%] max-md:hidden max-xs:block max-xs:ml-auto max-xs:mr-auto max-xs:px-2">
+      <div className="relative ml-[45px]  min-h-[1px] w-[30%] px-[24px] text-right mt-auto mb-auto max-md:w-[100%] max-md:hidden max-xs:block max-xs:ml-auto max-xs:mr-auto max-xs:px-2 max-xs:mb-[6px]">
         <div className=" max-xs:w-[100%] rounded py-[6px] float-right font-lato text-[18px]">
           <Button
-            height={"43.7px"}
+            height={"100%"}
             width={"100%"}
             color={buttonLinkBoxBorderColor}
             to={goToEvent(eventId, eventName)}
