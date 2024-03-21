@@ -9,8 +9,8 @@ export default function EventDateTime({ date, time, headingColor, textColor }) {
         {moment(date).format("MMM D, YYYY")}
       </h4>
       <p
-        style={{ color: textColor }}
-        className="mb-[15px] text-center font-lato text-[16px] font-[500] text-[var(--text-primary)]"
+        style={{ color: headingColor }}
+        className="mb-[15px] text-center font-lato text-[22px] font-[500]"
       >
         {moment(date).format("LT")}
       </p>

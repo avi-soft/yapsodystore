@@ -4,6 +4,7 @@ import { MdLocationPin } from "react-icons/md";
 import moment from "moment";
 import Link from "next/link";
 import { goToEvent } from "@/helpers/common";
+import Button from "@/ui/Button";
 const EventDetails = ({
   locationId,
   locationType,
@@ -18,6 +19,7 @@ const EventDetails = ({
   eventNameTitle2,
   eventNameTitle3,
   showStartDateOnly,
+  buttonLinkBoxBorderColor,
   eventId,
 }) => (
   <div className="min-h-[1px] w-[45%] pl-2 pt-2  text-[#566270] max-md:w-[100%] max-md:px-[10px] text-xl float-left">
@@ -77,6 +79,16 @@ const EventDetails = ({
         </span>
       )}
     </div>
+    <div className="hidden max-md:w-[100%] rounded py-[6px] float-right font-lato text-[18px] max-md:block max-xs:hidden">
+          <Button
+            height={"43.7px"}
+            width={"124px"}
+            color={buttonLinkBoxBorderColor}
+            to={goToEvent(eventId, eventName)}
+          >
+            More Info
+          </Button>
+        </div>
   </div>
 );
 
