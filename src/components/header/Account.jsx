@@ -13,7 +13,7 @@ const Account = ({ color }) => {
   }
   return (
     <div
-      className={`mb-1 ${styles.pullLeft}  flex items-center flex-shrink-0`}
+      className={`mb-1 ${styles.pullLeft}  flex items-center flex-shrink-0 !border-none`}
       onClick={showSignIn}
     >
       <p className="myAccount px-[10px] ml-2 tracking-[0.5px] hidden font-onlyLato text-base text-[#2E294E] max-w-[130px] sm:inline-block">
@@ -23,10 +23,7 @@ const Account = ({ color }) => {
         <Image
           height={36}
           width={36}
-          src={`https://img.icons8.com/ios-filled/50/${color.slice(
-            1,
-            7
-          )}/user-male-circle.png`}
+          src={`https://img.icons8.com/ios-filled/50/user-male-circle.png`}
           alt="user-male-circle"
           className="w-8 h-8 xs:mx-2.5"
         />
