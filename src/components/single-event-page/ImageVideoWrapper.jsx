@@ -14,7 +14,7 @@ export default function ImageVideoWrapper({
     type === "video"
       ? "w-[272px] sm:w-[666px] h-[200px] sm:h-[482px]"
       : "w-[259px] sm:w-[320px] h-[189px] sm:h-[240px]";
-
+  const justfyContentStyle = count>1?"justify-between":"justify-center";
   return (
     <>
       <dialog
@@ -36,7 +36,9 @@ export default function ImageVideoWrapper({
             {children}
           </div>
 
-          <div className="modal-action bg-transparent  flex justify-between w-full items-center   sm:text-[24px] text-[32px] ">
+          <div
+            className={`modal-action bg-transparent  flex ${justfyContentStyle} w-full items-center   sm:text-[24px] text-[32px] `}
+          >
             {count > 1 && (
               <button className="text-white">
                 <IoIosArrowBack size={42} onClick={onClickPrev} />

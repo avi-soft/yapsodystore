@@ -110,9 +110,7 @@ const Search = ({
       <input
         type="text"
         style={inputStyle}
-
         className="focus:outline-none focus:border-[red] h-[40px] border text-[14px] rounded-[5px] py-2 px-9 pr-10  xl:w-[290px] lg:w-[250px] w-[201px] 2xl:w-[333px] transition-width"
-
         placeholder="Search events"
         value={query}
         id="search-input"
