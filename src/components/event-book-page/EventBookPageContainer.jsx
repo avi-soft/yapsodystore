@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Cart from "@/components/event-book-page/ticketcart/Cart";
 import Selector from "@/components/event-book-page/ticketselector/TicketSelector";
 import { useState } from "react";
@@ -26,8 +26,8 @@ export default function EventBookPageContainer({ eventSeatData,sectionData, pric
   };
 
   return (
-    <div className="pt-[60px]">
-      <div className="float-left">
+    <div className="pt-[60px] overflow-auto">
+      <div className="mr-[400px]">
         <Selector
           selectedTickets={selectedTickets}
           handleTicketChange={handleTicketChange}
