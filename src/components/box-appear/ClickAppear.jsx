@@ -6,7 +6,7 @@ import { RxCrossCircled } from "react-icons/rx";
 
 export default function ClickBox({ component: Component, onClose }) {
   const [componentWidth, setComponentWidth] = useState(0);
-  const handleClose1 = () => {
+  const handleClose = () => {
     onClose();
   };
   useEffect(() => {
