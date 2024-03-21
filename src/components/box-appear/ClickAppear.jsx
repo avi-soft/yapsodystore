@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, use} from 'react';
 import './style.css';
 import { RxCrossCircled } from "react-icons/rx";
 
@@ -8,10 +8,12 @@ export default function ClickBox({ component: Component, onClose}) {
     const [componentWidth, setComponentWidth] = useState(0)
     const handleClose1=()=>{
         onClose();
-    }
-    useEffect(() => {
+      }
+
+    useEffect(()=>{
         document.getElementById('my_modal_1').showModal();
-    }, []);
+    },[]);
+
 
     useEffect(() => {
         function handleResize() {
@@ -19,13 +21,13 @@ export default function ClickBox({ component: Component, onClose}) {
             setComponentWidth(modalContent.offsetWidth);
         }
 
-        handleResize(); // Set initial width
-        window.addEventListener('resize', handleResize); // Update width on resize
+    handleResize(); // Set initial width
+    window.addEventListener("resize", handleResize); // Update width on resize
 
-        return () => {
-            window.removeEventListener('resize', handleResize); // Remove event listener on cleanup
-        };
-    }, []);
+    return () => {
+      window.removeEventListener("resize", handleResize); // Remove event listener on cleanup
+    };
+  }, []);
 
     return (
         <div>
@@ -38,7 +40,7 @@ export default function ClickBox({ component: Component, onClose}) {
                 alignItems: 'center',
                 justifyContent: 'center'
             }} onClose={handleClose1}>
-                {/* <form method="dialog"> */}
+                {/* <form method="dialog" className="modal-backdrop" onClick={handleClose1}> */}
                 
                     <div className="temporary-button" style={{ width: componentWidth }}  >
                             {/* <button className="btn btn-sm btn-circle btn-ghost close-button" style={{ borderWidth: 2 }}>✕</button> */}

@@ -25,7 +25,7 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
   useEffect(() => {
     function closeArrow(type) {
       let upArrow = document.getElementById(`up-${type}`);
-      if (upArrow.classList.contains("block")) {
+      if (upArrow && upArrow.classList.contains("block")) {
         upArrow.classList.replace("block", "hidden");
         document.getElementById(`down-${type}`).classList.toggle("hidden");
       }
@@ -73,8 +73,8 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
       <button className="flex flex-row h-12 items-center ">
         <div className="relative  ">
           {type === "lang" ? (
-            <div className="flex items-center">
-              <p className="mr-1 font-semibold font-roboto">
+            <div className="flex items-center mb-2">
+              <p className=" font-semibold font-roboto">
                 {langCode.toUpperCase()}
               </p>
               <Arrows type={type} />
