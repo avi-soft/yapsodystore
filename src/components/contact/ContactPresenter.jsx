@@ -12,14 +12,16 @@ const ContactPresenter = ({ size, color }) => {
     setShowSignIn(!showSignIn);
   };
   return (
+
     <>
       <div
         onClick={ShowContactPresenterPage}
-        className="font-lato text-[16px] flex items-center cursor-pointer"
+        className="font-lato text-[14px] flex items-center cursor-pointer"
       >
         <IconLabel color={color} size={size} icon="contact" gap={3} />
         <span style={{ color: color }}>Contact Presenter</span>
       </div>
+
       {showSignIn && (
         <ContactPresent onClose={() => setShowSignIn(!showSignIn)} />
       )}

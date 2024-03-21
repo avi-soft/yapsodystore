@@ -35,7 +35,7 @@ export default async function Layout({ children, params }) {
         brandImage={brandImage}
         iconColor={buttonLinkBoxBorderColor}
       />
-      <div className="pb-8 flex-1">{children}</div>
+      <div className="pb-8 flex-1 md:pb-[50px]">{children}</div>
       <Footer
         supportUrl={supportUrl}
         termsUrl={termsUrl}
