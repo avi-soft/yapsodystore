@@ -1,0 +1,144 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .error-page {
+    padding: 40px 0 90px 0;
+    text-align: center;
+    height: 575px;
+    margin: auto;
+    margin-top: 100px;
+  }
+  
+  .container {
+    height: 445px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  
+  .error-title {
+    font-size: 265px;
+    line-height: 1;
+    width: 940px;
+    height: 272px;
+    margin: 0 auto;
+    color: #d0d8e5;
+    position: relative;
+  }
+  
+  .error-title .lock-img {
+    position: absolute;
+    bottom: 11%;
+    left: 44%;
+    width: 132px;
+    height: 132px;
+  }
+  
+  .error-text {
+    font-size: 22px;
+    line-height: 1.82;
+    margin: 0 0 30px;
+    color: #6b6c6e;
+    text-align: center;
+  }
+  
+  .btn {
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: auto;
+  }
+  
+  .btn-primary {
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 100;
+    text-decoration: none;
+    border-radius: 2px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    width: 150.51px;
+    height: 37.6px;
+  }
+  
+  .btn-primary a {
+    text-decoration: none;
+  }
+  
+  @media (max-width: 480px) {
+    .error-page {
+      padding: 45px 0;
+    }
+    
+    .container {
+      height: auto;
+    }
+    
+    .error-title {
+      font-size: 130px;
+      width: auto;
+      height: auto;
+    }
+    
+    .error-title .lock-img {
+      bottom: 11%;
+      left: 37%;
+      height: 65px;
+      width: 65px;
+    }
+    
+    .error-text {
+      font-size: 18px;
+    }
+  
+    .btn {
+      width: 320px;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .btn-primary {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+  
+  @media (max-width: 320px) {
+    .error-page {
+      padding: 45px 0;
+    }
+  
+    .error-title {
+      font-size: 130px;
+      width: auto;
+      height: auto;
+    }
+  
+    .error-title .lock-img {
+      left: 39%;
+      height: 65px;
+      width: 65px;
+    }
+  
+    .error-text {
+      font-size: 18px;
+    }
+  
+    .btn {
+      width: 100%;
+    }
+  }
+  
