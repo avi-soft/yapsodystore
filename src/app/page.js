@@ -45,24 +45,25 @@ export default async function Home({ searchParams }) {
     typeof searchParams.end_date === "string"
       ? searchParams.end_date
       : undefined;
+
+  const eventList = await getEventDetails();
   let events = [];
+
   if (search) {
     events = await getSearchEvents(search);
-  } else if (start_date && end_date && start_date === end_date) {
-    events = await getDateEvents(start_date, end_date);
-  } else if (start_date && end_date && start_date !== end_date) {
-    const dates = await getCalenderEvents(start_date, end_date);
-    const keys = Object.keys(dates);
-    for (const key of keys) {
-      const singleDateEvents = await getDateEvents(key, key);
-      for (const event of singleDateEvents) {
-        events.push(event);
+  } else if (start_date && end_date) {
+    if (start_date === end_date) {
+      events = await getDateEvents(start_date, end_date);
+    } else {
+      const calendarEvents = await getCalenderEvents(start_date, end_date);
+      for (const date of Object.keys(calendarEvents)) {
+        const singleDateEvents = await getDateEvents(date, date);
+        events.push(...singleDateEvents);
       }
     }
   } else {
-    events = await getEventDetails();
+    events = eventList;
   }
-  const eventList = await getEventDetails();
 
   const {
     boxBackgroundColor,

@@ -38,33 +38,36 @@ export default async function SingleEventPage({ params, searchParams }) {
       : undefined;
 
   const eventData = await getSingleEventData(eventId);
-
   if (eventData.status == 404) return notFound();
+  const allPerformances = await getSingleEventPerformances(eventId);
   let performances = [];
-  if (start_date && end_date && start_date === end_date) {
-    const performanceObject = await getDatePerformances(
-      eventId,
-      start_date,
-      end_date
-    );
-    performances = performanceObject.performances;
-  } else if (start_date && end_date && start_date !== end_date) {
-    const dates = await getCalenderPerformances(eventId, start_date, end_date);
-    const keys = Object.keys(dates);
-    for (const key of keys) {
-      const singlePerformanceDate = await getDatePerformances(
+
+  if (start_date && end_date) {
+    if (start_date === end_date) {
+      const performanceObject = await getDatePerformances(
         eventId,
-        key,
-        key
+        start_date,
+        end_date
       );
-      for (const performance of singlePerformanceDate.performances) {
-        performances.push(performance);
+      performances = performanceObject.performances;
+    } else {
+      const dates = await getCalenderPerformances(
+        eventId,
+        start_date,
+        end_date
+      );
+      for (const date of Object.keys(dates)) {
+        const singlePerformanceDate = await getDatePerformances(
+          eventId,
+          date,
+          date
+        );
+        performances.push(...singlePerformanceDate.performances);
       }
     }
   } else {
-    ({ performances } = await getSingleEventPerformances(eventId));
+    performances = allPerformances.performances;
   }
-  const allPerformances = await getSingleEventPerformances(eventId);
 
   const {
     boxBackgroundColor,

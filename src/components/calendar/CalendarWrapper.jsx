@@ -6,6 +6,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { RxCrossCircled } from "react-icons/rx";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
+import { goToEvent } from "@/helpers/common";
 
 export default function CalendarWrapper({
   children,
@@ -50,7 +51,7 @@ export default function CalendarWrapper({
   const clearSearch = useCallback(() => {
     isHome
       ? router.push(`/`)
-      : router.push(`/event/index/${eventId}/${eventData.event_title1}`);
+      : router.push(goToEvent(eventId, eventData.event_title1));
   }, [router]);
 
   return (
