@@ -27,26 +27,38 @@ const ClickFaq = ({ component: Component, onClose }) => {
 
     return (
         <div>
-            {/* <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>open modal</button> */}
-            
-            <dialog id="my_modal_2" className="modal" style={{
+            {/* <dialog id="my_modal_2" className="modal" style={{
                 backgroundColor: 'rgb(51 48 48 / 84%)',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center'
             }}>
-
-                <div className="temporary-button1" style={{ width: componentWidth }} onClick={handleClose}>
-                    
-                    <div style={{fontSize:'26px', color:'white', }}><RxCrossCircled style={{cursor:'pointer'}}/></div>
-                </div>
-
                 <div className="modal-box" id='modal-content1'>
                     <Component />
                 </div>
+                <form method="dialog" className="modal-backdrop">
+                    <div className="temporary-button1" style={{ width: componentWidth }} onClick={handleClose}>           
+                        <div style={{fontSize:'25px', color:'white', }}><RxCrossCircled style={{cursor:'pointer', width:'24px', height:'24px'}}/></div>
+                    </div>    
+                </form>          
 
+            </dialog> */}
+
+            <dialog id="my_modal_2" className="modal" style={{
+                backgroundColor:'rgb(51 48 48 / 84%)',
+            }} onClose={handleClose}>
+                <div className="modal-box" id='modal-content1'>
+                    <Component />
+                </div>
+                <form method="dialog" className="modal-backdrop" onClick={handleClose}>
+                    <button style={{cursor:'auto'}} >close</button>
+                    <div className="temporary-button1" style={{ width: componentWidth }} >
+                        <div ><RxCrossCircled style={{ cursor: 'pointer', width: '24px', height: '24px',color:'white' }} /></div>
+                    </div>
+                </form>
             </dialog>
+
         </div>
     )
 }

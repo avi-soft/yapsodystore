@@ -4,14 +4,18 @@
     border: 1px solid #d8cece;
     overflow-y: auto;
 }
+.inside-faq{
+    cursor: pointer;
+}
 
 .freqaskquest{
-    padding: 16px 14px;
-    border-bottom: 1px solid #eadcdc;
+    padding: 18px 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);;
     font-weight: 600;
     font-size: 1rem;
     letter-spacing: .5px;
     color: #353054;
+    height: 54.59px;
 }
 
 .present-faq{
@@ -39,6 +43,9 @@
     }
 }
 @media (max-width:340px){
+    .freqaskquest{
+        height: 74px;
+    }
     .Freq-main-page .right-faq{
         width: 200px;
         max-height: 100%;

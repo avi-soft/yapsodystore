@@ -37,7 +37,7 @@ export default function ClickBox({ component: Component, onClose}) {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center'
-            }} >
+            }} onClose={handleClose1}>
                 {/* <form method="dialog"> */}
                 
                     <div className="temporary-button" style={{ width: componentWidth }}  >

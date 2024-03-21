@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { SlArrowUp,SlArrowDown } from "react-icons/sl";
 import "./style.css";
 
 const DisplayFq = ({ faq, index, expandIndex, setExpandIndex }) => {
@@ -11,16 +12,16 @@ const DisplayFq = ({ faq, index, expandIndex, setExpandIndex }) => {
   };
 
   return (
-    <div className="present-faq py-[16px] transition-all">
+    <div className="present-faq transition-all" style={{paddingTop:'17px', paddingBottom:'21px'}}>
       <div className="inside-faq " onClick={toggleAnswerVisibility}>
         <div
           style={{
             fontWeight: "600",
             color: "rgba(1, 22, 56, 0.7)",
-            cursor: "pointer",
+            
             flex: 90,
             fontSize: "1rem",
-            padding: "0px 10px",
+            padding: "0px 15px",
             fontFamily: "Lato",
           }}
           onClick={toggleAnswerVisibility}
@@ -31,18 +32,20 @@ const DisplayFq = ({ faq, index, expandIndex, setExpandIndex }) => {
           style={{
             flex: 10,
             display: "flex",
-            justifyContent: "center",
-            color: "grey",
-            fontSize: "22px",
+            justifyContent: "start",
+            color: '#757272',
+            fontSize: "18px",
+            paddingTop:'3px',
+            paddingLeft:'25px'
           }}
         >
-          <spa>{isExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}</spa>
+          <spa>{isExpanded ? <SlArrowUp />  : <SlArrowDown />}</spa>
         </div>
       </div>
 
       {isExpanded && (
         <div
-          style={{ color: "#343131", marginTop: "24px", marginLeft: "14px" }}
+          style={{ color: "#343131", margin:'25px 0 14px 15px' }}
         >
           {faq.ans}
         </div>
