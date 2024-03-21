@@ -22,7 +22,7 @@ const EventDetails = ({
   buttonLinkBoxBorderColor,
   eventId,
 }) => (
-  <div className="min-h-[1px] w-[45%] pl-2 pt-2  text-[#566270] max-md:w-[100%] max-md:px-[10px] text-xl float-left">
+  <div className="min-h-[1px] w-[45%] pl-2 pt-[5px]  text-[#566270] max-md:w-[100%] max-md:px-[10px] text-xl float-left">
     <div className="mb-1">
       <div
         style={{
@@ -41,7 +41,7 @@ const EventDetails = ({
         </span>
       </div>
       <Link href={goToEvent(eventId, eventName)}>
-        <span className="flex gap-2 text-sm" style={{ color: textColor }}>
+        <span className="flex gap-1 text-sm" style={{ color: textColor }}>
           <span className="mt-1">
             {locationType == "physical" ? (
               <MdLocationPin className="size-4" />
