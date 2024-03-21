@@ -198,3 +198,34 @@ export async function getSingleEventData(eventId) {
   });
   return response.status == 404 ? response : response.data;
 }
+export async function getEventSeatData(eventId) {
+  const response = await getData(
+    baseUrl + request.singleEvent(eventId) + `?include_ci_data=true`,
+    {
+      ...headerData,
+      next: { revalidate: 5 },
+    }
+  );
+  return response.status == 404 ? response : response.data;
+}
+export async function getPricingInfoData(eventId,dateId) {
+  const response = await getData(
+    baseUrl + request.singlePerformancePricing(eventId, dateId),
+    {
+      ...headerData,
+      next: { revalidate: 5 },
+    }
+  );
+  return response.status == 404 ? response : response.data;
+}
+
+export async function getSectionData(eventId, dateId) {
+  const response = await getData(
+    baseUrl + request.singlePerformanceSection(eventId, dateId),
+    {
+      ...headerData,
+      next: { revalidate: 5 },
+    }
+  );
+  return response.status == 404 ? response : response.data;
+}

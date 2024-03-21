@@ -18,7 +18,10 @@ function Contact() {
                   </label>{" "}
                   <span className="text-red-500">*</span>
                   <br />
-                  <select className="border border-[#ccc] text-slate-700 rounded w-full mt-1 py-2 px-4">
+                  <select
+                    className="border border-[#ccc] text-slate-700 rounded w-full mt-1 py-2 px-4 pointer-events-auto"
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     <option value="MULTI Events">MULTI Events</option>
                     <option value="RS Event 28603">RS Event 28603</option>
                     <option value="GA-SD">GA-SD</option>
@@ -35,10 +38,11 @@ function Contact() {
                   <span className="text-red-500">*</span>
                   <br />
                   <input
-                    className="border border-[#ccc] rounded w-full outline-blue-300 mt-1 py-2 px-4"
+                    className="border border-[#ccc] rounded w-full outline-blue-300 mt-1 py-2 px-4 pointer-events-auto"
                     type="text"
                     name=""
                     id=""
+                    onClick={(e) => e.stopPropagation()}
                   />
                 </div>
 
@@ -49,10 +53,11 @@ function Contact() {
                   <span className="text-red-500">*</span>
                   <br />
                   <input
-                    className="border border-[#ccc] rounded w-full outline-blue-300 mt-1 py-2 px-4"
+                    className="border border-[#ccc] rounded w-full outline-blue-300 mt-1 py-2 px-4 pointer-events-auto"
                     type="text"
                     name=""
                     id=""
+                    onClick={(e) => e.stopPropagation()}
                   />
                 </div>
 
@@ -63,11 +68,12 @@ function Contact() {
                   <span className="text-red-500">*</span>
                   <br />
                   <textarea
-                    className="border border-[#ccc] rounded w-full outline-blue-300 mt-1 py-2 px-4 h-32 resize-none"
+                    className="border border-[#ccc] rounded w-full outline-blue-300 mt-1 py-2 px-4 h-32 resize-none pointer-events-auto"
                     name=""
                     id=""
                     cols="30"
                     rows="10"
+                    onClick={(e) => e.stopPropagation()}
                   ></textarea>
                 </div>
               </div>
@@ -80,13 +86,23 @@ function Contact() {
                     <span>
                       For technical questions please <br></br>contact{" "}
                     </span>
-                    <Link className="text-purple-400" href="/">
+                    <Link
+                      className="text-purple-400 pointer-events-auto"
+                      href="/"
+                      onClick={(e) => e.stopPropagation()}
+                    >
                       {" "}
                       Yapsody Customer Support.
                     </Link>
                   </div>
                   <div className="contact-form_button">
-                    <button className="bg-purple-400 tracking-wide text-white w-36 font-medium text-sm py-2 px-4 rounded">
+                    <button
+                      className="bg-purple-400 tracking-wide text-white w-36 font-medium text-sm py-2 px-4 rounded pointer-events-auto"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                      }}
+                    >
                       Send Message
                     </button>
                   </div>

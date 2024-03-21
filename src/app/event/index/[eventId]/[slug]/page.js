@@ -55,7 +55,7 @@ export default async function SingleEventPage({ params }) {
       isHome={false}
     >
       <div className={`ml-auto mr-auto w-[100%] rounded-[8px]`}>
-        <div className="flex pb-10 pl-4 pr-2 max-xl:block">
+        <div className=" pb-10 pl-4 pr-2 max-xl:block">
           <SideBarEventPage
             buttonColor={buttonLinkBoxBorderColor}
             textColor={textColor}
