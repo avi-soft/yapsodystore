@@ -10,7 +10,7 @@ import SocialShareWidget from "@/components/social-share-widget/SocialShare";
 // import { useState } from "react";
 
 export default async function Layout({ children, params }) {
-  // const { eventId } = params;
+  const { eventId } = params;
   // const [view, setView] = useState(true);
 
   // const handleView = () => {
@@ -57,14 +57,9 @@ export default async function Layout({ children, params }) {
         sellTicketUrl={sellTicketUrl}
         companyName={companyName}
       />
-      {view && <SocialShareWidget />}
-      <div className="md:hidden block mt-[57px] max-sm:mt-[65px] max-[375px]:mt-[75px]">
-        <BottomView
-          isEventTypePhysical={isEventTypePhysical}
-          buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
-          onChangeState={handleView}
-        />
-      </div>
+      {/* {view && <SocialShareWidget />} */}
+
+      <BottomView buttonLinkBoxBorderColor={buttonLinkBoxBorderColor} isEventTypePhysical={isEventTypePhysical} />
     </>
   );
 }

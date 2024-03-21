@@ -1,16 +1,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { RxCrossCircled } from "react-icons/rx";
 import Script from "next/script";
+import "./style.css";
+import { RxCrossCircled } from "react-icons/rx";
 
-const ClickFaq = ({ component: Component, onClose }) => {
+export default function ClickSignIn({ component: Component, onClose, color }) {
   const [componentWidth, setComponentWidth] = useState(0);
   const handleClose = () => {
     onClose();
   };
-  useEffect(() => {
-    document.getElementById("my_modal_2").showModal();
-  }, []);
 
   // Add event listener for escape key
   useEffect(() => {
@@ -29,8 +27,12 @@ const ClickFaq = ({ component: Component, onClose }) => {
   }, [onClose]);
 
   useEffect(() => {
+    document.getElementById("my_modal_3").showModal();
+  }, []);
+
+  useEffect(() => {
     function handleResize() {
-      const modalContent = document.getElementById("modal-content1");
+      const modalContent = document.getElementById("modal-content-signin");
       setComponentWidth(modalContent.offsetWidth);
     }
 
@@ -50,8 +52,8 @@ const ClickFaq = ({ component: Component, onClose }) => {
         crossorigin="anonymous"
       />
       <dialog
-        id="my_modal_2"
-        className="modal"
+        id="my_modal_3"
+        className=" !pointer-events-none modal"
         style={{
           backgroundColor: "rgb(51 48 48 / 84%)",
           display: "flex",
@@ -61,21 +63,50 @@ const ClickFaq = ({ component: Component, onClose }) => {
         }}
       >
         <div
-          className="temporary-button1"
+          className="temporary-button !pointer-events-auto"
           style={{ width: componentWidth }}
           onClick={handleClose}
         >
-          <div style={{ fontSize: "26px", color: "white" }}>
-            <RxCrossCircled style={{ cursor: "pointer" }} />
-          </div>
+          <form method="dialog">
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                cursor: "pointer",
+              }}
+              onClick={() => document.getElementById("my_modal_3").close()}
+            >
+              <div style={{ fontSize: "24px" }}>
+                <RxCrossCircled />
+              </div>
+              <div
+                style={{
+                  marginLeft: 6,
+                  display: "grid",
+                  placeContent: "center",
+                  fontSize: "1em",
+                  textTransform: "uppercase",
+                }}
+              >
+                ESC
+              </div>
+            </div>
+          </form>
         </div>
 
-        <div className="modal-box" id="modal-content1">
-          <Component />
+        <div
+          className="modal-box"
+          style={{
+            width: "auto",
+            maxWidth: "100%",
+            padding: 0,
+            borderRadius: "9px",
+          }}
+          id="modal-content-signin"
+        >
+          <Component color={color} />
         </div>
       </dialog>
     </div>
   );
-};
-
-export default ClickFaq;
+}

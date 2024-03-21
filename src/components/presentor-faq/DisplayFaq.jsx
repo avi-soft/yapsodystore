@@ -36,7 +36,7 @@ const DisplayFq = ({ faq, index, expandIndex, setExpandIndex }) => {
             fontSize: "22px",
           }}
         >
-          <spa>{isExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}</spa>
+          <span>{isExpanded ? <IoIosArrowUp /> : <IoIosArrowDown />}</span>
         </div>
       </div>
 

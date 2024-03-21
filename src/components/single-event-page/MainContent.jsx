@@ -49,7 +49,7 @@ const MainContent = ({
       : "";
   
   return (
-    <div className=" xl:ml-[70px] mt-16 flex-1 px-[10px] pb-[30px] scrollbar-hide">
+    <div className="xl:ml-[375px] ml-0 mt-16 flex-1 px-[10px] pb-[30px] block scrollbar-hide">
       <section className="mb-8 flex flex-col items-start justify-center gap-2">
         <h1
           style={headingStyle}
