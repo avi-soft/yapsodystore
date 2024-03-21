@@ -24,6 +24,7 @@
 .present-faq {
     display: flex;
     flex-direction: row;
+    /* max-height: 0; */
 }
 
 

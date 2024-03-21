@@ -4,10 +4,9 @@ import Header from "@/components/header/Navbar";
 import Footer from "@/components/footer/footer";
 import { getThemeData, getSingleEventData } from "@/helpers/api-utils";
 import BottomView from "@/components/social-share-widget/BottomView";
-import SocialShareWidget from "@/components/social-share-widget/SocialShare";
+
 export default async function Layout({ children, params }) {
   const { eventId } = params;
-  let view = true;
 
   const {
     venueName,
