@@ -5,7 +5,6 @@ import ContactPresenter from "../contact/ContactPresenter";
 import Button from "@/ui/Button";
 import { useState } from "react";
 import SocialShareWidget from "./SocialShare";
-
 function BottomView({ buttonLinkBoxBorderColor, isEventTypePhysical }) {
 
   const [view, setView] = useState(true);

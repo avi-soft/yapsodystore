@@ -13,7 +13,6 @@
     letter-spacing: .5px;
     color: #353054;
 }
-
 /* .present-faq{
     transition: margin-top 0.5s ease, opacity 0.5s ease;
     display: flex;
@@ -25,7 +24,6 @@
 .present-faq {
     display: flex;
     flex-direction: row;
-    /* max-height: 0; */
 }
 
 
