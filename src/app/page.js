@@ -14,9 +14,9 @@ import {
   getThemeData,
 } from "@/helpers/api-utils";
 import { Suspense } from "react";
-import Loading from "./loading";
 import Header from "../components/header/Navbar";
 import Footer from "@/components/footer/footer";
+import LoadingIcon from "@/ui/LoadingIcon";
 
 const monthsMap = {
   0: "January",
@@ -144,6 +144,8 @@ export default async function Home({ searchParams }) {
             textColor={headingColor}
             buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
             search={search}
+            placeholderColor={textColor}
+            // onSearchSelect={handleEventSelect}
           />
         </div>
         <div className="w-full px-2.5 flex flex-col items-center">
@@ -162,7 +164,7 @@ export default async function Home({ searchParams }) {
               monthsMap={monthsMap}
             />
           </CalendarWrapper>
-          <Suspense fallback={<Loading />}>
+          <Suspense fallback={<LoadingIcon />}>
             <MainPageEventList
               events={events}
               headingColor={headingColor}

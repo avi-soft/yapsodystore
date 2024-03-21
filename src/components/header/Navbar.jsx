@@ -8,7 +8,7 @@ import { getLanguageData } from "@/helpers/api-utils";
 // Navbar component definition
 const Navbar = async ({ langCode, brandImage, venueName, iconColor }) => {
   const languageData = await getLanguageData();
-  const isLogin = true;
+  const isLogin = false;
   const userName = "yaptestaddon4 test";
   // const top_image = "https://s3.amazonaws.com/ft-images/top_logo/affbd71e9b4d30c1b18264f6a91faae8dbfcca5c.jpg"
   const color = "53D63C";
@@ -23,14 +23,18 @@ const Navbar = async ({ langCode, brandImage, venueName, iconColor }) => {
         iconColor={iconColor}
       />
       <div
-        className={`${styles.headerRight} flex flex-wrap justify-between items-center`}
+        className={`${styles.headerRight} flex flex-wrap justify-between items-center cursor-pointer`}
       >
         <Dropdown langCode={langCode} languageData={languageData} type="lang" />
 
         <div className={`${styles.pullLeft} h-[57px] flex items-center shrink`}>
           <CartIcon iconColor={iconColor} />
         </div>
-        {isLogin ? <Dropdown type="account" user={userName} /> : <Account />}
+        {isLogin ? (
+          <Dropdown type="account" user={userName} />
+        ) : (
+          <Account color={iconColor} />
+        )}
       </div>
     </header>
   );
