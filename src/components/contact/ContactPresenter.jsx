@@ -15,7 +15,7 @@ const ContactPresenter = ({ size, color }) => {
 
     <div
       onClick={handleClick}
-      className="font-lato text-[16px] flex items-center cursor-pointer"
+      className="font-lato text-[14px] flex cursor-pointer items-center"
     >
       <IconLabel color={color} size={size} icon="contact" gap={3} />
       <span style={{ color: color }}><span className="md:inline-block hidden">Contact</span> Presenter</span>
