@@ -18,14 +18,17 @@ export default function SocialLinks({ url, type, iconColor }) {
       <Link href={url}>
         {type === "website" || type === "hyperlinks" ? 
           (
+            <span className="tracking-wide">
             <IconLabel
               color={iconColor}
               size={type === "website" ?"size-5":"size-4"}
               icon={type}
               gap={3}
+              
             >
               {url}
             </IconLabel>
+            </span>
           ) : (
           <Image
             src={`${basepath}${linkTypes[type]}`}
