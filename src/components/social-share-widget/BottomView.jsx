@@ -20,10 +20,10 @@ function BottomView({ buttonLinkBoxBorderColor, isEventTypePhysical }) {
           className={`items-center justify-between text flex z-20 py-[21px] px-[15px] bg-[#e0e1ea] text-white w-[100%] left-0 right-0 border border-white bottom-0 fixed`}
         >
           {view && (
-          <div className="max-md:bottom-[calc(0%+67px)] max-sm:left-0 absolute z-20 right-0 max-sm:right-auto md:rounded bg-[#ffffff] p-[12px] text-[30px] shadow-[0px_1px_4px_0px_rgba(0,0,0,0.335)] max-[377px]:bottom-[calc(0%+84px)]">
-            <SocialShareWidget />
-          </div>
-        )}
+            <div className="max-md:bottom-[calc(0%+67px)] max-sm:left-0 absolute z-20 right-0 max-sm:right-auto md:rounded bg-[#ffffff] p-[12px] text-[30px] shadow-[0px_1px_4px_0px_rgba(0,0,0,0.335)] max-[376px]:bottom-[calc(0%+82px)]">
+              <SocialShareWidget />
+            </div>
+          )}
           <div className="text mr-5 flex gap-7">
             <Link href={""} onClick={() => setView(!view)}>
               <IoShareSocial size={24} color={buttonLinkBoxBorderColor} />
