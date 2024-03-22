@@ -21,7 +21,9 @@ export default function Title({
         display: "flex",
         justifyContent: headerAlignmentClass,
       }}
-      className={`mx-[0px] mb-[22px] md:mb-[36px] mt-[30px] lg:mt-[20px] px-[10px] `}
+
+      className={`mx-[0px] mb-[22px] md:mb-[36px] mt-[30px] lg:mt-[18px] px-[10px] `}
+
     >
       {mainHeadingType == "img" && mainHeadingImage ? (
         <Image src={mainHeadingImage} alt={venueName} />

@@ -80,8 +80,8 @@ function reOpen(){
 
       <div className="w-[100%]">
         <div className="border-b mb-[25px] sm:block hidden mt-[20px] ">
-          <div className="flex pb-[8px]">
-            <div className="flex gap-2 pr-2 border-r slate-300 ">
+          <div className="flex pb-[6px] ml-[10px] mb-[5px]">
+            <div className="flex gap-2 pr-2 border-r slate-300 items-center pb-1 ">
               <span style={{ color: textColor }}>
                 Upcoming Events ({performancesCount})
               </span>
@@ -89,7 +89,7 @@ function reOpen(){
             <div className="ml-2" onClick={reOpen}>
               <div className="w-full">
                 <details className="dropdown calendar">
-                  <summary className="list-none ">
+                  <summary className="list-none ml-[10px] ">
                     {" "}
                     <FaCalendarAlt
                       color={buttonLinkBoxBorderColor}
