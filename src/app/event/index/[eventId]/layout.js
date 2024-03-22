@@ -44,7 +44,10 @@ export default async function Layout({ children, params }) {
         sellTicketUrl={sellTicketUrl}
         companyName={companyName}
       />
-      <BottomView buttonLinkBoxBorderColor={buttonLinkBoxBorderColor} isEventTypePhysical={isEventTypePhysical} />
+      <BottomView
+        buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
+        isEventTypePhysical={isEventTypePhysical}
+      />
     </>
   );
 }
