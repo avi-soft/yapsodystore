@@ -1,8 +1,13 @@
-"use client"
+"use client";
 import Cart from "@/components/event-book-page/ticketcart/Cart";
 import Selector from "@/components/event-book-page/ticketselector/TicketSelector";
 import { useState } from "react";
-export default function EventBookPageContainer({ eventSeatData,sectionData, pricingData }) {
+export default function EventBookPageContainer({
+  eventSeatData,
+  sectionData,
+  pricingData,
+  venueData,
+}) {
   const [selectedTickets, setSelectedTickets] = useState(0);
   const [tickets, setTickets] = useState([]);
 
@@ -34,6 +39,7 @@ export default function EventBookPageContainer({ eventSeatData,sectionData, pric
           eventSeatData={eventSeatData}
           sectionData={sectionData}
           pricingData={pricingData}
+          venueData={venueData}
           handleRemoveTicket={handleRemoveTicket}
         />
       </div>

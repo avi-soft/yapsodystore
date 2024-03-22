@@ -15,9 +15,11 @@ const TicketSelector = ({
   eventSeatData,
   sectionData,
   pricingData,
+  venueData,
   handleRemoveTicket,
 }) => {
-  const { event_seating_type, is_seats_io } = eventSeatData;
+  const { event_seating_type, is_seats_io, seats_io_chart_key } = eventSeatData;
+  console.log(eventSeatData);
   return (
     <div>
       <Script
@@ -44,7 +46,9 @@ const TicketSelector = ({
           handleTicketChange={handleTicketChange}
           sectionData={sectionData}
           pricingData={pricingData}
+          venueData={venueData}
           handleRemoveTicket={handleRemoveTicket}
+          seats_io_chart_key={seats_io_chart_key}
         />
       )}
       {event_seating_type === "reserved" && is_seats_io === 0 && (
