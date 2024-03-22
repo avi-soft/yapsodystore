@@ -127,6 +127,7 @@ const Search = ({
       {query && (
         <button
           className="absolute inset-y-0 right-0 pr-[12px] py-2"
+          className="absolute inset-y-0 right-0 pr-[12px] py-2"
           onClick={clearSearch}
         >
           <ImCross color={textColor} size={11} />
@@ -134,6 +135,7 @@ const Search = ({
       )}
       {showDropdown && !search && (
         <div
+          className="max-h-25vh  rounded-[4px] mt-2 absolute w-[100%] top-[34px] z-50 text-base "
           className="max-h-25vh  rounded-[4px] mt-2 absolute w-[100%] top-[34px] z-50 text-base "
           style={inputStyle}
         >
