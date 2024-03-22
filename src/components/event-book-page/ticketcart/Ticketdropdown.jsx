@@ -1,16 +1,21 @@
 import React from "react";
 
-const TicketDropdown = ({ onChange, quantity = 10 }) => {
+const TicketDropdown = ({
+  onChange,
+  quantity = 10,
+  classId,
+  selectedTickets,
+}) => {
   const options = Array.from({ length: parseInt(quantity) }, (_, i) => i + 1);
 
   const handleChange = (event) => {
-    onChange(parseInt(event.target.value), 10);
+    onChange(parseInt(event.target.value), classId);
   };
 
   return (
     <div className="relative inline-block w-full ">
       <select
-        value={"Select"}
+        value={selectedTickets[classId] ? selectedTickets[classId] : "Select"}
         onChange={handleChange}
         className="border border-[#ccc] rounded-[2px] p-[0.3rem] focus:outline-none focus:ring-1 focus:ring-indigo-500 text-[12px] bg-transparent w-[102px] text-[#454444] pl-[6px]"
       >
@@ -19,7 +24,7 @@ const TicketDropdown = ({ onChange, quantity = 10 }) => {
         </option>
         {options.map((option) => (
           <option key={option} value={option}>
-            {option} Ticket{option === 1 ? "" : "s"}
+            {option}
           </option>
         ))}
       </select>

@@ -52,6 +52,28 @@ export async function getData(...config) {
     return { status: 404 };
   }
 }
+export async function postData(url, payload, headerData = {}) {
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...headerData
+      },
+      body: payload
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error("Error posting data:", error);
+    return { status: 404 };
+  }
+}
+
 export async function getSearchEvents(query) {
   const eventData = await getData(
     baseUrl +
@@ -228,4 +250,14 @@ export async function getSectionData(eventId, dateId) {
     }
   );
   return response.status == 404 ? response : response.data;
+}
+
+export async function getBookingCartInfo(requestData){
+   const response = await postData(
+     "https://stage-api.yapsody.com/online/booking/cart/get_info",
+     requestData,
+     headerData
+   );
+   console.log(response);
+   return 1;
 }

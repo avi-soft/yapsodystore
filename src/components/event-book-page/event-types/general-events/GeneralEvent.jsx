@@ -32,7 +32,7 @@ export default function GeneralEvent({
               <div className="mid-part my-[4px]">
                 <div className="dollar">
                   {ticket_type.symbol}
-                  {ticket_type.price}
+                  {`${ticket_type.price}.00`}
                 </div>
               </div>
             </div>
@@ -42,9 +42,10 @@ export default function GeneralEvent({
                   Quantity
                 </label>
                 <TicketDropdown
-                  value={selectedTickets}
+                  classId={ticket_type.class_id}
                   onChange={handleTicketChange}
                   quantity={quantity}
+                  selectedTickets={selectedTickets}
                 />
               </div>
             </div>
