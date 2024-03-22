@@ -5,7 +5,7 @@ import { FaPinterest } from "react-icons/fa";
 import { IoShareSocial } from "react-icons/io5";
 export default function SocialShareWidget() {
   return (
-    <section className="fixed md:bottom-[40%] bottom-[8%] z-20 right-0 block md:rounded bg-[#ffffff] p-[12px] text-[30px] shadow-[0px_1px_4px_0px_rgba(0,0,0,0.335)]">
+    <section >
       <ul>
         <li className="pb-2">
           <Link href={"/"}>

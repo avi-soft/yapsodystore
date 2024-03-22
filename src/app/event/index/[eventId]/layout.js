@@ -2,8 +2,12 @@ import React from "react";
 
 import Header from "@/components/header/Navbar";
 import Footer from "@/components/footer/footer";
-import { getThemeData, getEventDetails } from "@/helpers/api-utils";
-export default async function Layout({ children }) {
+import { getThemeData, getSingleEventData } from "@/helpers/api-utils";
+import BottomView from "@/components/social-share-widget/BottomView";
+
+export default async function Layout({ children, params }) {
+  const { eventId } = params;
+
   const {
     venueName,
     brandImage,
@@ -17,7 +21,12 @@ export default async function Layout({ children }) {
     companyName,
   } = await getThemeData();
 
-  const events = await getEventDetails();
+  const eventData = await getSingleEventData(eventId);
+
+  const isEventTypePhysical =
+    eventData.location_type == "physical" &&
+    eventData.location_info.show_map != "no";
+
   return (
     <>
       <Header
@@ -26,7 +35,7 @@ export default async function Layout({ children }) {
         brandImage={brandImage}
         iconColor={buttonLinkBoxBorderColor}
       />
-      <div className="pb-8 flex-1">{children}</div>
+      <div className="pb-8 flex-1 md:pb-[50px]">{children}</div>
       <Footer
         supportUrl={supportUrl}
         termsUrl={termsUrl}
@@ -35,6 +44,7 @@ export default async function Layout({ children }) {
         sellTicketUrl={sellTicketUrl}
         companyName={companyName}
       />
+      <BottomView buttonLinkBoxBorderColor={buttonLinkBoxBorderColor} isEventTypePhysical={isEventTypePhysical} />
     </>
   );
 }

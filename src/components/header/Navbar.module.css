@@ -19,6 +19,12 @@
   height: 56px;
   width: inherit;
 }
+@media only screen and (max-width: 480px) {
+  .headerLogo {
+    padding: 15px;
+  }
+}
+
 .headerLeft {
   height: 100%;
   float: left !important;
@@ -45,10 +51,15 @@
 
 .headerRight {
   float: right !important;
-  border-left: solid 1px rgba(0, 0, 0, 0.15);
   height: 100%;
   color: black;
 }
+@media only screen and (max-width: 1024px) {
+  .headerRight {
+    border-left: solid 1px rgba(0, 0, 0, 0.15);
+  }
+}
+
 .pullLeft {
   cursor: pointer;
   border-right: solid 1px rgba(0, 0, 0, 0.15);
@@ -61,24 +72,19 @@
   padding-bottom: 5px;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 325px) {
   .headerVenue {
     display: flex;
     display: inline-block !important;
-    max-width: 100px;
+    max-width: 60px;
   }
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 290px) {
   .headerVenue {
-    max-width: 70px;
+    max-width: 50px;
   }
 }
-@media only screen and (max-width: 380px) {
-  .headerVenue {
-    max-width: 55px;
-  }
-}
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 250px) {
   .headerVenue {
     max-width: 40px;
   }
