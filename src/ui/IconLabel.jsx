@@ -27,7 +27,7 @@ export default function IconLabel({
       {...actions}
     >
       <span className={icon == "hyperlinks" ? "mt-1" : ""}>{reactIcon}</span>
-      <span className="whitespace-nowrap overflow-hidden text-ellipsis">
+      <span className="whitespace-nowrap overflow-hidden text-ellipsis text-[14px]">
         {children}
       </span>
     </div>

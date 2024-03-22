@@ -61,18 +61,18 @@ function reOpen(){
         className="modal modal-center sm:modal-center bg-[#2b313d] bg-opacity-90 z-[1050px]"
       >
         <div className="">
-          <div className="dropdown">{children}</div>
+          <div className="dropdown left-10">{children}</div>
           <div className="flex justify-center mt-6 ">
             <form method="dialog">
-              <div className="flex flex-row items-center ">
+              <button className="flex flex-row">
                 <RxCrossCircled
                   size={24}
-                  className="cursor-pointer  text-white"
+                  className="cursor-pointer  text-white"  
                 />
-                <button className=" ml-2 w-10 h-[50px] bg-transparent text-white items-center ">
+                <span className=" ml-2 w-10 h-[50px] bg-transparent text-white  ">
                   CLOSE
-                </button>
-              </div>
+                </span>
+              </button>
             </form>
           </div>
         </div>
@@ -80,8 +80,8 @@ function reOpen(){
 
       <div className="w-[100%]">
         <div className="border-b mb-[25px] sm:block hidden mt-[20px] ">
-          <div className="flex pb-[8px]">
-            <div className="flex gap-2 pr-2 border-r slate-300 ">
+          <div className="flex pb-[6px] ml-[10px] mb-[5px]">
+            <div className="flex gap-2 pr-2 border-r slate-300 items-center pb-1 ">
               <span style={{ color: textColor }}>
                 Upcoming Events ({performancesCount})
               </span>
@@ -89,7 +89,7 @@ function reOpen(){
             <div className="ml-2" onClick={reOpen}>
               <div className="w-full">
                 <details className="dropdown calendar">
-                  <summary className="list-none ">
+                  <summary className="list-none ml-[10px] ">
                     {" "}
                     <FaCalendarAlt
                       color={buttonLinkBoxBorderColor}
