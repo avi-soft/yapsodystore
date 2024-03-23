@@ -32,7 +32,7 @@ const EventDetails = ({
     return duration;
   }
 
-  const eventDuration = calculateEventDuration();
+  const eventDuration = Math.abs(calculateEventDuration());
 
 
   return (
