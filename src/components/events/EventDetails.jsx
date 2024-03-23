@@ -20,6 +20,7 @@ const EventDetails = ({
   eventNameTitle3,
   showStartDateOnly,
   eventId,
+
 }) => {
 
   const calculateEventDuration = () => {
@@ -54,6 +55,7 @@ const EventDetails = ({
             <h2>{eventNameTitle3}</h2>
           </span>
         </div>
+
         <Link href={goToEvent(eventId, eventName)}>
           <span className="flex gap-2 text-sm" style={{ color: textColor }}>
             <span className="mt-1">
@@ -69,10 +71,12 @@ const EventDetails = ({
           </span>
         </Link>
       </div>
+
       <div
         className=" text-sm font-bold leading-[1.7]"
         style={{ color: textColor }}
       >
+
 
         <span>
       

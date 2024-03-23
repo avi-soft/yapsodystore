@@ -6,10 +6,12 @@ import ContactPresent from "../Contact-form/ContactPresentor";
 const ContactPresenter = ({ size, color }) => {
   const [showSignIn, setShowSignIn] = useState(false);
 
+
   const ShowContactPresenterPage = () => {
     setShowSignIn(!showSignIn);
   };
   return (
+
     <>
       <div
         onClick={ShowContactPresenterPage}
