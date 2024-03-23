@@ -1,0 +1,37 @@
+
+
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    body {
+        font-family: "Lato", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.42857143;
+        color: #333;
+        background-color: #fdfdfd;
+    }
+    .outer{
+        margin: 50px auto;
+        padding: 10px;
+        max-width: 600px;
+        height:154px;
+        text-align: center;
+    }
+    .outer img{
+        width:125px;
+        height:100px;
+    
+    }
+    p{
+        opacity: .7;
+        font-family: Roboto;
+        font-size: 1em;
+        font-weight: normal;
+        line-height: 1.5;
+        letter-spacing: .5px;
+        text-align: center;
+        color: #CA24D6;
+    }
