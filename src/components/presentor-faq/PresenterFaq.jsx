@@ -5,7 +5,7 @@ import MainFaq from "./MainFaq";
 const PresenterFaq = ({ size, color }) => {
   const [showFaq, setshowFaq] = useState(false);
   const showFaqfunct = () => {
-    setshowFaq(true);
+    setshowFaq(!showFaq);
   };
   return (
     <div className="font-lato text-[14px] flex">
@@ -27,7 +27,7 @@ const PresenterFaq = ({ size, color }) => {
       {showFaq && (
         <MainFaq
           onClose={() => {
-            setshowFaq(false);
+            setshowFaq(!showFaq);
           }}
         />
       )}

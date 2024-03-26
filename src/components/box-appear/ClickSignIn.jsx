@@ -76,7 +76,7 @@ export default function ClickSignIn({ component: Component, onClose, color }) {
               }}
               onClick={() => document.getElementById("my_modal_3").close()}
             >
-              <div style={{ fontSize: "24px" }}>
+              <div style={{ fontSize: "25px" }}>
                 <RxCrossCircled />
               </div>
               <div
@@ -84,7 +84,7 @@ export default function ClickSignIn({ component: Component, onClose, color }) {
                   marginLeft: 6,
                   display: "grid",
                   placeContent: "center",
-                  fontSize: "1em",
+                  fontSize: "17px",
                   textTransform: "uppercase",
                 }}
               >

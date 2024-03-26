@@ -13,7 +13,7 @@ const Language = ({ languageData, langCode }) => {
   }
   return (
     <>
-      <div className="absolute right-2 mt-2">
+      <div className="absolute  mt-5" style={{right:'180%'}}>
         <div
           style={{
             filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))",
@@ -28,7 +28,7 @@ const Language = ({ languageData, langCode }) => {
         {languageData.map((option, index) => (
           <li
             key={index}
-            className={`p-[14px] text-left truncate border border-b-0 border-l-0 text-[#696a6c] font-roboto ${
+            className={`p-3 text-left text-[#696a6c] ${
               option.short === langCode ? "text-black" : ""
             }`}
           >

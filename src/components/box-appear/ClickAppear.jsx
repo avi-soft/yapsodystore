@@ -111,4 +111,3 @@ export default function ClickBox({ component: Component, onClose }) {
   );
 
 }
-

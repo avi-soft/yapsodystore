@@ -27,7 +27,7 @@ export default function MidContainer({ color }) {
               onClick={(e) => {
                 e.stopPropagation();
               }}
-            >{`Create/Forgot my Password`}</Link>
+            >{`Create / ForgotmyPassword`}</Link>
           </div>
           <div
             className="button-login font-lato"
