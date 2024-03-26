@@ -11,7 +11,6 @@ const ContactPresenter = ({ size, color }) => {
     setShowSignIn(!showSignIn);
   };
   return (
-
     <>
       <div
         onClick={ShowContactPresenterPage}
@@ -20,7 +19,6 @@ const ContactPresenter = ({ size, color }) => {
         <IconLabel color={color} size={size} icon="contact" gap={3} />
         <span style={{ color: color }}>Contact Presenter</span>
       </div>
-
       {showSignIn && (
         <ContactPresent onClose={() => setShowSignIn(!showSignIn)} />
       )}
