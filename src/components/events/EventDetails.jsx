@@ -32,11 +32,11 @@ const EventDetails = ({
     return duration;
   }
 
-  const eventDuration = calculateEventDuration();
+  const eventDuration = Math.abs(calculateEventDuration());
 
 
   return (
-    <div className="min-h-[1px] w-[45%] pl-2 pt-2  text-[#566270] max-md:w-[100%] max-md:px-[10px] text-xl float-left">
+    <div className="min-h-[1px] w-[45%]  pt-1  text-[#566270] max-md:w-[100%] max-md:px-[10px] text-xl float-left">
       <div className="mb-1">
         <div
           style={{
@@ -55,7 +55,7 @@ const EventDetails = ({
           </span>
         </div>
         <Link href={goToEvent(eventId, eventName)}>
-          <span className="flex gap-2 text-sm" style={{ color: textColor }}>
+          <span className="flex gap-1 text-sm items-center " style={{ color: textColor }}>
             <span className="mt-1">
               {locationType == "physical" ? (
                 <MdLocationPin className="size-4" />
@@ -64,13 +64,13 @@ const EventDetails = ({
               )}
             </span>
             <span>
-              <p>{locationType == "physical" ? location : locationId}</p>
+              <p>{locationType == "physical" ?location : locationId}</p>
             </span>
           </span>
         </Link>
       </div>
       <div
-        className=" text-sm font-bold leading-[1.7]"
+        className=" text-sm font-bold leading-[1.7] "
         style={{ color: textColor }}
       >
 
@@ -94,7 +94,7 @@ const EventDetails = ({
           )}
 
           {eventDuration > 0 && performances === 1 && (
-            <span>
+            <span className="flex">
               <p>{moment(startDate).format("MMM D, YYYY")}</p>
               <p className="mx-1">to</p>
               <p>{moment(endDate).format("MMM D, YYYY")}</p>
