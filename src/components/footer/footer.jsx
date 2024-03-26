@@ -33,7 +33,7 @@ const Footer = ({
       </div>
       <div className={`float-right ${flexRow} p-[17px] ${styles.list}`}>
         <p className="cursor-pointer">
-          <Link href={portalUrl}>
+          <Link href={portalUrl} target="_blank">
             © {currentYear} {companyName} All Rights Reserved
           </Link>
         </p>

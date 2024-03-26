@@ -15,6 +15,8 @@ const Support = ({
   fontSize,
 }) => {
   const [open, setOpen] = useState(false);
+
+
   const actions = {
     onMouseOver: () => setOpen(true),
     onMouseLeave: () => setOpen(false),
