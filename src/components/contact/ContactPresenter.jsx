@@ -6,6 +6,7 @@ import ContactPresent from "../Contact-form/ContactPresentor";
 const ContactPresenter = ({ size, color }) => {
   const [showSignIn, setShowSignIn] = useState(false);
 
+
   const ShowContactPresenterPage = () => {
     setShowSignIn(!showSignIn);
   };
@@ -18,7 +19,6 @@ const ContactPresenter = ({ size, color }) => {
         <IconLabel color={color} size={size} icon="contact" gap={3} />
         <span style={{ color: color }}>Contact Presenter</span>
       </div>
-
       {showSignIn && (
         <ContactPresent onClose={() => setShowSignIn(!showSignIn)} />
       )}
