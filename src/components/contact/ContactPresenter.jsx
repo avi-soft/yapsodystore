@@ -15,7 +15,7 @@ const ContactPresenter = ({ size, color,fontSize }) => {
     // </IconLabel>
 
     <div
-      onClick={handleClick}
+      onClick={ShowContactPresenterPage}
       className="font-lato text-[14px] flex cursor-pointer items-center"
     >
       <IconLabel color={color} size={size} icon="contact" gap={3} />
@@ -23,7 +23,8 @@ const ContactPresenter = ({ size, color,fontSize }) => {
       {showSignIn && (
         <ContactPresent onClose={() => setShowSignIn(!showSignIn)} />
       )}
-    </>
+      </div>
+  
   );
 };
 
