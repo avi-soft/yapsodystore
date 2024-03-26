@@ -13,24 +13,29 @@
     letter-spacing: .5px;
     color: #353054;
 }
-
-.present-faq{
-   
+/* .present-faq{
+    transition: margin-top 0.5s ease, opacity 0.5s ease;
     display: flex;
     flex-direction: column;
     font: status-bar;
     font-size: 14px;
-}
+} */
 
-.present-faq .inside-faq{
+.present-faq {
     display: flex;
     flex-direction: row;
+    /* max-height: 0; */
 }
 
-.delay-1
+
+.inside-faq
 {
+    display: flex;
+    flex-direction: row;
     transition-delay: 2s;
+    transition: 1000ms;
 }
+
 
 
 @media (max-width:440px){
