@@ -3,7 +3,6 @@ import Image from "next/image";
 import ticket from "@/../public/assets/icons/ticket.png";
 import styles from "./Card.module.css";
 import Ticket from "./Ticket";
-import { IoIosCloseCircleOutline } from "react-icons/io";
 import SeatCartContent from "./SeatCartContent";
 
 const CartContent = ({
@@ -44,9 +43,6 @@ const CartContent = ({
                   <span>
                     {selectedTickets >= 1 && <span> (selectedTickets)</span>}
                   </span>
-                </span>
-                <span className="md:hidden block ml-[140px]">
-                  <IoIosCloseCircleOutline size={30} />
                 </span>
               </div>
             </div>

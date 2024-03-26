@@ -34,9 +34,6 @@ const SeatCartContent = ({ seatsTickets, handleRemoveSeat }) => {
                 )}
               </span>
             </span>
-            <span className="md:hidden block ml-[140px]">
-              <IoIosCloseCircleOutline size={30} />
-            </span>
           </div>
         </div>
 
