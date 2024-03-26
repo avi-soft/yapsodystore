@@ -4,6 +4,7 @@ const request = {
   language: "languages",
   languageTranslation: "languages/translations?lang=hi",
   faq: "online/settings/faqs",
+  bookingCartInfo:"online/booking/cart/get_info",
   singleEventPerformances: (eventId) => `online/events/${eventId}/performances`,
   singleEvent: (eventId) => `online/events/${eventId}`,
   singlePerformanceSection: (eventId, dateId) => {

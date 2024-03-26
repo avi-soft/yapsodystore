@@ -16,29 +16,33 @@ export default function EventBookPageContainer({
   const { event_seating_type, is_seats_io } = eventSeatData;
   
   useEffect(() => {
-    if (event_seating_type === "general" && is_seats_io === 0) {
-       async function fetchGeneralEventData() {
-          const payLoad = {
-            event_id: performance_info.event_id.toString(),
-            is_seats_io: is_seats_io ? true : false,
-            performance_id: performance_info.id.toString(),
-            secret_link_code: null, //not  known
-            section_id: sectionData[0].section_id, //for general event single section will always come in response
-            seats: [],
-          };
-          let counter = 0;
-          const seatsData = Object.entries(selectedTickets).flatMap(
-            ([classId, count]) =>
-              Array.from({ length: count }, () => ({
-                color_id: sectionData[0].section_id,
-                id: ++counter,
-                orig_class_id: parseInt(classId),
-                seat_key: counter,
-                type_id: parseInt(classId),
-              }))
-          );
-          const requestData = { ...payLoad, seats: seatsData };
-          const response = await getBookingCartInfo(requestData);
+    if (
+      event_seating_type === "general" &&
+      is_seats_io === 0 &&
+      selectedTickets
+    ) {
+      async function fetchGeneralEventData() {
+        const payLoad = {
+          event_id: performance_info.event_id.toString(),
+          is_seats_io: is_seats_io ? true : false,
+          performance_id: performance_info.id.toString(),
+          secret_link_code: null, //not  known
+          section_id: sectionData[0].section_id, //for general event single section will always come in response
+          seats: [],
+        };
+        let counter = 0;
+        const seatsData = Object.entries(selectedTickets).flatMap(
+          ([classId, count]) =>
+            Array.from({ length: count }, () => ({
+              color_id: sectionData[0].section_id,
+              id: ++counter,
+              orig_class_id: parseInt(classId),
+              seat_key: counter,
+              type_id: parseInt(classId),
+            }))
+        );
+        const requestData = { ...payLoad, seats: seatsData };
+        const response = await getBookingCartInfo(requestData);
       }
       fetchGeneralEventData();
     }
@@ -74,11 +78,11 @@ export default function EventBookPageContainer({
         />
       </div>
       <div className="float-right">
-        {/* <Cart
+        {<Cart
           tickets={tickets}
           selectedTickets={selectedTickets}
           handleRemoveTicket={handleRemoveTicket}
-        /> */}
+        />}
       </div>
     </div>
   );

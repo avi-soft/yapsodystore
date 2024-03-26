@@ -53,14 +53,15 @@ export async function getData(...config) {
   }
 }
 export async function postData(url, payload, headerData = {}) {
+  const postHeaders = {
+    ...headerData.headers,
+    "Content-Type": "application/json",
+  };
   try {
     const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        ...headerData
-      },
-      body: payload
+      method: "POST",
+      headers: postHeaders,
+      body: JSON.stringify(payload),
     });
 
     if (!response.ok) {
@@ -254,7 +255,7 @@ export async function getSectionData(eventId, dateId) {
 
 export async function getBookingCartInfo(requestData){
    const response = await postData(
-     "https://stage-api.yapsody.com/online/booking/cart/get_info",
+     baseUrl + request.bookingCartInfo,
      requestData,
      headerData
    );
