@@ -14,36 +14,23 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
   const [isOpenLang, setIsOpenLang] = useState(false);
   const [isOpenAccount, setIsOpenAccount] = useState(false);
 
-  const changeState = (type) => {
-    document.getElementById(`down-${type}`).classList.toggle("hidden");
-    const up = document.getElementById(`up-${type}`);
-    up.classList.contains("hidden")
-      ? up.classList.replace("hidden", "block")
-      : up.classList.replace("block", "hidden");
-  };
+
 
   useEffect(() => {
-    function closeArrow(type) {
-      let upArrow = document.getElementById(`up-${type}`);
-      if (upArrow && upArrow.classList.contains("block")) {
-        upArrow.classList.replace("block", "hidden");
-        document.getElementById(`down-${type}`).classList.toggle("hidden");
-      }
-    }
+
     const handleOutsideClick = (event) => {
       if (!event.target.closest(".dropdown")) {
         setIsOpenLang(false);
         setIsOpenAccount(false);
-        closeArrow("lang");
-        closeArrow("account");
+        
       }
       if (event.target.closest("#Drop-lang")) {
         setIsOpenAccount(false);
-        closeArrow("account");
+        
       }
       if (event.target.closest("#Drop-account")) {
         setIsOpenLang(false);
-        closeArrow("lang");
+        
       }
     };
     document.addEventListener("mousedown", handleOutsideClick);
@@ -54,12 +41,12 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
 
   const handleLanguageClick = (clickedType) => {
     setIsOpenLang((isOpenLang) => !isOpenLang);
-    changeState(clickedType);
+    
   };
 
   const handleAccountClick = (clickedType) => {
     setIsOpenAccount((isOpenAccount) => !isOpenAccount);
-    changeState(clickedType);
+    
   };
 
   return (
@@ -75,11 +62,10 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
           {type === "lang" ? (
             <div className="flex items-center mb-2">
 
-              <p className=" font-[550] font-roboto lg:mr-[8px]   text-[#333333]">
-
-                {langCode.toUpperCase()}
+              <p className=" font-semibold font-roboto">
+                 {langCode.toUpperCase()}
               </p>
-              <Arrows type={type} />
+              <Arrows />
             </div>
           ) : (
             <div className="flex items-center mr-2">
@@ -98,7 +84,7 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
               <p className="ml-1 myAccount text-base hidden sm:inline-block overflow-hidden text-ellipsis whitespace-nowrap max-w-[110px] ">
                 {user}
               </p>
-              <Arrows type={type} />
+              <Arrows  />
             </div>
           )}
           {/* Conditional rendering of the dropdown content if it's open */}

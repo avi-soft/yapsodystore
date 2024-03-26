@@ -12,9 +12,7 @@ const Account = ({ color }) => {
     setshow(!show);
   }
   return (
-    <div
-
-      className={`mb-1 ${styles.pullLeft}  flex items-center flex-shrink-0 !border-none`}
+    <div className={`mb-1 ${styles.pullLeft}  flex items-center flex-shrink-0 !border-none`}
 
       onClick={showSignIn}
     >
@@ -25,7 +23,6 @@ const Account = ({ color }) => {
         <Image
           height={36}
           width={36}
-
           src={`https://img.icons8.com/ios-filled/50/user-male-circle.png`}
 
           alt="user-male-circle"

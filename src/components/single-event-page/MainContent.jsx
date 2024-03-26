@@ -14,6 +14,8 @@ import { GiLaptop } from "react-icons/gi";
 import { getDirections } from "@/helpers/common";
 import DescriptionVideos from "./DescriptionVideos";
 
+
+
 const MainContent = ({
   buttonLinkBoxBorderColor,
   performances,
@@ -56,9 +58,11 @@ const MainContent = ({
           {event_title1}
         </h1>
 
+
         <h2 style={headingStyle} className=" text-[18px] font-normal  ">
           {event_title2}
         </h2>
+
 
         <h3 style={headingStyle} className=" text-[18px] font-normal">
           {event_title3}
@@ -76,6 +80,7 @@ const MainContent = ({
       >
         <span className="mt-1 inline-block h-5 w-5 align-middle pt-[1px] mr-1 ">
           {location_type === "physical" ? (
+
             <MdLocationPin className="size-4" />
           ) : (
             <GiLaptop className="size-4" />
@@ -83,6 +88,7 @@ const MainContent = ({
         </span>
         <span className="w-[100%] inline-block font-lato">
           {location_type === "physical"
+
             ? location_info.name + " - " + location_info.address
             : location_info.webevent_timezone}
         </span>
@@ -104,7 +110,7 @@ const MainContent = ({
       )}
       <div className="px-[10px] align-top">
         {videos.length > 0 && <DescriptionVideos videos={videos} />}
-        <span id="upcoming-event"></span>
+         <span id="upcoming-event"></span>
         <CalendarWrapper
           textColor={textColor}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
