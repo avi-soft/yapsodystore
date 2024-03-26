@@ -8,7 +8,7 @@ const Arrows = () => {
     <>
       <LiaAngleDownSolid
         className="ml-[2px] h-3 w-3 down"
-        
+
       />
       
     </>

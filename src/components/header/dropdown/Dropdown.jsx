@@ -17,7 +17,7 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
 
 
   useEffect(() => {
-    
+
     const handleOutsideClick = (event) => {
       if (!event.target.closest(".dropdown")) {
         setIsOpenLang(false);
@@ -57,11 +57,13 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
         type === "lang" ? handleLanguageClick(type) : handleAccountClick(type)
       }
     >
-      <button className="flex flex-row h-12 items-center ">
+      <button className="flex flex-row h-12 items-center lg:mr-[8px]">
         <div className="relative  ">
           {type === "lang" ? (
             <div className="flex items-center mb-2">
               <p className=" font-semibold font-roboto">
+
+
                 {langCode.toUpperCase()}
               </p>
               <Arrows />

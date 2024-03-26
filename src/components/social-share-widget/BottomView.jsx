@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { IoShareSocial } from "react-icons/io5";
 import ContactPresenter from "../contact/ContactPresenter";
@@ -37,7 +37,9 @@ function BottomView({ buttonLinkBoxBorderColor, isEventTypePhysical }) {
                 className="p-[6px]"
                 width={"100%"}
                 to="#gMap"
+
                 styles={{ padding: "5px 10px" }}
+
                 color={buttonLinkBoxBorderColor}
               >
                 Get Directions
@@ -47,7 +49,7 @@ function BottomView({ buttonLinkBoxBorderColor, isEventTypePhysical }) {
         </div>
       </div>
     </>
-   
+
   );
 }
 

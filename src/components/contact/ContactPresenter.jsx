@@ -11,9 +11,7 @@ const ContactPresenter = ({ size, color,fontSize }) => {
     setShowSignIn(!showSignIn);
   };
   return (
-    // <IconLabel color={color} size={size} icon="contact" gap={4}>
-    //   <div>Contact Presenter</div>
-    // </IconLabel>
+
 
     <div
       onClick={ShowContactPresenterPage}
@@ -26,6 +24,7 @@ const ContactPresenter = ({ size, color,fontSize }) => {
       )}
       </div>
   
+
   );
 };
 
