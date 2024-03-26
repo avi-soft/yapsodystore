@@ -13,7 +13,7 @@ const Language = ({ languageData, langCode }) => {
   }
   return (
     <>
-      <div className="absolute right-11 mt-5">
+      <div className="absolute right-2 mt-2">
         <div
           style={{
             filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))",
@@ -22,23 +22,23 @@ const Language = ({ languageData, langCode }) => {
         ></div>{" "}
       </div>
       <ul
-        className={`absolute top-full mt-7 bg-white border border-gray-300 shadow-md grid grid-cols-2 rounded-md md:right-0 -right-[135px]`}
+        className={`absolute top-full mt-4 bg-white border  border-[#ececec] border-t-[0] grid grid-cols-2 rounded-md -right-[75px]`}
         style={{ minWidth: calculateMinWidth(languageData) }}
       >
         {languageData.map((option, index) => (
           <li
             key={index}
-            className={`p-3 text-left truncate border  text-[#696a6c] ${
+            className={`p-[14px] text-left truncate border border-b-0 border-l-0 text-[#696a6c] font-roboto ${
               option.short === langCode ? "text-black" : ""
             }`}
           >
             {/*Rendering all the languages and the check icon */}
             {option.short === langCode && (
               <span
-                className={` flex items-center font-bold text-stone-800 text-[14px]`}
+                className={` flex items-center font-bold text-stone-800 text-[14px] justify-between `}
               >
                 {option.name + "-" + option.short.toUpperCase()}
-                <span className="ml-[30px]">
+                <span className="ml-[20px]">
                   <Image
                     width="14"
                     height="14"
