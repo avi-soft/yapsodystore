@@ -18,8 +18,8 @@ const Footer = ({
     <div
       className={`border-t  font-lato min-h-[57.65px] bottom-0 mt-auto border-solid px-2 border-gray-300 !bg-white  text-[#454444] w-full  text-base ${styles.footer}`}
     >
-      <div className={`float-left ${flexRow} p-[17px] ${styles.list}`}>
-        <ul className={`${flexRow} flex-wrap gap-[15px] `}>
+      <div className={`float-left    ${flexRow} p-[17px] ${styles.list}`}>
+        <ul className={`${flexRow} justify-center flex-wrap gap-[15px] `}>
           <Item text="Support" link={supportUrl} hide={false} />
           <Item text="Terms" link={termsUrl} hide={false} />
           <Item text="Privacy" link={privacyUrl} hide={false} />

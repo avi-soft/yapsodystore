@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-const width = 50;
-const height = 50;
 
 export default function Title({
   mainHeadingImage,
@@ -23,12 +21,14 @@ export default function Title({
         display: "flex",
         justifyContent: headerAlignmentClass,
       }}
-      className={`p-8`}
+
+      className={`mx-[0px] mb-[22px] md:mb-[36px] mt-[30px] lg:mt-[18px] px-[10px] `}
+
     >
       {mainHeadingType == "img" && mainHeadingImage ? (
         <img src={mainHeadingImage} alt={venueName} />
       ) : mainHeadingType == "txt" && mainHeadingText ? (
-        <h1 className={`text-4xl`}>{mainHeadingText}</h1>
+        <h1 className={`text-[22px] md:text-[36px]`}>{mainHeadingText}</h1>
       ) : (
         <h1 className="text-4xl">{venueName}</h1>
       )}
