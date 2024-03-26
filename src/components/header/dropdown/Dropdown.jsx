@@ -74,7 +74,7 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
         <div className="relative  ">
           {type === "lang" ? (
             <div className="flex items-center mb-2">
-              <p className=" font-[550] font-roboto lg:mr-[8px]   text-[#333333]">
+              <p className=" font-semibold font-roboto">
                 {langCode.toUpperCase()}
               </p>
               <Arrows type={type} />

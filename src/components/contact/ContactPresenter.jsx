@@ -5,7 +5,8 @@ import ContactPresent from "../Contact-form/ContactPresentor";
 
 const ContactPresenter = ({ size, color,fontSize }) => {
   const [showSignIn, setShowSignIn] = useState(false);
-  const handleClick = () => {
+
+  const ShowContactPresenterPage = () => {
     setShowSignIn(!showSignIn);
   };
   return (
@@ -22,7 +23,7 @@ const ContactPresenter = ({ size, color,fontSize }) => {
       {showSignIn && (
         <ContactPresent onClose={() => setShowSignIn(!showSignIn)} />
       )}
-    </div>
+    </>
   );
 };
 

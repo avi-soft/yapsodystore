@@ -97,6 +97,8 @@ const Search = ({
   return (
     <div className="relative mb-[10px] mt-[38px] ">
       <div className="absolute inset-y-0 left-0  flex items-center pointer-events-none ">
+    <div className="relative mb-[10px] mt-[38px] ">
+      <div className="absolute inset-y-0 left-0  flex items-center pointer-events-none ">
         <IoSearchSharp color={textColor} className={styles.icon} />
       </div>
       <style>
@@ -123,6 +125,7 @@ const Search = ({
       />
       {query && (
         <button
+          className="absolute inset-y-0 right-0 pr-[12px] py-2"
           className="absolute inset-y-0 right-0 pr-[12px] py-2"
           onClick={clearSearch}
         >

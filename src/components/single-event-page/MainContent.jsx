@@ -7,6 +7,7 @@ import SupportContact from "../support-contact/SupportContact";
 import CalendarWrapper from "../calendar/CalendarWrapper";
 import Map from "../google-map/Map";
 // import BottomView from "../social-share-widget/BottomView";
+// import BottomView from "../social-share-widget/BottomView";
 import EventDescription from "./EventDescription";
 import DescriptionHyperLinks from "./DescriptionHyperlinks";
 import DescriptionImages from "./DescriptionImages";
@@ -14,6 +15,7 @@ import { MdLocationPin } from "react-icons/md";
 import { GiLaptop } from "react-icons/gi";
 import { getDirections } from "@/helpers/common";
 import DescriptionVideos from "./DescriptionVideos";
+
 
 
 const MainContent = ({
@@ -58,9 +60,11 @@ const MainContent = ({
           {event_title1}
         </h1>
        
+       
         <h2 style={headingStyle} className=" text-[18px] font-normal  ">
           {event_title2}
         </h2>
+        
         
         <h3 style={headingStyle} className=" text-[18px] font-normal">
           {event_title3}
@@ -72,11 +76,13 @@ const MainContent = ({
         />
       </section>
        
+       
       <div
         className="location text-base my-7 relative text-[#566270] flex items-center"
         style={{ color: textColor }}
       >
         <span className="mt-1 inline-block h-5 w-5 align-middle pt-[1px] mr-1 ">
+          {location_type === "physical" ? (
           {location_type === "physical" ? (
             <MdLocationPin className="size-4" />
           ) : (
@@ -84,6 +90,7 @@ const MainContent = ({
           )}
         </span>
         <span className="w-[100%] inline-block font-lato">
+          {location_type === "physical"
           {location_type === "physical"
             ? location_info.name + " - " + location_info.address
             : location_info.webevent_timezone}
@@ -95,17 +102,17 @@ const MainContent = ({
           textColor={textColor}
         />
       )}
-      {hyperlinks.length > 1 && (
+      {hyperlinks.length > 0 && (
         <DescriptionHyperLinks
           hyperlinks={hyperlinks}
           color={buttonLinkBoxBorderColor}
         />
       )}
-      {descriptionImages.length > 1 && (
+      {descriptionImages.length > 0 && (
         <DescriptionImages images={descriptionImages} />
       )}
       <div className="px-[10px] align-top">
-        {videos.length > 1 && <DescriptionVideos videos={videos} />}
+        {videos.length > 0 && <DescriptionVideos videos={videos} />}
         <CalendarWrapper
           textColor={textColor}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
