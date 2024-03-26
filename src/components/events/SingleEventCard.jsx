@@ -28,7 +28,9 @@ const SingleEventCard = ({
     showStartDateOnly:event.show_start_date_only
   };
 
+  
   return (
+
     <>
       {view === "grid" ? (
         <EventGridLayout {...commonProps} />

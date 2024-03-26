@@ -14,7 +14,7 @@ export default function TicketSection({
   return !access ? (
     <div className="relative ml-[30px] min-h-[1px] w-fit pl-[10px] pr-[10px] text-center max-md:w-[100%] max-md:ml-[0px]">
       <div className="relative mt-[10px] inline-block w-[100%]">
-        <div className="mt-[5px]  w-[100%]">
+        <div className="mt-[5px]  w-[100%] text-[18px]">
           <Button
             styles={{ padding: "10px 28px" }}
             color={color}
@@ -45,7 +45,7 @@ export default function TicketSection({
             style={{ borderColor: color }}
             className="border w-0 h-[8px]"
           ></div>
-          <div className="text-center w-[100%]">
+          <div className="text-center w-[100%] text-[18px]">
             <Button
               styles={{ padding: "10px 28px" }}
               color={color}
