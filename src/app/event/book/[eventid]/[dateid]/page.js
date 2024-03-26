@@ -9,14 +9,10 @@ import {
 export default async function SeatBookingPage({ params }) {
   const { eventid, dateid } = params;
   const eventSeatData = await getEventSeatData(eventid);
-  // console.log(eventSeatData);
   const sectionData = await getSectionData(eventid, dateid);
-  // console.log(sectionData);
   const pricingData = await getPricingInfoData(eventid, dateid);
-  // console.log(pricingData);
-
   const venueData = await getVenueData(eventid);
-  console.log(venueData);
+
   return (
     <div>
       <EventBookPageContainer

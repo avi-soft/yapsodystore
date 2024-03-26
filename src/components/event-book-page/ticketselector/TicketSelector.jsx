@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import Script from "next/script";
 
 import "./style.css";
 import TicketSelectorHeading from "./TicketSelectorHeading";
@@ -17,15 +14,16 @@ const TicketSelector = ({
   pricingData,
   venueData,
   handleRemoveTicket,
+  handleSeatChange,
+  handleRemoveSeat,
+  deselect,
+  setDeselect,
+  setType,
 }) => {
   const { event_seating_type, is_seats_io, seats_io_chart_key } = eventSeatData;
-  console.log(eventSeatData);
+
   return (
     <div>
-      <Script
-        src="https://kit.fontawesome.com/8d4b434c6d.js"
-        crossorigin="anonymous"
-      />
       <TicketSelectorHeading eventSeatData={eventSeatData} />
 
       {/* Select Tickets*/}
@@ -37,6 +35,7 @@ const TicketSelector = ({
           sectionData={sectionData}
           pricingData={pricingData}
           handleRemoveTicket={handleRemoveTicket}
+          setType={setType}
         />
       )}
       {event_seating_type === "reserved" && is_seats_io === 1 && (
@@ -49,6 +48,11 @@ const TicketSelector = ({
           venueData={venueData}
           handleRemoveTicket={handleRemoveTicket}
           seats_io_chart_key={seats_io_chart_key}
+          handleSeatChange={handleSeatChange}
+          handleRemoveSeat={handleRemoveSeat}
+          deselect={deselect}
+          setDeselect={setDeselect}
+          setType={setType}
         />
       )}
       {event_seating_type === "reserved" && is_seats_io === 0 && (
@@ -59,6 +63,7 @@ const TicketSelector = ({
           sectionData={sectionData}
           pricingData={pricingData}
           handleRemoveTicket={handleRemoveTicket}
+          setType={setType}
         />
       )}
     </div>

@@ -238,3 +238,5 @@ export async function getVenueData() {
 
   return response.status == 404 ? response : response.data;
 }
+
+//seatsio post request
