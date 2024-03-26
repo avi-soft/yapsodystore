@@ -37,9 +37,7 @@ function BottomView({ buttonLinkBoxBorderColor, isEventTypePhysical }) {
                 className="p-[6px]"
                 width={"100%"}
                 to="#gMap"
-
                 styles={{ padding: "5px 10px" }}
-
                 color={buttonLinkBoxBorderColor}
               >
                 Get Directions

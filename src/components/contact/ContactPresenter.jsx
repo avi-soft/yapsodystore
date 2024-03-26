@@ -11,9 +11,7 @@ const ContactPresenter = ({ size, color,fontSize }) => {
     setShowSignIn(!showSignIn);
   };
   return (
-
-
-    <div
+   <div
       onClick={ShowContactPresenterPage}
       className="font-lato text-[14px] flex cursor-pointer items-center"
     >
@@ -22,9 +20,7 @@ const ContactPresenter = ({ size, color,fontSize }) => {
       {showSignIn && (
         <ContactPresent onClose={() => setShowSignIn(!showSignIn)} />
       )}
-      </div>
-  
-
+     </div>
   );
 };
 

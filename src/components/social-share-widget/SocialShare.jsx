@@ -8,7 +8,6 @@ import Pinterest from "@/../public/pinterest.svg";
 export default function SocialShareWidget() {
   return (
     <section >
-
       <ul>
         <li className="pb-2">
           <Link href={"/"}>
@@ -18,15 +17,12 @@ export default function SocialShareWidget() {
         <li className="pb-2">
           <Link href={"/"}>
             <FaTwitterSquare size={24} className="text-[#4099ff]" />
-
           </Link>
         </li>
         <li className="pb-2">
           <Link href={"/"}>
 
             <Image src={Pinterest} alt="" height={24} width={23} />
-
-
           </Link>
         </li>
         <li className="pb-2 hidden md:block">
