@@ -109,7 +109,7 @@ export default async function Home({ searchParams }) {
           >
             <Calendar
               isHome={true}
-              highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
+              highlighted={[ new Date(2024, 2, 26)]}
               activeColorCode={buttonLinkBoxBorderColor}
             />
           </CalendarWrapper>
