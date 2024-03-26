@@ -16,7 +16,7 @@ export default function FormSignin() {
       .required("Please enter the field"),
   });
   return (
-    <div className="forminput1 " style={{ paddingLeft: 20 }}>
+    <div className="forminput1 " style={{marginTop:'40px'}}>
       <Formik
         initialValues={initialValues}
         // onSubmit={onSubmit}

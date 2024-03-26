@@ -1,4 +1,5 @@
 "use client"
+"use client"
 import Calendar from "../calendar/Calendar";
 import SocialMedia from "../social-media/SocialMedia";
 import SocialShareWidget from "../social-share-widget/SocialShare";
@@ -7,6 +8,7 @@ import SupportContact from "../support-contact/SupportContact";
 import CalendarWrapper from "../calendar/CalendarWrapper";
 import Map from "../google-map/Map";
 // import BottomView from "../social-share-widget/BottomView";
+// import BottomView from "../social-share-widget/BottomView";
 import EventDescription from "./EventDescription";
 import DescriptionHyperLinks from "./DescriptionHyperlinks";
 import DescriptionImages from "./DescriptionImages";
@@ -14,6 +16,7 @@ import { MdLocationPin } from "react-icons/md";
 import { GiLaptop } from "react-icons/gi";
 import { getDirections } from "@/helpers/common";
 import DescriptionVideos from "./DescriptionVideos";
+
 
 
 const MainContent = ({
@@ -48,6 +51,7 @@ const MainContent = ({
       ? images.filter((image) => image.cover_photo === "no")
       : "";
   
+  
   return (
     <div className="xl:ml-[375px] ml-0 mt-16 flex-1 px-[10px] pb-[30px] block scrollbar-hide">
       <section className="mb-8 flex flex-col items-start justify-center gap-2">
@@ -78,12 +82,14 @@ const MainContent = ({
       >
         <span className="mt-1 inline-block h-5 w-5 align-middle pt-[1px] mr-1 ">
           {location_type === "physical" ? (
+          {location_type === "physical" ? (
             <MdLocationPin className="size-4" />
           ) : (
             <GiLaptop className="size-4" />
           )}
         </span>
         <span className="w-[100%] inline-block font-lato">
+          {location_type === "physical"
           {location_type === "physical"
             ? location_info.name + " - " + location_info.address
             : location_info.webevent_timezone}
@@ -96,10 +102,14 @@ const MainContent = ({
         />
       )}
       {hyperlinks.length > 0 && (
+      {hyperlinks.length > 0 && (
         <DescriptionHyperLinks
           hyperlinks={hyperlinks}
           color={buttonLinkBoxBorderColor}
         />
+      )}
+      {descriptionImages.length > 0 && (
+        <DescriptionImages images={descriptionImages} />
       )}
       {descriptionImages.length > 0 && (
         <DescriptionImages images={descriptionImages} />

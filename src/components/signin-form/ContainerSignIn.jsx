@@ -8,15 +8,17 @@ import FormSignin from "./SigninForm";
 export default function MidContainer({ color }) {
   return (
     <div className="inside-main-signin">
-      <div className="login-image" style={{ flex: 40, padding: 8 }}>
+      <div className="login-image" style={{ flex: 43, padding: 8 }}>
         <Image
           src={LoginImage}
           alt="image"
-          style={{ objectFit: "cover", width: "100%", height: "100%" }}
+          style={{ objectFit: "cover", width: "356px", height: "375.55px" }}
         />
       </div>
       <div className="login-form">
-        <div className="login-title font-lato ">Login</div>
+        <div>
+          <div className="login-title font-lato ">Login</div>
+        </div>
         <FormSignin />
         <div className="createorbutton">
           <div className="linkforsignin">
