@@ -8,7 +8,11 @@ import logo from "@/../public/store-logo.png";
 const HeaderLogo = ({ topImage, venueName }) => {
 
   //HeaderLogo style for when topImage is present and when it isn't
- let headerStyle= topImage ? "mt-2 md:mt-0 md:ml-0 lg:ml-4 lg:mt-0" : "mt-[9px] lg:ml-[15px]"
+
+
+ let headerStyle= topImage ? "mt-[7px] md:mt-[-10px] md:ml-[2px] lg:ml-4 " : "mt-[8px] lg:ml-[16px]"
+
+
 
   return (
     <div>

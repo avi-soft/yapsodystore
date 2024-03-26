@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import { ImCross } from "react-icons/im";
@@ -68,7 +69,9 @@ const Search = ({
         <div
           onClick={() => setShowDropdown(false)}
 
-          className={`px-[3px] py-[2px] border-2 cursor-pointer rounded-[4px] leading-[20px] border-red-700 text-[14px] overflow-y-scroll`}
+
+          className={`p-[3px]  border-2 cursor-pointer rounded-[4px] leading-[20px] border-red-500 text-[14px] overflow-y-scroll font-[100] text-[#909aa0] `}
+
         >
           {"Sorry, We could not find any event. Try something else."}
         </div>
@@ -82,7 +85,8 @@ const Search = ({
       .map((filterItems, index) => (
         <div
           key={index}
-          className={`pb-1 px-1 border-2 cursor-pointer`}
+          className={`pb-1 px-1 border-2 cursor-pointer font-medium `}
+          style={{color:textColor}}
           onClick={() =>
             handleSelectResult(filterItems.id, filterItems.event_title1)
           }
@@ -90,7 +94,7 @@ const Search = ({
           {filterItems.event_title1}
         </div>
       ));
-  }, [results, query, handleSelectResult]);
+  }, [results, query, handleSelectResult,textColor]);
 
   return (
 
@@ -113,7 +117,10 @@ const Search = ({
       <input
         type="text"
         style={inputStyle}
+
+
         className="focus:outline-none  h-[40px] border  text-[14px] rounded-[5px]  px-9 pr-10  xl:w-[279px] lg:w-[250px] w-[201px] 2xl:w-[333px] transition-width"
+
         placeholder="Search events"
         value={query}
         id="search-input"
@@ -122,6 +129,7 @@ const Search = ({
       {query && (
         <button
           className="absolute inset-y-0 right-0 pr-[12px] py-2"
+
           onClick={clearSearch}
         >
           <ImCross color={textColor} size={11} />
@@ -129,14 +137,19 @@ const Search = ({
       )}
       {showDropdown && !search && (
         <div
-          className="max-h-25vh  rounded-[4px] mt-2 absolute w-[100%] top-[34px] z-50 text-base "
+
+
+          className="max-h-25vh  rounded-[4px] mt-2 absolute w-[100%] top-[34px] z-50 text-base  "
+
           style={inputStyle}
+          
         >
           {dropdownContent}
         </div>
       )}
     </div>
+    
   );
-};
+}
 
 export default Search;

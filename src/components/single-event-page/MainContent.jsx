@@ -7,6 +7,9 @@ import SupportContact from "../support-contact/SupportContact";
 import CalendarWrapper from "../calendar/CalendarWrapper";
 import Map from "../google-map/Map";
 // import BottomView from "../social-share-widget/BottomView";
+
+// import BottomView from "../social-share-widget/BottomView";
+
 import EventDescription from "./EventDescription";
 import DescriptionHyperLinks from "./DescriptionHyperlinks";
 import DescriptionImages from "./DescriptionImages";
@@ -78,6 +81,7 @@ const MainContent = ({
       >
         <span className="mt-1 inline-block h-5 w-5 align-middle pt-[1px] mr-1 ">
           {location_type === "physical" ? (
+
             <MdLocationPin className="size-4" />
           ) : (
             <GiLaptop className="size-4" />
@@ -85,6 +89,7 @@ const MainContent = ({
         </span>
         <span className="w-[100%] inline-block font-lato">
           {location_type === "physical"
+
             ? location_info.name + " - " + location_info.address
             : location_info.webevent_timezone}
         </span>
@@ -106,7 +111,7 @@ const MainContent = ({
       )}
       <div className="px-[10px] align-top">
         {videos.length > 0 && <DescriptionVideos videos={videos} />}
-        <span id="upcoming-event"></span>
+
         <CalendarWrapper
           textColor={textColor}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}

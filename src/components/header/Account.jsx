@@ -26,6 +26,7 @@ const Account = ({ color }) => {
           height={36}
           width={36}
 
+
           src={`https://img.icons8.com/ios-filled/50/user-male-circle.png`}
 
           alt="user-male-circle"
