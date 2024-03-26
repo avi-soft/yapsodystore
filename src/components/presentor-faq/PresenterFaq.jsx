@@ -10,14 +10,14 @@ const PresenterFaq = ({ size, color }) => {
   return (
     <div className="font-lato text-[14px] flex">
       <div
-        className="flex cursor-pointer"
+        className="flex items-center cursor-pointer"
         onClick={showFaqfunct}
       >
         <IconLabel
           color={color}
           size={size}
           icon="presenterFaq"
-          gap={3}
+          gap={2}
         ></IconLabel>
         <div className="mt-[2px]" style={{ color: color }}>
           Presenter FAQ
