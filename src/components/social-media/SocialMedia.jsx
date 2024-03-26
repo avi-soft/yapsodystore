@@ -35,7 +35,7 @@ export default function SocialMedia({
           iconColor={iconColor}
         />
       )}
-      <span id="upcoming-event"></span>
+     
     </div>
   );
 }

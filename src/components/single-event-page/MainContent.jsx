@@ -1,4 +1,3 @@
-"use client"
 import Calendar from "../calendar/Calendar";
 import SocialMedia from "../social-media/SocialMedia";
 import SocialShareWidget from "../social-share-widget/SocialShare";
@@ -14,7 +13,6 @@ import { MdLocationPin } from "react-icons/md";
 import { GiLaptop } from "react-icons/gi";
 import { getDirections } from "@/helpers/common";
 import DescriptionVideos from "./DescriptionVideos";
-
 
 const MainContent = ({
   buttonLinkBoxBorderColor,
@@ -47,7 +45,7 @@ const MainContent = ({
     images.length > 0
       ? images.filter((image) => image.cover_photo === "no")
       : "";
-  
+
   return (
     <div className="xl:ml-[375px] ml-0 mt-16 flex-1 px-[10px] pb-[30px] block scrollbar-hide">
       <section className="mb-8 flex flex-col items-start justify-center gap-2">
@@ -57,11 +55,11 @@ const MainContent = ({
         >
           {event_title1}
         </h1>
-       
+
         <h2 style={headingStyle} className=" text-[18px] font-normal  ">
           {event_title2}
         </h2>
-        
+
         <h3 style={headingStyle} className=" text-[18px] font-normal">
           {event_title3}
         </h3>
@@ -71,7 +69,7 @@ const MainContent = ({
           iconColor={buttonLinkBoxBorderColor}
         />
       </section>
-       
+
       <div
         className="location text-base my-7 relative text-[#566270] flex items-center"
         style={{ color: textColor }}
@@ -106,13 +104,14 @@ const MainContent = ({
       )}
       <div className="px-[10px] align-top">
         {videos.length > 0 && <DescriptionVideos videos={videos} />}
+        <span id="upcoming-event"></span>
         <CalendarWrapper
           textColor={textColor}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
           performancesCount={performances.length}
         >
           <Calendar
-            highlighted={[new Date(2024, 2, 10)]}
+            highlighted={[new Date(2024, 2, 26)]}
             activeColorCode={buttonLinkBoxBorderColor}
           />
         </CalendarWrapper>
