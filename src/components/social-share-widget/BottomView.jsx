@@ -38,7 +38,9 @@ function BottomView({ buttonLinkBoxBorderColor, isEventTypePhysical }) {
                 width={"100%"}
                 to="#gMap"
 
+
                 styles={{ padding: "5px 10px" }}
+
 
                 color={buttonLinkBoxBorderColor}
               >

@@ -14,7 +14,6 @@ const Account = ({ color }) => {
   return (
     <div
 
-
       className={`mb-1 ${styles.pullLeft}  flex items-center flex-shrink-0 !border-none`}
 
       onClick={showSignIn}

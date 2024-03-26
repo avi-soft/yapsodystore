@@ -84,6 +84,7 @@ export default async function Home({ searchParams }) {
 
         <div className="border-t-[1px] border-[#ececec] w-[93.5vw] md:border-hidden"> 
 
+
         <SupportContact
           position="center"
           iconColor={buttonLinkBoxBorderColor}
@@ -111,7 +112,7 @@ export default async function Home({ searchParams }) {
           >
             <Calendar
               isHome={true}
-              highlighted={[new Date(2024, 2, 10), new Date(2024, 2, 14)]}
+              highlighted={[ new Date(2024, 2, 26)]}
               activeColorCode={buttonLinkBoxBorderColor}
             />
           </CalendarWrapper>

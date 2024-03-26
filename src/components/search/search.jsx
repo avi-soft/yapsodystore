@@ -69,6 +69,7 @@ const Search = ({
         <div
           onClick={() => setShowDropdown(false)}
 
+
           className={`p-[3px]  border-2 cursor-pointer rounded-[4px] leading-[20px] border-red-500 text-[14px] overflow-y-scroll font-[100] text-[#909aa0] `}
 
         >
@@ -97,6 +98,7 @@ const Search = ({
 
   return (
 
+
     <div className="relative mb-[10px] mt-[38px] ">
       <div className="absolute inset-y-0 left-0  flex items-center pointer-events-none ">
         <IoSearchSharp color={textColor} className={styles.icon} />
@@ -116,6 +118,7 @@ const Search = ({
         type="text"
         style={inputStyle}
 
+
         className="focus:outline-none  h-[40px] border  text-[14px] rounded-[5px]  px-9 pr-10  xl:w-[279px] lg:w-[250px] w-[201px] 2xl:w-[333px] transition-width"
 
         placeholder="Search events"
@@ -134,6 +137,7 @@ const Search = ({
       )}
       {showDropdown && !search && (
         <div
+
 
           className="max-h-25vh  rounded-[4px] mt-2 absolute w-[100%] top-[34px] z-50 text-base  "
 

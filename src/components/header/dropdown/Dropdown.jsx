@@ -61,6 +61,7 @@ const Dropdown = ({ type, user, languageData, langCode }) => {
         <div className="relative  ">
           {type === "lang" ? (
             <div className="flex items-center mb-2">
+
               <p className=" font-semibold font-roboto">
 
 

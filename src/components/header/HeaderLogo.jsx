@@ -9,7 +9,9 @@ const HeaderLogo = ({ topImage, venueName }) => {
 
   //HeaderLogo style for when topImage is present and when it isn't
 
+
  let headerStyle= topImage ? "mt-[7px] md:mt-[-10px] md:ml-[2px] lg:ml-4 " : "mt-[8px] lg:ml-[16px]"
+
 
 
   return (

@@ -10,7 +10,9 @@ export default function SupportContact({
 }) {
   return (
     
+
     <div className={`flex gap-x-[18px] justify-${position} flex-wrap pt-[18px] md:pt-[1px]  `}>
+
 
       
       <span className="max-sm:mt-[10px] ">
