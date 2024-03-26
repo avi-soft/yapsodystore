@@ -41,7 +41,7 @@ const SupportCard = ({
   return (
       <div
         style={{ color: textColor, backgroundColor: boxBackgroundColor }}
-        className="p-3 "
+        className="p-3 cursor-pointer shadow-sm"
       >
         <div
           style={boxStyle1}
