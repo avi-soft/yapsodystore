@@ -13,7 +13,7 @@ const DisplayFq = ({ faq, index, expandIndex, setExpandIndex }) => {
   };
 
   return (
-    <div className="present-faq" style={{ paddingTop: "17px", paddingBottom: "21px" }}>
+    <div className="present-faq" style={{ paddingTop: "15px", paddingBottom: "20px" }}>
       <div className="inside-faq justify-between" onClick={toggleAnswerVisibility}>
         <div
           style={{
@@ -37,7 +37,7 @@ const DisplayFq = ({ faq, index, expandIndex, setExpandIndex }) => {
         className="answer"
         style={{ height: `${isExpanded ? answerRef.current?.scrollHeight : 0}px`, overflow: "hidden", transition: "height 0.3s ease" }}
       >
-        <div style={{ color: "#343131", margin: "23px 0 9px 0px" }}>
+        <div style={{ color: "#343131", margin: "22px 0 7px 0px" }}>
           {faq.ans}
         </div>
       </div>

@@ -1,5 +1,4 @@
 "use client"
-"use client"
 import Calendar from "../calendar/Calendar";
 import SocialMedia from "../social-media/SocialMedia";
 import SocialShareWidget from "../social-share-widget/SocialShare";
@@ -51,7 +50,6 @@ const MainContent = ({
       ? images.filter((image) => image.cover_photo === "no")
       : "";
   
-  
   return (
     <div className="xl:ml-[375px] ml-0 mt-16 flex-1 px-[10px] pb-[30px] block scrollbar-hide">
       <section className="mb-8 flex flex-col items-start justify-center gap-2">
@@ -61,10 +59,12 @@ const MainContent = ({
         >
           {event_title1}
         </h1>
+       
 
         <h2 style={headingStyle} className=" text-[18px] font-normal  ">
           {event_title2}
         </h2>
+        
 
         <h3 style={headingStyle} className=" text-[18px] font-normal">
           {event_title3}
@@ -75,14 +75,15 @@ const MainContent = ({
           iconColor={buttonLinkBoxBorderColor}
         />
       </section>
-
+       
+       
       <div
         className="location text-base my-7 relative text-[#566270] flex items-center"
         style={{ color: textColor }}
       >
         <span className="mt-1 inline-block h-5 w-5 align-middle pt-[1px] mr-1 ">
           {location_type === "physical" ? (
-          {location_type === "physical" ? (
+        
             <MdLocationPin className="size-4" />
           ) : (
             <GiLaptop className="size-4" />
@@ -90,7 +91,7 @@ const MainContent = ({
         </span>
         <span className="w-[100%] inline-block font-lato">
           {location_type === "physical"
-          {location_type === "physical"
+       
             ? location_info.name + " - " + location_info.address
             : location_info.webevent_timezone}
         </span>
@@ -102,7 +103,6 @@ const MainContent = ({
         />
       )}
       {hyperlinks.length > 0 && (
-      {hyperlinks.length > 0 && (
         <DescriptionHyperLinks
           hyperlinks={hyperlinks}
           color={buttonLinkBoxBorderColor}
@@ -111,19 +111,15 @@ const MainContent = ({
       {descriptionImages.length > 0 && (
         <DescriptionImages images={descriptionImages} />
       )}
-      {descriptionImages.length > 0 && (
-        <DescriptionImages images={descriptionImages} />
-      )}
       <div className="px-[10px] align-top">
         {videos.length > 0 && <DescriptionVideos videos={videos} />}
-        <span id="upcoming-event"></span>
         <CalendarWrapper
           textColor={textColor}
           buttonLinkBoxBorderColor={buttonLinkBoxBorderColor}
           performancesCount={performances.length}
         >
           <Calendar
-            highlighted={[new Date(2024, 2, 26)]}
+            highlighted={[new Date(2024, 2, 10)]}
             activeColorCode={buttonLinkBoxBorderColor}
           />
         </CalendarWrapper>
