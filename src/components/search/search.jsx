@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { IoSearchSharp } from "react-icons/io5";
 import { ImCross } from "react-icons/im";
@@ -67,7 +68,8 @@ const Search = ({
       return (
         <div
           onClick={() => setShowDropdown(false)}
-          className={`px-[3px] py-[2px] border-2 cursor-pointer rounded-[4px] leading-[20px] border-red-700 text-[14px] overflow-y-scroll`}
+          style={{color:textColor}}
+          className={`p-[3px]  border-2 cursor-pointer rounded-[4px] leading-[20px] border-red-500 text-[14px] overflow-y-scroll font-[100] `}
         >
           {"Sorry, We could not find any event. Try something else."}
         </div>
@@ -81,7 +83,8 @@ const Search = ({
       .map((filterItems, index) => (
         <div
           key={index}
-          className={`pb-1 px-1 border-2 cursor-pointer`}
+          className={`pb-1 px-1 border-2 cursor-pointer font-medium `}
+          style={{color:textColor}}
           onClick={() =>
             handleSelectResult(filterItems.id, filterItems.event_title1)
           }
@@ -89,7 +92,7 @@ const Search = ({
           {filterItems.event_title1}
         </div>
       ));
-  }, [results, query, handleSelectResult]);
+  }, [results, query, handleSelectResult,textColor]);
 
   return (
     <div className="relative mb-[10px] mt-[38px] ">
@@ -128,8 +131,9 @@ const Search = ({
       )}
       {showDropdown && !search && (
         <div
-          className="max-h-25vh  rounded-[4px] mt-2 absolute w-[100%] top-[34px] z-50 text-base "
+          className="max-h-25vh  rounded-[4px] mt-2 absolute w-[100%] top-[34px] z-50 text-base  "
           style={inputStyle}
+          
         >
           {dropdownContent}
         </div>

@@ -81,7 +81,7 @@ export default async function Home({ searchParams }) {
             iconColor={buttonLinkBoxBorderColor}
           />
         </div>
-        <div className="border-t-[1px] border-white w-[93.5vw] md:border-hidden"> 
+        <div className="border-t-[1px] border-[#ececec] w-[93.5vw] md:border-hidden"> 
         <SupportContact
           position="center"
           iconColor={buttonLinkBoxBorderColor}

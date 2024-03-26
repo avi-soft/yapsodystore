@@ -68,8 +68,9 @@ const SideBarEventPage = ({
               {eventData.location_info.webevent_timezone}
             </li>
           )}
-          <li className="m-0 w-[100%] border-b py-[12px]">
+          <div className="m-0 w-[100%] border-b py-[12px] !text-[16px]">
             <Support
+              fontSize="16px" 
               size="size-6 "
               position="top"
               iconColor={textColor}
@@ -77,9 +78,12 @@ const SideBarEventPage = ({
               boxBackgroundColor={boxBackgroundColor}
               boxBorderColor={buttonColor}
             />
-          </li>
-          <li className="m-0 w-[100%] py-[12px]">
-            <ContactPresenter size="size-6 " color={textColor} />
+          </div>
+          <li className="m-0 w-[100%] py-[12px] !text-[16px]">
+            <ContactPresenter 
+            size="size-6 "
+             color={textColor} 
+             fontSize="16px" />
           </li>
         </ul>
       </div>

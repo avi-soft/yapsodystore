@@ -3,7 +3,7 @@ import { useState } from "react";
 import IconLabel from "@/ui/IconLabel";
 import ContactPresent from "../Contact-form/ContactPresentor";
 
-const ContactPresenter = ({ size, color }) => {
+const ContactPresenter = ({ size, color,fontSize }) => {
   const [showSignIn, setShowSignIn] = useState(false);
   const handleClick = () => {
     setShowSignIn(!showSignIn);
@@ -18,7 +18,7 @@ const ContactPresenter = ({ size, color }) => {
       className="font-lato text-[14px] flex cursor-pointer items-center"
     >
       <IconLabel color={color} size={size} icon="contact" gap={3} />
-      <span style={{ color: color }}>Contact Presenter</span>
+      <span style={{ color: color, fontSize: fontSize || '14px' }}>Contact Presenter</span>
       {showSignIn && (
         <ContactPresent onClose={() => setShowSignIn(!showSignIn)} />
       )}
@@ -27,3 +27,4 @@ const ContactPresenter = ({ size, color }) => {
 };
 
 export default ContactPresenter;
+
