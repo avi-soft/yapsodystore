@@ -68,8 +68,8 @@ const Search = ({
       return (
         <div
           onClick={() => setShowDropdown(false)}
-          style={{color:textColor}}
-          className={`p-[3px]  border-2 cursor-pointer rounded-[4px] leading-[20px] border-red-500 text-[14px] overflow-y-scroll font-[100] `}
+          
+          className={`p-[3px]  border-2 cursor-pointer rounded-[4px] leading-[20px] border-red-500 text-[14px] overflow-y-scroll font-[100] text-[#909aa0] `}
         >
           {"Sorry, We could not find any event. Try something else."}
         </div>
