@@ -19,7 +19,7 @@ export default function Button({
           height: height ? height : null,
           ...styles,
         }}
-        className={`mb-0 inline-block rounded-[2px]  py-[${padding_y}] text-center text-[1em] text-[#ffffff] px-[${padding_x}]`}
+        className={`mb-0 inline-block rounded-[2px] py-[${padding_y}] text-center text-[1em] text-[#ffffff] px-[${padding_x}]`}
       >
         {children}
       </button>

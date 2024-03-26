@@ -63,6 +63,8 @@ export default function EventListLayout({
             width={"124px"}
             color={buttonLinkBoxBorderColor}
             to={goToEvent(eventId, eventName)}
+            padding_x={"9px"}
+            padding_y={"23px"}
           >
             More Info
           </Button>
