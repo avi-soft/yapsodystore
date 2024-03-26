@@ -5,19 +5,19 @@ import MainFaq from "./MainFaq";
 const PresenterFaq = ({ size, color }) => {
   const [showFaq, setshowFaq] = useState(false);
   const showFaqfunct = () => {
-    setshowFaq(true);
+    setshowFaq(!showFaq);
   };
   return (
     <div className="font-lato text-[14px] flex">
       <div
-        className="flex cursor-pointer"
+        className="flex items-center cursor-pointer"
         onClick={showFaqfunct}
       >
         <IconLabel
           color={color}
           size={size}
           icon="presenterFaq"
-          gap={3}
+          gap={2}
         ></IconLabel>
         <div className="mt-[2px]" style={{ color: color }}>
           Presenter FAQ
@@ -27,7 +27,7 @@ const PresenterFaq = ({ size, color }) => {
       {showFaq && (
         <MainFaq
           onClose={() => {
-            setshowFaq(false);
+            setshowFaq(!showFaq);
           }}
         />
       )}
