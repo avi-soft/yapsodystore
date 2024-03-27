@@ -78,8 +78,11 @@ export default function SeatsIoEvent({
 
   function setChart(createdChart) {
     console.log("chart rendered");
-    deselect.chart = createdChart;
+    setDeselect((prev) => ({ ...prev, chart: createdChart }));
+    // deselect.chart.rerender();
   }
+
+  console.log("rendering seats-io event");
 
   useEffect(() => {
     if (deselect.status) {
