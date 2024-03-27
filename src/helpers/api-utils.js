@@ -52,6 +52,28 @@ export async function getData(...config) {
     return { status: 404 };
   }
 }
+export async function postData(url, payload, headerData = {}) {
+  const postHeaders = {
+    ...headerData.headers,
+    "Content-Type": "application/json",
+  };
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: postHeaders,
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    return response.json();
+  } catch (error) {
+    console.error("Error posting data:", error);
+    return { status: 404 };
+  }
+}
 export async function getSearchEvents(query) {
   const eventData = await getData(
     baseUrl +
@@ -103,6 +125,7 @@ export async function getThemeData() {
     company_details,
     currency_details,
     account_type,
+    seats_io_public_workspace_key,
   } = themeLayout.data;
   const {
     background_image_url,
@@ -170,6 +193,8 @@ export async function getThemeData() {
     mainHeadingType: upload_type,
     faqCount: faq_count,
     symbol,
+    currencyDetails: currency_details,
+    seatsIoPublicWorkspaceKey: seats_io_public_workspace_key,
   };
 }
 export async function getLanguageData() {
@@ -229,3 +254,13 @@ export async function getSectionData(eventId, dateId) {
   );
   return response.status == 404 ? response : response.data;
 }
+
+export async function getBookingCartInfo(requestData) {
+  const response = await postData(
+    baseUrl + request.bookingCartInfo,
+    requestData,
+    headerData
+  );
+  return response.status == 404 ? response : response.data;
+}
+

@@ -3,6 +3,7 @@ import {
   getEventSeatData,
   getSectionData,
   getPricingInfoData,
+  getThemeData,
 } from "@/helpers/api-utils";
 
 export default async function SeatBookingPage({ params }) {
@@ -13,9 +14,15 @@ export default async function SeatBookingPage({ params }) {
   // console.log(sectionData);
   const pricingData = await getPricingInfoData(eventid, dateid);
   // console.log(pricingData);
+  const venueData = await getThemeData();
   return (
     <div>
-      <EventBookPageContainer eventSeatData={eventSeatData} sectionData={sectionData} pricingData={pricingData}/>
+      <EventBookPageContainer
+        eventSeatData={eventSeatData}
+        sectionData={sectionData}
+        pricingData={pricingData}
+        venueData={venueData}
+      />
     </div>
   );
 }

@@ -1,5 +1,6 @@
-import styles from "@/components/event-book-page/ticketcart/Card.module.css";
-import TicketDropdown from "../../ticketcart/Ticketdropdown";
+import { useEffect } from "react";
+import GeneralEventTicketSelector from "./GeneralEventTicketSelector";
+import { getBookingCartInfo } from "@/helpers/api-utils";
 export default function GeneralEvent({
   selectedTickets,
   handleTicketChange,
@@ -7,30 +8,70 @@ export default function GeneralEvent({
   sectionData,
   pricingData,
   handleRemoveTicket,
+  setType,
+  setTickets,
 }) {
+  const { price, ticket_limit, performance_info } = pricingData;
+  const { classes } = price.regular[0];
+  const { event_seating_type, is_seats_io } = eventSeatData;
+
+  useEffect(() => {
+    setType("general");
+  }, [setType]);
+
+  useEffect(() => {
+    async function fetchGeneralEventData() {
+      const payLoad = {
+        event_id: performance_info.event_id.toString(),
+        is_seats_io: is_seats_io ? true : false,
+        performance_id: performance_info.id.toString(),
+        secret_link_code: null, //not  known
+        section_id: sectionData[0].section_id, //for general event single section will always come in response
+        seats: [],
+      };
+      let counter = 0;
+      const seatsData = Object.entries(selectedTickets).flatMap(
+        ([classId, count]) =>
+          Array.from({ length: count }, () => ({
+            color_id: sectionData[0].section_id,
+            id: ++counter,
+            orig_class_id: parseInt(classId),
+            seat_key: counter,
+            type_id: parseInt(classId),
+          }))
+      );
+      const requestData = { ...payLoad, seats: seatsData };
+      const response = await getBookingCartInfo(requestData);
+      const seats = response.order_details.seat_info;
+      setTickets(seats);
+    }
+    selectedTickets && fetchGeneralEventData();
+  }, [
+    selectedTickets,
+    sectionData,
+    event_seating_type,
+    is_seats_io,
+    performance_info,
+    setTickets
+  ]);
+
   return (
-    <div
-      className={`${styles.event} select-ticket lg:w-[50vw] md:w-[38vw]  max-lg:w-[50vw] xl:w-[61vw] max-sm:w-[85vw] md:pr-[100px]`}
-    >
-      <div className="part">
-        <div className="upper-part">Adult </div>
-      </div>
-      <div className="part">
-        <div className="mid-part">
-          <div className="dollar">$50.00</div>
-        </div>
-      </div>
-      <div className=" flex ">
-        <div className="lower-part flex flex-row items-center w-full md:w-auto">
-          <label htmlFor="quantity" className="mr-2">
-            Quantity
-          </label>
-          <TicketDropdown
-            value={selectedTickets}
-            onChange={handleTicketChange}
+    <div className=" m-[30px] mr-[20px] flex flex-col gap-4 pt-[0.5rem]">
+      {classes.map((ticket_type) => {
+        const quantity =
+          ticket_type.qty < ticket_limit.max
+            ? ticket_type.qty
+            : ticket_limit.max;
+        return (
+          <GeneralEventTicketSelector
+            key={ticket_type.class_id}
+            ticket_type={ticket_type}
+            quantity={quantity}
+            handleTicketChange={handleTicketChange}
+            selectedTickets={selectedTickets}
           />
-        </div>
-      </div>
+        );
+      })}
     </div>
   );
 }

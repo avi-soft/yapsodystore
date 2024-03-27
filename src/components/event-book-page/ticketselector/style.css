@@ -9,20 +9,28 @@
 }
 
 .getticket-main .mainbox-event {
-  padding: 20px;
+  padding-bottom: 19px;
+  padding-left: 33px;
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 
-@media (min-width: 1000px) {
+@media (max-width: 1000px) {
   .getticket-main .mainbox-event {
-    display: flex;
-    flex-direction: col;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 0.5rem;
   }
-  .getticket-main .get-time {
+  /* .getticket-main .get-time {
     padding-left: 120px;
     padding-top: 5px;
+  } */
+}
+@media (max-width: 760px){
+  .getticket-main .mainbox-event {
+    display: none;
   }
 }
-
 .mainbox-event .get-time {
   flex: 50%;
 
@@ -38,27 +46,29 @@
 }
 
 .divide-main .box {
-  width: 110px;
-  height: 65px;
-  border: 6px solid white;
+  width: 87px;
+  height: 60px;
+  border: solid 1px #ffffff;
+  min-height: 58px;
+  border-radius: 2px;
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.15);
   background-color: #cfcfce;
-  /* position: relative; */
-  box-shadow: 2px 2px #cfcfce;
 }
 .divide-main .box .diagonal {
-  /* content: "MULTI Events";
-    position: absolute;
-     top: 31%;
-    left: 15%; */
-  transform: translate(12%, 74%) rotate(-45deg);
-  /* white-space: nowrap; */
-  font-size: 11px;
+  transform: translate(8%, 93%) rotate(-31deg);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  color: rgba(51, 51, 51, 0.5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 78px;
 }
 .divide-main .event-name {
-  font-size: 24px;
-
-  font-weight: bold;
-  font-family: sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-stretch: normal;
 }
 
 .getticket-main .select-ticket {
@@ -73,10 +83,13 @@
 }
 
 .part .upper-part {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: normal;
   letter-spacing: 0.5px;
   color: #454444;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .part .mid-part {
@@ -109,7 +122,7 @@
 }
 
 .lower-part label {
-  font-size: 15px;
+  font-size: 12px;
   font-weight: normal;
   font-style: italic;
   font-stretch: normal;

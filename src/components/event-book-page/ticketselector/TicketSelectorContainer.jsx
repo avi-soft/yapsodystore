@@ -1,21 +1,20 @@
-"use client";
-
-import React from "react";
-import Script from "next/script";
-
 import "./style.css";
+import Script from "next/script";
 import TicketSelectorHeading from "./TicketSelectorHeading";
 import GeneralEvent from "../event-types/general-events/GeneralEvent";
 import SeatsIoEvent from "../event-types/seats-io-events/SeatsIoEvent";
 import OldSeatingEvent from "../event-types/old-seating-events/OldSeatingEvent";
 
-const TicketSelector = ({
+const TicketSelectorContainer = ({
   selectedTickets,
   handleTicketChange,
   eventSeatData,
   sectionData,
   pricingData,
   handleRemoveTicket,
+  venueData,
+  setType,
+  setTickets,
 }) => {
   const { event_seating_type, is_seats_io } = eventSeatData;
   return (
@@ -35,6 +34,8 @@ const TicketSelector = ({
           sectionData={sectionData}
           pricingData={pricingData}
           handleRemoveTicket={handleRemoveTicket}
+          setType={setType}
+          setTickets={setTickets}
         />
       )}
       {event_seating_type === "reserved" && is_seats_io === 1 && (
@@ -45,6 +46,7 @@ const TicketSelector = ({
           sectionData={sectionData}
           pricingData={pricingData}
           handleRemoveTicket={handleRemoveTicket}
+          setType={setType}
         />
       )}
       {event_seating_type === "reserved" && is_seats_io === 0 && (
@@ -55,10 +57,11 @@ const TicketSelector = ({
           sectionData={sectionData}
           pricingData={pricingData}
           handleRemoveTicket={handleRemoveTicket}
+          setType={setType}
         />
       )}
     </div>
   );
 };
 
-export default TicketSelector;
+export default TicketSelectorContainer;
