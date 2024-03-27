@@ -44,8 +44,8 @@ const CartContent = ({tickets,selectedTickets,handleRemoveTicket}) => {
         <div className="flex flex-col gap-2  overflow-auto">
           {tickets.map((ticket) => (
             <Ticket
-              key={ticket.ticketNumber}
-              ticketNumber={ticket.ticketNumber}
+              key={ticket.seat_key}
+              ticket={ticket}
               onRemove={() => handleRemoveTicket(ticket.ticketNumber)}
             />))}
             <div >

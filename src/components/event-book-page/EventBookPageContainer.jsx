@@ -3,18 +3,20 @@ import Cart from "@/components/event-book-page/ticketcart/Cart";
 import Selector from "@/components/event-book-page/ticketselector/TicketSelector";
 import { getBookingCartInfo } from "@/helpers/api-utils";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, createContext } from "react";
+export const TicketContext = createContext();
 export default function EventBookPageContainer({
   eventSeatData,
   sectionData,
   pricingData,
+  symbol
 }) {
   const [selectedTickets, setSelectedTickets] = useState(0);
   const [tickets, setTickets] = useState([]);
 
   const { performance_info } = pricingData;
   const { event_seating_type, is_seats_io } = eventSeatData;
-  
+ 
   useEffect(() => {
     if (
       event_seating_type === "general" &&
@@ -43,10 +45,18 @@ export default function EventBookPageContainer({
         );
         const requestData = { ...payLoad, seats: seatsData };
         const response = await getBookingCartInfo(requestData);
+        const seats = response.order_details.seat_info;
+        setTickets(seats);
       }
       fetchGeneralEventData();
     }
-  }, [selectedTickets, sectionData, event_seating_type, is_seats_io ,performance_info,]);
+  }, [
+    selectedTickets,
+    sectionData,
+    event_seating_type,
+    is_seats_io,
+    performance_info,
+  ]);
 
   const handleTicketChange = (newSelection, classId) => {
     const ticketData = { [classId]: newSelection };
@@ -54,7 +64,6 @@ export default function EventBookPageContainer({
       ...prev,
       ...ticketData,
     }));
-    // setTickets(totalTickets);
   };
   const handleRemoveTicket = (ticketNumber) => {
     const updatedTickets = tickets.filter(
@@ -66,24 +75,28 @@ export default function EventBookPageContainer({
   };
 
   return (
-    <div className="pt-[60px] overflow-auto">
-      <div className="mr-[400px]">
-        <Selector
-          selectedTickets={selectedTickets}
-          handleTicketChange={handleTicketChange}
-          eventSeatData={eventSeatData}
-          sectionData={sectionData}
-          pricingData={pricingData}
-          handleRemoveTicket={handleRemoveTicket}
-        />
+    <TicketContext.Provider value={{symbol}}>
+      <div className="pt-[60px] overflow-auto">
+        <div className="mr-[400px]">
+          <Selector
+            selectedTickets={selectedTickets}
+            handleTicketChange={handleTicketChange}
+            eventSeatData={eventSeatData}
+            sectionData={sectionData}
+            pricingData={pricingData}
+            handleRemoveTicket={handleRemoveTicket}
+          />
+        </div>
+        <div className="float-right">
+          {
+            <Cart
+              tickets={tickets}
+              selectedTickets={selectedTickets}
+              handleRemoveTicket={handleRemoveTicket}
+            />
+          }
+        </div>
       </div>
-      <div className="float-right">
-        {<Cart
-          tickets={tickets}
-          selectedTickets={selectedTickets}
-          handleRemoveTicket={handleRemoveTicket}
-        />}
-      </div>
-    </div>
+    </TicketContext.Provider>
   );
 }

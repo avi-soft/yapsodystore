@@ -105,7 +105,7 @@ export async function getFaqs() {
     ...headerData,
     next: { revalidate: 10 },
   });
-  console.log(faqs.data);
+  // console.log(faqs.data);
   return faqs.data;
 }
 export async function getThemeData() {
@@ -231,7 +231,7 @@ export async function getEventSeatData(eventId) {
   );
   return response.status == 404 ? response : response.data;
 }
-export async function getPricingInfoData(eventId,dateId) {
+export async function getPricingInfoData(eventId, dateId) {
   const response = await getData(
     baseUrl + request.singlePerformancePricing(eventId, dateId),
     {
@@ -253,12 +253,11 @@ export async function getSectionData(eventId, dateId) {
   return response.status == 404 ? response : response.data;
 }
 
-export async function getBookingCartInfo(requestData){
-   const response = await postData(
-     baseUrl + request.bookingCartInfo,
-     requestData,
-     headerData
-   );
-   console.log(response);
-   return 1;
+export async function getBookingCartInfo(requestData) {
+  const response = await postData(
+    baseUrl + request.bookingCartInfo,
+    requestData,
+    headerData
+  );
+  return response.status == 404 ? response : response.data;
 }
