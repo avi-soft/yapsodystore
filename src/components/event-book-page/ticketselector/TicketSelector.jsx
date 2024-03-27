@@ -19,12 +19,19 @@ const TicketSelector = ({
   deselect,
   setDeselect,
   setType,
+  eventData,
+  performances,
 }) => {
   const { event_seating_type, is_seats_io, seats_io_chart_key } = eventSeatData;
 
   return (
     <div className="md:mr-[405px]">
-      <TicketSelectorHeading eventSeatData={eventSeatData} />
+      <TicketSelectorHeading
+        eventSeatData={eventSeatData}
+        eventData={eventData}
+        performances={performances}
+        pricingData={pricingData}
+      />
 
       {/* Select Tickets*/}
       {event_seating_type === "general" && is_seats_io === 0 && (

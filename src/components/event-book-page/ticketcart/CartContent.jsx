@@ -41,7 +41,7 @@ const CartContent = ({
                 <span className="text-[17px] m-3 ">
                   Tickets Selected
                   <span>
-                    {selectedTickets >= 1 && <span> (selectedTickets)</span>}
+                    {selectedTickets >= 1 && <span> ({selectedTickets})</span>}
                   </span>
                 </span>
               </div>

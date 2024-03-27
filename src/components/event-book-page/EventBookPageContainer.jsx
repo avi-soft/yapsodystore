@@ -7,6 +7,8 @@ export default function EventBookPageContainer({
   sectionData,
   pricingData,
   venueData,
+  eventData,
+  performances,
 }) {
   const [selectedTickets, setSelectedTickets] = useState(0);
   const [tickets, setTickets] = useState([]);
@@ -60,7 +62,7 @@ export default function EventBookPageContainer({
   }
 
   return (
-    <div className="pt-[60px] flex">
+    <div className="pt-[48px] flex">
       <div className="w-screen overflow-hidden">
         <Selector
           selectedTickets={selectedTickets}
@@ -75,6 +77,8 @@ export default function EventBookPageContainer({
           deselect={deselect}
           setDeselect={setDeselect}
           setType={setType}
+          eventData={eventData}
+          performances={performances}
         />
       </div>
       <div className="">

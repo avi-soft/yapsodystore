@@ -13,7 +13,6 @@ const SingleEvent = ({
   symbol,
   headingColor,
 }) => {
-  
   return (
     <div
       style={{
@@ -35,7 +34,7 @@ const SingleEvent = ({
       </SalesEnds>
       <TicketSection
         eventid={eventid}
-        dateid={dateid}
+        dateid={performance.id}
         symbol={symbol}
         access={performance.access_code}
         ticketPrice={performance.min_price}
