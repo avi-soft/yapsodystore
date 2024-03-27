@@ -23,12 +23,7 @@ export default function Title({
       className={`mx-[0px] mb-[22px] md:mb-[46px] mt-[30px] lg:mt-[17px] px-[10px] `}
     >
       {mainHeadingType == "img" && mainHeadingImage ? (
-        <Image
-          width={100}
-          height={100}
-          src={mainHeadingImage}
-          alt={venueName}
-        />
+        <img src={mainHeadingImage} alt={venueName} />
       ) : mainHeadingType == "txt" && mainHeadingText ? (
         <h1 className={`text-[22px] md:text-[36px]`}>{mainHeadingText}</h1>
       ) : (
