@@ -8,6 +8,7 @@ const PaymentMethodImage = ({ method }) => {
       className="float-right"
       width={100}
       height={100}
+      alt="payment-method"
     ></Image>
   );
 };

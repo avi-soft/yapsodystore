@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Card.module.css";
-import { IoIosCloseCircleOutline } from "react-icons/io";
+import { CiMedicalCross } from "react-icons/ci";
 import Ticket from "./Ticket.jsx";
 import Image from "next/image";
 import ticket from "@/../public/assets/icons/ticket.png";

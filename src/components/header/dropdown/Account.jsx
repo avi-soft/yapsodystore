@@ -38,8 +38,8 @@ const Account = () => {
                 <Image
                   src={option.img}
                   alt={option.label}
-                  height="auto"
-                  width="auto"
+                  height={24}
+                  width={24}
                   className="h-6 w-6 "
                 />
                 <span className="mx-4">{option.label}</span>

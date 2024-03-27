@@ -90,7 +90,7 @@ export default function SeatsIoEvent({
     }
   }, [deselect, setDeselect]);
   return (
-    <div className="h-[80vh] md:h-[70vh] md:w-[40vw]  base:w-[50vw] xl:w-[60vw] w-[90vw] m-[30px]">
+    <div className="h-[80vh]  m-[30px] ">
       <SeatsioSeatingChart
         divId="canvas_container"
         workspaceKey={seats_io_public_workspace_key}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-
+import { FaTimes } from "react-icons/fa";
 import styles from "./Card.module.css";
 
 const Ticket = ({ ticketNumber, seat, id, onRemove }) => {
@@ -15,13 +15,10 @@ const Ticket = ({ ticketNumber, seat, id, onRemove }) => {
           <span>{ticketNumber}</span> {seat === null && "General Admission"}
         </span>
 
-        <Image
-          width="16"
-          height="12"
-          src="https://img.icons8.com/material-sharp/24/828282/multiply.png"
-          alt="multiply"
+        <FaTimes
+          size={16}
           onClick={handleRemoveClick}
-          className="cursor-pointer"
+          className="cursor-pointer text-[#d0d8e5] hover:text-[#afbdd3] "
         />
       </div>
       <div className="m-1 text-sm">

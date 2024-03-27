@@ -60,8 +60,8 @@ export default function EventBookPageContainer({
   }
 
   return (
-    <div className="pt-[60px]">
-      <div className="float-left">
+    <div className="pt-[60px] flex">
+      <div className="w-screen overflow-hidden">
         <Selector
           selectedTickets={selectedTickets}
           handleTicketChange={handleTicketChange}
@@ -77,7 +77,7 @@ export default function EventBookPageContainer({
           setType={setType}
         />
       </div>
-      <div className="float-right">
+      <div className="">
         <Cart
           tickets={tickets}
           selectedTickets={selectedTickets}
