@@ -21,9 +21,11 @@
   padding: 18px; */
   margin: 8px 2px 0 0;
   padding: 10px 15px;
-  border-bottom: 1px solid #bab1b1;
+  border-bottom: 1px solid #616d81;
   font-size: 16px;
   color: rgb(74, 72, 72);
+  width: 69.6px;
+  color: #4b4d50;
 }
 
 .form-Container {
@@ -148,17 +150,17 @@ span-layout ::after{
   cursor: pointer;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 990px) {
   .main-signin-page {
     width: 100%;
   }
 
   .inside-main-signin {
-    width: 568px;
+    width: 100%;
   }
 
   .form-Container .inputFieldSignin {
-    width: 242px;
+    width: 100%;
   }
 
   span-layout {
@@ -167,7 +169,7 @@ span-layout ::after{
   }
 }
 
-@media (max-width: 568px) {
+@media (max-width: 767px) {
   .main-signin-page {
     width: 100%;
   }

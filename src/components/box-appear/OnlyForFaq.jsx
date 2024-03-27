@@ -29,7 +29,7 @@ const ClickFaq = ({ component: Component, onClose }) => {
     return (
         <div>
             <dialog id="my_modal_2" className="modal" style={{
-                backgroundColor:'#333333',
+                backgroundColor:'rgb(20 27 40 / 82%);',
             }} onClose={handleClose}>
                 <div className="modal-box" id='modal-content1'>
                     <Component />

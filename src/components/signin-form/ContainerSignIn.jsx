@@ -16,7 +16,7 @@ export default function MidContainer({ color }) {
         />
       </div>
       <div className="login-form">
-        <div>
+        <div style={{borderBottom:'1px solid #ddd'}}>
           <div className="login-title font-lato ">Login</div>
         </div>
         <FormSignin />
