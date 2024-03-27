@@ -1,4 +1,4 @@
-"use client";
+
 
 import React, { useEffect, useState } from 'react';
 import './RedirectPage.css';
@@ -25,11 +25,9 @@ function RedirectPage() {
 
 
 
-
   }
   
-
-  return (
+return (
     <main>
       <section className="redirect-page-change-content">
         <div className="wrapper">
@@ -38,11 +36,11 @@ function RedirectPage() {
           </figure>
           <h3><span className="bold-text">my store</span> is sending you to an external page. Ensure you trust that page before you continue.</h3>
           <div class="current-location-url">
-               https://stackoverflow.com/
+           <p>https://stackoverflow.com/</p>
             </div>
           <ul>
             <li>
-            <a href="#" onClick={cancelRedirect} title="Cancel">Cancel</a>   </li>         
+            <a href="#" onClick={cancelRedirect} title="Cancel" className="cancel-link">Cancel</a></li>         
 
             <li>
             <a href="https://stackoverflow.com/" onClick={() => redirectToNextPage(true)} id="redirectToThirdPartyLink" rel="nofollow noopener noreferrer" target="_blank" title="Continue">Continue</a>
