@@ -22,7 +22,7 @@ export default function Title({
         justifyContent: headerAlignmentClass,
       }}
 
-      className={`mx-[0px] mb-[22px] md:mb-[36px] mt-[30px] lg:mt-[18px] px-[10px] `}
+      className={`mx-[0px] mb-[22px] md:mb-[46px] mt-[30px] lg:mt-[17px] px-[10px] `}
 
     >
       {mainHeadingType == "img" && mainHeadingImage ? (

@@ -16,7 +16,7 @@ export default function IconLabel({
   color = "black",
   children,
   gap,
-  actions,
+  actions, 
 }) {
   const IconTag = iconList[icon];
   const reactIcon = <IconTag className={`${size}`} />;

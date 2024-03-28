@@ -6,8 +6,6 @@ import SingleEventPerformance from "./SingleEventPerformance";
 import SupportContact from "../support-contact/SupportContact";
 import CalendarWrapper from "../calendar/CalendarWrapper";
 import Map from "../google-map/Map";
-// import BottomView from "../social-share-widget/BottomView";
-// import BottomView from "../social-share-widget/BottomView";
 import EventDescription from "./EventDescription";
 import DescriptionHyperLinks from "./DescriptionHyperlinks";
 import DescriptionImages from "./DescriptionImages";
@@ -75,8 +73,6 @@ const MainContent = ({
           iconColor={buttonLinkBoxBorderColor}
         />
       </section>
-       
-       
       <div
         className="location text-base my-7 relative text-[#566270] flex items-center"
         style={{ color: textColor }}

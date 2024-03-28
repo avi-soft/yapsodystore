@@ -12,6 +12,7 @@ const Support = ({
   iconColor,
   textColor,
   boxBorderColor,
+  fontSize,
 }) => {
   const [open, setOpen] = useState(false);
   const actions = {
@@ -38,7 +39,7 @@ const Support = ({
         gap={4}
         actions={actions}
       >
-        <div tabIndex={0} role="button">
+        <div style={{ fontSize: fontSize || '14px' }} tabIndex={0} role="button">
           Support
         </div>
       </IconLabel>
