@@ -4,10 +4,14 @@ const CommentWrapper = ({ children, position = "bottom" }) => {
       {position == "bottom" && (
         <div
           style={{ filter: "drop-shadow(rgba(0, 0, 0, 0.1) 0px 4px 6px)" }}
-          className={`w-0 h-0 border-b-[10px] border-r-[10px] border-l-[10px] border-r-transparent border-l-transparent border-b-white relative left-[43%]`}
+          className={`w-0 h-0 border-b-[10px] border-r-[10px] border-l-[10px] border-r-transparent border-l-transparent border-b-white relative left-[43%]`
+        
+        }
         ></div>
       )}
-      <div className="p-[2px] bg-white rounded-[4px]">{children}</div>
+      <div className="p-[2px] bg-white rounded-[4px] w-[276px]" style={{border: "1px solid #dedede",
+             borderRadius: "6px",
+             boxShadow:"0 1px 4px 0 rgba(0,0,0,0.13)"}}>{children}</div>
       {position == "top" && (
         <div
           style={{ filter: "drop-shadow(rgba(0, 0, 0, 0.1) 0px 4px 6px)" }}
