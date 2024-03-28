@@ -66,3 +66,16 @@
   margin: 30px;
   background-color: #ffffff;
 }
+
+@media only screen and (max-width: 768px) {
+  .head {
+    margin-right: 0px;
+    margin-top: 0;
+    border-radius: 0px;
+  }
+  .buttonContainer {
+    bottom: 0;
+    padding-top: 0;
+    margin-bottom: 6px;
+  }
+}

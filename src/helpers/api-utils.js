@@ -208,7 +208,7 @@ export async function getEventSeatData(eventId) {
   );
   return response.status == 404 ? response : response.data;
 }
-export async function getPricingInfoData(eventId,dateId) {
+export async function getPricingInfoData(eventId, dateId) {
   const response = await getData(
     baseUrl + request.singlePerformancePricing(eventId, dateId),
     {
@@ -229,3 +229,14 @@ export async function getSectionData(eventId, dateId) {
   );
   return response.status == 404 ? response : response.data;
 }
+
+export async function getVenueData() {
+  const response = await getData(baseUrl + request.venueDetails, {
+    ...headerData,
+    next: { revalidate: 5 },
+  });
+
+  return response.status == 404 ? response : response.data;
+}
+
+//seatsio post request

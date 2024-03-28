@@ -6,11 +6,11 @@ import logo from "@/../public/store-logo.png";
 
 // HeaderLogo component definition
 const HeaderLogo = ({ topImage, venueName }) => {
-
   //HeaderLogo style for when topImage is present and when it isn't
 
- let headerStyle= topImage ? "mt-[7px] md:mt-[-10px] md:ml-[2px] lg:ml-4 " : "mt-[8px] lg:ml-[16px]"
-
+  let headerStyle = topImage
+    ? "mt-[7px] md:mt-[-10px] md:ml-[2px] lg:ml-4 "
+    : "mt-[8px] lg:ml-[16px]";
 
   return (
     <div>
@@ -20,6 +20,7 @@ const HeaderLogo = ({ topImage, venueName }) => {
             src={logo}
             size={26}
             alt="Logo"
+            width={26}
             className={styles.headerLogo}
             priority
           />
@@ -32,9 +33,7 @@ const HeaderLogo = ({ topImage, venueName }) => {
               )}
             </div>
 
-            <div
-              className={`${headerStyle} ${styles.headerVenue} `}
-            >
+            <div className={`${headerStyle} ${styles.headerVenue} `}>
               {venueName}
             </div>
           </div>

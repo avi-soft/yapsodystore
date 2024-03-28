@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import Script from "next/script";
 
 import "./style.css";
 import TicketSelectorHeading from "./TicketSelectorHeading";
@@ -15,16 +12,26 @@ const TicketSelector = ({
   eventSeatData,
   sectionData,
   pricingData,
+  venueData,
   handleRemoveTicket,
+  handleSeatChange,
+  handleRemoveSeat,
+  deselect,
+  setDeselect,
+  setType,
+  eventData,
+  performances,
 }) => {
-  const { event_seating_type, is_seats_io } = eventSeatData;
+  const { event_seating_type, is_seats_io, seats_io_chart_key } = eventSeatData;
+
   return (
-    <div>
-      <Script
-        src="https://kit.fontawesome.com/8d4b434c6d.js"
-        crossorigin="anonymous"
+    <div className="md:mr-[405px]">
+      <TicketSelectorHeading
+        eventSeatData={eventSeatData}
+        eventData={eventData}
+        performances={performances}
+        pricingData={pricingData}
       />
-      <TicketSelectorHeading eventSeatData={eventSeatData} />
 
       {/* Select Tickets*/}
       {event_seating_type === "general" && is_seats_io === 0 && (
@@ -35,6 +42,7 @@ const TicketSelector = ({
           sectionData={sectionData}
           pricingData={pricingData}
           handleRemoveTicket={handleRemoveTicket}
+          setType={setType}
         />
       )}
       {event_seating_type === "reserved" && is_seats_io === 1 && (
@@ -44,7 +52,14 @@ const TicketSelector = ({
           handleTicketChange={handleTicketChange}
           sectionData={sectionData}
           pricingData={pricingData}
+          venueData={venueData}
           handleRemoveTicket={handleRemoveTicket}
+          seats_io_chart_key={seats_io_chart_key}
+          handleSeatChange={handleSeatChange}
+          handleRemoveSeat={handleRemoveSeat}
+          deselect={deselect}
+          setDeselect={setDeselect}
+          setType={setType}
         />
       )}
       {event_seating_type === "reserved" && is_seats_io === 0 && (
@@ -55,6 +70,7 @@ const TicketSelector = ({
           sectionData={sectionData}
           pricingData={pricingData}
           handleRemoveTicket={handleRemoveTicket}
+          setType={setType}
         />
       )}
     </div>

@@ -1,10 +1,26 @@
-"use client"
+"use client";
 import Cart from "@/components/event-book-page/ticketcart/Cart";
 import Selector from "@/components/event-book-page/ticketselector/TicketSelector";
-import { useState } from "react";
-export default function EventBookPageContainer({ eventSeatData,sectionData, pricingData }) {
+import { use, useState } from "react";
+export default function EventBookPageContainer({
+  eventSeatData,
+  sectionData,
+  pricingData,
+  venueData,
+  eventData,
+  performances,
+}) {
   const [selectedTickets, setSelectedTickets] = useState(0);
   const [tickets, setTickets] = useState([]);
+
+  const [seatsTickets, setSeatsTickets] = useState([]);
+  const [deselect, setDeselect] = useState({
+    status: false,
+    id: null,
+    chart: null,
+  });
+
+  const [type, setType] = useState("");
 
   const handleTicketChange = (newSelection) => {
     setSelectedTickets(newSelection);
@@ -25,23 +41,54 @@ export default function EventBookPageContainer({ eventSeatData,sectionData, pric
     setSelectedTickets((prevSelected) => Math.max(0, prevSelected - 1));
   };
 
+  const handleRemoveSeat = (seatName, id) => {
+    setDeselect((prev) => {
+      return { status: true, id: id, chart: prev.chart };
+    });
+    setSeatsTickets((prev) => prev.filter((s) => s.seatName !== seatName));
+  };
+
+  function handleSeatChange(seatData) {
+    let isSeat = true;
+    seatsTickets.map((seat) => {
+      if (seat.seatName === seatData.seatName) {
+        isSeat = false;
+      }
+    });
+
+    if (isSeat) {
+      setSeatsTickets((prev) => [...prev, seatData]);
+    }
+  }
+
   return (
-    <div className="pt-[60px]">
-      <div className="float-left">
+    <div className="pt-[48px] flex">
+      <div className="w-screen overflow-hidden">
         <Selector
           selectedTickets={selectedTickets}
           handleTicketChange={handleTicketChange}
           eventSeatData={eventSeatData}
           sectionData={sectionData}
           pricingData={pricingData}
+          venueData={venueData}
           handleRemoveTicket={handleRemoveTicket}
+          handleSeatChange={handleSeatChange}
+          handleRemoveSeat={handleRemoveSeat}
+          deselect={deselect}
+          setDeselect={setDeselect}
+          setType={setType}
+          eventData={eventData}
+          performances={performances}
         />
       </div>
-      <div className="float-right">
+      <div className="">
         <Cart
           tickets={tickets}
           selectedTickets={selectedTickets}
           handleRemoveTicket={handleRemoveTicket}
+          seatsTickets={seatsTickets}
+          handleRemoveSeat={handleRemoveSeat}
+          type={type}
         />
       </div>
     </div>
