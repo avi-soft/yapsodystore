@@ -26,7 +26,9 @@ export default function FaqQues() {
             {faqQues.map((value, index) => (
               <div
                 key={index}
-                className="border-b border-1 ml-auto mr-auto w-[95%]"
+                className={`ml-[15px] mr-[15px] ${
+                  index < faqQues.length - 1 ? "border-b border-1":""
+                }`}
               >
                 <FreqQuest
                   faq={value}

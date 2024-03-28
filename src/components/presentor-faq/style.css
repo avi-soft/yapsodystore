@@ -4,38 +4,32 @@
     border: 1px solid #d8cece;
     overflow-y: auto;
 }
+.inside-faq{
+    cursor: pointer;
+}
 
 .freqaskquest{
-    padding: 16px 14px;
-    border-bottom: 1px solid #eadcdc;
+    padding: 17px 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 16px;
     letter-spacing: .5px;
     color: #353054;
+    height: 54.59px;
 }
-/* .present-faq{
-    transition: margin-top 0.5s ease, opacity 0.5s ease;
+
+.present-faq{
+   
     display: flex;
     flex-direction: column;
     font: status-bar;
     font-size: 14px;
-} */
-
-.present-faq {
-    display: flex;
-    flex-direction: row;
-    /* max-height: 0; */
 }
 
-
-.inside-faq
-{
+.present-faq .inside-faq{
     display: flex;
     flex-direction: row;
-    transition-delay: 2s;
-    transition: 1000ms;
 }
-
 
 
 @media (max-width:440px){
@@ -44,6 +38,9 @@
     }
 }
 @media (max-width:340px){
+    .freqaskquest{
+        height: 74px;
+    }
     .Freq-main-page .right-faq{
         width: 200px;
         max-height: 100%;
